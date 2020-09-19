@@ -99,7 +99,7 @@ sites = {
             'cpcode': '1081244'
         },
         'prod': {
-            's3_url': 's3://oneapi.com/docs',
+            's3_url': 's3://oneapi.com/spec',
             'cpcode': '1081242'
         }
     }
