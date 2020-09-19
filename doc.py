@@ -140,11 +140,11 @@ def install_credentials(action):
     home = os.getenv('HOME')
     makedirs(join(home, '.aws'))
     shell('gpg --quiet --batch --yes --decrypt --passphrase=%s'
-          ' --output %s/.aws/credentials credentials/aws-credentials.gpg'
-          % (os.getenv('ONEAPI_PASSPHRASE'), home))
+          ' --output %s/.aws/credentials %s/credentials/aws-credentials.gpg'
+          % (os.getenv('ONEAPI_PASSPHRASE'), home, args.root))
     shell('gpg --quiet --batch --yes --decrypt --passphrase=%s'
-          ' --output %s/.edgerc credentials/edgerc.gpg'
-          % (os.getenv('ONEAPI_PASSPHRASE'), home))
+          ' --output %s/.edgerc %s/credentials/edgerc.gpg'
+          % (os.getenv('ONEAPI_PASSPHRASE'), home, args.root))
 
 @action
 def install(action):
@@ -170,6 +170,7 @@ def main():
     parser = argparse.ArgumentParser(description='Publish docs.')
     parser.add_argument('action',choices=commands.keys())
     parser.add_argument('--doc', choices=docs.keys())
+    parser.add_argument('--root', default='.')
     parser.add_argument('--prod', action='store_true')
     parser.add_argument('--dry-run', action='store_true')
     parser.add_argument('--aws-dry-run', action='store_true')
