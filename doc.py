@@ -124,7 +124,6 @@ def doc_info():
 def publish(action):
     d = doc_info()
     s = site_info()
-    credentials(action)
     shell('aws s3 sync --dryrun %s --delete doc/build/html %s/versions/latest/%s'
           % (('--dryrun' if args.aws_dry_run else ''), s['s3_url'], d['dir']))
     shell('./akamai purge delete --cpcode %s' % s['cpcode'])
@@ -148,6 +147,7 @@ def install_credentials(action):
 
 @action
 def install(action):
+    install_credentials(action)
     url = 'https://github.com/akamai/cli/releases/download/1.1.5/akamai-1.1.5-linuxamd64'
     response = requests.get(url, allow_redirects=True)
     with open('akamai', 'wb') as fout:
