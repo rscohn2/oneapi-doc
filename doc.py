@@ -89,7 +89,7 @@ sites = {
             'cpcode': '1081245'
         },
         'prod': {
-            's3_url': 's3://xxoneapi.com/docs',
+            's3_url': 's3://oneapi.com/docs',
             'cpcode': '1081797'
         }
     },
@@ -99,7 +99,7 @@ sites = {
             'cpcode': '1081244'
         },
         'prod': {
-            's3_url': 's3://xxoneapi.com/docs',
+            's3_url': 's3://oneapi.com/docs',
             'cpcode': '1081242'
         }
     }
