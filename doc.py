@@ -124,7 +124,7 @@ def doc_info():
 def publish(action):
     d = doc_info()
     s = site_info()
-    shell('aws s3 sync --dryrun %s --delete doc/build/html %s/versions/latest/%s'
+    shell('aws s3 sync %s --delete doc/build/html %s/versions/latest/%s'
           % (('--dryrun' if args.aws_dry_run else ''), s['s3_url'], d['dir']))
     shell('./akamai purge delete --cpcode %s' % s['cpcode'])
 
