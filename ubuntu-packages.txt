@@ -1,0 +1,4 @@
+awscli
+gpg
+python3
+
