@@ -69,16 +69,32 @@ as part of a CI system so there is a workflow for review and approval,
 as well as reproducibility of the published document.
 
 Create a branch in this repo with the name of your document. Add a CI
-script, copying dpcpp as an example. Publishing requires the html
-files. They can be:
+script (.gitlab-ci.yml), copying dpcpp as an example. Publishing
+requires the html files. They can be:
 
 * commmitted to the branch
-* obtained by cloning another repo
-* obtained by cloning a repo with the sources and building the
-  document
+* obtained by cloning a tagged version in another repo that contains
+  html
+* obtained by cloning a tagged version in another repo with contains
+  sources and building the document
 
-The recommended workflow is to publish to pre-production on a merge
-request, and to sync from pre-production to production when a commit
-is merged. This will not work if you have multiple merge requests at
-the same time. Another option is to publish to pre-production on a
-merge request, and to publish to production on a commit.
+The recommended workflow is publishing through a merge request to the
+branch for the doc. Using dpcpp as an example::
+
+  # clone this repo and checkout your doc branch
+  git clone ...
+  git checkout dpcpp
+  # make a working copy
+  git checkout -b dev/dpcpp
+  # make changes, dep
+  # commit and push
+  git commit -m update
+  git push -u origin dev/dpcpp
+
+The commit will trigger publishing to pre-production. When you are
+happy with the results, submit a merge request to dpcpp. The reviewer
+can verify that it looks ok on staging and then accept the merge
+request.
+
+Another option is to publish to pre-production on a merge request, and
+to publish to production on a commit.
