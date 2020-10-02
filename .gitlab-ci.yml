@@ -1,0 +1,26 @@
+image: rscohn2/oneapi-spec:latest
+
+before_script:
+  # Install publishing scripts from default branch into script directory
+  - git clone --depth=1 https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.devtools.intel.com/rscohn1-ci/oneapi-doc-publish.git scripts
+  - pushd scripts
+  - apt-get update -qq
+  - DEBIAN_FRONTEND=noninteractive xargs -a ubuntu-packages.txt apt-get install -qq
+  - python3 oneapi-publish.py setup
+  - popd
+
+# publish html we build to pre-production
+preprod:
+  script:
+  - cd scripts
+  - /usr/bin/python3 oneapi-publish.py publish --html ../html --doc level-zero --doc-cfg ../oneapi-doc.json
+  except:
+  - level-zero
+
+# publish html we build to production
+prod:
+  script:
+  - cd scripts
+  - /usr/bin/python3 oneapi-publish.py publish --html ../html --doc level-zero --doc-cfg ../oneapi-doc.json --prod
+  only:
+  - level-zero
