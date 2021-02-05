@@ -3,7 +3,7 @@
 ==============================
 Sysman API
 ==============================
-oneAPI Level Zero Specification - Version 1.0.4.46
+oneAPI Level Zero Specification - Version 1.1.7
 
  
 
@@ -584,6 +584,7 @@ Events
 
     * :ref:`zesDeviceEventRegister`
     * :ref:`zesDriverEventListen`
+    * :ref:`zesDriverEventListenEx`
 
  
 * Enumerations
@@ -613,6 +614,15 @@ zesDriverEventListen
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. doxygenfunction:: zesDriverEventListen
+    :project: LevelZero
+
+
+.. _zesDriverEventListenEx:
+
+zesDriverEventListenEx
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zesDriverEventListenEx
     :project: LevelZero
 
 

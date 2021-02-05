@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.0.4.46
+                1.1.7
               </div>
             
           
@@ -182,6 +182,7 @@
 <li class="toctree-l4"><a class="reference internal" href="core/api.html#zedrivergetproperties">zeDriverGetProperties</a></li>
 <li class="toctree-l4"><a class="reference internal" href="core/api.html#zedrivergetipcproperties">zeDriverGetIpcProperties</a></li>
 <li class="toctree-l4"><a class="reference internal" href="core/api.html#zedrivergetextensionproperties">zeDriverGetExtensionProperties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#zedrivergetextensionfunctionaddress">zeDriverGetExtensionFunctionAddress</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="core/api.html#driver-enums">Driver Enums</a><ul>
@@ -215,6 +216,7 @@
 <li class="toctree-l4"><a class="reference internal" href="core/api.html#zedevicegetp2pproperties">zeDeviceGetP2PProperties</a></li>
 <li class="toctree-l4"><a class="reference internal" href="core/api.html#zedevicecanaccesspeer">zeDeviceCanAccessPeer</a></li>
 <li class="toctree-l4"><a class="reference internal" href="core/api.html#zedevicegetstatus">zeDeviceGetStatus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#zedevicegetglobaltimestamps">zeDeviceGetGlobalTimestamps</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="core/api.html#device-enums">Device Enums</a><ul>
@@ -250,6 +252,7 @@
 <li class="toctree-l2"><a class="reference internal" href="core/api.html#context">Context</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="core/api.html#context-functions">Context Functions</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="core/api.html#zecontextcreate">zeContextCreate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#zecontextcreateex">zeContextCreateEx</a></li>
 <li class="toctree-l4"><a class="reference internal" href="core/api.html#zecontextdestroy">zeContextDestroy</a></li>
 <li class="toctree-l4"><a class="reference internal" href="core/api.html#zecontextgetstatus">zeContextGetStatus</a></li>
 </ul>
@@ -572,6 +575,41 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="core/api.html#floatatomics">Floatatomics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/api.html#floatatomics-enums">Floatatomics Enums</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#ze-float-atomics-ext-version-t">ze_float_atomics_ext_version_t</a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#ze-device-fp-atomic-ext-flags-t">ze_device_fp_atomic_ext_flags_t</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/api.html#floatatomics-structures">Floatatomics Structures</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#ze-float-atomic-ext-properties-t">ze_float_atomic_ext_properties_t</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core/api.html#globaloffset">Globaloffset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/api.html#globaloffset-functions">Globaloffset Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#zekernelsetglobaloffsetexp">zeKernelSetGlobalOffsetExp</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/api.html#globaloffset-enums">Globaloffset Enums</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#ze-global-offset-exp-version-t">ze_global_offset_exp_version_t</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core/api.html#relaxedalloclimits">Relaxedalloclimits</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/api.html#relaxedalloclimits-enums">Relaxedalloclimits Enums</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#ze-relaxed-allocation-limits-exp-version-t">ze_relaxed_allocation_limits_exp_version_t</a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#ze-relaxed-allocation-limits-exp-flags-t">ze_relaxed_allocation_limits_exp_flags_t</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/api.html#relaxedalloclimits-structures">Relaxedalloclimits Structures</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#ze-relaxed-allocation-limits-exp-desc-t">ze_relaxed_allocation_limits_exp_desc_t</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tools/api.html">Tools API</a><ul>
@@ -622,6 +660,7 @@
 <li class="toctree-l4"><a class="reference internal" href="tools/api.html#zet-debug-event-flags-t">zet_debug_event_flags_t</a></li>
 <li class="toctree-l4"><a class="reference internal" href="tools/api.html#zet-debug-event-type-t">zet_debug_event_type_t</a></li>
 <li class="toctree-l4"><a class="reference internal" href="tools/api.html#zet-debug-detach-reason-t">zet_debug_detach_reason_t</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tools/api.html#zet-debug-page-fault-reason-t">zet_debug_page_fault_reason_t</a></li>
 <li class="toctree-l4"><a class="reference internal" href="tools/api.html#zet-debug-memory-space-type-t">zet_debug_memory_space_type_t</a></li>
 <li class="toctree-l4"><a class="reference internal" href="tools/api.html#zet-debug-regset-type-t">zet_debug_regset_type_t</a></li>
 <li class="toctree-l4"><a class="reference internal" href="tools/api.html#zet-debug-regset-flags-t">zet_debug_regset_flags_t</a></li>
@@ -633,6 +672,7 @@
 <li class="toctree-l4"><a class="reference internal" href="tools/api.html#zet-debug-event-info-detached-t">zet_debug_event_info_detached_t</a></li>
 <li class="toctree-l4"><a class="reference internal" href="tools/api.html#zet-debug-event-info-module-t">zet_debug_event_info_module_t</a></li>
 <li class="toctree-l4"><a class="reference internal" href="tools/api.html#zet-debug-event-info-thread-stopped-t">zet_debug_event_info_thread_stopped_t</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tools/api.html#zet-debug-event-info-page-fault-t">zet_debug_event_info_page_fault_t</a></li>
 <li class="toctree-l4"><a class="reference internal" href="tools/api.html#zet-debug-event-info-t">zet_debug_event_info_t</a></li>
 <li class="toctree-l4"><a class="reference internal" href="tools/api.html#zet-debug-event-t">zet_debug_event_t</a></li>
 <li class="toctree-l4"><a class="reference internal" href="tools/api.html#zet-debug-memory-space-desc-t">zet_debug_memory_space_desc_t</a></li>
@@ -812,6 +852,7 @@
 <li class="toctree-l3"><a class="reference internal" href="sysman/api.html#events-functions">Events Functions</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="sysman/api.html#zesdeviceeventregister">zesDeviceEventRegister</a></li>
 <li class="toctree-l4"><a class="reference internal" href="sysman/api.html#zesdrivereventlisten">zesDriverEventListen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sysman/api.html#zesdrivereventlistenex">zesDriverEventListenEx</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="sysman/api.html#events-enums">Events Enums</a><ul>

@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.0.4.46
+                1.1.7
               </div>
             
           
@@ -966,7 +966,7 @@ alloc_desc.pNext = &amp;export_desc;
 // Link the export request into the query
 alloc_props.pNext = &amp;export_fd;
 <a class="reference internal" href="api.html#zememgetallocproperties"><span class="std std-ref">zeMemGetAllocProperties</span></a>(hContext, ptr, &amp;alloc_props, nullptr);</pre>
-<p>The following pseudo-code how to import a Linux dma_buf as an external memory handle for a device memory allocation:</p>
+<p>The following pseudo-code demonstrates how to import a Linux dma_buf as an external memory handle for a device memory allocation:</p>
 <pre class="literal-block">// Set up the request to import the external memory handle
 <a class="reference internal" href="api.html#ze-external-memory-import-fd-t"><span class="std std-ref">ze_external_memory_import_fd_t</span></a> import_fd = {
     <a class="reference internal" href="api.html#ze-structure-type-t"><span class="std std-ref">ZE_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMPORT_FD</span></a>,
@@ -978,6 +978,24 @@ alloc_props.pNext = &amp;export_fd;
 // Link the request into the allocation descriptor and allocate
 alloc_desc.pNext = &amp;import_fd;
 <a class="reference internal" href="api.html#zememallocdevice"><span class="std std-ref">zeMemAllocDevice</span></a>(hContext, &amp;alloc_desc, size, alignment, hDevice, &amp;ptr);</pre>
+<p>Another example, which the following pseudo-code demonstrates, is how to import a Linux dma_buf as an external
+memory handle for <a class="reference internal" href="#images"><span class="std std-ref">Images</span></a>:</p>
+<pre class="literal-block">// Set up the request to import the external memory handle
+<a class="reference internal" href="api.html#ze-external-memory-import-fd-t"><span class="std std-ref">ze_external_memory_import_fd_t</span></a> import_fd = {
+    <a class="reference internal" href="api.html#ze-structure-type-t"><span class="std std-ref">ZE_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMPORT_FD</span></a>,
+    nullptr, // pNext
+    <a class="reference internal" href="api.html#ze-external-memory-type-flags-t"><span class="std std-ref">ZE_EXTERNAL_MEMORY_TYPE_FLAG_DMA_BUF</span></a>,
+    fd
+};
+
+// Link the request into the allocation descriptor and allocate
+image_desc.pNext = &amp;import_fd; // extend ze_image_desc_t
+
+// Setup matching image properties for imported image.
+image_desc.width = import_width;
+...
+
+<a class="reference internal" href="api.html#zeimagecreate"><span class="std std-ref">zeImageCreate</span></a>(hContext, hDevice, &amp;image_desc, &amp;hImage);</pre>
 </div>
 </div>
 <div class="section" id="command-queues-and-command-lists">
@@ -1068,11 +1086,10 @@ ze_command_queue_handle_t hCommandQueue;
 <div class="section" id="execution">
 <h4>Execution<a class="headerlink" href="#execution" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
-<li><p>Command lists submitted to a command queue are <strong>immediately</strong> executed in a fifo manner.</p></li>
-<li><p>Command queue submission is free-treaded, allowing multiple Host threads to
-share the same command queue.</p></li>
-<li><p>If multiple Host threads enter the same command queue simultaneously, then execution order
-is undefined.</p></li>
+<li><p>Command lists submitted to a command queue are <strong>immediately</strong> submitted to the device for execution.</p></li>
+<li><p>Submitting multiple commands lists in a single submission allows an implementation the opportunity to optimize across command lists.</p></li>
+<li><p>Command queue submission is free-treaded, allowing multiple Host threads to share the same command queue.</p></li>
+<li><p>If multiple Host threads enter the same command queue simultaneously, then execution order is undefined.</p></li>
 <li><p>Command lists can only be executed on a command queue with an identical command queue group ordinal.</p></li>
 <li><p>If a device contains multiple sub-devices, then command lists submitted to a device-level command queue
 may be optimized by the driver to fully exploit the concurrency of the sub-devices by distributing command lists across sub-devices.</p></li>
@@ -1351,7 +1368,7 @@ ze_event_handle_t hEvent;
 <li><p>Since these counters are only 32bits, the application must detect and handle counter wrapping when calculating execution time</p></li>
 </ul>
 <pre class="literal-block">// Get timestamp frequency
-const uint64_t timestampFreq = device_properties.timerResolution;
+const double timestampFreq = NS_IN_SEC / device_properties.timerResolution;
 const uint64_t timestampMaxValue = ~(-1 &lt;&lt; device_properties.kernelTimestampValidBits);
 
 // Create event pool
@@ -1398,12 +1415,12 @@ ze_event_handle_t hTSEvent;
 
 // Calculation execution time(s)
 double globalTimeInNs = ( tsResult-&gt;global.kernelEnd &gt;= tsResult-&gt;global.kernelStart )
-    ? ( tsResult-&gt;global.kernelEnd - tsResult-&gt;global.kernelStart ) * (double)timestampFreq
-    : (( timestampMaxValue - tsResult-&gt;global.kernelStart) + tsResult-&gt;global.kernelEnd + 1 ) * (double)timestampFreq;
+    ? ( tsResult-&gt;global.kernelEnd - tsResult-&gt;global.kernelStart ) * timestampFreq
+    : (( timestampMaxValue - tsResult-&gt;global.kernelStart) + tsResult-&gt;global.kernelEnd + 1 ) * timestampFreq;
 
 double contextTimeInNs = ( tsResult-&gt;context.kernelEnd &gt;= tsResult-&gt;context.kernelStart )
-    ? ( tsResult-&gt;context.kernelEnd - tsResult-&gt;context.kernelStart ) * (double)timestampFreq
-    : (( timestampMaxValue - tsResult-&gt;context.kernelStart) + tsResult-&gt;context.kernelEnd + 1 ) * (double)timestampFreq;
+    ? ( tsResult-&gt;context.kernelEnd - tsResult-&gt;context.kernelStart ) * timestampFreq
+    : (( timestampMaxValue - tsResult-&gt;context.kernelStart) + tsResult-&gt;context.kernelEnd + 1 ) * timestampFreq;
 ...</pre>
 </div>
 </div>

@@ -3,7 +3,7 @@
 ==============================
 Tools API
 ==============================
-oneAPI Level Zero Specification - Version 1.0.4.46
+oneAPI Level Zero Specification - Version 1.1.7
 
  
 
@@ -200,6 +200,7 @@ Debug
     * :ref:`zet-debug-event-flags-t`
     * :ref:`zet-debug-event-type-t`
     * :ref:`zet-debug-detach-reason-t`
+    * :ref:`zet-debug-page-fault-reason-t`
     * :ref:`zet-debug-memory-space-type-t`
     * :ref:`zet-debug-regset-type-t`
     * :ref:`zet-debug-regset-flags-t`
@@ -213,6 +214,7 @@ Debug
     * :ref:`zet-debug-event-info-detached-t`
     * :ref:`zet-debug-event-info-module-t`
     * :ref:`zet-debug-event-info-thread-stopped-t`
+    * :ref:`zet-debug-event-info-page-fault-t`
     * :ref:`zet-debug-event-info-t`
     * :ref:`zet-debug-event-t`
     * :ref:`zet-debug-memory-space-desc-t`
@@ -372,6 +374,15 @@ zet_debug_detach_reason_t
     :project: LevelZero
 
 
+.. _zet-debug-page-fault-reason-t:
+
+zet_debug_page_fault_reason_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: zet_debug_page_fault_reason_t
+    :project: LevelZero
+
+
 .. _zet-debug-memory-space-type-t:
 
 zet_debug_memory_space_type_t
@@ -448,6 +459,16 @@ zet_debug_event_info_thread_stopped_t
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. doxygenstruct:: zet_debug_event_info_thread_stopped_t
+    :project: LevelZero
+    :members:
+    :undoc-members:
+
+.. _zet-debug-event-info-page-fault-t:
+
+zet_debug_event_info_page_fault_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenstruct:: zet_debug_event_info_page_fault_t
     :project: LevelZero
     :members:
     :undoc-members:

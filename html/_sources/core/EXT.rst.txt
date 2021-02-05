@@ -9,12 +9,15 @@ Objective
 Features which are device- or vendor-specific can be exposed as extensions.
 The list of extensions supported by the driver implementation can be queried using :ref:`zeDriverGetExtensionProperties`\.
 
-There are two types of extensions:
+There are two types of extensions defined by this specification:
 
 1. **Standard** - extensions ratified for inclusion into the current and all future versions of the specification.
 2. **Experimental** - extensions require additional experimentation and feedback from application vendors
    before ratification, therefore applications should not rely on experimental extensions in production.
 
+In addition, an implementation may choose to provide additional non-standard extensions via :ref:`zeDriverGetExtensionFunctionAddress`\.
+It is the responsibility of the implementation to ensure these extensions do not conflict or interfere with any features or extensions of the core APIs.
+These extensions are not documented as part of this specification.
 
 Requirements
 ============
@@ -73,11 +76,14 @@ The extension must document the specific structures and functions that may be ex
 List of Standard Extensions
 ===========================
 
+- "ZE_extension_float_atomics"
 - "ZE_extension_raytracing"
 
 
 List of Experimental Extensions
 ===============================
 
+- "ZE_experimental_global_offset"
 - "ZE_experimental_module_program"
+- "ZE_experimental_relaxed_allocation_limits"
 - "ZET_experimental_api_tracing"

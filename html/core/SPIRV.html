@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.0.4.46
+                1.1.7
               </div>
             
           
@@ -119,7 +119,12 @@
 <li class="toctree-l4"><a class="reference internal" href="#notes-and-restrictions">Notes and Restrictions</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#other-extensions-to-consider">Other Extensions to Consider:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#floating-point-atomics">Floating-Point Atomics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#atomic-load-store-and-exchange">Atomic Load, Store, and Exchange</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#atomic-add-and-subtract">Atomic Add and Subtract</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#atomic-min-and-max">Atomic Min and Max</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#numerical-compliance">Numerical Compliance</a></li>
@@ -597,13 +602,55 @@ restriction on the y-component of the coordinate.</p></li>
 </ul>
 </div>
 </div>
-<div class="section" id="other-extensions-to-consider">
-<h3>Other Extensions to Consider:<a class="headerlink" href="#other-extensions-to-consider" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="floating-point-atomics">
+<h3>Floating-Point Atomics<a class="headerlink" href="#floating-point-atomics" title="Permalink to this headline">¶</a></h3>
+<p>‘oneAPI’ Level-Zero API environments supporting the extension
+<strong>ZE_extension_float_atomics</strong> must support additional atomic instructions,
+capabilities, and types.</p>
+<div class="section" id="atomic-load-store-and-exchange">
+<h4>Atomic Load, Store, and Exchange<a class="headerlink" href="#atomic-load-store-and-exchange" title="Permalink to this headline">¶</a></h4>
+<p>If the ‘oneAPI’ Level-Zero API environment supports the extension <strong>ZE_extension_float_atomics</strong> and <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ze_device_fp_atomic_ext_flags_t</span></a>.fp16Flags includes <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ZE_DEVICE_FP_ATOMIC_EXT_FLAG_GLOBAL_LOAD_STORE</span></a> or <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ZE_DEVICE_FP_ATOMIC_EXT_FLAG_LOCAL_LOAD_STORE</span></a>, then for the <strong>Atomic Instructions</strong> <strong>OpAtomicLoad</strong>, <strong>OpAtomicStore</strong>, and <strong>OpAtomicExchange</strong>:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="http://htmlpreview.github.io/?https://github.com/KhronosGroup/SPIRV-Registry/blob/master/extensions/INTEL/SPV_INTEL_media_block_io.html">SPV_INTEL_media_block_io</a>
-/
-<a class="reference external" href="https://www.khronos.org/registry/OpenCL/extensions/intel/cl_intel_spirv_media_block_io.html">cl_intel_spirv_media_block_io</a>?</p></li>
+<li><p>16-bit floating-point types are supported for the <em>Result Type</em> and type of
+<em>Value</em>.</p></li>
+<li><p>When <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ze_device_fp_atomic_ext_flags_t</span></a>.fp16Flags includes <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ZE_DEVICE_FP_ATOMIC_EXT_FLAG_GLOBAL_LOAD_STORE</span></a>, the <em>Pointer</em> operand may be a pointer to the <strong>CrossWorkGroup</strong> <em>Storage Class</em>.</p></li>
+<li><p>When <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ze_device_fp_atomic_ext_flags_t</span></a>.fp16Flags includes <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ZE_DEVICE_FP_ATOMIC_EXT_FLAG_LOCAL_LOAD_STORE</span></a>, the <em>Pointer</em> operand may be a pointer to the <strong>Workgroup</strong> <em>Storage Class</em>.</p></li>
 </ul>
+</div>
+<div class="section" id="atomic-add-and-subtract">
+<h4>Atomic Add and Subtract<a class="headerlink" href="#atomic-add-and-subtract" title="Permalink to this headline">¶</a></h4>
+<p>If the ‘oneAPI’ Level-Zero API environment supports the extension <strong>ZE_extension_float_atomics</strong> and <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ze_device_fp_atomic_ext_flags_t</span></a>.fp16Flags, <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ze_device_fp_atomic_ext_flags_t</span></a>.fp32Flags, or <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ze_device_fp_atomic_ext_flags_t</span></a>.fp64Flags include <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ZE_DEVICE_FP_ATOMIC_EXT_FLAG_GLOBAL_ADD</span></a> or <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ZE_DEVICE_FP_ATOMIC_EXT_FLAG_LOCAL_ADD</span></a>, then the environment must accept modules that declare use of the extensions <code class="docutils literal notranslate"><span class="pre">SPV_EXT_shader_atomic_float_add</span></code> and <code class="docutils literal notranslate"><span class="pre">SPV_EXT_shader_atomic_float16_add</span></code>.
+Additionally:</p>
+<ul class="simple">
+<li><p>When <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ze_device_fp_atomic_ext_flags_t</span></a>.fp16Flags includes <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ZE_DEVICE_FP_ATOMIC_EXT_FLAG_GLOBAL_ADD</span></a> or <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ZE_DEVICE_FP_ATOMIC_EXT_FLAG_LOCAL_ADD</span></a>, the <strong>AtomicFloat16AddEXT</strong> capability must be supported.</p></li>
+<li><p>When <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ze_device_fp_atomic_ext_flags_t</span></a>.fp32Flags includes <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ZE_DEVICE_FP_ATOMIC_EXT_FLAG_GLOBAL_ADD</span></a> or <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ZE_DEVICE_FP_ATOMIC_EXT_FLAG_LOCAL_ADD</span></a>, the <strong>AtomicFloat32AddEXT</strong> capability must be supported.</p></li>
+<li><p>When <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ze_device_fp_atomic_ext_flags_t</span></a>.fp64Flags includes <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ZE_DEVICE_FP_ATOMIC_EXT_FLAG_GLOBAL_ADD</span></a> or <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ZE_DEVICE_FP_ATOMIC_EXT_FLAG_LOCAL_ADD</span></a>, the <strong>AtomicFloat64AddEXT</strong> capability must be supported.</p></li>
+<li><p>For the <strong>Atomic Instruction</strong> <strong>OpAtomicFAddEXT</strong> added by these extensions:</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>When <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ze_device_fp_atomic_ext_flags_t</span></a>.fp32Flags, <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ze_device_fp_atomic_ext_flags_t</span></a>.fp64Flags, or <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ze_device_fp_atomic_ext_flags_t</span></a>.fp16Flags includes <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ZE_DEVICE_FP_ATOMIC_EXT_FLAG_GLOBAL_ADD</span></a>, the <em>Pointer</em> operand may be a pointer to the <strong>CrossWorkGroup</strong> <em>Storage Class</em>.</p></li>
+<li><p>When <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ze_device_fp_atomic_ext_flags_t</span></a>.fp32Flags, <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ze_device_fp_atomic_ext_flags_t</span></a>.fp64Flags, or <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ze_device_fp_atomic_ext_flags_t</span></a>.fp16Flags includes <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ZE_DEVICE_FP_ATOMIC_EXT_FLAG_LOCAL_ADD</span></a>, the <em>Pointer</em> operand may be a pointer to the <strong>Workgroup</strong> <em>Storage Class</em>.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="atomic-min-and-max">
+<h4>Atomic Min and Max<a class="headerlink" href="#atomic-min-and-max" title="Permalink to this headline">¶</a></h4>
+<p>If the ‘oneAPI’ Level-Zero API environment supports the extension <strong>ZE_extension_float_atomics</strong> and the <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ze_device_fp_atomic_ext_flags_t</span></a>.fp32Flags, <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ze_device_fp_atomic_ext_flags_t</span></a>.fp64Flags, or <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ze_device_fp_atomic_ext_flags_t</span></a>.fp16Flags bitfields include <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ZE_DEVICE_FP_ATOMIC_EXT_FLAG_GLOBAL_MIN_MAX</span></a> or <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ZE_DEVICE_FP_ATOMIC_EXT_FLAG_LOCAL_MIN_MAX</span></a>, then the environment must accept modules that declare use of the extension <code class="docutils literal notranslate"><span class="pre">SPV_EXT_shader_atomic_float_min_max</span></code>.
+Additionally:</p>
+<ul class="simple">
+<li><p>When <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ze_device_fp_atomic_ext_flags_t</span></a>.fp32Flags includes <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ZE_DEVICE_FP_ATOMIC_EXT_FLAG_GLOBAL_MIN_MAX</span></a> or <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ZE_DEVICE_FP_ATOMIC_EXT_FLAG_LOCAL_MIN_MAX</span></a>, the <strong>AtomicFloat32MinMaxEXT</strong> capability must be supported.</p></li>
+<li><p>When <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ze_device_fp_atomic_ext_flags_t</span></a>.fp64Flags includes <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ZE_DEVICE_FP_ATOMIC_EXT_FLAG_GLOBAL_MIN_MAX</span></a> or <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ZE_DEVICE_FP_ATOMIC_EXT_FLAG_LOCAL_MIN_MAX</span></a>, the <strong>AtomicFloat64MinMaxEXT</strong> capability must be supported.</p></li>
+<li><p>When <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ze_device_fp_atomic_ext_flags_t</span></a>.fp16Flags includes <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ZE_DEVICE_FP_ATOMIC_EXT_FLAG_GLOBAL_MIN_MAX</span></a> or <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ZE_DEVICE_FP_ATOMIC_EXT_FLAG_LOCAL_MIN_MAX</span></a>, the <strong>AtomicFloat16MinMaxEXT</strong> capability must be supported.</p></li>
+<li><p>For the <strong>Atomic Instructions</strong> <strong>OpAtomicFMinEXT</strong> and <strong>OpAtomicFMaxEXT</strong> added by this extension:</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>When <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ze_device_fp_atomic_ext_flags_t</span></a>.fp16Flags, <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ze_device_fp_atomic_ext_flags_t</span></a>.fp32Flags, or <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ze_device_fp_atomic_ext_flags_t</span></a>.fp64Flags includes <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ZE_DEVICE_FP_ATOMIC_EXT_FLAG_GLOBAL_MIN_MAX</span></a> , the <em>Pointer</em> operand may be a pointer to the <strong>CrossWorkGroup</strong> <em>Storage Class</em>.</p></li>
+<li><p>When <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ze_device_fp_atomic_ext_flags_t</span></a>.fp16Flags, <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ze_device_fp_atomic_ext_flags_t</span></a>.fp32Flags, or <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ze_device_fp_atomic_ext_flags_t</span></a>.fp64Flags includes <a class="reference internal" href="api.html#ze-device-fp-atomic-ext-flags-t"><span class="std std-ref">ZE_DEVICE_FP_ATOMIC_EXT_FLAG_LOCAL_MIN_MAX</span></a>, the <em>Pointer</em> operand may be a pointer to the <strong>Workgroup</strong> <em>Storage Class</em>.</p></li>
+</ul>
+</div></blockquote>
+</div>
 </div>
 </div>
 <div class="section" id="numerical-compliance">
