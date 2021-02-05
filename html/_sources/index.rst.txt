@@ -1,7 +1,7 @@
 ..
   Copyright 2020 Intel Corporation
 
-.. oneAPI Level Zero Specification v1.0.4.46
+.. oneAPI Level Zero Specification v1.1.7
 
 .. _l0-section:
 

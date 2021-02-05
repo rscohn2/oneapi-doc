@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.0.4.46
+                1.1.7
               </div>
             
           
@@ -165,12 +165,15 @@
 <h2>Objective<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h2>
 <p>Features which are device- or vendor-specific can be exposed as extensions.
 The list of extensions supported by the driver implementation can be queried using <a class="reference internal" href="api.html#zedrivergetextensionproperties"><span class="std std-ref">zeDriverGetExtensionProperties</span></a>.</p>
-<p>There are two types of extensions:</p>
+<p>There are two types of extensions defined by this specification:</p>
 <ol class="arabic simple">
 <li><p><strong>Standard</strong> - extensions ratified for inclusion into the current and all future versions of the specification.</p></li>
 <li><p><strong>Experimental</strong> - extensions require additional experimentation and feedback from application vendors
 before ratification, therefore applications should not rely on experimental extensions in production.</p></li>
 </ol>
+<p>In addition, an implementation may choose to provide additional non-standard extensions via <a class="reference internal" href="api.html#zedrivergetextensionfunctionaddress"><span class="std std-ref">zeDriverGetExtensionFunctionAddress</span></a>.
+It is the responsibility of the implementation to ensure these extensions do not conflict or interfere with any features or extensions of the core APIs.
+These extensions are not documented as part of this specification.</p>
 </div>
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
@@ -230,13 +233,16 @@ Therefore, extensions should not be dependent on their order relative to other e
 <div class="section" id="list-of-standard-extensions">
 <h2>List of Standard Extensions<a class="headerlink" href="#list-of-standard-extensions" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
+<li><p>“ZE_extension_float_atomics”</p></li>
 <li><p>“ZE_extension_raytracing”</p></li>
 </ul>
 </div>
 <div class="section" id="list-of-experimental-extensions">
 <h2>List of Experimental Extensions<a class="headerlink" href="#list-of-experimental-extensions" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
+<li><p>“ZE_experimental_global_offset”</p></li>
 <li><p>“ZE_experimental_module_program”</p></li>
+<li><p>“ZE_experimental_relaxed_allocation_limits”</p></li>
 <li><p>“ZET_experimental_api_tracing”</p></li>
 </ul>
 </div>

@@ -3,7 +3,7 @@
 ==============================
 Core API
 ==============================
-oneAPI Level Zero Specification - Version 1.0.4.46
+oneAPI Level Zero Specification - Version 1.1.7
 
  
 
@@ -118,6 +118,7 @@ Driver
     * :ref:`zeDriverGetProperties`
     * :ref:`zeDriverGetIpcProperties`
     * :ref:`zeDriverGetExtensionProperties`
+    * :ref:`zeDriverGetExtensionFunctionAddress`
 
  
 * Enumerations
@@ -192,6 +193,15 @@ zeDriverGetExtensionProperties
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. doxygenfunction:: zeDriverGetExtensionProperties
+    :project: LevelZero
+
+
+.. _zeDriverGetExtensionFunctionAddress:
+
+zeDriverGetExtensionFunctionAddress
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zeDriverGetExtensionFunctionAddress
     :project: LevelZero
 
 
@@ -292,6 +302,7 @@ Device
     * :ref:`zeDeviceGetP2PProperties`
     * :ref:`zeDeviceCanAccessPeer`
     * :ref:`zeDeviceGetStatus`
+    * :ref:`zeDeviceGetGlobalTimestamps`
 
  
 * Enumerations
@@ -453,6 +464,15 @@ zeDeviceGetStatus
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. doxygenfunction:: zeDeviceGetStatus
+    :project: LevelZero
+
+
+.. _zeDeviceGetGlobalTimestamps:
+
+zeDeviceGetGlobalTimestamps
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zeDeviceGetGlobalTimestamps
     :project: LevelZero
 
 
@@ -684,6 +704,7 @@ Context
 
 
     * :ref:`zeContextCreate`
+    * :ref:`zeContextCreateEx`
     * :ref:`zeContextDestroy`
     * :ref:`zeContextGetStatus`
 
@@ -710,6 +731,15 @@ zeContextCreate
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. doxygenfunction:: zeContextCreate
+    :project: LevelZero
+
+
+.. _zeContextCreateEx:
+
+zeContextCreateEx
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zeContextCreateEx
     :project: LevelZero
 
 
@@ -2776,6 +2806,166 @@ ze_physical_mem_desc_t
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. doxygenstruct:: ze_physical_mem_desc_t
+    :project: LevelZero
+    :members:
+    :undoc-members:
+
+
+ 
+
+ 
+
+Floatatomics
+============================================================
+* Enumerations
+
+
+    * :ref:`ze-float-atomics-ext-version-t`
+    * :ref:`ze-device-fp-atomic-ext-flags-t`
+
+ 
+* Structures
+
+
+    * :ref:`ze-float-atomic-ext-properties-t`
+
+
+
+
+Floatatomics Enums
+------------------------------------------------------------------------------
+
+
+.. _ze-float-atomics-ext-version-t:
+
+ze_float_atomics_ext_version_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: ze_float_atomics_ext_version_t
+    :project: LevelZero
+
+
+.. _ze-device-fp-atomic-ext-flags-t:
+
+ze_device_fp_atomic_ext_flags_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: ze_device_fp_atomic_ext_flag_t
+    :project: LevelZero
+
+ 
+Floatatomics Structures
+------------------------------------------------------------------------------
+
+.. _ze-float-atomic-ext-properties-t:
+
+ze_float_atomic_ext_properties_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenstruct:: ze_float_atomic_ext_properties_t
+    :project: LevelZero
+    :members:
+    :undoc-members:
+
+
+ 
+
+Globaloffset
+============================================================
+* Functions
+
+
+    * :ref:`zeKernelSetGlobalOffsetExp`
+
+ 
+* Enumerations
+
+
+    * :ref:`ze-global-offset-exp-version-t`
+
+ 
+
+
+Globaloffset Functions
+------------------------------------------------------------------------------
+
+
+.. _zeKernelSetGlobalOffsetExp:
+
+zeKernelSetGlobalOffsetExp
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zeKernelSetGlobalOffsetExp
+    :project: LevelZero
+
+
+
+Globaloffset Enums
+------------------------------------------------------------------------------
+
+
+.. _ze-global-offset-exp-version-t:
+
+ze_global_offset_exp_version_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: ze_global_offset_exp_version_t
+    :project: LevelZero
+
+ 
+
+ 
+
+ 
+
+Relaxedalloclimits
+============================================================
+* Enumerations
+
+
+    * :ref:`ze-relaxed-allocation-limits-exp-version-t`
+    * :ref:`ze-relaxed-allocation-limits-exp-flags-t`
+
+ 
+* Structures
+
+
+    * :ref:`ze-relaxed-allocation-limits-exp-desc-t`
+
+
+
+
+Relaxedalloclimits Enums
+------------------------------------------------------------------------------
+
+
+.. _ze-relaxed-allocation-limits-exp-version-t:
+
+ze_relaxed_allocation_limits_exp_version_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: ze_relaxed_allocation_limits_exp_version_t
+    :project: LevelZero
+
+
+.. _ze-relaxed-allocation-limits-exp-flags-t:
+
+ze_relaxed_allocation_limits_exp_flags_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: ze_relaxed_allocation_limits_exp_flag_t
+    :project: LevelZero
+
+ 
+Relaxedalloclimits Structures
+------------------------------------------------------------------------------
+
+.. _ze-relaxed-allocation-limits-exp-desc-t:
+
+ze_relaxed_allocation_limits_exp_desc_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenstruct:: ze_relaxed_allocation_limits_exp_desc_t
     :project: LevelZero
     :members:
     :undoc-members:

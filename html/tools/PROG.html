@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.0.4.46
+                1.1.7
               </div>
             
           
@@ -959,6 +959,10 @@ Not all events have event-specific fields.</p>
 </li>
 <li><p><a class="reference internal" href="api.html#zet-debug-event-type-t"><span class="std std-ref">ZET_DEBUG_EVENT_TYPE_THREAD_UNAVAILABLE</span></a>: threads cannot be interrupted because they are unavailable.</p>
 <p>The event is generated in response to an interrupt request if none of the requested threads is available to be interrupted.</p>
+</li>
+<li><p><a class="reference internal" href="api.html#zet-debug-event-type-t"><span class="std std-ref">ZET_DEBUG_EVENT_TYPE_PAGE_FAULT</span></a>: there was a page fault on the device</p>
+<p>The event provides the page fault reason, the faulting address aligned to the page granularity, and a mask specifying the alignment.</p>
+<p>To mask can be bit-wise ANDed with an address to obtain an address that is similarly aligned to the same page granularity as the provided faulting address.</p>
 </li>
 </ul>
 </div></blockquote>
