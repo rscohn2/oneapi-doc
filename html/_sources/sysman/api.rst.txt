@@ -3,7 +3,7 @@
 ==============================
 Sysman API
 ==============================
-oneAPI Level Zero Specification - Version 1.1.7
+oneAPI Level Zero Specification - Version 1.1.2
 
  
 
