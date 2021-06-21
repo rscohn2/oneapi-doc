@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.1.2
+                1.2.13
               </div>
             
           
@@ -228,6 +228,11 @@ control the power and performance of accelerator devices.</p>
 <td><p>ZES_ENABLE_SYSMAN</p></td>
 <td><p>{<strong>0</strong>, 1}</p></td>
 <td><p>Enables driver initialization and dependencies for system management</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sysman</p></td>
+<td><p>ZES_ENABLE_SYSMAN_LOW_POWER</p></td>
+<td><p>{<strong>0</strong>, 1}</p></td>
+<td><p>Driver initialize the device in low power mode</p></td>
 </tr>
 </tbody>
 </table>
@@ -2542,6 +2547,11 @@ used to request non-blocking operations (timeout = 0)
 or blocking operations (timeout = UINT32_MAX)
 or to return after a specified amount of time
 even if no events have been received.</p>
+<p>Note that calling zesDeviceEventRegister with no events (set argument events to “0”)
+will unregister all events that are being listened too. If the application
+has a thread blocked in the function zesDriverEventListen() and there are
+no more events to listen to, the function will unblock and return control
+to the application thread with an event count of 0.</p>
 <p>When events are received, they are returned when the call to function
 <a class="reference internal" href="api.html#zesdrivereventlisten"><span class="std std-ref">zesDriverEventListen</span></a>() completes. This will indicate which devices has
 generated events and the list of event types for each device. It is then

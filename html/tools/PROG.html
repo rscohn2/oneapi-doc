@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.1.2
+                1.2.13
               </div>
             
           
@@ -1043,11 +1043,12 @@ if (errcode)
 </div>
 <div class="section" id="register-state-access">
 <h3>Register State Access<a class="headerlink" href="#register-state-access" title="Permalink to this headline">¶</a></h3>
-<p>A tool may read and write the register state of a stopped device thread.
-The register state is represented as a randomly accessible range of memory.</p>
-<p>The types of register sets supported by a device can be queried using <a class="reference internal" href="api.html#zetdebuggetregistersetproperties"><span class="std std-ref">zetDebugGetRegisterSetProperties</span></a>.
+<p>A tool may read and write the register state of a stopped device thread.</p>
+<p>Registers are grouped into sets of similar registers.
+The types of register sets supported by a device can be queried using <a class="reference internal" href="api.html#zetdebuggetregistersetproperties"><span class="std std-ref">zetDebugGetRegisterSetProperties</span></a>.
 The register set properties specify details about each register set,
 such as the maximum number of registers in each set, and whether the register set is read-only.</p>
+<p>The actual type of registers is device-specific and will be defined by the device vendor.</p>
 <pre class="literal-block">uint32_t nRegSets = 0;
 <a class="reference internal" href="api.html#zetdebuggetregistersetproperties"><span class="std std-ref">zetDebugGetRegisterSetProperties</span></a>(hDevice, &amp;nRegSets, nullptr);
 

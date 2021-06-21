@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.1.2
+                1.2.13
               </div>
             
           
@@ -771,7 +771,7 @@ its contents will be implicitly decoded to be implementation-independent.</p>
 <pre class="literal-block">// Specify single component FLOAT32 format
 <a class="reference internal" href="api.html#ze-image-format-t"><span class="std std-ref">ze_image_format_t</span></a> format = {
     <a class="reference internal" href="api.html#ze-image-format-layout-t"><span class="std std-ref">ZE_IMAGE_FORMAT_LAYOUT_32</span></a>, <a class="reference internal" href="api.html#ze-image-format-type-t"><span class="std std-ref">ZE_IMAGE_FORMAT_TYPE_FLOAT</span></a>,
-    <a class="reference internal" href="api.html#ze-image-format-swizzle-t"><span class="std std-ref">ZE_IMAGE_FORMAT_SWIZZLE_R</span></a>, <a class="reference internal" href="api.html#ze-image-format-swizzle-t"><span class="std std-ref">:ref:`ZE_IMAGE_FORMAT_SWIZZLE_0</span></a> &lt;ze-image-format-swizzle-t&gt;`, ZE_IMAGE_FORMAT_SWIZZLE_0, <a class="reference internal" href="api.html#ze-image-format-swizzle-t"><span class="std std-ref">ZE_IMAGE_FORMAT_SWIZZLE_1</span></a>
+    <a class="reference internal" href="api.html#ze-image-format-swizzle-t"><span class="std std-ref">ZE_IMAGE_FORMAT_SWIZZLE_R</span></a>, <a class="reference internal" href="api.html#ze-image-format-swizzle-t"><span class="std std-ref">ZE_IMAGE_FORMAT_SWIZZLE_0</span></a>, <a class="reference internal" href="api.html#ze-image-format-swizzle-t"><span class="std std-ref">ZE_IMAGE_FORMAT_SWIZZLE_0</span></a>, <a class="reference internal" href="api.html#ze-image-format-swizzle-t"><span class="std std-ref">ZE_IMAGE_FORMAT_SWIZZLE_1</span></a>
 };
 
 <a class="reference internal" href="api.html#ze-image-desc-t"><span class="std std-ref">ze_image_desc_t</span></a> imageDesc = {
@@ -1574,22 +1574,35 @@ ze_module_handle_t hModule;
 <td><p>Disabled</p></td>
 <td><p>All</p></td>
 </tr>
-<tr class="row-odd"><td><p>-ze-opt-greater-than-4GB-buffer-required</p></td>
+<tr class="row-odd"><td><p>-ze-opt-level</p></td>
+<td><p>Specifies optimization level for compiler. Levels are implementation specific.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>0 is no optimizations (equivalent to ze-opt-disable)</p></li>
+<li><p>1 is optimize minimally (may be the same as 2)</p></li>
+<li><p>2 is optimize more (default)</p></li>
+</ul>
+</div></blockquote>
+</td>
+<td><p>2</p></td>
+<td><p>All</p></td>
+</tr>
+<tr class="row-even"><td><p>-ze-opt-greater-than-4GB-buffer-required</p></td>
 <td><p>Use 64-bit offset calculations for buffers.</p></td>
 <td><p>Disabled</p></td>
 <td><p>GPU</p></td>
 </tr>
-<tr class="row-even"><td><p>-ze-opt-large-register-file</p></td>
+<tr class="row-odd"><td><p>-ze-opt-large-register-file</p></td>
 <td><p>Increase number of registers available to threads.</p></td>
 <td><p>Disabled</p></td>
 <td><p>GPU</p></td>
 </tr>
-<tr class="row-odd"><td><p>-ze-opt-has-buffer-offset-arg</p></td>
+<tr class="row-even"><td><p>-ze-opt-has-buffer-offset-arg</p></td>
 <td><p>Extend stateless to stateful optimization to more cases with the use of additional offset (e.g. 64-bit pointer to binding table with 32-bit offset).</p></td>
 <td><p>Disabled</p></td>
 <td><p>GPU</p></td>
 </tr>
-<tr class="row-even"><td><p>-g</p></td>
+<tr class="row-odd"><td><p>-g</p></td>
 <td><p>Include debugging information.</p></td>
 <td><p>Disabled</p></td>
 <td><p>GPU</p></td>
