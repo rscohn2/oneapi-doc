@@ -65,7 +65,7 @@ Etors must still use extension naming convention and values should be assigned t
 Extending Structures
 --------------------
 
-Any structure derived from `:ref:`ze-base-desc-t`\` or `:ref:`ze-base-properties-t`\` can be extended using structure chains.
+Any structure derived from :ref:`ze-base-desc-t` or :ref:`ze-base-properties-t` can be extended using structure chains.
 While it is possible to use other methods, this is the required method for extending existing structures.
 
 A structure chain can contain more than one extension structure, in any order.
@@ -76,14 +76,22 @@ The extension must document the specific structures and functions that may be ex
 List of Standard Extensions
 ===========================
 
-- "ZE_extension_float_atomics"
-- "ZE_extension_raytracing"
+    - :ref:`"ZE_extension_cache_reservation" <ZE_extension_cache_reservation>`
+    - :ref:`"ZE_extension_float_atomics" <ZE_extension_float_atomics>`
+    - :ref:`"ZE_extension_linkonce_odr" <ZE_extension_linkonce_odr>`
+    - :ref:`"ZE_extension_raytracing" <ZE_extension_raytracing>`
+    - :ref:`"ZE_extension_subgroups" <ZE_extension_subgroups>`
 
 
 List of Experimental Extensions
 ===============================
 
-- "ZE_experimental_global_offset"
-- "ZE_experimental_module_program"
-- "ZE_experimental_relaxed_allocation_limits"
-- "ZET_experimental_api_tracing"
+    - :ref:`"ZE_experimental_event_query_timestamps" <ZE_experimental_event_query_timestamps>`
+    - :ref:`"ZE_experimental_global_offset" <ZE_experimental_global_offset>`
+    - :ref:`"ZE_experimental_image_memory_properties" <ZE_experimental_image_memory_properties>`
+    - :ref:`"ZE_experimental_image_view" <ZE_experimental_image_view>`
+    - :ref:`"ZE_experimental_image_view_planar" <ZE_experimental_image_view_planar>`
+    - :ref:`"ZE_experimental_scheduling_hints" <ZE_experimental_scheduling_hints>`
+    - :ref:`"ZE_experimental_module_program" <ZE_experimental_module_program>`
+    - :ref:`"ZE_experimental_relaxed_allocation_limits" <ZE_experimental_relaxed_allocation_limits>`
+    - :ref:`"ZET_experimental_api_tracing" <ZET_experimental_api_tracing>`

@@ -3,7 +3,7 @@
 ==============================
 Core API
 ==============================
-oneAPI Level Zero Specification - Version 1.1.2
+oneAPI Level Zero Specification - Version 1.2.13
 
  
 
@@ -1779,6 +1779,8 @@ Memory
     * :ref:`ze-external-memory-export-desc-t`
     * :ref:`ze-external-memory-import-fd-t`
     * :ref:`ze-external-memory-export-fd-t`
+    * :ref:`ze-external-memory-import-win32-handle-t`
+    * :ref:`ze-external-memory-export-win32-handle-t`
 
 
 Memory Functions
@@ -1970,6 +1972,26 @@ ze_external_memory_export_fd_t
     :members:
     :undoc-members:
 
+.. _ze-external-memory-import-win32-handle-t:
+
+ze_external_memory_import_win32_handle_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenstruct:: ze_external_memory_import_win32_handle_t
+    :project: LevelZero
+    :members:
+    :undoc-members:
+
+.. _ze-external-memory-export-win32-handle-t:
+
+ze_external_memory_export_win32_handle_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenstruct:: ze_external_memory_export_win32_handle_t
+    :project: LevelZero
+    :members:
+    :undoc-members:
+
 
  
 
@@ -2025,6 +2047,7 @@ Module
     * :ref:`ze-kernel-desc-t`
     * :ref:`ze-kernel-uuid-t`
     * :ref:`ze-kernel-properties-t`
+    * :ref:`ze-kernel-preferred-group-size-properties-t`
     * :ref:`ze-group-count-t`
 
 
@@ -2375,6 +2398,16 @@ ze_kernel_properties_t
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. doxygenstruct:: ze_kernel_properties_t
+    :project: LevelZero
+    :members:
+    :undoc-members:
+
+.. _ze-kernel-preferred-group-size-properties-t:
+
+ze_kernel_preferred_group_size_properties_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenstruct:: ze_kernel_preferred_group_size_properties_t
     :project: LevelZero
     :members:
     :undoc-members:
@@ -2970,4 +3003,433 @@ ze_relaxed_allocation_limits_exp_desc_t
     :members:
     :undoc-members:
 
+
+ 
+
+Cachereservation
+============================================================
+* Functions
+
+
+    * :ref:`zeDeviceReserveCacheExt`
+    * :ref:`zeDeviceSetCacheAdviceExt`
+
+ 
+* Enumerations
+
+
+    * :ref:`ze-cache-reservation-ext-version-t`
+    * :ref:`ze-cache-ext-region-t`
+
+ 
+* Structures
+
+
+    * :ref:`ze-cache-reservation-ext-desc-t`
+
+
+Cachereservation Functions
+------------------------------------------------------------------------------
+
+
+.. _zeDeviceReserveCacheExt:
+
+zeDeviceReserveCacheExt
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zeDeviceReserveCacheExt
+    :project: LevelZero
+
+
+.. _zeDeviceSetCacheAdviceExt:
+
+zeDeviceSetCacheAdviceExt
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zeDeviceSetCacheAdviceExt
+    :project: LevelZero
+
+
+
+Cachereservation Enums
+------------------------------------------------------------------------------
+
+
+.. _ze-cache-reservation-ext-version-t:
+
+ze_cache_reservation_ext_version_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: ze_cache_reservation_ext_version_t
+    :project: LevelZero
+
+
+.. _ze-cache-ext-region-t:
+
+ze_cache_ext_region_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: ze_cache_ext_region_t
+    :project: LevelZero
+
+ 
+Cachereservation Structures
+------------------------------------------------------------------------------
+
+.. _ze-cache-reservation-ext-desc-t:
+
+ze_cache_reservation_ext_desc_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenstruct:: ze_cache_reservation_ext_desc_t
+    :project: LevelZero
+    :members:
+    :undoc-members:
+
+
+ 
+
+Eventquerytimestamps
+============================================================
+* Functions
+
+
+    * :ref:`zeEventQueryTimestampsExp`
+
+ 
+* Enumerations
+
+
+    * :ref:`ze-event-query-timestamps-exp-version-t`
+
+ 
+
+
+Eventquerytimestamps Functions
+------------------------------------------------------------------------------
+
+
+.. _zeEventQueryTimestampsExp:
+
+zeEventQueryTimestampsExp
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zeEventQueryTimestampsExp
+    :project: LevelZero
+
+
+
+Eventquerytimestamps Enums
+------------------------------------------------------------------------------
+
+
+.. _ze-event-query-timestamps-exp-version-t:
+
+ze_event_query_timestamps_exp_version_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: ze_event_query_timestamps_exp_version_t
+    :project: LevelZero
+
+ 
+
+ 
+
+Imagememoryproperties
+============================================================
+* Functions
+
+
+    * :ref:`zeImageGetMemoryPropertiesExp`
+
+ 
+* Enumerations
+
+
+    * :ref:`ze-image-memory-properties-exp-version-t`
+
+ 
+* Structures
+
+
+    * :ref:`ze-image-memory-properties-exp-t`
+
+
+Imagememoryproperties Functions
+------------------------------------------------------------------------------
+
+
+.. _zeImageGetMemoryPropertiesExp:
+
+zeImageGetMemoryPropertiesExp
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zeImageGetMemoryPropertiesExp
+    :project: LevelZero
+
+
+
+Imagememoryproperties Enums
+------------------------------------------------------------------------------
+
+
+.. _ze-image-memory-properties-exp-version-t:
+
+ze_image_memory_properties_exp_version_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: ze_image_memory_properties_exp_version_t
+    :project: LevelZero
+
+ 
+Imagememoryproperties Structures
+------------------------------------------------------------------------------
+
+.. _ze-image-memory-properties-exp-t:
+
+ze_image_memory_properties_exp_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenstruct:: ze_image_memory_properties_exp_t
+    :project: LevelZero
+    :members:
+    :undoc-members:
+
+
+ 
+
+Imageview
+============================================================
+* Functions
+
+
+    * :ref:`zeImageViewCreateExp`
+
+ 
+* Enumerations
+
+
+    * :ref:`ze-image-view-exp-version-t`
+
+ 
+
+
+Imageview Functions
+------------------------------------------------------------------------------
+
+
+.. _zeImageViewCreateExp:
+
+zeImageViewCreateExp
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zeImageViewCreateExp
+    :project: LevelZero
+
+
+
+Imageview Enums
+------------------------------------------------------------------------------
+
+
+.. _ze-image-view-exp-version-t:
+
+ze_image_view_exp_version_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: ze_image_view_exp_version_t
+    :project: LevelZero
+
+ 
+
+ 
+
+ 
+
+Imageviewplanar
+============================================================
+* Enumerations
+
+
+    * :ref:`ze-image-view-planar-exp-version-t`
+
+ 
+* Structures
+
+
+    * :ref:`ze-image-view-planar-exp-desc-t`
+
+
+
+
+Imageviewplanar Enums
+------------------------------------------------------------------------------
+
+
+.. _ze-image-view-planar-exp-version-t:
+
+ze_image_view_planar_exp_version_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: ze_image_view_planar_exp_version_t
+    :project: LevelZero
+
+ 
+Imageviewplanar Structures
+------------------------------------------------------------------------------
+
+.. _ze-image-view-planar-exp-desc-t:
+
+ze_image_view_planar_exp_desc_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenstruct:: ze_image_view_planar_exp_desc_t
+    :project: LevelZero
+    :members:
+    :undoc-members:
+
+
+ 
+
+Kernelschedulinghints
+============================================================
+* Functions
+
+
+    * :ref:`zeKernelSchedulingHintExp`
+
+ 
+* Enumerations
+
+
+    * :ref:`ze-scheduling-hints-exp-version-t`
+    * :ref:`ze-scheduling-hint-exp-flags-t`
+
+ 
+* Structures
+
+
+    * :ref:`ze-scheduling-hint-exp-properties-t`
+    * :ref:`ze-scheduling-hint-exp-desc-t`
+
+
+Kernelschedulinghints Functions
+------------------------------------------------------------------------------
+
+
+.. _zeKernelSchedulingHintExp:
+
+zeKernelSchedulingHintExp
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zeKernelSchedulingHintExp
+    :project: LevelZero
+
+
+
+Kernelschedulinghints Enums
+------------------------------------------------------------------------------
+
+
+.. _ze-scheduling-hints-exp-version-t:
+
+ze_scheduling_hints_exp_version_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: ze_scheduling_hints_exp_version_t
+    :project: LevelZero
+
+
+.. _ze-scheduling-hint-exp-flags-t:
+
+ze_scheduling_hint_exp_flags_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: ze_scheduling_hint_exp_flag_t
+    :project: LevelZero
+
+ 
+Kernelschedulinghints Structures
+------------------------------------------------------------------------------
+
+.. _ze-scheduling-hint-exp-properties-t:
+
+ze_scheduling_hint_exp_properties_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenstruct:: ze_scheduling_hint_exp_properties_t
+    :project: LevelZero
+    :members:
+    :undoc-members:
+
+.. _ze-scheduling-hint-exp-desc-t:
+
+ze_scheduling_hint_exp_desc_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenstruct:: ze_scheduling_hint_exp_desc_t
+    :project: LevelZero
+    :members:
+    :undoc-members:
+
+
+ 
+
+ 
+
+Linkonceodr
+============================================================
+* Enumerations
+
+
+    * :ref:`ze-linkonce-odr-ext-version-t`
+
+ 
+
+
+
+
+Linkonceodr Enums
+------------------------------------------------------------------------------
+
+
+.. _ze-linkonce-odr-ext-version-t:
+
+ze_linkonce_odr_ext_version_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: ze_linkonce_odr_ext_version_t
+    :project: LevelZero
+
+ 
+
+ 
+
+ 
+
+Subgroups
+============================================================
+* Enumerations
+
+
+    * :ref:`ze-subgroup-ext-version-t`
+
+ 
+
+
+
+
+Subgroups Enums
+------------------------------------------------------------------------------
+
+
+.. _ze-subgroup-ext-version-t:
+
+ze_subgroup_ext_version_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: ze_subgroup_ext_version_t
+    :project: LevelZero
+
+ 
 

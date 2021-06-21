@@ -3,7 +3,7 @@
 ==============================
 Tools API
 ==============================
-oneAPI Level Zero Specification - Version 1.1.2
+oneAPI Level Zero Specification - Version 1.2.13
 
  
 
@@ -202,7 +202,6 @@ Debug
     * :ref:`zet-debug-detach-reason-t`
     * :ref:`zet-debug-page-fault-reason-t`
     * :ref:`zet-debug-memory-space-type-t`
-    * :ref:`zet-debug-regset-type-t`
     * :ref:`zet-debug-regset-flags-t`
 
  
@@ -389,15 +388,6 @@ zet_debug_memory_space_type_t
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. doxygenenum:: zet_debug_memory_space_type_t
-    :project: LevelZero
-
-
-.. _zet-debug-regset-type-t:
-
-zet_debug_regset_type_t
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. doxygenenum:: zet_debug_regset_type_t
     :project: LevelZero
 
 

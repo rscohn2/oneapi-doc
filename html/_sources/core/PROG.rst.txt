@@ -492,7 +492,7 @@ its contents will be implicitly decoded to be implementation-independent.
        // Specify single component FLOAT32 format
        :ref:`ze-image-format-t` format = {
            :ref:`ZE_IMAGE_FORMAT_LAYOUT_32 <ze-image-format-layout-t>`\, :ref:`ZE_IMAGE_FORMAT_TYPE_FLOAT <ze-image-format-type-t>`\,
-           :ref:`ZE_IMAGE_FORMAT_SWIZZLE_R <ze-image-format-swizzle-t>`\, :ref:`:ref:`ZE_IMAGE_FORMAT_SWIZZLE_0 <ze-image-format-swizzle-t>` <ze-image-format-swizzle-t>`\, ZE_IMAGE_FORMAT_SWIZZLE_0, :ref:`ZE_IMAGE_FORMAT_SWIZZLE_1 <ze-image-format-swizzle-t>`
+           :ref:`ZE_IMAGE_FORMAT_SWIZZLE_R <ze-image-format-swizzle-t>`\, :ref:`ZE_IMAGE_FORMAT_SWIZZLE_0 <ze-image-format-swizzle-t>`\, :ref:`ZE_IMAGE_FORMAT_SWIZZLE_0 <ze-image-format-swizzle-t>`\, :ref:`ZE_IMAGE_FORMAT_SWIZZLE_1 <ze-image-format-swizzle-t>`
        };
 
        :ref:`ze-image-desc-t` imageDesc = {
@@ -1271,6 +1271,12 @@ Module build options can be passed with :ref:`ze-module-desc-t` as a string.
 | Build Option                               | Description                                                                                                                                          | Default  | Device Support |
 +============================================+======================================================================================================================================================+==========+================+
 | -ze-opt-disable                            | Disable optimizations.                                                                                                                               | Disabled | All            |
++--------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+----------+----------------+
+| -ze-opt-level                              | Specifies optimization level for compiler. Levels are implementation specific.                                                                       | 2        | All            |
+|                                            |                                                                                                                                                      |          |                |
+|                                            |    * 0 is no optimizations (equivalent to ze-opt-disable)                                                                                            |          |                |
+|                                            |    * 1 is optimize minimally (may be the same as 2)                                                                                                  |          |                |
+|                                            |    * 2 is optimize more (default)                                                                                                                    |          |                |
 +--------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+----------+----------------+
 | -ze-opt-greater-than-4GB-buffer-required   | Use 64-bit offset calculations for buffers.                                                                                                          | Disabled | GPU            |
 +--------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+----------+----------------+

@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.1.2
+                1.2.13
               </div>
             
           
@@ -115,7 +115,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#validation-rules">Validation Rules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#extensions">Extensions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#spv-intel-subgroups"><code class="docutils literal notranslate"><span class="pre">SPV_INTEL_subgroups</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#intel-subgroups">Intel Subgroups</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#notes-and-restrictions">Notes and Restrictions</a></li>
 </ul>
 </li>
@@ -125,6 +125,17 @@
 <li class="toctree-l4"><a class="reference internal" href="#atomic-min-and-max">Atomic Min and Max</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#extended-subgroups">Extended Subgroups</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#extended-types">Extended Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#vote">Vote</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ballot">Ballot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#non-uniform-arithmetic">Non-Uniform Arithmetic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shuffles">Shuffles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#relative-shuffles">Relative Shuffles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#clustered-reductions">Clustered Reductions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#linkonce-odr">Linkonce ODR</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#numerical-compliance">Numerical Compliance</a></li>
@@ -472,8 +483,8 @@ point must not contain cycles.</p>
 </div>
 <div class="section" id="extensions">
 <h2>Extensions<a class="headerlink" href="#extensions" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="spv-intel-subgroups">
-<h3><code class="docutils literal notranslate"><span class="pre">SPV_INTEL_subgroups</span></code><a class="headerlink" href="#spv-intel-subgroups" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="intel-subgroups">
+<h3>Intel Subgroups<a class="headerlink" href="#intel-subgroups" title="Permalink to this headline">¶</a></h3>
 <p>‘oneAPI’ Level-Zero API environments must accept SPIR-V modules that
 declare use of the <code class="docutils literal notranslate"><span class="pre">SPV_INTEL_subgroups</span></code> extension via
 <strong>OpExtension</strong>.</p>
@@ -492,7 +503,8 @@ declare the following SPIR-V capabilities:</p>
 components of the following <em>Component Type</em> types:</p>
 <ul>
 <li><p><strong>OpTypeFloat</strong> with a <em>Width</em> of 32 bits (<code class="docutils literal notranslate"><span class="pre">float</span></code>)</p></li>
-<li><p>TBD: char types?</p></li>
+<li><p><strong>OpTypeInt</strong> with a <em>Width</em> of 8 bits and <em>Signedness</em> of 0
+(<code class="docutils literal notranslate"><span class="pre">char</span></code> and <code class="docutils literal notranslate"><span class="pre">uchar</span></code>)</p></li>
 <li><p><strong>OpTypeInt</strong> with a <em>Width</em> of 16 bits and <em>Signedness</em> of 0
 (<code class="docutils literal notranslate"><span class="pre">short</span></code> and <code class="docutils literal notranslate"><span class="pre">ushort</span></code>)</p></li>
 <li><p><strong>OpTypeInt</strong> with a <em>Width</em> of 32 bits and <em>Signedness</em> of 0
@@ -500,11 +512,7 @@ components of the following <em>Component Type</em> types:</p>
 </ul>
 </li>
 <li><p>Scalars of <strong>OpTypeInt</strong> with a <em>Width</em> of 64 bits and <em>Signedness</em>
-of 0 (<code class="docutils literal notranslate"><span class="pre">long</span></code> and <code class="docutils literal notranslate"><span class="pre">ulong</span></code>)</p>
-<ul>
-<li><p>TBD: vectors of long types?</p></li>
-</ul>
-</li>
+of 0 (<code class="docutils literal notranslate"><span class="pre">long</span></code> and <code class="docutils literal notranslate"><span class="pre">ulong</span></code>)</p></li>
 </ul>
 <p>Additionally, if the <strong>Float16</strong> capability is declared and supported:</p>
 <ul class="simple">
@@ -651,6 +659,227 @@ Additionally:</p>
 </ul>
 </div></blockquote>
 </div>
+</div>
+<div class="section" id="extended-subgroups">
+<h3>Extended Subgroups<a class="headerlink" href="#extended-subgroups" title="Permalink to this headline">¶</a></h3>
+<p>‘oneAPI’ Level-Zero API environments supporting the extension
+<strong>ZE_extension_subgroups</strong> must support additional subgroup instructions,
+capabilities, and types.</p>
+<div class="section" id="extended-types">
+<h4>Extended Types<a class="headerlink" href="#extended-types" title="Permalink to this headline">¶</a></h4>
+<p>The following Groups instructions must be supported with <em>Scope</em> for <em>Execution</em>
+equal to <strong>Subgroup</strong>:</p>
+<ul class="simple">
+<li><p><strong>OpGroupBroadcast</strong></p></li>
+<li><p><strong>OpGroupIAdd</strong>, <strong>OpGroupFAdd</strong></p></li>
+<li><p><strong>OpGroupSMin</strong>, <strong>OpGroupUMin</strong>, <strong>OpGroupFMin</strong></p></li>
+<li><p><strong>OpGroupSMax</strong>, <strong>OpGroupUMax</strong>, <strong>OpGroupFMax</strong></p></li>
+</ul>
+<p>For these instructions, valid types for <em>Value</em> are:</p>
+<ul class="simple">
+<li><p>Scalars of supported types:</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>OpTypeInt</strong> (equivalent to <code class="docutils literal notranslate"><span class="pre">char</span></code>, <code class="docutils literal notranslate"><span class="pre">uchar</span></code>, <code class="docutils literal notranslate"><span class="pre">short</span></code>, <code class="docutils literal notranslate"><span class="pre">ushort</span></code>,
+<code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">uint</span></code>, <code class="docutils literal notranslate"><span class="pre">long</span></code>, and <code class="docutils literal notranslate"><span class="pre">ulong</span></code>)</p></li>
+<li><p><strong>OpTypeFloat</strong> (equivalent to <code class="docutils literal notranslate"><span class="pre">half</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, and <code class="docutils literal notranslate"><span class="pre">double</span></code>)</p></li>
+</ul>
+</div></blockquote>
+<p>Additionally, for <strong>OpGroupBroadcast</strong>, valid types for <em>Value</em> are:</p>
+<ul class="simple">
+<li><p><strong>OpTypeVectors</strong> with 2, 3, 4, 8, or 16 Component Count components of
+supported types:</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>OpTypeInt</strong> (equivalent to <code class="docutils literal notranslate"><span class="pre">charn</span></code>, <code class="docutils literal notranslate"><span class="pre">ucharn</span></code>, <code class="docutils literal notranslate"><span class="pre">shortn</span></code>,
+<code class="docutils literal notranslate"><span class="pre">ushortn</span></code>, <code class="docutils literal notranslate"><span class="pre">intn</span></code>, <code class="docutils literal notranslate"><span class="pre">uintn</span></code>, <code class="docutils literal notranslate"><span class="pre">longn</span></code>, and <code class="docutils literal notranslate"><span class="pre">ulongn</span></code>)</p></li>
+<li><p><strong>OpTypeFloat</strong> (equivalent to <code class="docutils literal notranslate"><span class="pre">halfn</span></code>, <code class="docutils literal notranslate"><span class="pre">floatn</span></code>, and <code class="docutils literal notranslate"><span class="pre">doublen</span></code>)</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="vote">
+<h4>Vote<a class="headerlink" href="#vote" title="Permalink to this headline">¶</a></h4>
+<p>The following capabilities must be supported:</p>
+<ul class="simple">
+<li><p><strong>GroupNonUniform</strong></p></li>
+<li><p><strong>GroupNonUniformVote</strong></p></li>
+</ul>
+<p>For instructions requiring these capabilities, <em>Scope</em> for <em>Execution</em> may be:</p>
+<ul class="simple">
+<li><p><strong>Subgroup</strong></p></li>
+</ul>
+<p>For the instruction <strong>OpGroupNonUniformAllEqual</strong>, valid types for <em>Value</em> are:</p>
+<ul class="simple">
+<li><p>Scalars of supported types:</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>OpTypeInt</strong> (equivalent to <code class="docutils literal notranslate"><span class="pre">char</span></code>, <code class="docutils literal notranslate"><span class="pre">uchar</span></code>, <code class="docutils literal notranslate"><span class="pre">short</span></code>, <code class="docutils literal notranslate"><span class="pre">ushort</span></code>,
+<code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">uint</span></code>, <code class="docutils literal notranslate"><span class="pre">long</span></code>, and <code class="docutils literal notranslate"><span class="pre">ulong</span></code>)</p></li>
+<li><p><strong>OpTypeFloat</strong> (equivalent to <code class="docutils literal notranslate"><span class="pre">half</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, and <code class="docutils literal notranslate"><span class="pre">double</span></code>)</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="ballot">
+<h4>Ballot<a class="headerlink" href="#ballot" title="Permalink to this headline">¶</a></h4>
+<p>The following capabilities must be supported:</p>
+<ul class="simple">
+<li><p><strong>GroupNonUniformBallot</strong></p></li>
+</ul>
+<p>For instructions requiring these capabilities, <em>Scope</em> for <em>Execution</em> may be:</p>
+<ul class="simple">
+<li><p><strong>Subgroup</strong></p></li>
+</ul>
+<p>For the non-uniform broadcast instruction <strong>OpGroupNonUniformBroadcast</strong>, valid
+types for <em>Value</em> are:</p>
+<ul class="simple">
+<li><p>Scalars of supported types:</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>OpTypeInt</strong> (equivalent to <code class="docutils literal notranslate"><span class="pre">char</span></code>, <code class="docutils literal notranslate"><span class="pre">uchar</span></code>, <code class="docutils literal notranslate"><span class="pre">short</span></code>, <code class="docutils literal notranslate"><span class="pre">ushort</span></code>,
+<code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">uint</span></code>, <code class="docutils literal notranslate"><span class="pre">long</span></code>, and <code class="docutils literal notranslate"><span class="pre">ulong</span></code>)</p></li>
+<li><p><strong>OpTypeFloat</strong> (equivalent to <code class="docutils literal notranslate"><span class="pre">half</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, and <code class="docutils literal notranslate"><span class="pre">double</span></code>)</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>OpTypeVectors</strong> with 2, 3, 4, 8, or 16 Component Count components of
+supported types:</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>OpTypeInt</strong> (equivalent to <code class="docutils literal notranslate"><span class="pre">charn</span></code>, <code class="docutils literal notranslate"><span class="pre">ucharn</span></code>, <code class="docutils literal notranslate"><span class="pre">shortn</span></code>,
+<code class="docutils literal notranslate"><span class="pre">ushortn</span></code>, <code class="docutils literal notranslate"><span class="pre">intn</span></code>, <code class="docutils literal notranslate"><span class="pre">uintn</span></code>, <code class="docutils literal notranslate"><span class="pre">longn</span></code>, and <code class="docutils literal notranslate"><span class="pre">ulongn</span></code>)</p></li>
+<li><p><strong>OpTypeFloat</strong> (equivalent to <code class="docutils literal notranslate"><span class="pre">halfn</span></code>, <code class="docutils literal notranslate"><span class="pre">floatn</span></code>, and <code class="docutils literal notranslate"><span class="pre">doublen</span></code>)</p></li>
+</ul>
+</div></blockquote>
+<p>For the instruction <strong>OpGroupNonUniformBroadcastFirst</strong>, valid types for <em>Value</em> are:</p>
+<ul class="simple">
+<li><p>Scalars of supported types:</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>OpTypeInt</strong> (equivalent to <code class="docutils literal notranslate"><span class="pre">char</span></code>, <code class="docutils literal notranslate"><span class="pre">uchar</span></code>, <code class="docutils literal notranslate"><span class="pre">short</span></code>, <code class="docutils literal notranslate"><span class="pre">ushort</span></code>,
+<code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">uint</span></code>, <code class="docutils literal notranslate"><span class="pre">long</span></code>, and <code class="docutils literal notranslate"><span class="pre">ulong</span></code>)</p></li>
+<li><p><strong>OpTypeFloat</strong> (equivalent to <code class="docutils literal notranslate"><span class="pre">half</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, and <code class="docutils literal notranslate"><span class="pre">double</span></code>)</p></li>
+</ul>
+</div></blockquote>
+<p>For the instruction <strong>OpGroupNonUniformBallot</strong>, the valid Result Type is an
+OpTypeVector with four Component Count components of <strong>OpTypeInt</strong>, with <em>Width</em>
+equal to 32 and <em>Signedness</em> equal to 0 (equivalent to <code class="docutils literal notranslate"><span class="pre">uint4</span></code>).</p>
+<p>For the instructions <strong>OpGroupNonUniformInverseBallot</strong>,
+<strong>OpGroupNonUniformBallotBitExtract</strong>, <strong>OpGroupNonUniformBallotBitCount</strong>,
+<strong>OpGroupNonUniformBallotFindLSB</strong>, and <strong>OpGroupNonUniformBallotFindMSB</strong>, the
+valid type for <em>Value</em> is an <strong>OpTypeVector</strong> with four <em>Component Count</em>
+components of <strong>OpTypeInt</strong>, with <em>Width</em> equal to 32 and <em>Signedness</em> equal to
+0 (equivalent to uint4).</p>
+<p>For built-in variables decorated with <strong>SubgroupEqMask</strong>, <strong>SubgroupGeMask</strong>,
+<strong>SubgroupGtMask</strong>, <strong>SubgroupLeMask</strong>, or <strong>SubgroupLtMask</strong>, the supported
+variable type is an <strong>OpTypeVector</strong> with four <em>Component Count</em> components of
+<strong>OpTypeInt</strong>, with <em>Width</em> equal to 32 and <em>Signedness</em> equal to 0 (equivalent
+to <code class="docutils literal notranslate"><span class="pre">uint4</span></code>).</p>
+</div>
+<div class="section" id="non-uniform-arithmetic">
+<h4>Non-Uniform Arithmetic<a class="headerlink" href="#non-uniform-arithmetic" title="Permalink to this headline">¶</a></h4>
+<p>The following capabilities must be supported:</p>
+<ul class="simple">
+<li><p><strong>GroupNonUniformArithmetic</strong></p></li>
+</ul>
+<p>For instructions requiring these capabilities, <em>Scope</em> for <em>Execution</em> may be:</p>
+<ul class="simple">
+<li><p><strong>Subgroup</strong></p></li>
+</ul>
+<p>For the instructions <strong>OpGroupNonUniformLogicalAnd</strong>,
+<strong>OpGroupNonUniformLogicalOr</strong>, and <strong>OpGroupNonUniformLogicalXor</strong>, the valid
+type for <em>Value</em> is <strong>OpTypeBool</strong>.</p>
+<p>Otherwise, for the <strong>GroupNonUniformArithmetic</strong> scan and reduction
+instructions, valid types for <em>Value</em> are:</p>
+<ul class="simple">
+<li><p>Scalars of supported types:</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>OpTypeInt</strong> (equivalent to <code class="docutils literal notranslate"><span class="pre">char</span></code>, <code class="docutils literal notranslate"><span class="pre">uchar</span></code>, <code class="docutils literal notranslate"><span class="pre">short</span></code>, <code class="docutils literal notranslate"><span class="pre">ushort</span></code>,
+<code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">uint</span></code>, <code class="docutils literal notranslate"><span class="pre">long</span></code>, and <code class="docutils literal notranslate"><span class="pre">ulong</span></code>)</p></li>
+<li><p><strong>OpTypeFloat</strong> (equivalent to <code class="docutils literal notranslate"><span class="pre">half</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, and <code class="docutils literal notranslate"><span class="pre">double</span></code>)</p></li>
+</ul>
+</div></blockquote>
+<p>For the <strong>GroupNonUniformArithmetic</strong> scan and reduction instructions, the
+optional <em>ClusterSize</em> operand must not be present.</p>
+</div>
+<div class="section" id="shuffles">
+<h4>Shuffles<a class="headerlink" href="#shuffles" title="Permalink to this headline">¶</a></h4>
+<p>The following capabilities must be supported:</p>
+<ul class="simple">
+<li><p><strong>GroupNonUniformShuffle</strong></p></li>
+</ul>
+<p>For instructions requiring these capabilities, <em>Scope</em> for <em>Execution</em> may be:</p>
+<ul class="simple">
+<li><p><strong>Subgroup</strong></p></li>
+</ul>
+<p>For the instructions <strong>OpGroupNonUniformShuffle</strong> and
+<strong>OpGroupNonUniformShuffleXor</strong> requiring these capabilities, valid types for
+<em>Value</em> are:</p>
+<ul class="simple">
+<li><p>Scalars of supported types:</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>OpTypeInt</strong> (equivalent to <code class="docutils literal notranslate"><span class="pre">char</span></code>, <code class="docutils literal notranslate"><span class="pre">uchar</span></code>, <code class="docutils literal notranslate"><span class="pre">short</span></code>, <code class="docutils literal notranslate"><span class="pre">ushort</span></code>,
+<code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">uint</span></code>, <code class="docutils literal notranslate"><span class="pre">long</span></code>, and <code class="docutils literal notranslate"><span class="pre">ulong</span></code>)</p></li>
+<li><p><strong>OpTypeFloat</strong> (equivalent to <code class="docutils literal notranslate"><span class="pre">half</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, and <code class="docutils literal notranslate"><span class="pre">double</span></code>)</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="relative-shuffles">
+<h4>Relative Shuffles<a class="headerlink" href="#relative-shuffles" title="Permalink to this headline">¶</a></h4>
+<p>The following capabilities must be supported:</p>
+<ul class="simple">
+<li><p><strong>GroupNonUniformShuffleRelative</strong></p></li>
+</ul>
+<p>For instructions requiring these capabilities, <em>Scope</em> for <em>Execution</em> may be:</p>
+<ul class="simple">
+<li><p><strong>Subgroup</strong></p></li>
+</ul>
+<p>For the <strong>GroupNonUniformShuffleRelative</strong> instructions, valid types for <em>Value</em>
+are:</p>
+<ul class="simple">
+<li><p>Scalars of supported types:</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>OpTypeInt</strong> (equivalent to <code class="docutils literal notranslate"><span class="pre">char</span></code>, <code class="docutils literal notranslate"><span class="pre">uchar</span></code>, <code class="docutils literal notranslate"><span class="pre">short</span></code>, <code class="docutils literal notranslate"><span class="pre">ushort</span></code>,
+<code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">uint</span></code>, <code class="docutils literal notranslate"><span class="pre">long</span></code>, and <code class="docutils literal notranslate"><span class="pre">ulong</span></code>)</p></li>
+<li><p><strong>OpTypeFloat</strong> (equivalent to <code class="docutils literal notranslate"><span class="pre">half</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, and <code class="docutils literal notranslate"><span class="pre">double</span></code>)</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="clustered-reductions">
+<h4>Clustered Reductions<a class="headerlink" href="#clustered-reductions" title="Permalink to this headline">¶</a></h4>
+<p>The following capabilities must be supported:</p>
+<ul class="simple">
+<li><p><strong>GroupNonUniformClustered</strong></p></li>
+</ul>
+<p>For instructions requiring these capabilities, <em>Scope</em> for <em>Execution</em> may be:</p>
+<ul class="simple">
+<li><p><strong>Subgroup</strong></p></li>
+</ul>
+<p>When the <strong>GroupNonUniformClustered</strong> capability is declared, the
+<strong>GroupNonUniformArithmetic</strong> scan and reduction instructions may include the
+optional <em>ClusterSize</em> operand.</p>
+</div>
+</div>
+<div class="section" id="linkonce-odr">
+<h3>Linkonce ODR<a class="headerlink" href="#linkonce-odr" title="Permalink to this headline">¶</a></h3>
+<p>‘oneAPI’ Level-Zero API environments supporting the extension
+<strong>ZE_extension_linkonce_odr</strong> must must accept SPIR-V modules that
+declare use of the <code class="docutils literal notranslate"><span class="pre">SPV_KHR_linkonce_odr</span></code> extension via
+<strong>OpExtension</strong>.</p>
+<p>When use of the <code class="docutils literal notranslate"><span class="pre">SPV_KHR_linkonce_odr</span></code> extension is declared in the
+module via <strong>OpExtension</strong>, the environment must accept modules that
+include the <strong>LinkOnceODR</strong> linkage type.</p>
 </div>
 </div>
 <div class="section" id="numerical-compliance">
