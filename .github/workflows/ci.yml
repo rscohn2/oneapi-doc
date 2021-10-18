@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - main
+      - level-zero
   pull_request:
 
 defaults:
@@ -41,5 +41,4 @@ jobs:
       if: ${{ github.ref == 'refs/heads/level-zero' }}
       run: |
         cd scripts
-        # ${PUBLISH_CMD} --prod
-        ${PUBLISH_CMD}
+        ${PUBLISH_CMD} --prod
