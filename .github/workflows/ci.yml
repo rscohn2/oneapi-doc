@@ -1,0 +1,45 @@
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  ci:
+    env:
+      no_proxy: devtools.intel.com
+      DEBIAN_FRONTEND: noninteractive
+      ONEAPI_PASSPHRASE: ${{ secrets.ONEAPI_PASSPHRASE }}
+      PUBLISH_CMD: python3 oneapi-publish.py publish --html ../html --doc level-zero  --doc-cfg ../oneapi-doc.json 
+    runs-on: self-hosted
+    container:
+      image: amr-registry-pre.caas.intel.com/oneapi-docs/oneapi-build:latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Checkout scripts
+      uses: actions/checkout@v2
+      with:
+        ref: main
+        path: scripts
+    - name: Install publishing pre-requisites
+      run: |
+        cd scripts
+        # apt install of oneapi broken
+        apt-get update -qq || true
+        xargs -a ubuntu-packages.txt apt-get install -qq
+        python3 oneapi-publish.py setup
+    - name: Publish to pre-production
+      if: ${{ github.ref != 'refs/heads/level-zero' }}
+      run: |
+        cd scripts
+        ${PUBLISH_CMD}
+    - name: Publish to production
+      if: ${{ github.ref == 'refs/heads/level-zero' }}
+      run: |
+        cd scripts
+        # ${PUBLISH_CMD} --prod
+        ${PUBLISH_CMD}
