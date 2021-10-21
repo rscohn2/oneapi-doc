@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.2.13
+                1.2.44
               </div>
             
           
@@ -155,6 +155,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#module-build-options">Module Build Options</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-specialization-constants">Module Specialization Constants</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-build-log">Module Build Log</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dynamically-linked-modules">Dynamically Linked Modules</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-caching-with-native-binaries">Module Caching with Native Binaries</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#built-in-kernels">Built-in Kernels</a></li>
 </ul>
@@ -1662,6 +1663,30 @@ if (result != <a class="reference internal" href="api.html#ze-result-t"><span cl
 
 <a class="reference internal" href="api.html#zemodulebuildlogdestroy"><span class="std std-ref">zeModuleBuildLogDestroy</span></a>(buildlog);</pre>
 </div>
+<div class="section" id="dynamically-linked-modules">
+<h4>Dynamically Linked Modules<a class="headerlink" href="#dynamically-linked-modules" title="Permalink to this headline">¶</a></h4>
+<p>Modules may be interdependent, i.e., a module may contain functions and global variables that are used and defined by different modules. Such a module is said to have both import as well as export linkage requirements. Private variables are not transferrable between linked modules, i.e., their visibility is limited to the module in which they are defined. Only global variables or static values passed to linked functions are visible between linked modules. All the import linkage requirements of a module must be satisfied before a kernel can be created from that module. Modules that have no imports do not need to be linked. Dynamically linking modules together is performed using <a class="reference internal" href="api.html#zemoduledynamiclink"><span class="std std-ref">zeModuleDynamicLink</span></a>. Modules cannot have ambiguous import dependencies, i.e., imported functions and global variables must only be defined once in any given set of modules passed to <a class="reference internal" href="api.html#zemoduledynamiclink"><span class="std std-ref">zeModuleDynamicLink</span></a>. Imports are linked only once. Once all the import dependencies of a module have been linked, the use of that fully import-linked module in subsequent calls to <a class="reference internal" href="api.html#zemoduledynamiclink"><span class="std std-ref">zeModuleDynamicLink</span></a> will not cause the imports of the module to be re-linked.</p>
+<p>The <a class="reference internal" href="api.html#zemoduledynamiclink"><span class="std std-ref">zeModuleDynamicLink</span></a> function can optionally generate a link log object ze_module_build_log_handle_t.</p>
+<pre class="literal-block">...
+ze_module_build_log_handle_t linklog;
+<a class="reference internal" href="api.html#ze-result-t"><span class="std std-ref">ze_result_t</span></a> result = <a class="reference internal" href="api.html#zemoduledynamiclink"><span class="std std-ref">zeModuleDynamicLink</span></a>(numModules, &amp;hModules, &amp;hLinklog);
+
+// Check if there are linking errors
+if (result == ze_RESULT_ERROR_MODULE_LINK_FAILURE) {
+  size_t szLog = 0;
+  <a class="reference internal" href="api.html#zemodulebuildloggetstring"><span class="std std-ref">zeModuleBuildLogGetString</span></a>(linklog, &amp;szLog, nullptr);
+
+  char_t* strLog = allocate(szLog);
+  <a class="reference internal" href="api.html#zemodulebuildloggetstring"><span class="std std-ref">zeModuleBuildLogGetString</span></a>(linklog, &amp;szLog, strLog);
+
+  // Save log to disk.
+  ...
+
+  free(strLog);
+}
+
+<a class="reference internal" href="api.html#zemodulebuildlogdestroy"><span class="std std-ref">zeModuleBuildLogDestroy</span></a>(linklog);</pre>
+</div>
 <div class="section" id="module-caching-with-native-binaries">
 <h4>Module Caching with Native Binaries<a class="headerlink" href="#module-caching-with-native-binaries" title="Permalink to this headline">¶</a></h4>
 <p>Disk caching of modules is not supported by the driver. If a disk cache for modules is desired, then it is the
@@ -1704,15 +1729,26 @@ arguments along with data needed for launch.</p>
     &quot;image_scaling&quot;
 };
 ze_kernel_handle_t hKernel;
-<a class="reference internal" href="api.html#zekernelcreate"><span class="std std-ref">zeKernelCreate</span></a>(hModule, &amp;kernelDesc, &amp;hKernel);
+<a class="reference internal" href="api.html#ze-result-t"><span class="std std-ref">ze_result_t</span></a> result = <a class="reference internal" href="api.html#zekernelcreate"><span class="std std-ref">zeKernelCreate</span></a>(hModule, &amp;kernelDesc, &amp;hKernel);
+
+// Check if there are unresolved imports
+if (result == ze_RESULT_ERROR_INVALID_MODULE_UNLINKED) {
+   // Call <a class="reference internal" href="api.html#zemoduledynamiclink"><span class="std std-ref">zeModuleDynamicLink</span></a> to dump out a link log
+   ...
+}
+
+// Check to see if the kernel &quot;image_scaling&quot; was found in the supplied module
+if (result == ze_RESULT_ERROR_INVALID_KERNEL_NAME) {
+   // Kernel &quot;image_scaling&quot; not found in module!
+   ...
+}
+
 ...</pre>
 <div class="section" id="kernel-properties">
 <h4>Kernel Properties<a class="headerlink" href="#kernel-properties" title="Permalink to this headline">¶</a></h4>
 <p>Use <a class="reference internal" href="api.html#zekernelgetproperties"><span class="std std-ref">zeKernelGetProperties</span></a> to query invariant properties from a Kernel object.</p>
 <pre class="literal-block">...
 <a class="reference internal" href="api.html#ze-kernel-properties-t"><span class="std std-ref">ze_kernel_properties_t</span></a> kernelProperties;
-
-//
 <a class="reference internal" href="api.html#zekernelgetproperties"><span class="std std-ref">zeKernelGetProperties</span></a>(hKernel, &amp;kernelProperties);
 ...</pre>
 <p>See <a class="reference internal" href="api.html#ze-kernel-properties-t"><span class="std std-ref">ze_kernel_properties_t</span></a> for more information for kernel properties.</p>

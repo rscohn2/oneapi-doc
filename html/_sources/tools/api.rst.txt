@@ -3,7 +3,7 @@
 ==============================
 Tools API
 ==============================
-oneAPI Level Zero Specification - Version 1.2.13
+oneAPI Level Zero Specification - Version 1.2.44
 
  
 
