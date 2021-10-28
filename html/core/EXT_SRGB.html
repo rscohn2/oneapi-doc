@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>API Tracing Extension &mdash; Level Zero Specification  documentation</title>
+  <title>sRGB Extension &mdash; Level Zero Specification  documentation</title>
   
 
   
@@ -84,12 +84,12 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../core/INTRO.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../core/PROG.html">Core Programming Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="PROG.html">Tools Programming Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="INTRO.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PROG.html">Core Programming Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/PROG.html">Tools Programming Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sysman/PROG.html">Sysman Programming Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../core/SPIRV.html">SPIR-V Programming Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../core/EXT.html">Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SPIRV.html">SPIR-V Programming Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EXT.html">Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">API Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../versions.html">Versions</a></li>
 </ul>
@@ -146,37 +146,50 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="api-tracing-extension">
-<span id="zet-experimental-api-tracing"></span><h1>API Tracing Extension<a class="headerlink" href="#api-tracing-extension" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="srgb-extension">
+<span id="ze-extension-srgb"></span><h1>sRGB Extension<a class="headerlink" href="#srgb-extension" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="api">
 <h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p>Functions</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><a class="reference internal" href="api.html#zettracerexpcreate"><span class="std std-ref">zetTracerExpCreate</span></a></p></li>
-<li><p><a class="reference internal" href="api.html#zettracerexpdestroy"><span class="std std-ref">zetTracerExpDestroy</span></a></p></li>
-<li><p><a class="reference internal" href="api.html#zettracerexpsetprologues"><span class="std std-ref">zetTracerExpSetPrologues</span></a></p></li>
-<li><p><a class="reference internal" href="api.html#zettracerexpsetepilogues"><span class="std std-ref">zetTracerExpSetEpilogues</span></a></p></li>
-<li><p><a class="reference internal" href="api.html#zettracerexpsetenabled"><span class="std std-ref">zetTracerExpSetEnabled</span></a></p></li>
-</ul>
-</div></blockquote>
-</li>
-<li><p>Enumerations</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><a class="reference internal" href="api.html#zet-api-tracing-exp-version-t"><span class="std std-ref">zet_api_tracing_exp_version_t</span></a></p></li>
-</ul>
-</div></blockquote>
-</li>
 <li><p>Structures</p>
 <blockquote>
 <div><ul class="simple">
-<li><p><a class="reference internal" href="api.html#zet-tracer-exp-desc-t"><span class="std std-ref">zet_tracer_exp_desc_t</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#ze-srgb-ext-desc-t"><span class="std std-ref">ze_srgb_ext_desc_t</span></a></p></li>
 </ul>
 </div></blockquote>
 </li>
 </ul>
+<div class="section" id="srgb">
+<h3>sRGB<a class="headerlink" href="#srgb" title="Permalink to this headline">¶</a></h3>
+<p>Device capabilities may include native support for sRGB image formats. sRGB images may benefit from hardware acceleration on devices that include native support for sRGB. The following psuedo-code demonstrates a sequence for creating an sRGB image:</p>
+<pre class="literal-block">// Specify single component FLOAT32 format
+<a class="reference internal" href="api.html#ze-image-format-t"><span class="std std-ref">ze_image_format_t</span></a> format = {
+    <a class="reference internal" href="api.html#ze-image-format-layout-t"><span class="std std-ref">ZE_IMAGE_FORMAT_LAYOUT_32</span></a>, <a class="reference internal" href="api.html#ze-image-format-type-t"><span class="std std-ref">ZE_IMAGE_FORMAT_TYPE_FLOAT</span></a>,
+    <a class="reference internal" href="api.html#ze-image-format-swizzle-t"><span class="std std-ref">ZE_IMAGE_FORMAT_SWIZZLE_R</span></a>, <a class="reference internal" href="api.html#ze-image-format-swizzle-t"><span class="std std-ref">ZE_IMAGE_FORMAT_SWIZZLE_0</span></a>, <a class="reference internal" href="api.html#ze-image-format-swizzle-t"><span class="std std-ref">ZE_IMAGE_FORMAT_SWIZZLE_0</span></a>, <a class="reference internal" href="api.html#ze-image-format-swizzle-t"><span class="std std-ref">ZE_IMAGE_FORMAT_SWIZZLE_1</span></a>
+};
+
+// Specify sRGB image format
+<a class="reference internal" href="api.html#ze-srgb-ext-desc-t"><span class="std std-ref">ze_srgb_ext_desc_t</span></a> isSRGB = {
+    <a class="reference internal" href="api.html#ze-structure-type-t"><span class="std std-ref">ZE_STRUCTURE_TYPE_SRGB_EXT_DESC</span></a>,
+    nullptr,
+    true
+};
+
+<a class="reference internal" href="api.html#ze-image-desc-t"><span class="std std-ref">ze_image_desc_t</span></a> imageDesc = {
+    <a class="reference internal" href="api.html#ze-structure-type-t"><span class="std std-ref">ZE_STRUCTURE_TYPE_IMAGE_DESC</span></a>,
+    &amp;isSRGB,
+    0, // read-only
+    <a class="reference internal" href="api.html#ze-image-type-t"><span class="std std-ref">ZE_IMAGE_TYPE_2D</span></a>,
+    format,
+    128, 128, 0, 0, 0
+};
+ze_image_handle_t hImage;
+<a class="reference internal" href="api.html#zeimagecreate"><span class="std std-ref">zeImageCreate</span></a>(hContext, hDevice, &amp;imageDesc, &amp;hImage);
+
+// upload contents from host pointer
+<a class="reference internal" href="api.html#zecommandlistappendimagecopyfrommemory"><span class="std std-ref">zeCommandListAppendImageCopyFromMemory</span></a>(hCommandList, hImage, nullptr, pImageData, nullptr, 0, nullptr);
+...</pre>
+</div>
 </div>
 </div>
 

@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.2.44
+                1.3.0
               </div>
             
           
@@ -1061,12 +1061,17 @@ may also share the same physical hardware context.</p></li>
 <li><p>The maximum number of command queues an application can create is limited by device-specific
 resources; e.g., the maximum number of logical hardware contexts supported by the device.
 This can be queried from <a class="reference internal" href="api.html#ze-device-properties-t"><span class="std std-ref">ze_device_properties_t</span></a>.maxHardwareContexts.</p></li>
-<li><p>All command lists executed on a command queue are guaranteed to <strong>only</strong> execute on an engine from the
-command queue group which it is assigned; e.g., copy commands in a compute command list / queue will
-execute via the compute engine, not the copy engine.</p></li>
+<li><p>The physical engine within a command queue group on which a command queue executes is virtualized
+via its index, limited by the number of physical engines of the type of the command queue group,
+i.e. <a class="reference internal" href="api.html#ze-command-queue-group-properties-t"><span class="std std-ref">ze_command_queue_group_properties_t</span></a>.numQueues.</p></li>
 <li><p>The command queue index provides a mechanism for an application to indicate which command queues
-can execute concurrently (different indices) vs. those that cannot (same indices).</p></li>
-<li><p>There is no guarantee command lists submitted to command queues with different indices will execute concurrently,
+can execute concurrently (different indices).</p></li>
+<li><p>Command queues that do not share the same index may launch and execute concurrently.</p></li>
+<li><p>Command queues that share the same index launch sequentially but may execute concurrently.</p></li>
+<li><p>All command lists executed on a command queue are guaranteed to <strong>only</strong> execute on an engine from the
+command queue group to which it is assigned; e.g., copy commands in a compute command list / queue will
+execute via the compute engine, not the copy engine.</p></li>
+<li><p>There is no guarantee that command lists submitted to command queues with different indices will execute concurrently,
 only a possibility that they might execute concurrently.</p></li>
 </ul>
 <p>The following pseudo-code demonstrates a basic sequence for creation of command queues:</p>
@@ -1672,7 +1677,7 @@ ze_module_build_log_handle_t linklog;
 <a class="reference internal" href="api.html#ze-result-t"><span class="std std-ref">ze_result_t</span></a> result = <a class="reference internal" href="api.html#zemoduledynamiclink"><span class="std std-ref">zeModuleDynamicLink</span></a>(numModules, &amp;hModules, &amp;hLinklog);
 
 // Check if there are linking errors
-if (result == ze_RESULT_ERROR_MODULE_LINK_FAILURE) {
+if (result == <a class="reference internal" href="api.html#ze-result-t"><span class="std std-ref">ZE_RESULT_ERROR_MODULE_LINK_FAILURE</span></a>) {
   size_t szLog = 0;
   <a class="reference internal" href="api.html#zemodulebuildloggetstring"><span class="std std-ref">zeModuleBuildLogGetString</span></a>(linklog, &amp;szLog, nullptr);
 
@@ -1732,13 +1737,13 @@ ze_kernel_handle_t hKernel;
 <a class="reference internal" href="api.html#ze-result-t"><span class="std std-ref">ze_result_t</span></a> result = <a class="reference internal" href="api.html#zekernelcreate"><span class="std std-ref">zeKernelCreate</span></a>(hModule, &amp;kernelDesc, &amp;hKernel);
 
 // Check if there are unresolved imports
-if (result == ze_RESULT_ERROR_INVALID_MODULE_UNLINKED) {
-   // Call <a class="reference internal" href="api.html#zemoduledynamiclink"><span class="std std-ref">zeModuleDynamicLink</span></a> to dump out a link log
+if (result == <a class="reference internal" href="api.html#ze-result-t"><span class="std std-ref">ZE_RESULT_ERROR_INVALID_MODULE_UNLINKED</span></a>) {
+   // Un-resolvable import dependencies found in module!
    ...
 }
 
 // Check to see if the kernel &quot;image_scaling&quot; was found in the supplied module
-if (result == ze_RESULT_ERROR_INVALID_KERNEL_NAME) {
+if (result == <a class="reference internal" href="api.html#ze-result-t"><span class="std std-ref">ZE_RESULT_ERROR_INVALID_KERNEL_NAME</span></a>) {
    // Kernel &quot;image_scaling&quot; not found in module!
    ...
 }
