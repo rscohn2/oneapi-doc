@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.2.43
+                1.3.7
               </div>
             
           
@@ -259,7 +259,7 @@
             
   <div class="section" id="sysman-api">
 <h1>Sysman API<a class="headerlink" href="#sysman-api" title="Permalink to this headline">¶</a></h1>
-<p>oneAPI Level Zero Specification - Version 1.2.43</p>
+<p>oneAPI Level Zero Specification - Version 1.3.7</p>
 <div class="section" id="common">
 <h2>Common<a class="headerlink" href="#common" title="Permalink to this headline">¶</a></h2>
 <ul>
@@ -1906,23 +1906,23 @@
 <span id="id35"></span><h4>zesDiagnosticsRunTests<a class="headerlink" href="#zesdiagnosticsruntests" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv422zesDiagnosticsRunTests17zes_diag_handle_t8uint32_t8uint32_tP17zes_diag_result_t">
-<span id="_CPPv322zesDiagnosticsRunTests17zes_diag_handle_t8uint32_t8uint32_tP17zes_diag_result_t"></span><span id="_CPPv222zesDiagnosticsRunTests17zes_diag_handle_t8uint32_t8uint32_tP17zes_diag_result_t"></span><span id="zesDiagnosticsRunTests__zes_diag_handle_t.uint32_t.uint32_t.zes_diag_result_tP"></span><span class="target" id="zes__api_8h_1a9d42be6f4d59584d6d61d68b98f3b6b1"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesDiagnosticsRunTests</code><span class="sig-paren">(</span>zes_diag_handle_t <em>hDiagnostics</em>, uint32_t <em>start</em>, uint32_t <em>end</em>, <a class="reference internal" href="#_CPPv417zes_diag_result_t" title="zes_diag_result_t">zes_diag_result_t</a> *<em>pResult</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422zesDiagnosticsRunTests17zes_diag_handle_t8uint32_t8uint32_tP17zes_diag_result_t" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv322zesDiagnosticsRunTests17zes_diag_handle_t8uint32_t8uint32_tP17zes_diag_result_t"></span><span id="_CPPv222zesDiagnosticsRunTests17zes_diag_handle_t8uint32_t8uint32_tP17zes_diag_result_t"></span><span id="zesDiagnosticsRunTests__zes_diag_handle_t.uint32_t.uint32_t.zes_diag_result_tP"></span><span class="target" id="zes__api_8h_1a8174e9e85343dcbae665b06c0813ce16"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesDiagnosticsRunTests</code><span class="sig-paren">(</span>zes_diag_handle_t <em>hDiagnostics</em>, uint32_t <em>startIndex</em>, uint32_t <em>endIndex</em>, <a class="reference internal" href="#_CPPv417zes_diag_result_t" title="zes_diag_result_t">zes_diag_result_t</a> *<em>pResult</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422zesDiagnosticsRunTests17zes_diag_handle_t8uint32_t8uint32_tP17zes_diag_result_t" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Run a diagnostics test suite, either all tests or a subset of tests. </p>
 <p><dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">hDiagnostics</span></code>: [in] Handle for the component. </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">start</span></code>: [in] The index of the first test to run. Set to ZES_DIAG_FIRST_TEST_INDEX to start from the beginning. </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">end</span></code>: [in] The index of the last test to run. Set to ZES_DIAG_LAST_TEST_INDEX to complete all tests after the start test. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">startIndex</span></code>: [in] The index of the first test to run. Set to ZES_DIAG_FIRST_TEST_INDEX to start from the beginning. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">endIndex</span></code>: [in] The index of the last test to run. Set to ZES_DIAG_LAST_TEST_INDEX to complete all tests after the start test. </p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">pResult</span></code>: [in,out] The result of the diagnostics </p></li>
 </ul>
 </dd>
 </dl>
 </p>
 <p><ul class="simple">
-<li><p>WARNING: Performancing diagnostics may destroy current device state information. Gracefully close any running workloads before initiating.</p></li>
+<li><p>WARNING: Running diagnostics may destroy current device state information. Gracefully close any running workloads before initiating.</p></li>
 <li><p>To run all tests in a test suite, set start = ZES_DIAG_FIRST_TEST_INDEX and end = ZES_DIAG_LAST_TEST_INDEX.</p></li>
 <li><p>If the test suite permits running individual tests, <a class="reference internal" href="#structzes__diag__properties__t_1a1dfd840296b8ee2b60b7e6005edb662a"><span class="std std-ref">zes_diag_properties_t.haveTests</span></a> will be true. In this case, the function <a class="reference internal" href="#zes__api_8h_1aa5dc4b0440ea0c827f028d23f896915a"><span class="std std-ref">zesDiagnosticsGetTests()</span></a> can be called to get the list of tests and corresponding indices that can be supplied to the arguments start and end in this function.</p></li>
-<li><p>This function will block until the diagnostics have completed.</p></li>
+<li><p>This function will block until the diagnostics have completed and force reset based on result</p></li>
 </ul>
 </p>
 <p><dl class="simple">
@@ -6150,6 +6150,42 @@
 </dd></dl>
 
 <dl class="cpp enumerator">
+<dt id="_CPPv418ZES_MEM_TYPE_GDDR4">
+<span id="_CPPv318ZES_MEM_TYPE_GDDR4"></span><span id="_CPPv218ZES_MEM_TYPE_GDDR4"></span><span class="target" id="zes__api_8h_1a632010c7112f12c5fbf53405b7066225add0085babc83a1a91f0356021df9965c"></span><code class="sig-name descname">ZES_MEM_TYPE_GDDR4</code> = 14<a class="headerlink" href="#_CPPv418ZES_MEM_TYPE_GDDR4" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>GDDR4 memory. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv418ZES_MEM_TYPE_GDDR5">
+<span id="_CPPv318ZES_MEM_TYPE_GDDR5"></span><span id="_CPPv218ZES_MEM_TYPE_GDDR5"></span><span class="target" id="zes__api_8h_1a632010c7112f12c5fbf53405b7066225a6cd5a2fcf5b2838ce086d666bdada2a9"></span><code class="sig-name descname">ZES_MEM_TYPE_GDDR5</code> = 15<a class="headerlink" href="#_CPPv418ZES_MEM_TYPE_GDDR5" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>GDDR5 memory. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv419ZES_MEM_TYPE_GDDR5X">
+<span id="_CPPv319ZES_MEM_TYPE_GDDR5X"></span><span id="_CPPv219ZES_MEM_TYPE_GDDR5X"></span><span class="target" id="zes__api_8h_1a632010c7112f12c5fbf53405b7066225a5dd26c8b6af7de61d2c5a2927621df35"></span><code class="sig-name descname">ZES_MEM_TYPE_GDDR5X</code> = 16<a class="headerlink" href="#_CPPv419ZES_MEM_TYPE_GDDR5X" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>GDDR5X memory. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv418ZES_MEM_TYPE_GDDR6">
+<span id="_CPPv318ZES_MEM_TYPE_GDDR6"></span><span id="_CPPv218ZES_MEM_TYPE_GDDR6"></span><span class="target" id="zes__api_8h_1a632010c7112f12c5fbf53405b7066225a8d40a56a6963057b4bb98f6e6c13a134"></span><code class="sig-name descname">ZES_MEM_TYPE_GDDR6</code> = 17<a class="headerlink" href="#_CPPv418ZES_MEM_TYPE_GDDR6" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>GDDR6 memory. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv419ZES_MEM_TYPE_GDDR6X">
+<span id="_CPPv319ZES_MEM_TYPE_GDDR6X"></span><span id="_CPPv219ZES_MEM_TYPE_GDDR6X"></span><span class="target" id="zes__api_8h_1a632010c7112f12c5fbf53405b7066225a2badc91c66067a88767c7b90f97782df"></span><code class="sig-name descname">ZES_MEM_TYPE_GDDR6X</code> = 18<a class="headerlink" href="#_CPPv419ZES_MEM_TYPE_GDDR6X" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>GDDR6X memory. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv418ZES_MEM_TYPE_GDDR7">
+<span id="_CPPv318ZES_MEM_TYPE_GDDR7"></span><span id="_CPPv218ZES_MEM_TYPE_GDDR7"></span><span class="target" id="zes__api_8h_1a632010c7112f12c5fbf53405b7066225af6f7966145fbb3037d77e6f89a5771b3"></span><code class="sig-name descname">ZES_MEM_TYPE_GDDR7</code> = 19<a class="headerlink" href="#_CPPv418ZES_MEM_TYPE_GDDR7" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>GDDR7 memory. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
 <dt id="_CPPv425ZES_MEM_TYPE_FORCE_UINT32">
 <span id="_CPPv325ZES_MEM_TYPE_FORCE_UINT32"></span><span id="_CPPv225ZES_MEM_TYPE_FORCE_UINT32"></span><span class="target" id="zes__api_8h_1a632010c7112f12c5fbf53405b7066225ae7b21aadbbfbf4c17d0e25364eb24e7f"></span><code class="sig-name descname">ZES_MEM_TYPE_FORCE_UINT32</code> = 0x7fffffff<a class="headerlink" href="#_CPPv425ZES_MEM_TYPE_FORCE_UINT32" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
@@ -6624,6 +6660,7 @@
 <blockquote>
 <div><ul class="simple">
 <li><p><a class="reference internal" href="#zesdeviceenumpowerdomains"><span class="std std-ref">zesDeviceEnumPowerDomains</span></a></p></li>
+<li><p><a class="reference internal" href="#zesdevicegetcardpowerdomain"><span class="std std-ref">zesDeviceGetCardPowerDomain</span></a></p></li>
 <li><p><a class="reference internal" href="#zespowergetproperties"><span class="std std-ref">zesPowerGetProperties</span></a></p></li>
 <li><p><a class="reference internal" href="#zespowergetenergycounter"><span class="std std-ref">zesPowerGetEnergyCounter</span></a></p></li>
 <li><p><a class="reference internal" href="#zespowergetlimits"><span class="std std-ref">zesPowerGetLimits</span></a></p></li>
@@ -6689,8 +6726,52 @@
 </dd></dl>
 
 </div>
+<div class="section" id="zesdevicegetcardpowerdomain">
+<span id="id134"></span><h4>zesDeviceGetCardPowerDomain<a class="headerlink" href="#zesdevicegetcardpowerdomain" title="Permalink to this headline">¶</a></h4>
+<dl class="cpp function">
+<dt id="_CPPv427zesDeviceGetCardPowerDomain19zes_device_handle_tP16zes_pwr_handle_t">
+<span id="_CPPv327zesDeviceGetCardPowerDomain19zes_device_handle_tP16zes_pwr_handle_t"></span><span id="_CPPv227zesDeviceGetCardPowerDomain19zes_device_handle_tP16zes_pwr_handle_t"></span><span id="zesDeviceGetCardPowerDomain__zes_device_handle_t.zes_pwr_handle_tP"></span><span class="target" id="zes__api_8h_1ae5439aa5e6f636ce8dc7fb4946d8c0ec"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesDeviceGetCardPowerDomain</code><span class="sig-paren">(</span>zes_device_handle_t <em>hDevice</em>, zes_pwr_handle_t *<em>phPower</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv427zesDeviceGetCardPowerDomain19zes_device_handle_tP16zes_pwr_handle_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get handle of the PCIe card-level power. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">hDevice</span></code>: [in] Sysman handle of the device. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">phPower</span></code>: [in,out] power domain handle for the entire PCIe card. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+<p><ul class="simple">
+<li><p>The application may call this function from simultaneous threads.</p></li>
+<li><p>The implementation of this function should be lock-free.</p></li>
+</ul>
+</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p><ul class="simple">
+<li><p><a class="reference internal" href="../core/api.html#ze__api_8h_1a3ea791bcf22ddfc1d413579b12c22767ae892446ebfef04994eaa45d020c528cd"><span class="std std-ref">ZE_RESULT_SUCCESS</span></a></p></li>
+<li><p><a class="reference internal" href="../core/api.html#ze__api_8h_1a3ea791bcf22ddfc1d413579b12c22767aed109126c34c65188f22b5bdb6c4c37f"><span class="std std-ref">ZE_RESULT_ERROR_UNINITIALIZED</span></a></p></li>
+<li><p><a class="reference internal" href="../core/api.html#ze__api_8h_1a3ea791bcf22ddfc1d413579b12c22767a1068b875393bd04173ce6d2810189890"><span class="std std-ref">ZE_RESULT_ERROR_DEVICE_LOST</span></a></p></li>
+<li><p><a class="reference internal" href="../core/api.html#ze__api_8h_1a3ea791bcf22ddfc1d413579b12c22767a21376db55e4a4577d2b527dfcd6bb381"><span class="std std-ref">ZE_RESULT_ERROR_INVALID_NULL_HANDLE</span></a><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">nullptr</span> <span class="pre">==</span> <span class="pre">hDevice</span></code></p></li>
+</ul>
+</p></li>
+<li><p><a class="reference internal" href="../core/api.html#ze__api_8h_1a3ea791bcf22ddfc1d413579b12c22767a90dc7f955a711ba2377da3125672400f"><span class="std std-ref">ZE_RESULT_ERROR_INVALID_NULL_POINTER</span></a><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">nullptr</span> <span class="pre">==</span> <span class="pre">phPower</span></code></p></li>
+</ul>
+</p></li>
+<li><p><a class="reference internal" href="../core/api.html#ze__api_8h_1a3ea791bcf22ddfc1d413579b12c22767a0a804d6947134bd553649e7787b72c14"><span class="std std-ref">ZE_RESULT_ERROR_UNSUPPORTED_FEATURE</span></a><ul>
+<li><p>The device does not provide access to card level power controls or telemetry. An invalid power domain handle will be returned in phPower. </p></li>
+</ul>
+</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
 <div class="section" id="zespowergetproperties">
-<span id="id134"></span><h4>zesPowerGetProperties<a class="headerlink" href="#zespowergetproperties" title="Permalink to this headline">¶</a></h4>
+<span id="id135"></span><h4>zesPowerGetProperties<a class="headerlink" href="#zespowergetproperties" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv421zesPowerGetProperties16zes_pwr_handle_tP22zes_power_properties_t">
 <span id="_CPPv321zesPowerGetProperties16zes_pwr_handle_tP22zes_power_properties_t"></span><span id="_CPPv221zesPowerGetProperties16zes_pwr_handle_tP22zes_power_properties_t"></span><span id="zesPowerGetProperties__zes_pwr_handle_t.zes_power_properties_tP"></span><span class="target" id="zes__api_8h_1a344242849ace66877150dc7bf9de6f04"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesPowerGetProperties</code><span class="sig-paren">(</span>zes_pwr_handle_t <em>hPower</em>, <a class="reference internal" href="#_CPPv422zes_power_properties_t" title="zes_power_properties_t">zes_power_properties_t</a> *<em>pProperties</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421zesPowerGetProperties16zes_pwr_handle_tP22zes_power_properties_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -6730,7 +6811,7 @@
 
 </div>
 <div class="section" id="zespowergetenergycounter">
-<span id="id135"></span><h4>zesPowerGetEnergyCounter<a class="headerlink" href="#zespowergetenergycounter" title="Permalink to this headline">¶</a></h4>
+<span id="id136"></span><h4>zesPowerGetEnergyCounter<a class="headerlink" href="#zespowergetenergycounter" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv424zesPowerGetEnergyCounter16zes_pwr_handle_tP26zes_power_energy_counter_t">
 <span id="_CPPv324zesPowerGetEnergyCounter16zes_pwr_handle_tP26zes_power_energy_counter_t"></span><span id="_CPPv224zesPowerGetEnergyCounter16zes_pwr_handle_tP26zes_power_energy_counter_t"></span><span id="zesPowerGetEnergyCounter__zes_pwr_handle_t.zes_power_energy_counter_tP"></span><span class="target" id="zes__api_8h_1a37c6d3f484f3b0a3bff4e329f4991d79"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesPowerGetEnergyCounter</code><span class="sig-paren">(</span>zes_pwr_handle_t <em>hPower</em>, <a class="reference internal" href="#_CPPv426zes_power_energy_counter_t" title="zes_power_energy_counter_t">zes_power_energy_counter_t</a> *<em>pEnergy</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv424zesPowerGetEnergyCounter16zes_pwr_handle_tP26zes_power_energy_counter_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -6770,7 +6851,7 @@
 
 </div>
 <div class="section" id="zespowergetlimits">
-<span id="id136"></span><h4>zesPowerGetLimits<a class="headerlink" href="#zespowergetlimits" title="Permalink to this headline">¶</a></h4>
+<span id="id137"></span><h4>zesPowerGetLimits<a class="headerlink" href="#zespowergetlimits" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv417zesPowerGetLimits16zes_pwr_handle_tP27zes_power_sustained_limit_tP23zes_power_burst_limit_tP22zes_power_peak_limit_t">
 <span id="_CPPv317zesPowerGetLimits16zes_pwr_handle_tP27zes_power_sustained_limit_tP23zes_power_burst_limit_tP22zes_power_peak_limit_t"></span><span id="_CPPv217zesPowerGetLimits16zes_pwr_handle_tP27zes_power_sustained_limit_tP23zes_power_burst_limit_tP22zes_power_peak_limit_t"></span><span id="zesPowerGetLimits__zes_pwr_handle_t.zes_power_sustained_limit_tP.zes_power_burst_limit_tP.zes_power_peak_limit_tP"></span><span class="target" id="zes__api_8h_1ab423f84a9b8c24146ba1bd472eb455d8"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesPowerGetLimits</code><span class="sig-paren">(</span>zes_pwr_handle_t <em>hPower</em>, <a class="reference internal" href="#_CPPv427zes_power_sustained_limit_t" title="zes_power_sustained_limit_t">zes_power_sustained_limit_t</a> *<em>pSustained</em>, <a class="reference internal" href="#_CPPv423zes_power_burst_limit_t" title="zes_power_burst_limit_t">zes_power_burst_limit_t</a> *<em>pBurst</em>, <a class="reference internal" href="#_CPPv422zes_power_peak_limit_t" title="zes_power_peak_limit_t">zes_power_peak_limit_t</a> *<em>pPeak</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417zesPowerGetLimits16zes_pwr_handle_tP27zes_power_sustained_limit_tP23zes_power_burst_limit_tP22zes_power_peak_limit_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -6808,7 +6889,7 @@
 
 </div>
 <div class="section" id="zespowersetlimits">
-<span id="id137"></span><h4>zesPowerSetLimits<a class="headerlink" href="#zespowersetlimits" title="Permalink to this headline">¶</a></h4>
+<span id="id138"></span><h4>zesPowerSetLimits<a class="headerlink" href="#zespowersetlimits" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv417zesPowerSetLimits16zes_pwr_handle_tPK27zes_power_sustained_limit_tPK23zes_power_burst_limit_tPK22zes_power_peak_limit_t">
 <span id="_CPPv317zesPowerSetLimits16zes_pwr_handle_tPK27zes_power_sustained_limit_tPK23zes_power_burst_limit_tPK22zes_power_peak_limit_t"></span><span id="_CPPv217zesPowerSetLimits16zes_pwr_handle_tPK27zes_power_sustained_limit_tPK23zes_power_burst_limit_tPK22zes_power_peak_limit_t"></span><span id="zesPowerSetLimits__zes_pwr_handle_t.zes_power_sustained_limit_tCP.zes_power_burst_limit_tCP.zes_power_peak_limit_tCP"></span><span class="target" id="zes__api_8h_1a288dd8da3a8f1fa2ce71d52677ce9a2e"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesPowerSetLimits</code><span class="sig-paren">(</span>zes_pwr_handle_t <em>hPower</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv427zes_power_sustained_limit_t" title="zes_power_sustained_limit_t">zes_power_sustained_limit_t</a> *<em>pSustained</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv423zes_power_burst_limit_t" title="zes_power_burst_limit_t">zes_power_burst_limit_t</a> *<em>pBurst</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv422zes_power_peak_limit_t" title="zes_power_peak_limit_t">zes_power_peak_limit_t</a> *<em>pPeak</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417zesPowerSetLimits16zes_pwr_handle_tPK27zes_power_sustained_limit_tPK23zes_power_burst_limit_tPK22zes_power_peak_limit_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -6854,7 +6935,7 @@
 
 </div>
 <div class="section" id="zespowergetenergythreshold">
-<span id="id138"></span><h4>zesPowerGetEnergyThreshold<a class="headerlink" href="#zespowergetenergythreshold" title="Permalink to this headline">¶</a></h4>
+<span id="id139"></span><h4>zesPowerGetEnergyThreshold<a class="headerlink" href="#zespowergetenergythreshold" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv426zesPowerGetEnergyThreshold16zes_pwr_handle_tP22zes_energy_threshold_t">
 <span id="_CPPv326zesPowerGetEnergyThreshold16zes_pwr_handle_tP22zes_energy_threshold_t"></span><span id="_CPPv226zesPowerGetEnergyThreshold16zes_pwr_handle_tP22zes_energy_threshold_t"></span><span id="zesPowerGetEnergyThreshold__zes_pwr_handle_t.zes_energy_threshold_tP"></span><span class="target" id="zes__api_8h_1ad79def234231e26c309b25af6f14a107"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesPowerGetEnergyThreshold</code><span class="sig-paren">(</span>zes_pwr_handle_t <em>hPower</em>, <a class="reference internal" href="#_CPPv422zes_energy_threshold_t" title="zes_energy_threshold_t">zes_energy_threshold_t</a> *<em>pThreshold</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv426zesPowerGetEnergyThreshold16zes_pwr_handle_tP22zes_energy_threshold_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -6902,7 +6983,7 @@
 
 </div>
 <div class="section" id="zespowersetenergythreshold">
-<span id="id139"></span><h4>zesPowerSetEnergyThreshold<a class="headerlink" href="#zespowersetenergythreshold" title="Permalink to this headline">¶</a></h4>
+<span id="id140"></span><h4>zesPowerSetEnergyThreshold<a class="headerlink" href="#zespowersetenergythreshold" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv426zesPowerSetEnergyThreshold16zes_pwr_handle_td">
 <span id="_CPPv326zesPowerSetEnergyThreshold16zes_pwr_handle_td"></span><span id="_CPPv226zesPowerSetEnergyThreshold16zes_pwr_handle_td"></span><span id="zesPowerSetEnergyThreshold__zes_pwr_handle_t.double"></span><span class="target" id="zes__api_8h_1a458adf8bf4181ec3001c7ccec239012a"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesPowerSetEnergyThreshold</code><span class="sig-paren">(</span>zes_pwr_handle_t <em>hPower</em>, double <em>threshold</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv426zesPowerSetEnergyThreshold16zes_pwr_handle_td" title="Permalink to this definition">¶</a><br /></dt>
@@ -6957,7 +7038,7 @@
 <div class="section" id="power-structures">
 <h3>Power Structures<a class="headerlink" href="#power-structures" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="zes-power-properties-t">
-<span id="id140"></span><h4>zes_power_properties_t<a class="headerlink" href="#zes-power-properties-t" title="Permalink to this headline">¶</a></h4>
+<span id="id141"></span><h4>zes_power_properties_t<a class="headerlink" href="#zes-power-properties-t" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp struct">
 <dt id="_CPPv422zes_power_properties_t">
 <span id="_CPPv322zes_power_properties_t"></span><span id="_CPPv222zes_power_properties_t"></span><span id="zes_power_properties_t"></span><span class="target" id="structzes__power__properties__t"></span><em class="property">struct </em><code class="sig-name descname">zes_power_properties_t</code><a class="headerlink" href="#_CPPv422zes_power_properties_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -7023,7 +7104,7 @@
 
 </div>
 <div class="section" id="zes-power-energy-counter-t">
-<span id="id141"></span><h4>zes_power_energy_counter_t<a class="headerlink" href="#zes-power-energy-counter-t" title="Permalink to this headline">¶</a></h4>
+<span id="id142"></span><h4>zes_power_energy_counter_t<a class="headerlink" href="#zes-power-energy-counter-t" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp struct">
 <dt id="_CPPv426zes_power_energy_counter_t">
 <span id="_CPPv326zes_power_energy_counter_t"></span><span id="_CPPv226zes_power_energy_counter_t"></span><span id="zes_power_energy_counter_t"></span><span class="target" id="structzes__power__energy__counter__t"></span><em class="property">struct </em><code class="sig-name descname">zes_power_energy_counter_t</code><a class="headerlink" href="#_CPPv426zes_power_energy_counter_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -7051,7 +7132,7 @@
 
 </div>
 <div class="section" id="zes-power-sustained-limit-t">
-<span id="id142"></span><h4>zes_power_sustained_limit_t<a class="headerlink" href="#zes-power-sustained-limit-t" title="Permalink to this headline">¶</a></h4>
+<span id="id143"></span><h4>zes_power_sustained_limit_t<a class="headerlink" href="#zes-power-sustained-limit-t" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp struct">
 <dt id="_CPPv427zes_power_sustained_limit_t">
 <span id="_CPPv327zes_power_sustained_limit_t"></span><span id="_CPPv227zes_power_sustained_limit_t"></span><span id="zes_power_sustained_limit_t"></span><span class="target" id="structzes__power__sustained__limit__t"></span><em class="property">struct </em><code class="sig-name descname">zes_power_sustained_limit_t</code><a class="headerlink" href="#_CPPv427zes_power_sustained_limit_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -7085,7 +7166,7 @@
 
 </div>
 <div class="section" id="zes-power-burst-limit-t">
-<span id="id143"></span><h4>zes_power_burst_limit_t<a class="headerlink" href="#zes-power-burst-limit-t" title="Permalink to this headline">¶</a></h4>
+<span id="id144"></span><h4>zes_power_burst_limit_t<a class="headerlink" href="#zes-power-burst-limit-t" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp struct">
 <dt id="_CPPv423zes_power_burst_limit_t">
 <span id="_CPPv323zes_power_burst_limit_t"></span><span id="_CPPv223zes_power_burst_limit_t"></span><span id="zes_power_burst_limit_t"></span><span class="target" id="structzes__power__burst__limit__t"></span><em class="property">struct </em><code class="sig-name descname">zes_power_burst_limit_t</code><a class="headerlink" href="#_CPPv423zes_power_burst_limit_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -7113,13 +7194,13 @@
 
 </div>
 <div class="section" id="zes-power-peak-limit-t">
-<span id="id144"></span><h4>zes_power_peak_limit_t<a class="headerlink" href="#zes-power-peak-limit-t" title="Permalink to this headline">¶</a></h4>
+<span id="id145"></span><h4>zes_power_peak_limit_t<a class="headerlink" href="#zes-power-peak-limit-t" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp struct">
 <dt id="_CPPv422zes_power_peak_limit_t">
 <span id="_CPPv322zes_power_peak_limit_t"></span><span id="_CPPv222zes_power_peak_limit_t"></span><span id="zes_power_peak_limit_t"></span><span class="target" id="structzes__power__peak__limit__t"></span><em class="property">struct </em><code class="sig-name descname">zes_power_peak_limit_t</code><a class="headerlink" href="#_CPPv422zes_power_peak_limit_t" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Peak power limit. </p>
 <p><ul class="simple">
-<li><p>The power controller (Punit) will preemptively throttle the operating frequency of the device when the instantaneous power exceeds this limit. The limit is known as PL4. It expresses the maximum power that can be drawn from the power supply.</p></li>
+<li><p>The power controller (Punit) will reactively/proactively throttle the operating frequency of the device when the instantaneous/100usec power exceeds this limit. The limit is known as PL4 or Psys. It expresses the maximum power that can be drawn from the power supply.</p></li>
 <li><p>If this power limit is removed or set too high, the power supply will generate an interrupt when it detects an overcurrent condition and the power controller will throttle the device frequencies down to min. It is thus better to tune the PL4 value in order to avoid such excursions. </p></li>
 </ul>
 </p>
@@ -7142,7 +7223,7 @@
 
 </div>
 <div class="section" id="zes-energy-threshold-t">
-<span id="id145"></span><h4>zes_energy_threshold_t<a class="headerlink" href="#zes-energy-threshold-t" title="Permalink to this headline">¶</a></h4>
+<span id="id146"></span><h4>zes_energy_threshold_t<a class="headerlink" href="#zes-energy-threshold-t" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp struct">
 <dt id="_CPPv422zes_energy_threshold_t">
 <span id="_CPPv322zes_energy_threshold_t"></span><span id="_CPPv222zes_energy_threshold_t"></span><span id="zes_energy_threshold_t"></span><span class="target" id="structzes__energy__threshold__t"></span><em class="property">struct </em><code class="sig-name descname">zes_energy_threshold_t</code><a class="headerlink" href="#_CPPv422zes_energy_threshold_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -7208,7 +7289,7 @@
 <div class="section" id="psu-functions">
 <h3>Psu Functions<a class="headerlink" href="#psu-functions" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="zesdeviceenumpsus">
-<span id="id146"></span><h4>zesDeviceEnumPsus<a class="headerlink" href="#zesdeviceenumpsus" title="Permalink to this headline">¶</a></h4>
+<span id="id147"></span><h4>zesDeviceEnumPsus<a class="headerlink" href="#zesdeviceenumpsus" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv417zesDeviceEnumPsus19zes_device_handle_tP8uint32_tP16zes_psu_handle_t">
 <span id="_CPPv317zesDeviceEnumPsus19zes_device_handle_tP8uint32_tP16zes_psu_handle_t"></span><span id="_CPPv217zesDeviceEnumPsus19zes_device_handle_tP8uint32_tP16zes_psu_handle_t"></span><span id="zesDeviceEnumPsus__zes_device_handle_t.uint32_tP.zes_psu_handle_tP"></span><span class="target" id="zes__api_8h_1a34fa74c298e70b9a3293be5257189b6e"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesDeviceEnumPsus</code><span class="sig-paren">(</span>zes_device_handle_t <em>hDevice</em>, uint32_t *<em>pCount</em>, zes_psu_handle_t *<em>phPsu</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417zesDeviceEnumPsus19zes_device_handle_tP8uint32_tP16zes_psu_handle_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -7249,7 +7330,7 @@
 
 </div>
 <div class="section" id="zespsugetproperties">
-<span id="id147"></span><h4>zesPsuGetProperties<a class="headerlink" href="#zespsugetproperties" title="Permalink to this headline">¶</a></h4>
+<span id="id148"></span><h4>zesPsuGetProperties<a class="headerlink" href="#zespsugetproperties" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv419zesPsuGetProperties16zes_psu_handle_tP20zes_psu_properties_t">
 <span id="_CPPv319zesPsuGetProperties16zes_psu_handle_tP20zes_psu_properties_t"></span><span id="_CPPv219zesPsuGetProperties16zes_psu_handle_tP20zes_psu_properties_t"></span><span id="zesPsuGetProperties__zes_psu_handle_t.zes_psu_properties_tP"></span><span class="target" id="zes__api_8h_1ae4ddf405fc7d05e6d860431dc791a195"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesPsuGetProperties</code><span class="sig-paren">(</span>zes_psu_handle_t <em>hPsu</em>, <a class="reference internal" href="#_CPPv420zes_psu_properties_t" title="zes_psu_properties_t">zes_psu_properties_t</a> *<em>pProperties</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419zesPsuGetProperties16zes_psu_handle_tP20zes_psu_properties_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -7289,7 +7370,7 @@
 
 </div>
 <div class="section" id="zespsugetstate">
-<span id="id148"></span><h4>zesPsuGetState<a class="headerlink" href="#zespsugetstate" title="Permalink to this headline">¶</a></h4>
+<span id="id149"></span><h4>zesPsuGetState<a class="headerlink" href="#zespsugetstate" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv414zesPsuGetState16zes_psu_handle_tP15zes_psu_state_t">
 <span id="_CPPv314zesPsuGetState16zes_psu_handle_tP15zes_psu_state_t"></span><span id="_CPPv214zesPsuGetState16zes_psu_handle_tP15zes_psu_state_t"></span><span id="zesPsuGetState__zes_psu_handle_t.zes_psu_state_tP"></span><span class="target" id="zes__api_8h_1aa1981e017e12847d8e413a45c17063e4"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesPsuGetState</code><span class="sig-paren">(</span>zes_psu_handle_t <em>hPsu</em>, <a class="reference internal" href="#_CPPv415zes_psu_state_t" title="zes_psu_state_t">zes_psu_state_t</a> *<em>pState</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414zesPsuGetState16zes_psu_handle_tP15zes_psu_state_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -7332,7 +7413,7 @@
 <div class="section" id="psu-enums">
 <h3>Psu Enums<a class="headerlink" href="#psu-enums" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="zes-psu-voltage-status-t">
-<span id="id149"></span><h4>zes_psu_voltage_status_t<a class="headerlink" href="#zes-psu-voltage-status-t" title="Permalink to this headline">¶</a></h4>
+<span id="id150"></span><h4>zes_psu_voltage_status_t<a class="headerlink" href="#zes-psu-voltage-status-t" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp enum">
 <dt id="_CPPv424zes_psu_voltage_status_t">
 <span id="_CPPv324zes_psu_voltage_status_t"></span><span id="_CPPv224zes_psu_voltage_status_t"></span><span class="target" id="zes__api_8h_1a6fe0c6d65cbccfda2a8c859e55309916"></span><em class="property">enum </em><code class="sig-name descname">zes_psu_voltage_status_t</code><a class="headerlink" href="#_CPPv424zes_psu_voltage_status_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -7374,7 +7455,7 @@
 <div class="section" id="psu-structures">
 <h3>Psu Structures<a class="headerlink" href="#psu-structures" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="zes-psu-properties-t">
-<span id="id150"></span><h4>zes_psu_properties_t<a class="headerlink" href="#zes-psu-properties-t" title="Permalink to this headline">¶</a></h4>
+<span id="id151"></span><h4>zes_psu_properties_t<a class="headerlink" href="#zes-psu-properties-t" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp struct">
 <dt id="_CPPv420zes_psu_properties_t">
 <span id="_CPPv320zes_psu_properties_t"></span><span id="_CPPv220zes_psu_properties_t"></span><span id="zes_psu_properties_t"></span><span class="target" id="structzes__psu__properties__t"></span><em class="property">struct </em><code class="sig-name descname">zes_psu_properties_t</code><a class="headerlink" href="#_CPPv420zes_psu_properties_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -7422,7 +7503,7 @@
 
 </div>
 <div class="section" id="zes-psu-state-t">
-<span id="id151"></span><h4>zes_psu_state_t<a class="headerlink" href="#zes-psu-state-t" title="Permalink to this headline">¶</a></h4>
+<span id="id152"></span><h4>zes_psu_state_t<a class="headerlink" href="#zes-psu-state-t" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp struct">
 <dt id="_CPPv415zes_psu_state_t">
 <span id="_CPPv315zes_psu_state_t"></span><span id="_CPPv215zes_psu_state_t"></span><span id="zes_psu_state_t"></span><span class="target" id="structzes__psu__state__t"></span><em class="property">struct </em><code class="sig-name descname">zes_psu_state_t</code><a class="headerlink" href="#_CPPv415zes_psu_state_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -7506,7 +7587,7 @@
 <div class="section" id="ras-functions">
 <h3>Ras Functions<a class="headerlink" href="#ras-functions" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="zesdeviceenumraserrorsets">
-<span id="id152"></span><h4>zesDeviceEnumRasErrorSets<a class="headerlink" href="#zesdeviceenumraserrorsets" title="Permalink to this headline">¶</a></h4>
+<span id="id153"></span><h4>zesDeviceEnumRasErrorSets<a class="headerlink" href="#zesdeviceenumraserrorsets" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv425zesDeviceEnumRasErrorSets19zes_device_handle_tP8uint32_tP16zes_ras_handle_t">
 <span id="_CPPv325zesDeviceEnumRasErrorSets19zes_device_handle_tP8uint32_tP16zes_ras_handle_t"></span><span id="_CPPv225zesDeviceEnumRasErrorSets19zes_device_handle_tP8uint32_tP16zes_ras_handle_t"></span><span id="zesDeviceEnumRasErrorSets__zes_device_handle_t.uint32_tP.zes_ras_handle_tP"></span><span class="target" id="zes__api_8h_1aa24221d5db73e9556bec2be44c67e5dc"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesDeviceEnumRasErrorSets</code><span class="sig-paren">(</span>zes_device_handle_t <em>hDevice</em>, uint32_t *<em>pCount</em>, zes_ras_handle_t *<em>phRas</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv425zesDeviceEnumRasErrorSets19zes_device_handle_tP8uint32_tP16zes_ras_handle_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -7551,7 +7632,7 @@
 
 </div>
 <div class="section" id="zesrasgetproperties">
-<span id="id153"></span><h4>zesRasGetProperties<a class="headerlink" href="#zesrasgetproperties" title="Permalink to this headline">¶</a></h4>
+<span id="id154"></span><h4>zesRasGetProperties<a class="headerlink" href="#zesrasgetproperties" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv419zesRasGetProperties16zes_ras_handle_tP20zes_ras_properties_t">
 <span id="_CPPv319zesRasGetProperties16zes_ras_handle_tP20zes_ras_properties_t"></span><span id="_CPPv219zesRasGetProperties16zes_ras_handle_tP20zes_ras_properties_t"></span><span id="zesRasGetProperties__zes_ras_handle_t.zes_ras_properties_tP"></span><span class="target" id="zes__api_8h_1a1d9c85000c922573ed955958e798e8fa"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesRasGetProperties</code><span class="sig-paren">(</span>zes_ras_handle_t <em>hRas</em>, <a class="reference internal" href="#_CPPv420zes_ras_properties_t" title="zes_ras_properties_t">zes_ras_properties_t</a> *<em>pProperties</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419zesRasGetProperties16zes_ras_handle_tP20zes_ras_properties_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -7591,7 +7672,7 @@
 
 </div>
 <div class="section" id="zesrasgetconfig">
-<span id="id154"></span><h4>zesRasGetConfig<a class="headerlink" href="#zesrasgetconfig" title="Permalink to this headline">¶</a></h4>
+<span id="id155"></span><h4>zesRasGetConfig<a class="headerlink" href="#zesrasgetconfig" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv415zesRasGetConfig16zes_ras_handle_tP16zes_ras_config_t">
 <span id="_CPPv315zesRasGetConfig16zes_ras_handle_tP16zes_ras_config_t"></span><span id="_CPPv215zesRasGetConfig16zes_ras_handle_tP16zes_ras_config_t"></span><span id="zesRasGetConfig__zes_ras_handle_t.zes_ras_config_tP"></span><span class="target" id="zes__api_8h_1a88bb482d7284d27132aaf4c4e367ca0b"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesRasGetConfig</code><span class="sig-paren">(</span>zes_ras_handle_t <em>hRas</em>, <a class="reference internal" href="#_CPPv416zes_ras_config_t" title="zes_ras_config_t">zes_ras_config_t</a> *<em>pConfig</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415zesRasGetConfig16zes_ras_handle_tP16zes_ras_config_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -7634,7 +7715,7 @@
 
 </div>
 <div class="section" id="zesrassetconfig">
-<span id="id155"></span><h4>zesRasSetConfig<a class="headerlink" href="#zesrassetconfig" title="Permalink to this headline">¶</a></h4>
+<span id="id156"></span><h4>zesRasSetConfig<a class="headerlink" href="#zesrassetconfig" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv415zesRasSetConfig16zes_ras_handle_tPK16zes_ras_config_t">
 <span id="_CPPv315zesRasSetConfig16zes_ras_handle_tPK16zes_ras_config_t"></span><span id="_CPPv215zesRasSetConfig16zes_ras_handle_tPK16zes_ras_config_t"></span><span id="zesRasSetConfig__zes_ras_handle_t.zes_ras_config_tCP"></span><span class="target" id="zes__api_8h_1aab4f952c71f5500eab19e23ecde7abea"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesRasSetConfig</code><span class="sig-paren">(</span>zes_ras_handle_t <em>hRas</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv416zes_ras_config_t" title="zes_ras_config_t">zes_ras_config_t</a> *<em>pConfig</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415zesRasSetConfig16zes_ras_handle_tPK16zes_ras_config_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -7686,7 +7767,7 @@
 
 </div>
 <div class="section" id="zesrasgetstate">
-<span id="id156"></span><h4>zesRasGetState<a class="headerlink" href="#zesrasgetstate" title="Permalink to this headline">¶</a></h4>
+<span id="id157"></span><h4>zesRasGetState<a class="headerlink" href="#zesrasgetstate" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv414zesRasGetState16zes_ras_handle_t9ze_bool_tP15zes_ras_state_t">
 <span id="_CPPv314zesRasGetState16zes_ras_handle_t9ze_bool_tP15zes_ras_state_t"></span><span id="_CPPv214zesRasGetState16zes_ras_handle_t9ze_bool_tP15zes_ras_state_t"></span><span id="zesRasGetState__zes_ras_handle_t.ze_bool_t.zes_ras_state_tP"></span><span class="target" id="zes__api_8h_1a9815819b5e94bf6bf31530364d64d721"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesRasGetState</code><span class="sig-paren">(</span>zes_ras_handle_t <em>hRas</em>, ze_bool_t <em>clear</em>, <a class="reference internal" href="#_CPPv415zes_ras_state_t" title="zes_ras_state_t">zes_ras_state_t</a> *<em>pState</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414zesRasGetState16zes_ras_handle_t9ze_bool_tP15zes_ras_state_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -7736,7 +7817,7 @@
 <div class="section" id="ras-enums">
 <h3>Ras Enums<a class="headerlink" href="#ras-enums" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="zes-ras-error-type-t">
-<span id="id157"></span><h4>zes_ras_error_type_t<a class="headerlink" href="#zes-ras-error-type-t" title="Permalink to this headline">¶</a></h4>
+<span id="id158"></span><h4>zes_ras_error_type_t<a class="headerlink" href="#zes-ras-error-type-t" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp enum">
 <dt id="_CPPv420zes_ras_error_type_t">
 <span id="_CPPv320zes_ras_error_type_t"></span><span id="_CPPv220zes_ras_error_type_t"></span><span class="target" id="zes__api_8h_1a15cd414b681d3d46e65e5c04423cebd1"></span><em class="property">enum </em><code class="sig-name descname">zes_ras_error_type_t</code><a class="headerlink" href="#_CPPv420zes_ras_error_type_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -7763,7 +7844,7 @@
 
 </div>
 <div class="section" id="zes-ras-error-cat-t">
-<span id="id158"></span><h4>zes_ras_error_cat_t<a class="headerlink" href="#zes-ras-error-cat-t" title="Permalink to this headline">¶</a></h4>
+<span id="id159"></span><h4>zes_ras_error_cat_t<a class="headerlink" href="#zes-ras-error-cat-t" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp enum">
 <dt id="_CPPv419zes_ras_error_cat_t">
 <span id="_CPPv319zes_ras_error_cat_t"></span><span id="_CPPv219zes_ras_error_cat_t"></span><span class="target" id="zes__api_8h_1aebc72ac4f4597d18f3c3806ae5981f6b"></span><em class="property">enum </em><code class="sig-name descname">zes_ras_error_cat_t</code><a class="headerlink" href="#_CPPv419zes_ras_error_cat_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -7823,7 +7904,7 @@
 <div class="section" id="ras-structures">
 <h3>Ras Structures<a class="headerlink" href="#ras-structures" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="zes-ras-properties-t">
-<span id="id159"></span><h4>zes_ras_properties_t<a class="headerlink" href="#zes-ras-properties-t" title="Permalink to this headline">¶</a></h4>
+<span id="id160"></span><h4>zes_ras_properties_t<a class="headerlink" href="#zes-ras-properties-t" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp struct">
 <dt id="_CPPv420zes_ras_properties_t">
 <span id="_CPPv320zes_ras_properties_t"></span><span id="_CPPv220zes_ras_properties_t"></span><span id="zes_ras_properties_t"></span><span class="target" id="structzes__ras__properties__t"></span><em class="property">struct </em><code class="sig-name descname">zes_ras_properties_t</code><a class="headerlink" href="#_CPPv420zes_ras_properties_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -7865,7 +7946,7 @@
 
 </div>
 <div class="section" id="zes-ras-state-t">
-<span id="id160"></span><h4>zes_ras_state_t<a class="headerlink" href="#zes-ras-state-t" title="Permalink to this headline">¶</a></h4>
+<span id="id161"></span><h4>zes_ras_state_t<a class="headerlink" href="#zes-ras-state-t" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp struct">
 <dt id="_CPPv415zes_ras_state_t">
 <span id="_CPPv315zes_ras_state_t"></span><span id="_CPPv215zes_ras_state_t"></span><span id="zes_ras_state_t"></span><span class="target" id="structzes__ras__state__t"></span><em class="property">struct </em><code class="sig-name descname">zes_ras_state_t</code><a class="headerlink" href="#_CPPv415zes_ras_state_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -7895,7 +7976,7 @@
 
 </div>
 <div class="section" id="zes-ras-config-t">
-<span id="id161"></span><h4>zes_ras_config_t<a class="headerlink" href="#zes-ras-config-t" title="Permalink to this headline">¶</a></h4>
+<span id="id162"></span><h4>zes_ras_config_t<a class="headerlink" href="#zes-ras-config-t" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp struct">
 <dt id="_CPPv416zes_ras_config_t">
 <span id="_CPPv316zes_ras_config_t"></span><span id="_CPPv216zes_ras_config_t"></span><span id="zes_ras_config_t"></span><span class="target" id="structzes__ras__config__t"></span><em class="property">struct </em><code class="sig-name descname">zes_ras_config_t</code><a class="headerlink" href="#_CPPv416zes_ras_config_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -7975,7 +8056,7 @@
 <div class="section" id="scheduler-functions">
 <h3>Scheduler Functions<a class="headerlink" href="#scheduler-functions" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="zesdeviceenumschedulers">
-<span id="id162"></span><h4>zesDeviceEnumSchedulers<a class="headerlink" href="#zesdeviceenumschedulers" title="Permalink to this headline">¶</a></h4>
+<span id="id163"></span><h4>zesDeviceEnumSchedulers<a class="headerlink" href="#zesdeviceenumschedulers" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv423zesDeviceEnumSchedulers19zes_device_handle_tP8uint32_tP18zes_sched_handle_t">
 <span id="_CPPv323zesDeviceEnumSchedulers19zes_device_handle_tP8uint32_tP18zes_sched_handle_t"></span><span id="_CPPv223zesDeviceEnumSchedulers19zes_device_handle_tP8uint32_tP18zes_sched_handle_t"></span><span id="zesDeviceEnumSchedulers__zes_device_handle_t.uint32_tP.zes_sched_handle_tP"></span><span class="target" id="zes__api_8h_1a210087e42de1ba8579b10bb7e57c7e62"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesDeviceEnumSchedulers</code><span class="sig-paren">(</span>zes_device_handle_t <em>hDevice</em>, uint32_t *<em>pCount</em>, zes_sched_handle_t *<em>phScheduler</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv423zesDeviceEnumSchedulers19zes_device_handle_tP8uint32_tP18zes_sched_handle_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -8018,7 +8099,7 @@
 
 </div>
 <div class="section" id="zesschedulergetproperties">
-<span id="id163"></span><h4>zesSchedulerGetProperties<a class="headerlink" href="#zesschedulergetproperties" title="Permalink to this headline">¶</a></h4>
+<span id="id164"></span><h4>zesSchedulerGetProperties<a class="headerlink" href="#zesschedulergetproperties" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv425zesSchedulerGetProperties18zes_sched_handle_tP22zes_sched_properties_t">
 <span id="_CPPv325zesSchedulerGetProperties18zes_sched_handle_tP22zes_sched_properties_t"></span><span id="_CPPv225zesSchedulerGetProperties18zes_sched_handle_tP22zes_sched_properties_t"></span><span id="zesSchedulerGetProperties__zes_sched_handle_t.zes_sched_properties_tP"></span><span class="target" id="zes__api_8h_1af9ba1a0bfbc127b136a46156a0e2c33b"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesSchedulerGetProperties</code><span class="sig-paren">(</span>zes_sched_handle_t <em>hScheduler</em>, <a class="reference internal" href="#_CPPv422zes_sched_properties_t" title="zes_sched_properties_t">zes_sched_properties_t</a> *<em>pProperties</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv425zesSchedulerGetProperties18zes_sched_handle_tP22zes_sched_properties_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -8058,7 +8139,7 @@
 
 </div>
 <div class="section" id="zesschedulergetcurrentmode">
-<span id="id164"></span><h4>zesSchedulerGetCurrentMode<a class="headerlink" href="#zesschedulergetcurrentmode" title="Permalink to this headline">¶</a></h4>
+<span id="id165"></span><h4>zesSchedulerGetCurrentMode<a class="headerlink" href="#zesschedulergetcurrentmode" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv426zesSchedulerGetCurrentMode18zes_sched_handle_tP16zes_sched_mode_t">
 <span id="_CPPv326zesSchedulerGetCurrentMode18zes_sched_handle_tP16zes_sched_mode_t"></span><span id="_CPPv226zesSchedulerGetCurrentMode18zes_sched_handle_tP16zes_sched_mode_t"></span><span id="zesSchedulerGetCurrentMode__zes_sched_handle_t.zes_sched_mode_tP"></span><span class="target" id="zes__api_8h_1a8c784dbf3ef9184b7f2003eb490582b5"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesSchedulerGetCurrentMode</code><span class="sig-paren">(</span>zes_sched_handle_t <em>hScheduler</em>, <a class="reference internal" href="#_CPPv416zes_sched_mode_t" title="zes_sched_mode_t">zes_sched_mode_t</a> *<em>pMode</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv426zesSchedulerGetCurrentMode18zes_sched_handle_tP16zes_sched_mode_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -8102,7 +8183,7 @@
 
 </div>
 <div class="section" id="zesschedulergettimeoutmodeproperties">
-<span id="id165"></span><h4>zesSchedulerGetTimeoutModeProperties<a class="headerlink" href="#zesschedulergettimeoutmodeproperties" title="Permalink to this headline">¶</a></h4>
+<span id="id166"></span><h4>zesSchedulerGetTimeoutModeProperties<a class="headerlink" href="#zesschedulergettimeoutmodeproperties" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv436zesSchedulerGetTimeoutModeProperties18zes_sched_handle_t9ze_bool_tP30zes_sched_timeout_properties_t">
 <span id="_CPPv336zesSchedulerGetTimeoutModeProperties18zes_sched_handle_t9ze_bool_tP30zes_sched_timeout_properties_t"></span><span id="_CPPv236zesSchedulerGetTimeoutModeProperties18zes_sched_handle_t9ze_bool_tP30zes_sched_timeout_properties_t"></span><span id="zesSchedulerGetTimeoutModeProperties__zes_sched_handle_t.ze_bool_t.zes_sched_timeout_properties_tP"></span><span class="target" id="zes__api_8h_1a1892c198746bb22bd2c87b6be5da1156"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesSchedulerGetTimeoutModeProperties</code><span class="sig-paren">(</span>zes_sched_handle_t <em>hScheduler</em>, ze_bool_t <em>getDefaults</em>, <a class="reference internal" href="#_CPPv430zes_sched_timeout_properties_t" title="zes_sched_timeout_properties_t">zes_sched_timeout_properties_t</a> *<em>pConfig</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv436zesSchedulerGetTimeoutModeProperties18zes_sched_handle_t9ze_bool_tP30zes_sched_timeout_properties_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -8147,7 +8228,7 @@
 
 </div>
 <div class="section" id="zesschedulergettimeslicemodeproperties">
-<span id="id166"></span><h4>zesSchedulerGetTimesliceModeProperties<a class="headerlink" href="#zesschedulergettimeslicemodeproperties" title="Permalink to this headline">¶</a></h4>
+<span id="id167"></span><h4>zesSchedulerGetTimesliceModeProperties<a class="headerlink" href="#zesschedulergettimeslicemodeproperties" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv438zesSchedulerGetTimesliceModeProperties18zes_sched_handle_t9ze_bool_tP32zes_sched_timeslice_properties_t">
 <span id="_CPPv338zesSchedulerGetTimesliceModeProperties18zes_sched_handle_t9ze_bool_tP32zes_sched_timeslice_properties_t"></span><span id="_CPPv238zesSchedulerGetTimesliceModeProperties18zes_sched_handle_t9ze_bool_tP32zes_sched_timeslice_properties_t"></span><span id="zesSchedulerGetTimesliceModeProperties__zes_sched_handle_t.ze_bool_t.zes_sched_timeslice_properties_tP"></span><span class="target" id="zes__api_8h_1ac09a3be4da54f6b7f36e3595f926a410"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesSchedulerGetTimesliceModeProperties</code><span class="sig-paren">(</span>zes_sched_handle_t <em>hScheduler</em>, ze_bool_t <em>getDefaults</em>, <a class="reference internal" href="#_CPPv432zes_sched_timeslice_properties_t" title="zes_sched_timeslice_properties_t">zes_sched_timeslice_properties_t</a> *<em>pConfig</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv438zesSchedulerGetTimesliceModeProperties18zes_sched_handle_t9ze_bool_tP32zes_sched_timeslice_properties_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -8192,7 +8273,7 @@
 
 </div>
 <div class="section" id="zesschedulersettimeoutmode">
-<span id="id167"></span><h4>zesSchedulerSetTimeoutMode<a class="headerlink" href="#zesschedulersettimeoutmode" title="Permalink to this headline">¶</a></h4>
+<span id="id168"></span><h4>zesSchedulerSetTimeoutMode<a class="headerlink" href="#zesschedulersettimeoutmode" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv426zesSchedulerSetTimeoutMode18zes_sched_handle_tP30zes_sched_timeout_properties_tP9ze_bool_t">
 <span id="_CPPv326zesSchedulerSetTimeoutMode18zes_sched_handle_tP30zes_sched_timeout_properties_tP9ze_bool_t"></span><span id="_CPPv226zesSchedulerSetTimeoutMode18zes_sched_handle_tP30zes_sched_timeout_properties_tP9ze_bool_t"></span><span id="zesSchedulerSetTimeoutMode__zes_sched_handle_t.zes_sched_timeout_properties_tP.ze_bool_tP"></span><span class="target" id="zes__api_8h_1a9fd9aa7c64fc39112865e3ea81567ada"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesSchedulerSetTimeoutMode</code><span class="sig-paren">(</span>zes_sched_handle_t <em>hScheduler</em>, <a class="reference internal" href="#_CPPv430zes_sched_timeout_properties_t" title="zes_sched_timeout_properties_t">zes_sched_timeout_properties_t</a> *<em>pProperties</em>, ze_bool_t *<em>pNeedReload</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv426zesSchedulerSetTimeoutMode18zes_sched_handle_tP30zes_sched_timeout_properties_tP9ze_bool_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -8243,7 +8324,7 @@
 
 </div>
 <div class="section" id="zesschedulersettimeslicemode">
-<span id="id168"></span><h4>zesSchedulerSetTimesliceMode<a class="headerlink" href="#zesschedulersettimeslicemode" title="Permalink to this headline">¶</a></h4>
+<span id="id169"></span><h4>zesSchedulerSetTimesliceMode<a class="headerlink" href="#zesschedulersettimeslicemode" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv428zesSchedulerSetTimesliceMode18zes_sched_handle_tP32zes_sched_timeslice_properties_tP9ze_bool_t">
 <span id="_CPPv328zesSchedulerSetTimesliceMode18zes_sched_handle_tP32zes_sched_timeslice_properties_tP9ze_bool_t"></span><span id="_CPPv228zesSchedulerSetTimesliceMode18zes_sched_handle_tP32zes_sched_timeslice_properties_tP9ze_bool_t"></span><span id="zesSchedulerSetTimesliceMode__zes_sched_handle_t.zes_sched_timeslice_properties_tP.ze_bool_tP"></span><span class="target" id="zes__api_8h_1ad2e5405eb2a1adcf770f5ba2fb961fad"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesSchedulerSetTimesliceMode</code><span class="sig-paren">(</span>zes_sched_handle_t <em>hScheduler</em>, <a class="reference internal" href="#_CPPv432zes_sched_timeslice_properties_t" title="zes_sched_timeslice_properties_t">zes_sched_timeslice_properties_t</a> *<em>pProperties</em>, ze_bool_t *<em>pNeedReload</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv428zesSchedulerSetTimesliceMode18zes_sched_handle_tP32zes_sched_timeslice_properties_tP9ze_bool_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -8294,7 +8375,7 @@
 
 </div>
 <div class="section" id="zesschedulersetexclusivemode">
-<span id="id169"></span><h4>zesSchedulerSetExclusiveMode<a class="headerlink" href="#zesschedulersetexclusivemode" title="Permalink to this headline">¶</a></h4>
+<span id="id170"></span><h4>zesSchedulerSetExclusiveMode<a class="headerlink" href="#zesschedulersetexclusivemode" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv428zesSchedulerSetExclusiveMode18zes_sched_handle_tP9ze_bool_t">
 <span id="_CPPv328zesSchedulerSetExclusiveMode18zes_sched_handle_tP9ze_bool_t"></span><span id="_CPPv228zesSchedulerSetExclusiveMode18zes_sched_handle_tP9ze_bool_t"></span><span id="zesSchedulerSetExclusiveMode__zes_sched_handle_t.ze_bool_tP"></span><span class="target" id="zes__api_8h_1a3645eb954f6279d8bd6d5ae4cc314c32"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesSchedulerSetExclusiveMode</code><span class="sig-paren">(</span>zes_sched_handle_t <em>hScheduler</em>, ze_bool_t *<em>pNeedReload</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv428zesSchedulerSetExclusiveMode18zes_sched_handle_tP9ze_bool_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -8343,7 +8424,7 @@
 
 </div>
 <div class="section" id="zesschedulersetcomputeunitdebugmode">
-<span id="id170"></span><h4>zesSchedulerSetComputeUnitDebugMode<a class="headerlink" href="#zesschedulersetcomputeunitdebugmode" title="Permalink to this headline">¶</a></h4>
+<span id="id171"></span><h4>zesSchedulerSetComputeUnitDebugMode<a class="headerlink" href="#zesschedulersetcomputeunitdebugmode" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv435zesSchedulerSetComputeUnitDebugMode18zes_sched_handle_tP9ze_bool_t">
 <span id="_CPPv335zesSchedulerSetComputeUnitDebugMode18zes_sched_handle_tP9ze_bool_t"></span><span id="_CPPv235zesSchedulerSetComputeUnitDebugMode18zes_sched_handle_tP9ze_bool_t"></span><span id="zesSchedulerSetComputeUnitDebugMode__zes_sched_handle_t.ze_bool_tP"></span><span class="target" id="zes__api_8h_1afb1058ad52bc2f5f01f40f008dcd27cb"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesSchedulerSetComputeUnitDebugMode</code><span class="sig-paren">(</span>zes_sched_handle_t <em>hScheduler</em>, ze_bool_t *<em>pNeedReload</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv435zesSchedulerSetComputeUnitDebugMode18zes_sched_handle_tP9ze_bool_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -8396,7 +8477,7 @@
 <div class="section" id="scheduler-enums">
 <h3>Scheduler Enums<a class="headerlink" href="#scheduler-enums" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="zes-sched-mode-t">
-<span id="id171"></span><h4>zes_sched_mode_t<a class="headerlink" href="#zes-sched-mode-t" title="Permalink to this headline">¶</a></h4>
+<span id="id172"></span><h4>zes_sched_mode_t<a class="headerlink" href="#zes-sched-mode-t" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp enum">
 <dt id="_CPPv416zes_sched_mode_t">
 <span id="_CPPv316zes_sched_mode_t"></span><span id="_CPPv216zes_sched_mode_t"></span><span class="target" id="zes__api_8h_1ad20e48a3a2de16bae53f08aa07898513"></span><em class="property">enum </em><code class="sig-name descname">zes_sched_mode_t</code><a class="headerlink" href="#_CPPv416zes_sched_mode_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -8438,7 +8519,7 @@
 <div class="section" id="scheduler-structures">
 <h3>Scheduler Structures<a class="headerlink" href="#scheduler-structures" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="zes-sched-properties-t">
-<span id="id172"></span><h4>zes_sched_properties_t<a class="headerlink" href="#zes-sched-properties-t" title="Permalink to this headline">¶</a></h4>
+<span id="id173"></span><h4>zes_sched_properties_t<a class="headerlink" href="#zes-sched-properties-t" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp struct">
 <dt id="_CPPv422zes_sched_properties_t">
 <span id="_CPPv322zes_sched_properties_t"></span><span id="_CPPv222zes_sched_properties_t"></span><span id="zes_sched_properties_t"></span><span class="target" id="structzes__sched__properties__t"></span><em class="property">struct </em><code class="sig-name descname">zes_sched_properties_t</code><a class="headerlink" href="#_CPPv422zes_sched_properties_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -8492,7 +8573,7 @@
 
 </div>
 <div class="section" id="zes-sched-timeout-properties-t">
-<span id="id173"></span><h4>zes_sched_timeout_properties_t<a class="headerlink" href="#zes-sched-timeout-properties-t" title="Permalink to this headline">¶</a></h4>
+<span id="id174"></span><h4>zes_sched_timeout_properties_t<a class="headerlink" href="#zes-sched-timeout-properties-t" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp struct">
 <dt id="_CPPv430zes_sched_timeout_properties_t">
 <span id="_CPPv330zes_sched_timeout_properties_t"></span><span id="_CPPv230zes_sched_timeout_properties_t"></span><span id="zes_sched_timeout_properties_t"></span><span class="target" id="structzes__sched__timeout__properties__t"></span><em class="property">struct </em><code class="sig-name descname">zes_sched_timeout_properties_t</code><a class="headerlink" href="#_CPPv430zes_sched_timeout_properties_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -8522,7 +8603,7 @@
 
 </div>
 <div class="section" id="zes-sched-timeslice-properties-t">
-<span id="id174"></span><h4>zes_sched_timeslice_properties_t<a class="headerlink" href="#zes-sched-timeslice-properties-t" title="Permalink to this headline">¶</a></h4>
+<span id="id175"></span><h4>zes_sched_timeslice_properties_t<a class="headerlink" href="#zes-sched-timeslice-properties-t" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp struct">
 <dt id="_CPPv432zes_sched_timeslice_properties_t">
 <span id="_CPPv332zes_sched_timeslice_properties_t"></span><span id="_CPPv232zes_sched_timeslice_properties_t"></span><span id="zes_sched_timeslice_properties_t"></span><span class="target" id="structzes__sched__timeslice__properties__t"></span><em class="property">struct </em><code class="sig-name descname">zes_sched_timeslice_properties_t</code><a class="headerlink" href="#_CPPv432zes_sched_timeslice_properties_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -8591,7 +8672,7 @@
 <div class="section" id="standby-functions">
 <h3>Standby Functions<a class="headerlink" href="#standby-functions" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="zesdeviceenumstandbydomains">
-<span id="id175"></span><h4>zesDeviceEnumStandbyDomains<a class="headerlink" href="#zesdeviceenumstandbydomains" title="Permalink to this headline">¶</a></h4>
+<span id="id176"></span><h4>zesDeviceEnumStandbyDomains<a class="headerlink" href="#zesdeviceenumstandbydomains" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv427zesDeviceEnumStandbyDomains19zes_device_handle_tP8uint32_tP20zes_standby_handle_t">
 <span id="_CPPv327zesDeviceEnumStandbyDomains19zes_device_handle_tP8uint32_tP20zes_standby_handle_t"></span><span id="_CPPv227zesDeviceEnumStandbyDomains19zes_device_handle_tP8uint32_tP20zes_standby_handle_t"></span><span id="zesDeviceEnumStandbyDomains__zes_device_handle_t.uint32_tP.zes_standby_handle_tP"></span><span class="target" id="zes__api_8h_1a128428c70d9ad1f9c708583a5bd2f02a"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesDeviceEnumStandbyDomains</code><span class="sig-paren">(</span>zes_device_handle_t <em>hDevice</em>, uint32_t *<em>pCount</em>, zes_standby_handle_t *<em>phStandby</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv427zesDeviceEnumStandbyDomains19zes_device_handle_tP8uint32_tP20zes_standby_handle_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -8632,7 +8713,7 @@
 
 </div>
 <div class="section" id="zesstandbygetproperties">
-<span id="id176"></span><h4>zesStandbyGetProperties<a class="headerlink" href="#zesstandbygetproperties" title="Permalink to this headline">¶</a></h4>
+<span id="id177"></span><h4>zesStandbyGetProperties<a class="headerlink" href="#zesstandbygetproperties" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv423zesStandbyGetProperties20zes_standby_handle_tP24zes_standby_properties_t">
 <span id="_CPPv323zesStandbyGetProperties20zes_standby_handle_tP24zes_standby_properties_t"></span><span id="_CPPv223zesStandbyGetProperties20zes_standby_handle_tP24zes_standby_properties_t"></span><span id="zesStandbyGetProperties__zes_standby_handle_t.zes_standby_properties_tP"></span><span class="target" id="zes__api_8h_1ace5bad4a1216c55dccd82fc791667786"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesStandbyGetProperties</code><span class="sig-paren">(</span>zes_standby_handle_t <em>hStandby</em>, <a class="reference internal" href="#_CPPv424zes_standby_properties_t" title="zes_standby_properties_t">zes_standby_properties_t</a> *<em>pProperties</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv423zesStandbyGetProperties20zes_standby_handle_tP24zes_standby_properties_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -8672,7 +8753,7 @@
 
 </div>
 <div class="section" id="zesstandbygetmode">
-<span id="id177"></span><h4>zesStandbyGetMode<a class="headerlink" href="#zesstandbygetmode" title="Permalink to this headline">¶</a></h4>
+<span id="id178"></span><h4>zesStandbyGetMode<a class="headerlink" href="#zesstandbygetmode" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv417zesStandbyGetMode20zes_standby_handle_tP24zes_standby_promo_mode_t">
 <span id="_CPPv317zesStandbyGetMode20zes_standby_handle_tP24zes_standby_promo_mode_t"></span><span id="_CPPv217zesStandbyGetMode20zes_standby_handle_tP24zes_standby_promo_mode_t"></span><span id="zesStandbyGetMode__zes_standby_handle_t.zes_standby_promo_mode_tP"></span><span class="target" id="zes__api_8h_1adf6e7582ae9ab6a3e6de096d3c67496e"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesStandbyGetMode</code><span class="sig-paren">(</span>zes_standby_handle_t <em>hStandby</em>, <a class="reference internal" href="#_CPPv424zes_standby_promo_mode_t" title="zes_standby_promo_mode_t">zes_standby_promo_mode_t</a> *<em>pMode</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417zesStandbyGetMode20zes_standby_handle_tP24zes_standby_promo_mode_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -8712,7 +8793,7 @@
 
 </div>
 <div class="section" id="zesstandbysetmode">
-<span id="id178"></span><h4>zesStandbySetMode<a class="headerlink" href="#zesstandbysetmode" title="Permalink to this headline">¶</a></h4>
+<span id="id179"></span><h4>zesStandbySetMode<a class="headerlink" href="#zesstandbysetmode" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv417zesStandbySetMode20zes_standby_handle_t24zes_standby_promo_mode_t">
 <span id="_CPPv317zesStandbySetMode20zes_standby_handle_t24zes_standby_promo_mode_t"></span><span id="_CPPv217zesStandbySetMode20zes_standby_handle_t24zes_standby_promo_mode_t"></span><span id="zesStandbySetMode__zes_standby_handle_t.zes_standby_promo_mode_t"></span><span class="target" id="zes__api_8h_1a90a5abe2b6731524d00c3d7d6146b4ba"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesStandbySetMode</code><span class="sig-paren">(</span>zes_standby_handle_t <em>hStandby</em>, <a class="reference internal" href="#_CPPv424zes_standby_promo_mode_t" title="zes_standby_promo_mode_t">zes_standby_promo_mode_t</a> <em>mode</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417zesStandbySetMode20zes_standby_handle_t24zes_standby_promo_mode_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -8759,7 +8840,7 @@
 <div class="section" id="standby-enums">
 <h3>Standby Enums<a class="headerlink" href="#standby-enums" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="zes-standby-type-t">
-<span id="id179"></span><h4>zes_standby_type_t<a class="headerlink" href="#zes-standby-type-t" title="Permalink to this headline">¶</a></h4>
+<span id="id180"></span><h4>zes_standby_type_t<a class="headerlink" href="#zes-standby-type-t" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp enum">
 <dt id="_CPPv418zes_standby_type_t">
 <span id="_CPPv318zes_standby_type_t"></span><span id="_CPPv218zes_standby_type_t"></span><span class="target" id="zes__api_8h_1a0ac85f3f44a98db167e841cf54e134de"></span><em class="property">enum </em><code class="sig-name descname">zes_standby_type_t</code><a class="headerlink" href="#_CPPv418zes_standby_type_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -8780,7 +8861,7 @@
 
 </div>
 <div class="section" id="zes-standby-promo-mode-t">
-<span id="id180"></span><h4>zes_standby_promo_mode_t<a class="headerlink" href="#zes-standby-promo-mode-t" title="Permalink to this headline">¶</a></h4>
+<span id="id181"></span><h4>zes_standby_promo_mode_t<a class="headerlink" href="#zes-standby-promo-mode-t" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp enum">
 <dt id="_CPPv424zes_standby_promo_mode_t">
 <span id="_CPPv324zes_standby_promo_mode_t"></span><span id="_CPPv224zes_standby_promo_mode_t"></span><span class="target" id="zes__api_8h_1ae6c36cfabb23e47c8423acc6de3ee3d6"></span><em class="property">enum </em><code class="sig-name descname">zes_standby_promo_mode_t</code><a class="headerlink" href="#_CPPv424zes_standby_promo_mode_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -8810,7 +8891,7 @@
 <div class="section" id="standby-structures">
 <h3>Standby Structures<a class="headerlink" href="#standby-structures" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="zes-standby-properties-t">
-<span id="id181"></span><h4>zes_standby_properties_t<a class="headerlink" href="#zes-standby-properties-t" title="Permalink to this headline">¶</a></h4>
+<span id="id182"></span><h4>zes_standby_properties_t<a class="headerlink" href="#zes-standby-properties-t" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp struct">
 <dt id="_CPPv424zes_standby_properties_t">
 <span id="_CPPv324zes_standby_properties_t"></span><span id="_CPPv224zes_standby_properties_t"></span><span id="zes_standby_properties_t"></span><span class="target" id="structzes__standby__properties__t"></span><em class="property">struct </em><code class="sig-name descname">zes_standby_properties_t</code><a class="headerlink" href="#_CPPv424zes_standby_properties_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -8887,7 +8968,7 @@
 <div class="section" id="temperature-functions">
 <h3>Temperature Functions<a class="headerlink" href="#temperature-functions" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="zesdeviceenumtemperaturesensors">
-<span id="id182"></span><h4>zesDeviceEnumTemperatureSensors<a class="headerlink" href="#zesdeviceenumtemperaturesensors" title="Permalink to this headline">¶</a></h4>
+<span id="id183"></span><h4>zesDeviceEnumTemperatureSensors<a class="headerlink" href="#zesdeviceenumtemperaturesensors" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv431zesDeviceEnumTemperatureSensors19zes_device_handle_tP8uint32_tP17zes_temp_handle_t">
 <span id="_CPPv331zesDeviceEnumTemperatureSensors19zes_device_handle_tP8uint32_tP17zes_temp_handle_t"></span><span id="_CPPv231zesDeviceEnumTemperatureSensors19zes_device_handle_tP8uint32_tP17zes_temp_handle_t"></span><span id="zesDeviceEnumTemperatureSensors__zes_device_handle_t.uint32_tP.zes_temp_handle_tP"></span><span class="target" id="zes__api_8h_1accd92fda92b479469a42b74630ed84bd"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesDeviceEnumTemperatureSensors</code><span class="sig-paren">(</span>zes_device_handle_t <em>hDevice</em>, uint32_t *<em>pCount</em>, zes_temp_handle_t *<em>phTemperature</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv431zesDeviceEnumTemperatureSensors19zes_device_handle_tP8uint32_tP17zes_temp_handle_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -8928,7 +9009,7 @@
 
 </div>
 <div class="section" id="zestemperaturegetproperties">
-<span id="id183"></span><h4>zesTemperatureGetProperties<a class="headerlink" href="#zestemperaturegetproperties" title="Permalink to this headline">¶</a></h4>
+<span id="id184"></span><h4>zesTemperatureGetProperties<a class="headerlink" href="#zestemperaturegetproperties" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv427zesTemperatureGetProperties17zes_temp_handle_tP21zes_temp_properties_t">
 <span id="_CPPv327zesTemperatureGetProperties17zes_temp_handle_tP21zes_temp_properties_t"></span><span id="_CPPv227zesTemperatureGetProperties17zes_temp_handle_tP21zes_temp_properties_t"></span><span id="zesTemperatureGetProperties__zes_temp_handle_t.zes_temp_properties_tP"></span><span class="target" id="zes__api_8h_1afeb9f7a77321d74103ed896700c2d4f9"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesTemperatureGetProperties</code><span class="sig-paren">(</span>zes_temp_handle_t <em>hTemperature</em>, <a class="reference internal" href="#_CPPv421zes_temp_properties_t" title="zes_temp_properties_t">zes_temp_properties_t</a> *<em>pProperties</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv427zesTemperatureGetProperties17zes_temp_handle_tP21zes_temp_properties_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -8968,7 +9049,7 @@
 
 </div>
 <div class="section" id="zestemperaturegetconfig">
-<span id="id184"></span><h4>zesTemperatureGetConfig<a class="headerlink" href="#zestemperaturegetconfig" title="Permalink to this headline">¶</a></h4>
+<span id="id185"></span><h4>zesTemperatureGetConfig<a class="headerlink" href="#zestemperaturegetconfig" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv423zesTemperatureGetConfig17zes_temp_handle_tP17zes_temp_config_t">
 <span id="_CPPv323zesTemperatureGetConfig17zes_temp_handle_tP17zes_temp_config_t"></span><span id="_CPPv223zesTemperatureGetConfig17zes_temp_handle_tP17zes_temp_config_t"></span><span id="zesTemperatureGetConfig__zes_temp_handle_t.zes_temp_config_tP"></span><span class="target" id="zes__api_8h_1af655cece881a804d4132e145f6b1189c"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesTemperatureGetConfig</code><span class="sig-paren">(</span>zes_temp_handle_t <em>hTemperature</em>, <a class="reference internal" href="#_CPPv417zes_temp_config_t" title="zes_temp_config_t">zes_temp_config_t</a> *<em>pConfig</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv423zesTemperatureGetConfig17zes_temp_handle_tP17zes_temp_config_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -9017,7 +9098,7 @@
 
 </div>
 <div class="section" id="zestemperaturesetconfig">
-<span id="id185"></span><h4>zesTemperatureSetConfig<a class="headerlink" href="#zestemperaturesetconfig" title="Permalink to this headline">¶</a></h4>
+<span id="id186"></span><h4>zesTemperatureSetConfig<a class="headerlink" href="#zestemperaturesetconfig" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv423zesTemperatureSetConfig17zes_temp_handle_tPK17zes_temp_config_t">
 <span id="_CPPv323zesTemperatureSetConfig17zes_temp_handle_tPK17zes_temp_config_t"></span><span id="_CPPv223zesTemperatureSetConfig17zes_temp_handle_tPK17zes_temp_config_t"></span><span id="zesTemperatureSetConfig__zes_temp_handle_t.zes_temp_config_tCP"></span><span class="target" id="zes__api_8h_1a71d43bcd12f50a2ab97f6f0cb07a7390"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesTemperatureSetConfig</code><span class="sig-paren">(</span>zes_temp_handle_t <em>hTemperature</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv417zes_temp_config_t" title="zes_temp_config_t">zes_temp_config_t</a> *<em>pConfig</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv423zesTemperatureSetConfig17zes_temp_handle_tPK17zes_temp_config_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -9078,7 +9159,7 @@
 
 </div>
 <div class="section" id="zestemperaturegetstate">
-<span id="id186"></span><h4>zesTemperatureGetState<a class="headerlink" href="#zestemperaturegetstate" title="Permalink to this headline">¶</a></h4>
+<span id="id187"></span><h4>zesTemperatureGetState<a class="headerlink" href="#zestemperaturegetstate" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp function">
 <dt id="_CPPv422zesTemperatureGetState17zes_temp_handle_tPd">
 <span id="_CPPv322zesTemperatureGetState17zes_temp_handle_tPd"></span><span id="_CPPv222zesTemperatureGetState17zes_temp_handle_tPd"></span><span id="zesTemperatureGetState__zes_temp_handle_t.doubleP"></span><span class="target" id="zes__api_8h_1a3d807d9d997e6eefc0098b3a2c539470"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zesTemperatureGetState</code><span class="sig-paren">(</span>zes_temp_handle_t <em>hTemperature</em>, double *<em>pTemperature</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422zesTemperatureGetState17zes_temp_handle_tPd" title="Permalink to this definition">¶</a><br /></dt>
@@ -9121,7 +9202,7 @@
 <div class="section" id="temperature-enums">
 <h3>Temperature Enums<a class="headerlink" href="#temperature-enums" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="zes-temp-sensors-t">
-<span id="id187"></span><h4>zes_temp_sensors_t<a class="headerlink" href="#zes-temp-sensors-t" title="Permalink to this headline">¶</a></h4>
+<span id="id188"></span><h4>zes_temp_sensors_t<a class="headerlink" href="#zes-temp-sensors-t" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp enum">
 <dt id="_CPPv418zes_temp_sensors_t">
 <span id="_CPPv318zes_temp_sensors_t"></span><span id="_CPPv218zes_temp_sensors_t"></span><span class="target" id="zes__api_8h_1aa04b96cd5462ea791cdcb30ad40802c7"></span><em class="property">enum </em><code class="sig-name descname">zes_temp_sensors_t</code><a class="headerlink" href="#_CPPv418zes_temp_sensors_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -9175,7 +9256,7 @@
 <div class="section" id="temperature-structures">
 <h3>Temperature Structures<a class="headerlink" href="#temperature-structures" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="zes-temp-properties-t">
-<span id="id188"></span><h4>zes_temp_properties_t<a class="headerlink" href="#zes-temp-properties-t" title="Permalink to this headline">¶</a></h4>
+<span id="id189"></span><h4>zes_temp_properties_t<a class="headerlink" href="#zes-temp-properties-t" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp struct">
 <dt id="_CPPv421zes_temp_properties_t">
 <span id="_CPPv321zes_temp_properties_t"></span><span id="_CPPv221zes_temp_properties_t"></span><span id="zes_temp_properties_t"></span><span class="target" id="structzes__temp__properties__t"></span><em class="property">struct </em><code class="sig-name descname">zes_temp_properties_t</code><a class="headerlink" href="#_CPPv421zes_temp_properties_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -9241,7 +9322,7 @@
 
 </div>
 <div class="section" id="zes-temp-threshold-t">
-<span id="id189"></span><h4>zes_temp_threshold_t<a class="headerlink" href="#zes-temp-threshold-t" title="Permalink to this headline">¶</a></h4>
+<span id="id190"></span><h4>zes_temp_threshold_t<a class="headerlink" href="#zes-temp-threshold-t" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp struct">
 <dt id="_CPPv420zes_temp_threshold_t">
 <span id="_CPPv320zes_temp_threshold_t"></span><span id="_CPPv220zes_temp_threshold_t"></span><span id="zes_temp_threshold_t"></span><span class="target" id="structzes__temp__threshold__t"></span><em class="property">struct </em><code class="sig-name descname">zes_temp_threshold_t</code><a class="headerlink" href="#_CPPv420zes_temp_threshold_t" title="Permalink to this definition">¶</a><br /></dt>
@@ -9271,7 +9352,7 @@
 
 </div>
 <div class="section" id="zes-temp-config-t">
-<span id="id190"></span><h4>zes_temp_config_t<a class="headerlink" href="#zes-temp-config-t" title="Permalink to this headline">¶</a></h4>
+<span id="id191"></span><h4>zes_temp_config_t<a class="headerlink" href="#zes-temp-config-t" title="Permalink to this headline">¶</a></h4>
 <dl class="cpp struct">
 <dt id="_CPPv417zes_temp_config_t">
 <span id="_CPPv317zes_temp_config_t"></span><span id="_CPPv217zes_temp_config_t"></span><span id="zes_temp_config_t"></span><span class="target" id="structzes__temp__config__t"></span><em class="property">struct </em><code class="sig-name descname">zes_temp_config_t</code><a class="headerlink" href="#_CPPv417zes_temp_config_t" title="Permalink to this definition">¶</a><br /></dt>

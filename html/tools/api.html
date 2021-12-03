@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.2.43
+                1.3.7
               </div>
             
           
@@ -129,6 +129,11 @@
 <li class="toctree-l4"><a class="reference internal" href="#tracing-structures">Tracing Structures</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#multimetricvalues">Multimetricvalues</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#multimetricvalues-functions">Multimetricvalues Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#multimetricvalues-enums">Multimetricvalues Enums</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../sysman/api.html">Sysman API</a></li>
@@ -191,7 +196,7 @@
             
   <div class="section" id="tools-api">
 <h1>Tools API<a class="headerlink" href="#tools-api" title="Permalink to this headline">¶</a></h1>
-<p>oneAPI Level Zero Specification - Version 1.2.43</p>
+<p>oneAPI Level Zero Specification - Version 1.3.7</p>
 <div class="section" id="common">
 <h2>Common<a class="headerlink" href="#common" title="Permalink to this headline">¶</a></h2>
 <ul>
@@ -1388,13 +1393,13 @@
 <dl class="cpp member">
 <dt id="_CPPv4N29zet_debug_event_info_module_t11moduleBeginE">
 <span id="_CPPv3N29zet_debug_event_info_module_t11moduleBeginE"></span><span id="_CPPv2N29zet_debug_event_info_module_t11moduleBeginE"></span><span id="zet_debug_event_info_module_t::moduleBegin__uint64_t"></span><span class="target" id="structzet__debug__event__info__module__t_1a3e9fec112c53393653fde3ed33c643eb"></span>uint64_t <code class="sig-name descname">moduleBegin</code><a class="headerlink" href="#_CPPv4N29zet_debug_event_info_module_t11moduleBeginE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>[out] the begin address of the in-memory module </p>
+<dd><p>[out] the begin address of the in-memory module (inclusive) </p>
 </dd></dl>
 
 <dl class="cpp member">
 <dt id="_CPPv4N29zet_debug_event_info_module_t9moduleEndE">
 <span id="_CPPv3N29zet_debug_event_info_module_t9moduleEndE"></span><span id="_CPPv2N29zet_debug_event_info_module_t9moduleEndE"></span><span id="zet_debug_event_info_module_t::moduleEnd__uint64_t"></span><span class="target" id="structzet__debug__event__info__module__t_1a207dd9cf732b2055734544809316ea12"></span>uint64_t <code class="sig-name descname">moduleEnd</code><a class="headerlink" href="#_CPPv4N29zet_debug_event_info_module_t9moduleEndE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>[out] the end address of the in-memory module </p>
+<dd><p>[out] the end address of the in-memory module (exclusive) </p>
 </dd></dl>
 
 <dl class="cpp member">
@@ -2549,6 +2554,12 @@
 </dd></dl>
 
 <dl class="cpp enumerator">
+<dt id="_CPPv422ZET_METRIC_TYPE_IP_EXP">
+<span id="_CPPv322ZET_METRIC_TYPE_IP_EXP"></span><span id="_CPPv222ZET_METRIC_TYPE_IP_EXP"></span><span class="target" id="zet__api_8h_1a262cd5f87cb12967f62b8a30041615c8ab0ac3aff32b9355dbe1766058e6ed48d"></span><code class="sig-name descname">ZET_METRIC_TYPE_IP_EXP</code> = 0x7ffffffe<a class="headerlink" href="#_CPPv422ZET_METRIC_TYPE_IP_EXP" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Metric type: instruction pointer. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
 <dt id="_CPPv428ZET_METRIC_TYPE_FORCE_UINT32">
 <span id="_CPPv328ZET_METRIC_TYPE_FORCE_UINT32"></span><span id="_CPPv228ZET_METRIC_TYPE_FORCE_UINT32"></span><span class="target" id="zet__api_8h_1a262cd5f87cb12967f62b8a30041615c8afbc219285e31ebccda28164942d89875"></span><code class="sig-name descname">ZET_METRIC_TYPE_FORCE_UINT32</code> = 0x7fffffff<a class="headerlink" href="#_CPPv428ZET_METRIC_TYPE_FORCE_UINT32" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
@@ -3320,6 +3331,112 @@
 </dd></dl>
 
 </div>
+</dd></dl>
+
+</div>
+</div>
+</div>
+<div class="section" id="multimetricvalues">
+<h2>Multimetricvalues<a class="headerlink" href="#multimetricvalues" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Functions</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="#zetmetricgroupcalculatemultiplemetricvaluesexp"><span class="std std-ref">zetMetricGroupCalculateMultipleMetricValuesExp</span></a></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Enumerations</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="#ze-calculate-multiple-metrics-exp-version-t"><span class="std std-ref">ze_calculate_multiple_metrics_exp_version_t</span></a></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="section" id="multimetricvalues-functions">
+<h3>Multimetricvalues Functions<a class="headerlink" href="#multimetricvalues-functions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="zetmetricgroupcalculatemultiplemetricvaluesexp">
+<span id="id78"></span><h4>zetMetricGroupCalculateMultipleMetricValuesExp<a class="headerlink" href="#zetmetricgroupcalculatemultiplemetricvaluesexp" title="Permalink to this headline">¶</a></h4>
+<dl class="cpp function">
+<dt id="_CPPv446zetMetricGroupCalculateMultipleMetricValuesExp25zet_metric_group_handle_t35zet_metric_group_calculation_type_t6size_tPK7uint8_tP8uint32_tP8uint32_tP8uint32_tP17zet_typed_value_t">
+<span id="_CPPv346zetMetricGroupCalculateMultipleMetricValuesExp25zet_metric_group_handle_t35zet_metric_group_calculation_type_t6size_tPK7uint8_tP8uint32_tP8uint32_tP8uint32_tP17zet_typed_value_t"></span><span id="_CPPv246zetMetricGroupCalculateMultipleMetricValuesExp25zet_metric_group_handle_t35zet_metric_group_calculation_type_t6size_tPK7uint8_tP8uint32_tP8uint32_tP8uint32_tP17zet_typed_value_t"></span><span id="zetMetricGroupCalculateMultipleMetricValuesExp__zet_metric_group_handle_t.zet_metric_group_calculation_type_t.s.uint8_tCP.uint32_tP.uint32_tP.uint32_tP.zet_typed_value_tP"></span><span class="target" id="zet__api_8h_1a5d85ac9478557ed8e81bdb744a5fe660"></span>ZE_APIEXPORT <a class="reference internal" href="../core/api.html#_CPPv411ze_result_t" title="ze_result_t">ze_result_t</a> ZE_APICALL <code class="sig-name descname">zetMetricGroupCalculateMultipleMetricValuesExp</code><span class="sig-paren">(</span>zet_metric_group_handle_t <em>hMetricGroup</em>, <a class="reference internal" href="#_CPPv435zet_metric_group_calculation_type_t" title="zet_metric_group_calculation_type_t">zet_metric_group_calculation_type_t</a> <em>type</em>, size_t <em>rawDataSize</em>, <em class="property">const</em> uint8_t *<em>pRawData</em>, uint32_t *<em>pSetCount</em>, uint32_t *<em>pTotalMetricValueCount</em>, uint32_t *<em>pMetricCounts</em>, <a class="reference internal" href="#_CPPv417zet_typed_value_t" title="zet_typed_value_t">zet_typed_value_t</a> *<em>pMetricValues</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv446zetMetricGroupCalculateMultipleMetricValuesExp25zet_metric_group_handle_t35zet_metric_group_calculation_type_t6size_tPK7uint8_tP8uint32_tP8uint32_tP8uint32_tP17zet_typed_value_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Calculate one or more sets of metric values from raw data. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">hMetricGroup</span></code>: [in] handle of the metric group </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code>: [in] calculation type to be applied on raw data </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rawDataSize</span></code>: [in] size in bytes of raw data buffer </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pRawData</span></code>: [in][range(0, rawDataSize)] buffer of raw data to calculate </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pSetCount</span></code>: [in,out] pointer to number of metric sets. if count is zero, then the driver shall update the value with the total number of metric sets to be calculated. if count is greater than the number available in the raw data buffer, then the driver shall update the value with the actual number of metric sets to be calculated. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pTotalMetricValueCount</span></code>: [in,out] pointer to number of the total number of metric values calculated, for all metric sets. if count is zero, then the driver shall update the value with the total number of metric values to be calculated. if count is greater than the number available in the raw data buffer, then the driver shall update the value with the actual number of metric values to be calculated. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pMetricCounts</span></code>: [in,out][optional][range(0, *pSetCount)] buffer of metric counts per metric set. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pMetricValues</span></code>: [in,out][optional][range(0, *pTotalMetricValueCount)] buffer of calculated metrics. if count is less than the number available in the raw data buffer, then driver shall only calculate that number of metric values. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+<p><ul class="simple">
+<li><p>This function is similar to <a class="reference internal" href="#zet__api_8h_1a45c4f2e26cc4f36b822b4b21061aa8df"><span class="std std-ref">zetMetricGroupCalculateMetricValues</span></a> except it may calculate more than one set of metric values from a single data buffer. There may be one set of metric values for each sub-device, for example.</p></li>
+<li><p>Each set of metric values may consist of a different number of metric values, returned as the metric value count.</p></li>
+<li><p>All metric values are calculated into a single buffer; use the metric counts to determine which metric values belong to which set.</p></li>
+<li><p>The application may call this function from simultaneous threads.</p></li>
+</ul>
+</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p><ul class="simple">
+<li><p><a class="reference internal" href="../core/api.html#ze__api_8h_1a3ea791bcf22ddfc1d413579b12c22767ae892446ebfef04994eaa45d020c528cd"><span class="std std-ref">ZE_RESULT_SUCCESS</span></a></p></li>
+<li><p><a class="reference internal" href="../core/api.html#ze__api_8h_1a3ea791bcf22ddfc1d413579b12c22767aed109126c34c65188f22b5bdb6c4c37f"><span class="std std-ref">ZE_RESULT_ERROR_UNINITIALIZED</span></a></p></li>
+<li><p><a class="reference internal" href="../core/api.html#ze__api_8h_1a3ea791bcf22ddfc1d413579b12c22767a1068b875393bd04173ce6d2810189890"><span class="std std-ref">ZE_RESULT_ERROR_DEVICE_LOST</span></a></p></li>
+<li><p><a class="reference internal" href="../core/api.html#ze__api_8h_1a3ea791bcf22ddfc1d413579b12c22767a21376db55e4a4577d2b527dfcd6bb381"><span class="std std-ref">ZE_RESULT_ERROR_INVALID_NULL_HANDLE</span></a><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">nullptr</span> <span class="pre">==</span> <span class="pre">hMetricGroup</span></code></p></li>
+</ul>
+</p></li>
+<li><p><a class="reference internal" href="../core/api.html#ze__api_8h_1a3ea791bcf22ddfc1d413579b12c22767af36d7426d6ba8735c9966ceef575d087"><span class="std std-ref">ZE_RESULT_ERROR_INVALID_ENUMERATION</span></a><ul>
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="#zet__api_8h_1a48f4fd639c64c1155d4dce6495a0081aa8f49ade8c0b14ff6acc22c5954dfd298"><span class="std std-ref"><span class="pre">ZET_METRIC_GROUP_CALCULATION_TYPE_MAX_METRIC_VALUES</span></span></a> <span class="pre">&lt;</span> <span class="pre">type</span></code></p></li>
+</ul>
+</p></li>
+<li><p><a class="reference internal" href="../core/api.html#ze__api_8h_1a3ea791bcf22ddfc1d413579b12c22767a90dc7f955a711ba2377da3125672400f"><span class="std std-ref">ZE_RESULT_ERROR_INVALID_NULL_POINTER</span></a><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">nullptr</span> <span class="pre">==</span> <span class="pre">pRawData</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nullptr</span> <span class="pre">==</span> <span class="pre">pSetCount</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nullptr</span> <span class="pre">==</span> <span class="pre">pTotalMetricValueCount</span></code> </p></li>
+</ul>
+</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="multimetricvalues-enums">
+<h3>Multimetricvalues Enums<a class="headerlink" href="#multimetricvalues-enums" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="ze-calculate-multiple-metrics-exp-version-t">
+<span id="id79"></span><h4>ze_calculate_multiple_metrics_exp_version_t<a class="headerlink" href="#ze-calculate-multiple-metrics-exp-version-t" title="Permalink to this headline">¶</a></h4>
+<dl class="cpp enum">
+<dt id="_CPPv443ze_calculate_multiple_metrics_exp_version_t">
+<span id="_CPPv343ze_calculate_multiple_metrics_exp_version_t"></span><span id="_CPPv243ze_calculate_multiple_metrics_exp_version_t"></span><span class="target" id="zet__api_8h_1a5163fc1d334b00243b080aea05de2a65"></span><em class="property">enum </em><code class="sig-name descname">ze_calculate_multiple_metrics_exp_version_t</code><a class="headerlink" href="#_CPPv443ze_calculate_multiple_metrics_exp_version_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Calculating Multiple Metrics Experimental Extension Version(s) </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt id="_CPPv445ZE_CALCULATE_MULTIPLE_METRICS_EXP_VERSION_1_0">
+<span id="_CPPv345ZE_CALCULATE_MULTIPLE_METRICS_EXP_VERSION_1_0"></span><span id="_CPPv245ZE_CALCULATE_MULTIPLE_METRICS_EXP_VERSION_1_0"></span><span class="target" id="zet__api_8h_1a5163fc1d334b00243b080aea05de2a65a57a76a883382e31c03af0616fbc3d6f9"></span><code class="sig-name descname">ZE_CALCULATE_MULTIPLE_METRICS_EXP_VERSION_1_0</code> = ZE_MAKE_VERSION(1, 0)<a class="headerlink" href="#_CPPv445ZE_CALCULATE_MULTIPLE_METRICS_EXP_VERSION_1_0" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>version 1.0 </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv449ZE_CALCULATE_MULTIPLE_METRICS_EXP_VERSION_CURRENT">
+<span id="_CPPv349ZE_CALCULATE_MULTIPLE_METRICS_EXP_VERSION_CURRENT"></span><span id="_CPPv249ZE_CALCULATE_MULTIPLE_METRICS_EXP_VERSION_CURRENT"></span><span class="target" id="zet__api_8h_1a5163fc1d334b00243b080aea05de2a65a2a399e0fa49206dbf8825c6e1b08286e"></span><code class="sig-name descname">ZE_CALCULATE_MULTIPLE_METRICS_EXP_VERSION_CURRENT</code> = ZE_MAKE_VERSION(1, 0)<a class="headerlink" href="#_CPPv449ZE_CALCULATE_MULTIPLE_METRICS_EXP_VERSION_CURRENT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>latest known version </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv454ZE_CALCULATE_MULTIPLE_METRICS_EXP_VERSION_FORCE_UINT32">
+<span id="_CPPv354ZE_CALCULATE_MULTIPLE_METRICS_EXP_VERSION_FORCE_UINT32"></span><span id="_CPPv254ZE_CALCULATE_MULTIPLE_METRICS_EXP_VERSION_FORCE_UINT32"></span><span class="target" id="zet__api_8h_1a5163fc1d334b00243b080aea05de2a65ae7a2cf0880919ab6653d69e36b2c10f7"></span><code class="sig-name descname">ZE_CALCULATE_MULTIPLE_METRICS_EXP_VERSION_FORCE_UINT32</code> = 0x7fffffff<a class="headerlink" href="#_CPPv454ZE_CALCULATE_MULTIPLE_METRICS_EXP_VERSION_FORCE_UINT32" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </div>

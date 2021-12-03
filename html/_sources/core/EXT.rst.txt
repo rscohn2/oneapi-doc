@@ -77,9 +77,17 @@ The extension must document the specific structures and functions that may be ex
 List of Standard Extensions
 ===========================
 
+    - :ref:`"ZE_extension_eu_count" <ZE_extension_eu_count>`
+    - :ref:`"ZE_extension_pci_properties" <ZE_extension_pci_properties>`
+    - :ref:`"ZE_extension_srgb" <ZE_extension_srgb>`
     - :ref:`"ZE_extension_cache_reservation" <ZE_extension_cache_reservation>`
     - :ref:`"ZE_extension_float_atomics" <ZE_extension_float_atomics>`
+    - :ref:`"ZE_extension_image_copy" <ZE_extension_image_copy>`
+    - :ref:`"ZE_extension_image_query_alloc_properties" <ZE_extension_image_query_alloc_properties>`
+    - :ref:`"ZE_extension_linkage_inspection" <ZE_extension_linkage_inspection>`
     - :ref:`"ZE_extension_linkonce_odr" <ZE_extension_linkonce_odr>`
+    - :ref:`"ZE_extension_memory_compression_hints" <ZE_extension_memory_compression_hints>`
+    - :ref:`"ZE_extension_memory_free_policies" <ZE_extension_memory_free_policies>`
     - :ref:`"ZE_extension_raytracing" <ZE_extension_raytracing>`
     - :ref:`"ZE_extension_subgroups" <ZE_extension_subgroups>`
 
@@ -93,6 +101,8 @@ List of Experimental Extensions
     - :ref:`"ZE_experimental_image_view" <ZE_experimental_image_view>`
     - :ref:`"ZE_experimental_image_view_planar" <ZE_experimental_image_view_planar>`
     - :ref:`"ZE_experimental_scheduling_hints" <ZE_experimental_scheduling_hints>`
+    - :ref:`"ZE_experimental_power_saving_hint" <ZE_experimental_power_saving_hint>`
     - :ref:`"ZE_experimental_module_program" <ZE_experimental_module_program>`
     - :ref:`"ZE_experimental_relaxed_allocation_limits" <ZE_experimental_relaxed_allocation_limits>`
+    - :ref:`"ZET_experimental_calculate_multiple_metrics" <ZET_experimental_calculate_multiple_metrics>`
     - :ref:`"ZET_experimental_api_tracing" <ZET_experimental_api_tracing>`
