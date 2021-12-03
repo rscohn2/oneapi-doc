@@ -3,7 +3,7 @@
 ==============================
 Tools API
 ==============================
-oneAPI Level Zero Specification - Version 1.3.0
+oneAPI Level Zero Specification - Version 1.2.43
 
  
 
@@ -1005,50 +1005,4 @@ zet_tracer_exp_desc_t
     :members:
     :undoc-members:
 
-
- 
-
-Multimetricvalues
-============================================================
-* Functions
-
-
-    * :ref:`zetMetricGroupCalculateMultipleMetricValuesExp`
-
- 
-* Enumerations
-
-
-    * :ref:`ze-calculate-multiple-metrics-exp-version-t`
-
- 
-
-
-Multimetricvalues Functions
-------------------------------------------------------------------------------
-
-
-.. _zetMetricGroupCalculateMultipleMetricValuesExp:
-
-zetMetricGroupCalculateMultipleMetricValuesExp
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. doxygenfunction:: zetMetricGroupCalculateMultipleMetricValuesExp
-    :project: LevelZero
-
-
-
-Multimetricvalues Enums
-------------------------------------------------------------------------------
-
-
-.. _ze-calculate-multiple-metrics-exp-version-t:
-
-ze_calculate_multiple_metrics_exp_version_t
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. doxygenenum:: ze_calculate_multiple_metrics_exp_version_t
-    :project: LevelZero
-
- 
 

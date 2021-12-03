@@ -12,4 +12,4 @@ API
 
 * Structures
 
-    * :ref:`ze-eu-count-ext-t`
+    * ze_eu_count_ext_t
