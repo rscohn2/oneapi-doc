@@ -242,13 +242,6 @@ In summary:
 |                   |                                       | Device          | Yes                        | Device         | Yes      |
 +-------------------+---------------------------------------+-----------------+----------------------------+----------------+----------+
 
-Devices may support different capabilities for each type of allocation. Supported capabilities are:
-
-* :ref:`ZE_MEMORY_ACCESS_CAP_FLAG_RW <ze-memory-access-cap-flags-t>` - if a device supports access (read or write) to allocations of the specified type.
-* :ref:`ZE_MEMORY_ACCESS_CAP_FLAG_ATOMIC <ze-memory-access-cap-flags-t>` - if a device support atomic operations on allocations of the specified type. Atomic operations may include relaxed consistency read-modify-write atomics and atomic operations that enforce memory consistency for non-atomic operations.
-* :ref:`ZE_MEMORY_ACCESS_CAP_FLAG_CONCURRENT <ze-memory-access-cap-flags-t>` - if a device supports concurrent access to allocations of the specified type. Concurrent access may be from another device that supports concurrent access, or from the host. Devices that support concurrent access but do not support concurrent atomic access must write to unique non-overlapping memory locations to avoid data races and hence undefined behavior.
-* :ref:`ZE_MEMORY_ACCESS_CAP_FLAG_CONCURRENT_ATOMIC <ze-memory-access-cap-flags-t>` - if a device supports concurrent atomic operations on allocations of the specified type. Concurrent atomic operations may be from another device that supports concurrent atomic access, or from the host. Devices that support concurrent atomic access may use atomic operations to enforce memory consistency with other devices that support concurrent atomic access, or with the host.
-
 At a minimum, drivers will assign unique physical pages for each device and shared memory allocation.
 However, it is undefined behavior for an application to access memory outside of the allocation size requested.
 The actual page size used for an allocation can be queried from :ref:`ze-memory-allocation-properties-t`\.pageSize using :ref:`zeMemGetAllocProperties`\.
@@ -256,6 +249,39 @@ Applications should implement usage-specific allocators from device memory pools
 
 Furthermore, drivers may *oversubscribe* some **shared** allocations.
 When and how such oversubscription occurs, including which allocations are evicted when the working set changes, are considered implementation details.
+
+Access Capabilities
+~~~~~~~~~~~~~~~~~~~
+
+Devices may support different access capabilities for each type of allocation. Supported capabilities are:
+
+1. **Host Allocations**: Assume a buffer allocated on the host via :ref:`zeMemAllocHost` that is accessed from device hDevice:
+
+    + :ref:`ZE_MEMORY_ACCESS_CAP_FLAG_RW <ze-memory-access-cap-flags-t>`\: Buffer can be accessed (read from as well as written to) from hDevice as well as from the host.
+    + :ref:`ZE_MEMORY_ACCESS_CAP_FLAG_ATOMIC <ze-memory-access-cap-flags-t>`\: Buffer can be atomically accessed from hDevice. Atomic operations may include relaxed consistency read-modify-write atomics and atomic operations that enforce memory consistency for non-atomic operations.
+    + :ref:`ZE_MEMORY_ACCESS_CAP_FLAG_CONCURRENT <ze-memory-access-cap-flags-t>`\: Buffer can be accessed from hDevice concurrently with another device that also supports concurrent access as well as with the host itself. Concurrent access is at the granularity of the whole allocation. This capability makes no guarantees about coherency or memory consistency. Undefined behavior occurs if concurrent accesses are made to an allocation from devices that do not support concurrent access. Devices that support concurrent access but do not support concurrent atomic access must write to unique non-overlapping memory locations to avoid data races and hence undefined behavior.
+    + :ref:`ZE_MEMORY_ACCESS_CAP_FLAG_CONCURRENT_ATOMIC <ze-memory-access-cap-flags-t>`\: Buffer can be atomically accessed from hDevice concurrently with another device that also supports concurrent atomic access as well as with the host itself. Concurrent atomic access is at the granularity of the whole allocation. Memory consistency can be enforced between the host & devices that support concurrent atomic access using atomic operations. Undefined behavior occurs if concurrent atomic accesses are made to an allocation from devices that do not support concurrent atomic access.
+
+2. **Device Allocations**: Assume a buffer allocated on device hDevice via :ref:`zeMemAllocDevice`\:
+
+    + :ref:`ZE_MEMORY_ACCESS_CAP_FLAG_RW <ze-memory-access-cap-flags-t>`\: Buffer can be accessed (read from as well as written to) from hDevice.
+    + :ref:`ZE_MEMORY_ACCESS_CAP_FLAG_ATOMIC <ze-memory-access-cap-flags-t>`\: Buffer can be atomically accessed from hDevice. Atomic operations may include relaxed consistency read-modify-write atomics and atomic operations that enforce memory consistency for non-atomic operations.
+    + :ref:`ZE_MEMORY_ACCESS_CAP_FLAG_CONCURRENT <ze-memory-access-cap-flags-t>`\: Buffer can be accessed from hDevice concurrently with another device that also supports concurrent access. By symmetry, the buffer could be located on either device and be accessed concurrently from both devices. Concurrent access is at the granularity of the whole allocation. This capability makes no guarantees about coherency or memory consistency. Undefined behavior occurs if concurrent accesses are made to an allocation from devices that do not support concurrent access. Devices that support concurrent access but do not support concurrent atomic access must write to unique non-overlapping memory locations to avoid data races and hence undefined behavior. A device can concurrently access a buffer on another device if both devices support concurrent access and both devices also support peer-to-peer access. If one device does not permit concurrent access, but peer-to-peer access is permitted, then the devices support peer-to-peer access but not concurrently to the same buffer.
+    + :ref:`ZE_MEMORY_ACCESS_CAP_FLAG_CONCURRENT_ATOMIC <ze-memory-access-cap-flags-t>`\: Buffer can be atomically accessed from hDevice concurrently with another device that also supports concurrent atomic access. By symmetry, the buffer could be located on either device and be atomically accessed concurrently from both devices. Concurrent atomic access is at the granularity of the whole allocation. Memory consistency can be enforced between devices that support concurrent atomic access using atomic operations. Undefined behavior occurs if concurrent atomic accesses are made to an allocation from devices that do not support concurrent atomic access. A device can concurrently perform atomic access to a device buffer on another device if both devices support concurrent atomic access and both devices also support peer-to-peer atomic access. If one device does not permit concurrent atomic access, but peer-to-peer atomic access is permitted, then the devices support peer-to-peer atomic access but not concurrently to the same buffer.
+
+3. **Shared Single Device Allocations**: Assume a shared allocation across the host & device hDevice created via :ref:`zeMemAllocShared`
+
+    + :ref:`ZE_MEMORY_ACCESS_CAP_FLAG_RW <ze-memory-access-cap-flags-t>`\: Buffer can be accessed (read from as well as written to) from hDevice as well as from the host.
+    + :ref:`ZE_MEMORY_ACCESS_CAP_FLAG_ATOMIC <ze-memory-access-cap-flags-t>`\: Buffer can be atomically accessed from hDevice as well as from the host. Atomic operations may include relaxed consistency read-modify-write atomics and atomic operations that enforce memory consistency for non-atomic operations.
+    + :ref:`ZE_MEMORY_ACCESS_CAP_FLAG_CONCURRENT <ze-memory-access-cap-flags-t>`\: Buffer can be accessed from hDevice concurrently with the host. Concurrent access is at the granularity of the whole allocation. This capability makes no guarantees about coherency or memory consistency. Undefined behavior occurs if concurrent accesses are made to the allocation from the host and from hDevice if it does not support concurrent access. A devices that supports concurrent access but does not support concurrent atomic access must write to unique non-overlapping (with the host) memory locations to avoid data races and hence undefined behavior.
+    + :ref:`ZE_MEMORY_ACCESS_CAP_FLAG_CONCURRENT_ATOMIC <ze-memory-access-cap-flags-t>`\: Buffer can be atomically accessed from hDevice concurrently with the host. Concurrent atomic access is at the granularity of the whole allocation. Memory consistency can be enforced between devices that support concurrent atomic access using atomic operations. Undefined behavior occurs if concurrent atomic accesses are made to the allocation from the host & hDevice if it does not support concurrent atomic access.
+
+4. **Shared Cross Device Allocations**: Assume a shared allocation across the host & the set of devices that support cross-device shared access capabilities created via :ref:`zeMemAllocShared` that is accessed from device hDevice:
+
+    + :ref:`ZE_MEMORY_ACCESS_CAP_FLAG_RW <ze-memory-access-cap-flags-t>`\: Buffer can be accessed (read from as well as written to) from hDevice as well as from the host.
+    + :ref:`ZE_MEMORY_ACCESS_CAP_FLAG_ATOMIC <ze-memory-access-cap-flags-t>`\: Buffer can be atomically accessed from hDevice as well as from the host. Atomic operations may include relaxed consistency read-modify-write atomics and atomic operations that enforce memory consistency for non-atomic operations.
+    + :ref:`ZE_MEMORY_ACCESS_CAP_FLAG_CONCURRENT <ze-memory-access-cap-flags-t>`\: Buffer can be accessed from hDevice concurrently with another device that also supports concurrent access and from the host. Concurrent access is at the granularity of the whole allocation. This capability makes no guarantees about coherency or memory consistency. Undefined behavior occurs if concurrent accesses are made to an allocation from devices that do not support concurrent access. Devices that support concurrent access but do not support concurrent atomic access must write to unique non-overlapping memory locations to avoid data races and hence undefined behavior.
+    + :ref:`ZE_MEMORY_ACCESS_CAP_FLAG_CONCURRENT_ATOMIC <ze-memory-access-cap-flags-t>`\: Buffer can be atomically accessed from hDevice concurrently with another device that also supports concurrent atomic access and from the host. Concurrent atomic access is at the granularity of the whole allocation. Memory consistency can be enforced between devices that support concurrent atomic access using atomic operations. Undefined behavior occurs if concurrent atomic accesses are made to an allocation from devices that do not support concurrent atomic access.
 
 The required matrix of capabilities are:
 
@@ -1636,6 +1662,20 @@ The following pseudo-code demonstrates the creation of a sampler object and pass
        // Append launch kernel
        :ref:`zeCommandListAppendLaunchKernel`\(hCommandList, hKernel, &launchArgs, nullptr, 0, nullptr);
 
+Formatted Output
+----------------
+
+The API supports the ability to print formatted output from a kernel using functions such as ``printf``.
+Calls to print formatted output will cause data to be written to an internal buffer, where the size of the internal buffer is given by :ref:`ze-device-module-properties-t`\.printfBufferSize.
+When the internal buffer becomes full, additional calls to print formatted output will return an error code.
+
+There is no ordering guarantee for the formatted output.
+If multiple work-items make multiple calls to ``printf``, the output from one work-item may appear intermixed with output from other work-items.
+
+On some devices, the internal buffer may not contain the formatted output itself, and instead the formatting may occur on the host.
+Additionally, the final formatting may not occur and the output may not be flushed to the output stream until the event associated with the kernel launch is complete.
+To ensure all output has been flushed to the output stream, wait on the event associated with the kernel launch, or wait for the kernel launch to complete using a coarser-grained synchronization method such as :ref:`zeFenceHostSynchronize` or :ref:`zeCommandQueueSynchronize`\.
+
 Advanced
 ========
 
@@ -1994,32 +2034,30 @@ The following code examples demonstrate how to use the event IPC APIs:
 Peer-to-Peer Access and Queries
 -------------------------------
 
-Peer to Peer API's provide capabilities to marshall data across Host to
+Peer to Peer API's provide capabilities to marshal data across Host to
 Device, Device to Host and Device to Device. The data marshalling API
 can be scheduled as asynchronous operations or can be synchronized with
 kernel execution through command queues. Data coherency is maintained by
 the driver without any explicit involvement from the application.
 
-Devices may be linked together within a node by a scale-up fabric and depending on the configuration,
-the fabric can support atomics, compute kernel remote access, and data copies.
+Cards may be linked together within a node by a scale-up fabric and depending on the configuration,
+the fabric can support remote access, atomics, and data copies.
 
 The following Peer-to-Peer functionalities are provided through the API:
 
-- Check for existence of peer-to-peer fabric between two devices.
+- Check for remote memory access capability between two devices/subdevices: :ref:`zeDeviceCanAccessPeer`
 
-       + :ref:`zeDeviceCanAccessPeer`
+       The following rules apply to :ref:`zeDeviceCanAccessPeer` queries
 
-- Query remote memory access and atomic capabilities for peer-to-peer
+       + A device/subdevice is always its own peer, i.e. it can always access itself.
 
-       + :ref:`zeDeviceGetP2PProperties`
+- Query remote memory access, atomic capabilities, logical & physical bandwidth & latency for peer-to-peer: :ref:`zeDeviceGetP2PProperties` + :ref:`ZE_experimental_bandwidth_properties`.
 
-- Copy data between devices over peer-to-peer fabric.
+       The following rules apply to :ref:`zeDeviceGetP2PProperties` queries
 
-       + :ref:`zeCommandListAppendMemoryCopy`
+       + A device/subdevice is always its own peer, i.e. it can always access itself and also do so atomically.
 
-.. |Device| image:: ../images/core_device.png?raw=true
-.. |Queue| image:: ../images/core_queue.png?raw=true
-.. |Graph| image:: ../images/core_sync.png?raw=true
-.. |Fence| image:: ../images/core_fence.png?raw=true
-.. |Event| image:: ../images/core_event.png?raw=true
-.. |Module| image:: ../images/core_module.png?raw=true
+- Copy data between devices over peer-to-peer fabric: :ref:`zeCommandListAppendMemoryCopy`
+
+Both :ref:`zeDeviceCanAccessPeer` & :ref:`zeDeviceGetP2PProperties` return the same information - do two devices support peer-to-peer access? :ref:`zeDeviceGetP2PProperties` provides more detail than :ref:`zeDeviceCanAccessPeer`\, such as support for atomics, bandwidths, latencies, etc...
+

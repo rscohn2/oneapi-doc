@@ -1,72 +1,37 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Introduction &mdash; Level Zero Specification  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-
-  
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Core Programming Guide" href="PROG.html" />
-    <link rel="prev" title="oneAPI Level Zero: 1.3.7" href="../index.html" /> 
+    <link rel="prev" title="oneAPI Level Zero: 1.4.0" href="../index.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> Level Zero Specification
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
-                1.3.7
+                1.4.0
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -74,17 +39,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#objective">Objective</a><ul>
@@ -113,62 +68,31 @@
 <li class="toctree-l1"><a class="reference internal" href="../versions.html">Versions</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Level Zero Specification</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
 
-    
 
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="section" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h1>
 <div class="section" id="objective">
-<h2>Objective<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h2>
+<h2>Objective<a class="headerlink" href="#objective" title="Permalink to this headline"></a></h2>
 <p>The objective of the ‘oneAPI’ Level-Zero Application Programming Interface (API) is to provide direct-to-metal interfaces to offload accelerator devices.
 Its programming interface can be tailored to any device needs and can be adapted to support broader set of languages features
 such as function pointers, virtual functions, unified memory, and I/O capabilities.</p>
@@ -178,7 +102,7 @@ The Level-Zero API is intended for providing explicit controls needed by higher-
 <p>While initially influenced by other low-level APIs, such as OpenCL and Vulkan, the Level-Zero APIs are designed to evolve independently.
 While initially influenced by GPU architecture, the Level-Zero APIs are designed to be supportable across different compute device architectures, such as FPGAs and other types of accelerator architectures.</p>
 <div class="section" id="core">
-<h3>Core<a class="headerlink" href="#core" title="Permalink to this headline">¶</a></h3>
+<h3>Core<a class="headerlink" href="#core" title="Permalink to this headline"></a></h3>
 <p>The Level-Zero core APIs provide the lowest-level, fine-grain and most explicit control over:</p>
 <blockquote>
 <div><ul class="simple">
@@ -192,7 +116,7 @@ While initially influenced by GPU architecture, the Level-Zero APIs are designed
 <p>See the <a class="reference internal" href="PROG.html#core-programming-guide"><span class="std std-ref">Core Programming Guide</span></a> for more details.</p>
 </div>
 <div class="section" id="tools">
-<h3>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h3>
+<h3>Tools<a class="headerlink" href="#tools" title="Permalink to this headline"></a></h3>
 <p>The Level-Zero tool APIs provide low-level access to device capabilities in order to support both
 direct application use and 3rd-party tools:</p>
 <blockquote>
@@ -204,7 +128,7 @@ direct application use and 3rd-party tools:</p>
 <p>See the <a class="reference internal" href="../tools/PROG.html#tools-programming-guide"><span class="std std-ref">Tools Programming Guide</span></a> for more details.</p>
 </div>
 <div class="section" id="system-management">
-<h3>System Management<a class="headerlink" href="#system-management" title="Permalink to this headline">¶</a></h3>
+<h3>System Management<a class="headerlink" href="#system-management" title="Permalink to this headline"></a></h3>
 <p>The Level-Zero Sysman APIs provide in-band access to the following features for each accelerator device:</p>
 <blockquote>
 <div><ul class="simple">
@@ -220,12 +144,12 @@ The systems administrator can tighten/relax the default permissions.</p>
 </div>
 </div>
 <div class="section" id="fundamentals">
-<h2>Fundamentals<a class="headerlink" href="#fundamentals" title="Permalink to this headline">¶</a></h2>
+<h2>Fundamentals<a class="headerlink" href="#fundamentals" title="Permalink to this headline"></a></h2>
 <p>The following section provides fundamentals of the API design.
 For more detailed information, refer to the programming guides and detailed specification pages.</p>
 <p>Header files can be found at: <a class="reference external" href="https://github.com/oneapi-src/level-zero">https://github.com/oneapi-src/level-zero</a></p>
 <div class="section" id="terminology">
-<h3>Terminology<a class="headerlink" href="#terminology" title="Permalink to this headline">¶</a></h3>
+<h3>Terminology<a class="headerlink" href="#terminology" title="Permalink to this headline"></a></h3>
 <p>This specification uses key words based on <a class="reference external" href="https://www.ietf.org/rfc/rfc2119.txt">RFC2119</a> to indicate requirement level.
 In particular, the following words are used to describe the actions of an implementation of this specification:</p>
 <blockquote>
@@ -237,7 +161,7 @@ In particular, the following words are used to describe the actions of an implem
 </div></blockquote>
 </div>
 <div class="section" id="naming-convention">
-<h3>Naming Convention<a class="headerlink" href="#naming-convention" title="Permalink to this headline">¶</a></h3>
+<h3>Naming Convention<a class="headerlink" href="#naming-convention" title="Permalink to this headline"></a></h3>
 <p>The following naming conventions must be followed:</p>
 <blockquote>
 <div><ul class="simple">
@@ -264,7 +188,7 @@ In particular, the following words are used to describe the actions of an implem
 </div></blockquote>
 </div>
 <div class="section" id="versioning">
-<h3>Versioning<a class="headerlink" href="#versioning" title="Permalink to this headline">¶</a></h3>
+<h3>Versioning<a class="headerlink" href="#versioning" title="Permalink to this headline"></a></h3>
 <p>There are multiple versions that should be used by the application to determine compatibility:</p>
 <p><strong>API Version</strong> - this is the version of the API supported by the device.</p>
 <blockquote>
@@ -288,7 +212,7 @@ In particular, the following words are used to describe the actions of an implem
 </div></blockquote>
 </div>
 <div class="section" id="error-handling">
-<h3>Error Handling<a class="headerlink" href="#error-handling" title="Permalink to this headline">¶</a></h3>
+<h3>Error Handling<a class="headerlink" href="#error-handling" title="Permalink to this headline"></a></h3>
 <p>The following design philosophies are adopted in order to reduce Host-side overhead:</p>
 <blockquote>
 <div><ul class="simple">
@@ -324,7 +248,7 @@ In particular, the following words are used to describe the actions of an implem
 </div></blockquote>
 </div>
 <div class="section" id="multithreading-and-concurrency">
-<h3>Multithreading and Concurrency<a class="headerlink" href="#multithreading-and-concurrency" title="Permalink to this headline">¶</a></h3>
+<h3>Multithreading and Concurrency<a class="headerlink" href="#multithreading-and-concurrency" title="Permalink to this headline"></a></h3>
 <p>The following design philosophies are adopted in order to maximize Host thread concurrency:</p>
 <blockquote>
 <div><ul class="simple">
@@ -370,7 +294,7 @@ If there is a need for an implementation to use a background thread, then that t
 </div></blockquote>
 </div>
 <div class="section" id="application-binary-interface">
-<h3>Application Binary Interface<a class="headerlink" href="#application-binary-interface" title="Permalink to this headline">¶</a></h3>
+<h3>Application Binary Interface<a class="headerlink" href="#application-binary-interface" title="Permalink to this headline"></a></h3>
 <p>The Level-Zero C APIs are provided to applications by a shared import library.
 C/C++ applications must include “ze_api.h” and link with “ze_api.lib”.
 The Level-Zero C Device-Driver Interfaces (DDIs) are provided to the import library by the shared loader and driver libraries.
@@ -391,51 +315,33 @@ This allows the Level-Zero shared library to be updated with additional symbols 
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="PROG.html" class="btn btn-neutral float-right" title="Core Programming Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../index.html" class="btn btn-neutral float-left" title="oneAPI Level Zero: 1.3.7" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="oneAPI Level Zero: 1.4.0" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="PROG.html" class="btn btn-neutral float-right" title="Core Programming Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2020, Intel
-
-    </p>
+    <p>&#169; Copyright 2020, Intel.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

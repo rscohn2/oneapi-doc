@@ -1,72 +1,37 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tools Programming Guide &mdash; Level Zero Specification  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-
-  
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Sysman Programming Guide" href="../sysman/PROG.html" />
     <link rel="prev" title="Core Programming Guide" href="../core/PROG.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> Level Zero Specification
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
-                1.3.7
+                1.4.0
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -74,17 +39,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../core/INTRO.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../core/PROG.html">Core Programming Guide</a></li>
@@ -151,64 +106,33 @@
 <li class="toctree-l1"><a class="reference internal" href="../versions.html">Versions</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Level Zero Specification</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
 
-    
 
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="section" id="tools-programming-guide">
-<span id="id1"></span><h1>Tools Programming Guide<a class="headerlink" href="#tools-programming-guide" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>Tools Programming Guide<a class="headerlink" href="#tools-programming-guide" title="Permalink to this headline"></a></h1>
 <div class="section" id="initialization">
-<h2>Initialization<a class="headerlink" href="#initialization" title="Permalink to this headline">¶</a></h2>
+<h2>Initialization<a class="headerlink" href="#initialization" title="Permalink to this headline"></a></h2>
 <div class="section" id="environment-variables">
-<h3>Environment Variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">¶</a></h3>
+<h3>Environment Variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline"></a></h3>
 <p>The following environment variables are required to be enabled during <a class="reference internal" href="../core/api.html#zeinit"><span class="std std-ref">zeInit</span></a> for the respective feature.</p>
 <table class="docutils align-default">
 <colgroup>
@@ -247,10 +171,10 @@
 </div>
 </div>
 <div class="section" id="api-tracing">
-<span id="id2"></span><h2>API Tracing<a class="headerlink" href="#api-tracing" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2>API Tracing<a class="headerlink" href="#api-tracing" title="Permalink to this headline"></a></h2>
 <p><strong>Experimental Extension</strong> - this feature will be removed post-1.0 and replaced with custom loader layers.</p>
 <div class="section" id="introduction">
-<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h3>
 <p>API tracing provides a way for tools to receive notifications of API
 calls made by an application. The callbacks provide direct access to the
 input and output parameters for viewing and modification. Tools may also
@@ -258,7 +182,7 @@ use these notifications as triggers to block and inject new API calls
 into the command stream, such as metrics.</p>
 </div>
 <div class="section" id="registration">
-<h3>Registration<a class="headerlink" href="#registration" title="Permalink to this headline">¶</a></h3>
+<h3>Registration<a class="headerlink" href="#registration" title="Permalink to this headline"></a></h3>
 <p>Tools may independently register for enter and exit callbacks for individual API calls, per driver instance.</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="api.html#zettracerexpsetprologues"><span class="std std-ref">zetTracerExpSetPrologues</span></a> is used to specify all the enter callbacks</p></li>
@@ -278,7 +202,7 @@ traceable. However, these APIs <strong>are</strong> traceable for all calls
 subsequent from the creation and enabling of the tracer itself.</p>
 </div>
 <div class="section" id="enabling-disabling-and-destruction">
-<h3>Enabling/Disabling and Destruction<a class="headerlink" href="#enabling-disabling-and-destruction" title="Permalink to this headline">¶</a></h3>
+<h3>Enabling/Disabling and Destruction<a class="headerlink" href="#enabling-disabling-and-destruction" title="Permalink to this headline"></a></h3>
 <p>The tracer is created in a disabled state and must be explicitly enabled
 by calling <a class="reference internal" href="api.html#zettracerexpsetenabled"><span class="std std-ref">zetTracerExpSetEnabled</span></a>. The implementation guarantees that
 prologues and epilogues will always be executed in pairs; i.e.</p>
@@ -363,9 +287,9 @@ void TracingExample( ... )
 </div>
 </div>
 <div class="section" id="metrics">
-<h2>Metrics<a class="headerlink" href="#metrics" title="Permalink to this headline">¶</a></h2>
+<h2>Metrics<a class="headerlink" href="#metrics" title="Permalink to this headline"></a></h2>
 <div class="section" id="introduction-1">
-<span id="id3"></span><h3>Introduction<a class="headerlink" href="#introduction-1" title="Permalink to this headline">¶</a></h3>
+<span id="id3"></span><h3>Introduction<a class="headerlink" href="#introduction-1" title="Permalink to this headline"></a></h3>
 <p>Devices provide programmable infrastructure designed to support
 performance debugging. The API described in this document provides
 access to these device metrics. The intention of this API is to support
@@ -383,7 +307,7 @@ software tool or an application is using the metrics then no other
 application can reliably use the same device resources.</p>
 </div>
 <div class="section" id="metric-groups">
-<h3>Metric Groups<a class="headerlink" href="#metric-groups" title="Permalink to this headline">¶</a></h3>
+<h3>Metric Groups<a class="headerlink" href="#metric-groups" title="Permalink to this headline"></a></h3>
 <p>The device infrastructure consists of a pre-defined set of non-programmable
 counters, and a programmable network of connections that work with a
 separate set of counters as well as other types of counters. For sake of
@@ -396,7 +320,7 @@ belong to different domains. <a class="reference internal" href="#domains"><span
 representation of independent device resources that can safely be used
 concurrently.</p>
 <div class="section" id="sampling-types">
-<h4>Sampling Types<a class="headerlink" href="#sampling-types" title="Permalink to this headline">¶</a></h4>
+<h4>Sampling Types<a class="headerlink" href="#sampling-types" title="Permalink to this headline"></a></h4>
 <p>Sampling types are a software representation of device capabilities in
 terms of reading metric values. Each Metric Group provides information
 on which sampling types it supports. There are separate sets of APIs
@@ -409,7 +333,7 @@ supporting each of the sampling types <a class="reference internal" href="#time-
 </ul>
 </div>
 <div class="section" id="domains">
-<span id="id4"></span><h4>Domains<a class="headerlink" href="#domains" title="Permalink to this headline">¶</a></h4>
+<span id="id4"></span><h4>Domains<a class="headerlink" href="#domains" title="Permalink to this headline"></a></h4>
 <p>Every Metric Group belongs to a given domain (<a class="reference internal" href="api.html#zet-metric-group-properties-t"><span class="std std-ref">zet_metric_group_properties_t</span></a>.domain).</p>
 <ul class="simple">
 <li><p>The Metric Group typically define a uniform device counter configuration used for measurements.</p></li>
@@ -419,7 +343,7 @@ supporting each of the sampling types <a class="reference internal" href="#time-
 </div>
 </div>
 <div class="section" id="enumeration">
-<h3>Enumeration<a class="headerlink" href="#enumeration" title="Permalink to this headline">¶</a></h3>
+<h3>Enumeration<a class="headerlink" href="#enumeration" title="Permalink to this headline"></a></h3>
 <p>All available metrics are organized into Metric Groups.</p>
 <ul class="simple">
 <li><p>During data collection, data for the whole Metric Group is gathered.</p></li>
@@ -496,7 +420,7 @@ measurements.</p>
 }</pre>
 </div>
 <div class="section" id="configuration">
-<h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
+<h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline"></a></h3>
 <p>Use the <a class="reference internal" href="api.html#zetcontextactivatemetricgroups"><span class="std std-ref">zetContextActivateMetricGroups</span></a> API call to configure the device
 for data collection.</p>
 <ul class="simple">
@@ -510,14 +434,14 @@ for data collection.</p>
 </ul>
 </div>
 <div class="section" id="collection">
-<h3>Collection<a class="headerlink" href="#collection" title="Permalink to this headline">¶</a></h3>
+<h3>Collection<a class="headerlink" href="#collection" title="Permalink to this headline"></a></h3>
 <p>There are two modes of metrics collection supported: <a class="reference internal" href="#time-based"><span class="std std-ref">time-based</span></a> and <a class="reference internal" href="#event-based"><span class="std std-ref">event-based</span></a>.</p>
 <ul class="simple">
 <li><p>Time-based collection is using a timer as well as other events to store data samples. A metric streamer interface is the software interface for configuration and collection.</p></li>
 <li><p>Event-based collection is based on a pair of Begin/End events appended to command lists. A metric query interface is the software interface for configuration and collection.</p></li>
 </ul>
 <div class="section" id="metric-streamer">
-<span id="time-based"></span><h4>Metric Streamer<a class="headerlink" href="#metric-streamer" title="Permalink to this headline">¶</a></h4>
+<span id="time-based"></span><h4>Metric Streamer<a class="headerlink" href="#metric-streamer" title="Permalink to this headline"></a></h4>
 <p>Time-based collection uses a simple Open, Read, Close scheme:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="api.html#zetmetricstreameropen"><span class="std std-ref">zetMetricStreamerOpen</span></a> opens the streamer.</p></li>
@@ -584,7 +508,7 @@ for data collection.</p>
 }</pre>
 </div>
 <div class="section" id="metric-query">
-<span id="event-based"></span><h4>Metric Query<a class="headerlink" href="#metric-query" title="Permalink to this headline">¶</a></h4>
+<span id="event-based"></span><h4>Metric Query<a class="headerlink" href="#metric-query" title="Permalink to this headline"></a></h4>
 <p>Event-based collection uses a simple Begin, End, GetData scheme:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="api.html#zetcommandlistappendmetricquerybegin"><span class="std std-ref">zetCommandListAppendMetricQueryBegin</span></a> defines the start counting event</p></li>
@@ -666,7 +590,7 @@ for data collection.</p>
 </div>
 </div>
 <div class="section" id="calculation">
-<h3>Calculation<a class="headerlink" href="#calculation" title="Permalink to this headline">¶</a></h3>
+<h3>Calculation<a class="headerlink" href="#calculation" title="Permalink to this headline"></a></h3>
 <p>Both MetricStreamer and MetricQuery collect the data in device specific, raw form that is not suitable for application processing.
 To calculate metric values use <a class="reference internal" href="api.html#zetmetricgroupcalculatemetricvalues"><span class="std std-ref">zetMetricGroupCalculateMetricValues</span></a>.</p>
 <p>The following pseudo-code demonstrates a basic sequence for metric calculation and interpretation:</p>
@@ -734,9 +658,9 @@ To calculate metric values use <a class="reference internal" href="api.html#zetm
 </div>
 </div>
 <div class="section" id="program-instrumentation">
-<h2>Program Instrumentation<a class="headerlink" href="#program-instrumentation" title="Permalink to this headline">¶</a></h2>
+<h2>Program Instrumentation<a class="headerlink" href="#program-instrumentation" title="Permalink to this headline"></a></h2>
 <div class="section" id="introduction-2">
-<span id="id5"></span><h3>Introduction<a class="headerlink" href="#introduction-2" title="Permalink to this headline">¶</a></h3>
+<span id="id5"></span><h3>Introduction<a class="headerlink" href="#introduction-2" title="Permalink to this headline"></a></h3>
 <p>The program instrumentation APIs provide tools a basic framework for low-level profiling of device kernels,
 by allowing direct instrumentation of those programs.
 These capabilities, in combination with those already provided, and in combination with a custom loader layer,
@@ -748,7 +672,7 @@ are sufficient for more advanced frameworks to be developed.</p>
 </ol>
 </div>
 <div class="section" id="inter-function-instrumentation">
-<h3>Inter-Function Instrumentation<a class="headerlink" href="#inter-function-instrumentation" title="Permalink to this headline">¶</a></h3>
+<h3>Inter-Function Instrumentation<a class="headerlink" href="#inter-function-instrumentation" title="Permalink to this headline"></a></h3>
 <p>The following capabilities allow for a tool to intercept and redirect function calls:</p>
 <ul class="simple">
 <li><p>Inter-module function calls - the ability to call functions between different modules; e.g., the application’s module and a tool’s module</p></li>
@@ -763,7 +687,7 @@ are sufficient for more advanced frameworks to be developed.</p>
 </ul>
 </div>
 <div class="section" id="intra-function-instrumentation">
-<h3>Intra-Function Instrumentation<a class="headerlink" href="#intra-function-instrumentation" title="Permalink to this headline">¶</a></h3>
+<h3>Intra-Function Instrumentation<a class="headerlink" href="#intra-function-instrumentation" title="Permalink to this headline"></a></h3>
 <p>The following capabilities allow for a tool to inject instructions within a kernel:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="api.html#zetmodulegetdebuginfo"><span class="std std-ref">zetModuleGetDebugInfo</span></a> - allows a tool to query standard debug info for an application’s module</p></li>
@@ -772,7 +696,7 @@ are sufficient for more advanced frameworks to be developed.</p>
 <li><p>Custom loader layer - same usage as Inter-Function Instrumentation above</p></li>
 </ul>
 <div class="section" id="compilation">
-<h4>Compilation<a class="headerlink" href="#compilation" title="Permalink to this headline">¶</a></h4>
+<h4>Compilation<a class="headerlink" href="#compilation" title="Permalink to this headline"></a></h4>
 <p>A module must be compiled with foreknowledge that instrumentation will be performed for the compiler to generate the proper profiling meta-data.
 Therefore, when the instrumentation layer is enabled, a new
 build flag is supported: “-zet-profile-flags &lt;value&gt;”, where &lt;value&gt; must be a
@@ -781,7 +705,7 @@ combination of <a class="reference internal" href="api.html#zet-profile-flags-t"
 In another example, a tool could recompile a Module using the build flag and use a custom loader layer to replace the application’s Module handle with it’s own.</p>
 </div>
 <div class="section" id="instrumentation">
-<h4>Instrumentation<a class="headerlink" href="#instrumentation" title="Permalink to this headline">¶</a></h4>
+<h4>Instrumentation<a class="headerlink" href="#instrumentation" title="Permalink to this headline"></a></h4>
 <p>Once the module has been compiled with instrumentation enabled, a tool may use <a class="reference internal" href="api.html#zetmodulegetdebuginfo"><span class="std std-ref">zetModuleGetDebugInfo</span></a> and <a class="reference internal" href="api.html#zetkernelgetprofileinfo"><span class="std std-ref">zetKernelGetProfileInfo</span></a>
 in order to decode the application’s instructions and register usage for each function in the module.</p>
 <p>If a tool requires additional functions to be used, it may create other module(s) and use <a class="reference internal" href="../core/api.html#zemodulegetfunctionpointer"><span class="std std-ref">zeModuleGetFunctionPointer</span></a>
@@ -792,7 +716,7 @@ Instead this is left up to the tool itself to decode the application module’s 
 This model prevents the instrumentation from being manipulated by the compiler.</p>
 </div>
 <div class="section" id="execution">
-<h4>Execution<a class="headerlink" href="#execution" title="Permalink to this headline">¶</a></h4>
+<h4>Execution<a class="headerlink" href="#execution" title="Permalink to this headline"></a></h4>
 <p>If a tool requires changing the address of an application’s function,
 then it should use a custom loader layer to intercept API calls dealing with function pointers.
 For example, <a class="reference internal" href="../core/api.html#zemodulegetfunctionpointer"><span class="std std-ref">zeModuleGetFunctionPointer</span></a> and all flavors of <a class="reference internal" href="../core/api.html#zecommandlistappendlaunchkernel"><span class="std std-ref">zeCommandListAppendLaunchKernel</span></a>.</p>
@@ -800,9 +724,9 @@ For example, <a class="reference internal" href="../core/api.html#zemodulegetfun
 </div>
 </div>
 <div class="section" id="program-debug">
-<h2>Program Debug<a class="headerlink" href="#program-debug" title="Permalink to this headline">¶</a></h2>
+<h2>Program Debug<a class="headerlink" href="#program-debug" title="Permalink to this headline"></a></h2>
 <div class="section" id="introduction-3">
-<span id="id6"></span><h3>Introduction<a class="headerlink" href="#introduction-3" title="Permalink to this headline">¶</a></h3>
+<span id="id6"></span><h3>Introduction<a class="headerlink" href="#introduction-3" title="Permalink to this headline"></a></h3>
 <p>The program debug APIs provide tools a basic framework for debugging device code.</p>
 <p>The debug APIs only operate on a single device.
 When debugging a multi-device system, the tool must debug each device independently.</p>
@@ -811,7 +735,7 @@ When debugging multiple host processes at the same time, the tool must debug dev
 submitted by each host process independently.</p>
 </div>
 <div class="section" id="device-debug-properties">
-<h3>Device Debug Properties<a class="headerlink" href="#device-debug-properties" title="Permalink to this headline">¶</a></h3>
+<h3>Device Debug Properties<a class="headerlink" href="#device-debug-properties" title="Permalink to this headline"></a></h3>
 <p>A tool may query the debug properties of a device by calling <a class="reference internal" href="api.html#zetdevicegetdebugproperties"><span class="std std-ref">zetDeviceGetDebugProperties</span></a>.</p>
 <p>To start a debug session, a tool should first query the debug properties of the device it wants to attach to.
 Support for attaching debuggers is indicated by the <a class="reference internal" href="api.html#zet-device-debug-property-flags-t"><span class="std std-ref">ZET_DEVICE_DEBUG_PROPERTY_FLAG_ATTACH</span></a> flag in <a class="reference internal" href="api.html#zet-device-debug-properties-t"><span class="std std-ref">zet_device_debug_properties_t</span></a>.</p>
@@ -822,7 +746,7 @@ if (<a class="reference internal" href="api.html#zet-device-debug-property-flags
     return; // debugging not supporting</pre>
 </div>
 <div class="section" id="attach-and-detach">
-<h3>Attach and Detach<a class="headerlink" href="#attach-and-detach" title="Permalink to this headline">¶</a></h3>
+<h3>Attach and Detach<a class="headerlink" href="#attach-and-detach" title="Permalink to this headline"></a></h3>
 <p>A tool must attach to a device by calling <a class="reference internal" href="api.html#zetdebugattach"><span class="std std-ref">zetDebugAttach</span></a>.
 The library will check the following properties:</p>
 <blockquote>
@@ -858,7 +782,7 @@ errcode = <a class="reference internal" href="api.html#zetdebugdetach"><span cla
 if (errcode)
     return errcode;</pre>
 <div class="section" id="devices-and-sub-devices">
-<h4>Devices and Sub-Devices<a class="headerlink" href="#devices-and-sub-devices" title="Permalink to this headline">¶</a></h4>
+<h4>Devices and Sub-Devices<a class="headerlink" href="#devices-and-sub-devices" title="Permalink to this headline"></a></h4>
 <p>A tool may attach to any device and will implicitly be attached to all sub-devices of that device.</p>
 <p>Implementations that use separate code segments per sub-device may further allow attaching to sub-devices individually.
 Support for this can be determined by calling <a class="reference internal" href="api.html#zetdevicegetdebugproperties"><span class="std std-ref">zetDeviceGetDebugProperties</span></a> using a sub-device handle and
@@ -872,7 +796,7 @@ This allows breakpoints to be contained within one sub-device.</p>
 Any attempt to attach to a sub-device results in <a class="reference internal" href="../core/api.html#ze-result-t"><span class="std std-ref">ZE_RESULT_ERROR_NOT_AVAILABLE</span></a>.</p>
 </div>
 <div class="section" id="device-thread-identification">
-<h4>Device Thread Identification<a class="headerlink" href="#device-thread-identification" title="Permalink to this headline">¶</a></h4>
+<h4>Device Thread Identification<a class="headerlink" href="#device-thread-identification" title="Permalink to this headline"></a></h4>
 <p>Device threads are identified by their slice, sub-slice, EU, and thread numbers,
 which lie between zero and the respective number reported by <a class="reference internal" href="../core/api.html#ze-device-properties-t"><span class="std std-ref">ze_device_properties_t</span></a> minus one.</p>
 <p>If a tool is attached to a device, device threads are enumerated for all sub-devices within that device.</p>
@@ -888,7 +812,7 @@ num_threads = properties.numSlices * properties.numSubslicesPerSlice *
 by iterating over the number of slices, sub-slices, EUs, and threads.</p>
 </div>
 <div class="section" id="thread-availability">
-<h4>Thread Availability<a class="headerlink" href="#thread-availability" title="Permalink to this headline">¶</a></h4>
+<h4>Thread Availability<a class="headerlink" href="#thread-availability" title="Permalink to this headline"></a></h4>
 <p>Not all threads may be available at all times and some threads may not be available at any time.
 This may have various reasons, including:</p>
 <ul class="simple">
@@ -904,7 +828,7 @@ This may have various reasons, including:</p>
 </div>
 </div>
 <div class="section" id="debug-events">
-<h3>Debug Events<a class="headerlink" href="#debug-events" title="Permalink to this headline">¶</a></h3>
+<h3>Debug Events<a class="headerlink" href="#debug-events" title="Permalink to this headline"></a></h3>
 <p>As soon as the debug session has been started, it will receive debug events from the device.
 To read the topmost event in the FIFO, the tool must call <a class="reference internal" href="api.html#zetdebugreadevent"><span class="std std-ref">zetDebugReadEvent</span></a>.</p>
 <p>The following sample code demonstrates reading an event:</p>
@@ -968,7 +892,7 @@ Not all events have event-specific fields.</p>
 </div></blockquote>
 </div>
 <div class="section" id="run-control">
-<h3>Run Control<a class="headerlink" href="#run-control" title="Permalink to this headline">¶</a></h3>
+<h3>Run Control<a class="headerlink" href="#run-control" title="Permalink to this headline"></a></h3>
 <p>The tool may interrupt and resume device threads by calling <a class="reference internal" href="api.html#zetdebuginterrupt"><span class="std std-ref">zetDebugInterrupt</span></a> and <a class="reference internal" href="api.html#zetdebugresume"><span class="std std-ref">zetDebugResume</span></a>, respectively.</p>
 <p>The thread argument may specify a single thread, a group of threads, or all threads on the device.
 To specify all threads, the tool must set all fields in <a class="reference internal" href="../core/api.html#ze-device-thread-t"><span class="std std-ref">ze_device_thread_t</span></a> to their maximum value.
@@ -999,7 +923,7 @@ if (errcode)
     return errcode;</pre>
 </div>
 <div class="section" id="memory-access">
-<h3>Memory Access<a class="headerlink" href="#memory-access" title="Permalink to this headline">¶</a></h3>
+<h3>Memory Access<a class="headerlink" href="#memory-access" title="Permalink to this headline"></a></h3>
 <p>A tool may read and write memory in the context of a stopped device thread as if that thread had read or written the memory.</p>
 <p>Memory may be partitioned into device-specific memory spaces.
 For example, GPU devices support the following memory spaces, defined by <a class="reference internal" href="api.html#zet-debug-memory-space-type-t"><span class="std std-ref">zet_debug_memory_space_type_t</span></a>:</p>
@@ -1042,7 +966,7 @@ if (errcode)
     return errcode;</pre>
 </div>
 <div class="section" id="register-state-access">
-<h3>Register State Access<a class="headerlink" href="#register-state-access" title="Permalink to this headline">¶</a></h3>
+<h3>Register State Access<a class="headerlink" href="#register-state-access" title="Permalink to this headline"></a></h3>
 <p>A tool may read and write the register state of a stopped device thread.</p>
 <p>Registers are grouped into sets of similar registers.
 The types of register sets supported by a device can be queried using <a class="reference internal" href="api.html#zetdebuggetregistersetproperties"><span class="std std-ref">zetDebugGetRegisterSetProperties</span></a>.
@@ -1077,51 +1001,33 @@ such as the maximum number of registers in each set, and whether the register se
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../sysman/PROG.html" class="btn btn-neutral float-right" title="Sysman Programming Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../core/PROG.html" class="btn btn-neutral float-left" title="Core Programming Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../core/PROG.html" class="btn btn-neutral float-left" title="Core Programming Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../sysman/PROG.html" class="btn btn-neutral float-right" title="Sysman Programming Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2020, Intel
-
-    </p>
+    <p>&#169; Copyright 2020, Intel.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

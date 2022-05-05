@@ -3,7 +3,7 @@
 ==============================
 Core API
 ==============================
-oneAPI Level Zero Specification - Version 1.3.7
+oneAPI Level Zero Specification - Version 1.4.0
 
  
 
@@ -17,6 +17,8 @@ Common
     * :ref:`ze-result-t`
     * :ref:`ze-structure-type-t`
     * :ref:`ze-external-memory-type-flags-t`
+    * :ref:`ze-bandwidth-unit-t`
+    * :ref:`ze-latency-unit-t`
 
  
 * Structures
@@ -24,6 +26,7 @@ Common
 
     * :ref:`ze-ipc-mem-handle-t`
     * :ref:`ze-ipc-event-pool-handle-t`
+    * :ref:`ze-uuid-t`
     * :ref:`ze-base-properties-t`
     * :ref:`ze-base-desc-t`
 
@@ -60,6 +63,24 @@ ze_external_memory_type_flags_t
 .. doxygenenum:: ze_external_memory_type_flag_t
     :project: LevelZero
 
+
+.. _ze-bandwidth-unit-t:
+
+ze_bandwidth_unit_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: ze_bandwidth_unit_t
+    :project: LevelZero
+
+
+.. _ze-latency-unit-t:
+
+ze_latency_unit_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: ze_latency_unit_t
+    :project: LevelZero
+
  
 Common Structures
 ------------------------------------------------------------------------------
@@ -80,6 +101,16 @@ ze_ipc_event_pool_handle_t
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. doxygenstruct:: ze_ipc_event_pool_handle_t
+    :project: LevelZero
+    :members:
+    :undoc-members:
+
+.. _ze-uuid-t:
+
+ze_uuid_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenstruct:: ze_uuid_t
     :project: LevelZero
     :members:
     :undoc-members:
@@ -3997,6 +4028,328 @@ ze_memory_free_ext_desc_t
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. doxygenstruct:: ze_memory_free_ext_desc_t
+    :project: LevelZero
+    :members:
+    :undoc-members:
+
+
+ 
+
+ 
+
+ 
+
+Bandwidth
+============================================================
+* Structures
+
+
+    * :ref:`ze-device-p2p-bandwidth-exp-properties-t`
+    * :ref:`ze-copy-bandwidth-exp-properties-t`
+
+
+
+
+ 
+Bandwidth Structures
+------------------------------------------------------------------------------
+
+.. _ze-device-p2p-bandwidth-exp-properties-t:
+
+ze_device_p2p_bandwidth_exp_properties_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenstruct:: ze_device_p2p_bandwidth_exp_properties_t
+    :project: LevelZero
+    :members:
+    :undoc-members:
+
+.. _ze-copy-bandwidth-exp-properties-t:
+
+ze_copy_bandwidth_exp_properties_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenstruct:: ze_copy_bandwidth_exp_properties_t
+    :project: LevelZero
+    :members:
+    :undoc-members:
+
+
+ 
+
+ 
+
+Deviceluid
+============================================================
+* Enumerations
+
+
+    * :ref:`ze-device-luid-ext-version-t`
+
+ 
+* Structures
+
+
+    * :ref:`ze-device-luid-ext-t`
+    * :ref:`ze-device-luid-ext-properties-t`
+
+
+
+
+Deviceluid Enums
+------------------------------------------------------------------------------
+
+
+.. _ze-device-luid-ext-version-t:
+
+ze_device_luid_ext_version_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: ze_device_luid_ext_version_t
+    :project: LevelZero
+
+ 
+Deviceluid Structures
+------------------------------------------------------------------------------
+
+.. _ze-device-luid-ext-t:
+
+ze_device_luid_ext_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenstruct:: ze_device_luid_ext_t
+    :project: LevelZero
+    :members:
+    :undoc-members:
+
+.. _ze-device-luid-ext-properties-t:
+
+ze_device_luid_ext_properties_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenstruct:: ze_device_luid_ext_properties_t
+    :project: LevelZero
+    :members:
+    :undoc-members:
+
+
+ 
+
+Fabric
+============================================================
+* Functions
+
+
+    * :ref:`zeFabricVertexGetExp`
+    * :ref:`zeFabricVertexGetSubVerticesExp`
+    * :ref:`zeFabricVertexGetPropertiesExp`
+    * :ref:`zeFabricVertexGetDeviceExp`
+    * :ref:`zeDeviceGetFabricVertexExp`
+    * :ref:`zeFabricEdgeGetExp`
+    * :ref:`zeFabricEdgeGetVerticesExp`
+    * :ref:`zeFabricEdgeGetPropertiesExp`
+
+ 
+* Enumerations
+
+
+    * :ref:`ze-fabric-vertex-exp-type-t`
+    * :ref:`ze-fabric-edge-exp-duplexity-t`
+
+ 
+* Structures
+
+
+    * :ref:`ze-fabric-vertex-pci-exp-address-t`
+    * :ref:`ze-fabric-vertex-exp-properties-t`
+    * :ref:`ze-fabric-edge-exp-properties-t`
+
+
+Fabric Functions
+------------------------------------------------------------------------------
+
+
+.. _zeFabricVertexGetExp:
+
+zeFabricVertexGetExp
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zeFabricVertexGetExp
+    :project: LevelZero
+
+
+.. _zeFabricVertexGetSubVerticesExp:
+
+zeFabricVertexGetSubVerticesExp
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zeFabricVertexGetSubVerticesExp
+    :project: LevelZero
+
+
+.. _zeFabricVertexGetPropertiesExp:
+
+zeFabricVertexGetPropertiesExp
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zeFabricVertexGetPropertiesExp
+    :project: LevelZero
+
+
+.. _zeFabricVertexGetDeviceExp:
+
+zeFabricVertexGetDeviceExp
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zeFabricVertexGetDeviceExp
+    :project: LevelZero
+
+
+.. _zeDeviceGetFabricVertexExp:
+
+zeDeviceGetFabricVertexExp
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zeDeviceGetFabricVertexExp
+    :project: LevelZero
+
+
+.. _zeFabricEdgeGetExp:
+
+zeFabricEdgeGetExp
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zeFabricEdgeGetExp
+    :project: LevelZero
+
+
+.. _zeFabricEdgeGetVerticesExp:
+
+zeFabricEdgeGetVerticesExp
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zeFabricEdgeGetVerticesExp
+    :project: LevelZero
+
+
+.. _zeFabricEdgeGetPropertiesExp:
+
+zeFabricEdgeGetPropertiesExp
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zeFabricEdgeGetPropertiesExp
+    :project: LevelZero
+
+
+
+Fabric Enums
+------------------------------------------------------------------------------
+
+
+.. _ze-fabric-vertex-exp-type-t:
+
+ze_fabric_vertex_exp_type_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: ze_fabric_vertex_exp_type_t
+    :project: LevelZero
+
+
+.. _ze-fabric-edge-exp-duplexity-t:
+
+ze_fabric_edge_exp_duplexity_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: ze_fabric_edge_exp_duplexity_t
+    :project: LevelZero
+
+ 
+Fabric Structures
+------------------------------------------------------------------------------
+
+.. _ze-fabric-vertex-pci-exp-address-t:
+
+ze_fabric_vertex_pci_exp_address_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenstruct:: ze_fabric_vertex_pci_exp_address_t
+    :project: LevelZero
+    :members:
+    :undoc-members:
+
+.. _ze-fabric-vertex-exp-properties-t:
+
+ze_fabric_vertex_exp_properties_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenstruct:: ze_fabric_vertex_exp_properties_t
+    :project: LevelZero
+    :members:
+    :undoc-members:
+
+.. _ze-fabric-edge-exp-properties-t:
+
+ze_fabric_edge_exp_properties_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenstruct:: ze_fabric_edge_exp_properties_t
+    :project: LevelZero
+    :members:
+    :undoc-members:
+
+
+ 
+
+ 
+
+Memoryproperties
+============================================================
+* Enumerations
+
+
+    * :ref:`ze-device-memory-properties-ext-version-t`
+    * :ref:`ze-device-memory-ext-type-t`
+
+ 
+* Structures
+
+
+    * :ref:`ze-device-memory-ext-properties-t`
+
+
+
+
+Memoryproperties Enums
+------------------------------------------------------------------------------
+
+
+.. _ze-device-memory-properties-ext-version-t:
+
+ze_device_memory_properties_ext_version_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: ze_device_memory_properties_ext_version_t
+    :project: LevelZero
+
+
+.. _ze-device-memory-ext-type-t:
+
+ze_device_memory_ext_type_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: ze_device_memory_ext_type_t
+    :project: LevelZero
+
+ 
+Memoryproperties Structures
+------------------------------------------------------------------------------
+
+.. _ze-device-memory-ext-properties-t:
+
+ze_device_memory_ext_properties_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenstruct:: ze_device_memory_ext_properties_t
     :project: LevelZero
     :members:
     :undoc-members:

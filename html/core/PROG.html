@@ -1,72 +1,37 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Core Programming Guide &mdash; Level Zero Specification  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-
-  
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Tools Programming Guide" href="../tools/PROG.html" />
     <link rel="prev" title="Introduction" href="INTRO.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> Level Zero Specification
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
-                1.3.7
+                1.4.0
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -74,17 +39,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="INTRO.html">Introduction</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Core Programming Guide</a><ul>
@@ -98,6 +53,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#memory-and-images">Memory and Images</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#memory">Memory</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#types">Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#access-capabilities">Access Capabilities</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#cache-hints-prefetch-and-memory-advice">Cache Hints, Prefetch, and Memory Advice</a></li>
 </ul>
 </li>
@@ -172,6 +128,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#sampler">Sampler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formatted-output">Formatted Output</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#advanced">Advanced</a><ul>
@@ -200,62 +157,31 @@
 <li class="toctree-l1"><a class="reference internal" href="../versions.html">Versions</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Level Zero Specification</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
 
-    
 
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="section" id="core-programming-guide">
-<span id="id1"></span><h1>Core Programming Guide<a class="headerlink" href="#core-programming-guide" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>Core Programming Guide<a class="headerlink" href="#core-programming-guide" title="Permalink to this headline"></a></h1>
 <div class="section" id="drivers-and-devices">
-<h2>Drivers and Devices<a class="headerlink" href="#drivers-and-devices" title="Permalink to this headline">¶</a></h2>
+<h2>Drivers and Devices<a class="headerlink" href="#drivers-and-devices" title="Permalink to this headline"></a></h2>
 <p>The API architecture exposes both physical and logical abstraction of the underlying devices capabilities.
 The device, sub-device and memory are exposed at physical level while command queues, events and
 synchronization methods are defined as logical entities.
@@ -264,7 +190,7 @@ All logical entities will be bound to device level physical capabilities.</p>
 These APIs provide interface to query information like compute unit count within the device or sub device,
 available memory and affinity to the compute, user managed cache size and work submission command queues.</p>
 <div class="section" id="drivers">
-<h3>Drivers<a class="headerlink" href="#drivers" title="Permalink to this headline">¶</a></h3>
+<h3>Drivers<a class="headerlink" href="#drivers" title="Permalink to this headline"></a></h3>
 <p>A driver object represents a collection of physical devices in the system accessed by the same Level-Zero driver.</p>
 <ul class="simple">
 <li><p>The application may query the number of Level-Zero drivers installed on the system, and their respective handles, using <a class="reference internal" href="api.html#zedriverget"><span class="std std-ref">zeDriverGet</span></a>.</p></li>
@@ -274,7 +200,7 @@ available memory and affinity to the compute, user managed cache size and work s
 </ul>
 </div>
 <div class="section" id="device">
-<h3>Device<a class="headerlink" href="#device" title="Permalink to this headline">¶</a></h3>
+<h3>Device<a class="headerlink" href="#device" title="Permalink to this headline"></a></h3>
 <p>A device object represents a physical device in the system that supports Level-Zero.</p>
 <ul class="simple">
 <li><p>The application may query the number devices supported by a driver, and their respective handles, using <a class="reference internal" href="api.html#zedeviceget"><span class="std std-ref">zeDeviceGet</span></a>.</p></li>
@@ -287,7 +213,7 @@ available memory and affinity to the compute, user managed cache size and work s
 <img alt="../_images/core_device.png" src="../_images/core_device.png" />
 </div>
 <div class="section" id="initialization-and-discovery">
-<h3>Initialization and Discovery<a class="headerlink" href="#initialization-and-discovery" title="Permalink to this headline">¶</a></h3>
+<h3>Initialization and Discovery<a class="headerlink" href="#initialization-and-discovery" title="Permalink to this headline"></a></h3>
 <p>The Level-Zero API must be initialized by calling <a class="reference internal" href="api.html#zeinit"><span class="std std-ref">zeInit</span></a> before calling any other API function.
 This function will load all Level-Zero driver(s) in the system into memory for the current process, for use by all Host threads.
 Simultaneous calls to <a class="reference internal" href="api.html#zeinit"><span class="std std-ref">zeInit</span></a> are thread-safe and only one instance of each driver will be loaded.</p>
@@ -337,7 +263,7 @@ if(nullptr == hDevice)
 </div>
 </div>
 <div class="section" id="contexts">
-<h2>Contexts<a class="headerlink" href="#contexts" title="Permalink to this headline">¶</a></h2>
+<h2>Contexts<a class="headerlink" href="#contexts" title="Permalink to this headline"></a></h2>
 <p>A context is a logical object used by the driver for managing all memory, command queues/lists, modules, synchronization objects, etc.</p>
 <ul class="simple">
 <li><p>A context handle is primarily used during creation and management of resources that may be used by multiple devices.</p></li>
@@ -375,7 +301,7 @@ An application must call <a class="reference internal" href="api.html#zedevicege
 Otherwise, even after the device has been reset, the call to <a class="reference internal" href="api.html#zecontextcreate"><span class="std std-ref">zeContextCreate</span></a> will fail.</p>
 </div>
 <div class="section" id="memory-and-images">
-<h2>Memory and Images<a class="headerlink" href="#memory-and-images" title="Permalink to this headline">¶</a></h2>
+<h2>Memory and Images<a class="headerlink" href="#memory-and-images" title="Permalink to this headline"></a></h2>
 <p>Memory is visible to the upper-level software stack as unified memory with a single virtual address space
 covering both the Host and a specific device.</p>
 <p>For GPUs, the API exposes two levels of the device memory hierarchy:</p>
@@ -404,11 +330,11 @@ The interface also provides query capabilities for all memory objects.</p>
 <li><p><a class="reference internal" href="#images"><span class="std std-ref">Images</span></a> - non-linear, formatted allocations for direct access from the device.</p></li>
 </ol>
 <div class="section" id="memory">
-<span id="linearmemory"></span><h3>Memory<a class="headerlink" href="#memory" title="Permalink to this headline">¶</a></h3>
+<span id="linearmemory"></span><h3>Memory<a class="headerlink" href="#memory" title="Permalink to this headline"></a></h3>
 <p>Linear, unformatted memory allocations are represented as pointers in the host application.
 A pointer on the Host has the same size as a pointer on the device.</p>
 <div class="section" id="types">
-<h4>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h4>
+<h4>Types<a class="headerlink" href="#types" title="Permalink to this headline"></a></h4>
 <p>Three types of allocations are supported.
 The type of allocation describes the <em>ownership</em> of the allocation:</p>
 <ol class="arabic">
@@ -528,19 +454,58 @@ and the same pointer to a shared system allocation may be used on the host and a
 </tr>
 </tbody>
 </table>
-<p>Devices may support different capabilities for each type of allocation. Supported capabilities are:</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="api.html#ze-memory-access-cap-flags-t"><span class="std std-ref">ZE_MEMORY_ACCESS_CAP_FLAG_RW</span></a> - if a device supports access (read or write) to allocations of the specified type.</p></li>
-<li><p><a class="reference internal" href="api.html#ze-memory-access-cap-flags-t"><span class="std std-ref">ZE_MEMORY_ACCESS_CAP_FLAG_ATOMIC</span></a> - if a device support atomic operations on allocations of the specified type. Atomic operations may include relaxed consistency read-modify-write atomics and atomic operations that enforce memory consistency for non-atomic operations.</p></li>
-<li><p><a class="reference internal" href="api.html#ze-memory-access-cap-flags-t"><span class="std std-ref">ZE_MEMORY_ACCESS_CAP_FLAG_CONCURRENT</span></a> - if a device supports concurrent access to allocations of the specified type. Concurrent access may be from another device that supports concurrent access, or from the host. Devices that support concurrent access but do not support concurrent atomic access must write to unique non-overlapping memory locations to avoid data races and hence undefined behavior.</p></li>
-<li><p><a class="reference internal" href="api.html#ze-memory-access-cap-flags-t"><span class="std std-ref">ZE_MEMORY_ACCESS_CAP_FLAG_CONCURRENT_ATOMIC</span></a> - if a device supports concurrent atomic operations on allocations of the specified type. Concurrent atomic operations may be from another device that supports concurrent atomic access, or from the host. Devices that support concurrent atomic access may use atomic operations to enforce memory consistency with other devices that support concurrent atomic access, or with the host.</p></li>
-</ul>
 <p>At a minimum, drivers will assign unique physical pages for each device and shared memory allocation.
 However, it is undefined behavior for an application to access memory outside of the allocation size requested.
 The actual page size used for an allocation can be queried from <a class="reference internal" href="api.html#ze-memory-allocation-properties-t"><span class="std std-ref">ze_memory_allocation_properties_t</span></a>.pageSize using <a class="reference internal" href="api.html#zememgetallocproperties"><span class="std std-ref">zeMemGetAllocProperties</span></a>.
 Applications should implement usage-specific allocators from device memory pools (e.g., small and/or fixed-sized allocations, lock-free, etc.).</p>
 <p>Furthermore, drivers may <em>oversubscribe</em> some <strong>shared</strong> allocations.
 When and how such oversubscription occurs, including which allocations are evicted when the working set changes, are considered implementation details.</p>
+</div>
+<div class="section" id="access-capabilities">
+<h4>Access Capabilities<a class="headerlink" href="#access-capabilities" title="Permalink to this headline"></a></h4>
+<p>Devices may support different access capabilities for each type of allocation. Supported capabilities are:</p>
+<ol class="arabic">
+<li><p><strong>Host Allocations</strong>: Assume a buffer allocated on the host via <a class="reference internal" href="api.html#zememallochost"><span class="std std-ref">zeMemAllocHost</span></a> that is accessed from device hDevice:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="api.html#ze-memory-access-cap-flags-t"><span class="std std-ref">ZE_MEMORY_ACCESS_CAP_FLAG_RW</span></a>: Buffer can be accessed (read from as well as written to) from hDevice as well as from the host.</p></li>
+<li><p><a class="reference internal" href="api.html#ze-memory-access-cap-flags-t"><span class="std std-ref">ZE_MEMORY_ACCESS_CAP_FLAG_ATOMIC</span></a>: Buffer can be atomically accessed from hDevice. Atomic operations may include relaxed consistency read-modify-write atomics and atomic operations that enforce memory consistency for non-atomic operations.</p></li>
+<li><p><a class="reference internal" href="api.html#ze-memory-access-cap-flags-t"><span class="std std-ref">ZE_MEMORY_ACCESS_CAP_FLAG_CONCURRENT</span></a>: Buffer can be accessed from hDevice concurrently with another device that also supports concurrent access as well as with the host itself. Concurrent access is at the granularity of the whole allocation. This capability makes no guarantees about coherency or memory consistency. Undefined behavior occurs if concurrent accesses are made to an allocation from devices that do not support concurrent access. Devices that support concurrent access but do not support concurrent atomic access must write to unique non-overlapping memory locations to avoid data races and hence undefined behavior.</p></li>
+<li><p><a class="reference internal" href="api.html#ze-memory-access-cap-flags-t"><span class="std std-ref">ZE_MEMORY_ACCESS_CAP_FLAG_CONCURRENT_ATOMIC</span></a>: Buffer can be atomically accessed from hDevice concurrently with another device that also supports concurrent atomic access as well as with the host itself. Concurrent atomic access is at the granularity of the whole allocation. Memory consistency can be enforced between the host &amp; devices that support concurrent atomic access using atomic operations. Undefined behavior occurs if concurrent atomic accesses are made to an allocation from devices that do not support concurrent atomic access.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Device Allocations</strong>: Assume a buffer allocated on device hDevice via <a class="reference internal" href="api.html#zememallocdevice"><span class="std std-ref">zeMemAllocDevice</span></a>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="api.html#ze-memory-access-cap-flags-t"><span class="std std-ref">ZE_MEMORY_ACCESS_CAP_FLAG_RW</span></a>: Buffer can be accessed (read from as well as written to) from hDevice.</p></li>
+<li><p><a class="reference internal" href="api.html#ze-memory-access-cap-flags-t"><span class="std std-ref">ZE_MEMORY_ACCESS_CAP_FLAG_ATOMIC</span></a>: Buffer can be atomically accessed from hDevice. Atomic operations may include relaxed consistency read-modify-write atomics and atomic operations that enforce memory consistency for non-atomic operations.</p></li>
+<li><p><a class="reference internal" href="api.html#ze-memory-access-cap-flags-t"><span class="std std-ref">ZE_MEMORY_ACCESS_CAP_FLAG_CONCURRENT</span></a>: Buffer can be accessed from hDevice concurrently with another device that also supports concurrent access. By symmetry, the buffer could be located on either device and be accessed concurrently from both devices. Concurrent access is at the granularity of the whole allocation. This capability makes no guarantees about coherency or memory consistency. Undefined behavior occurs if concurrent accesses are made to an allocation from devices that do not support concurrent access. Devices that support concurrent access but do not support concurrent atomic access must write to unique non-overlapping memory locations to avoid data races and hence undefined behavior. A device can concurrently access a buffer on another device if both devices support concurrent access and both devices also support peer-to-peer access. If one device does not permit concurrent access, but peer-to-peer access is permitted, then the devices support peer-to-peer access but not concurrently to the same buffer.</p></li>
+<li><p><a class="reference internal" href="api.html#ze-memory-access-cap-flags-t"><span class="std std-ref">ZE_MEMORY_ACCESS_CAP_FLAG_CONCURRENT_ATOMIC</span></a>: Buffer can be atomically accessed from hDevice concurrently with another device that also supports concurrent atomic access. By symmetry, the buffer could be located on either device and be atomically accessed concurrently from both devices. Concurrent atomic access is at the granularity of the whole allocation. Memory consistency can be enforced between devices that support concurrent atomic access using atomic operations. Undefined behavior occurs if concurrent atomic accesses are made to an allocation from devices that do not support concurrent atomic access. A device can concurrently perform atomic access to a device buffer on another device if both devices support concurrent atomic access and both devices also support peer-to-peer atomic access. If one device does not permit concurrent atomic access, but peer-to-peer atomic access is permitted, then the devices support peer-to-peer atomic access but not concurrently to the same buffer.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Shared Single Device Allocations</strong>: Assume a shared allocation across the host &amp; device hDevice created via <a class="reference internal" href="api.html#zememallocshared"><span class="std std-ref">zeMemAllocShared</span></a></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="api.html#ze-memory-access-cap-flags-t"><span class="std std-ref">ZE_MEMORY_ACCESS_CAP_FLAG_RW</span></a>: Buffer can be accessed (read from as well as written to) from hDevice as well as from the host.</p></li>
+<li><p><a class="reference internal" href="api.html#ze-memory-access-cap-flags-t"><span class="std std-ref">ZE_MEMORY_ACCESS_CAP_FLAG_ATOMIC</span></a>: Buffer can be atomically accessed from hDevice as well as from the host. Atomic operations may include relaxed consistency read-modify-write atomics and atomic operations that enforce memory consistency for non-atomic operations.</p></li>
+<li><p><a class="reference internal" href="api.html#ze-memory-access-cap-flags-t"><span class="std std-ref">ZE_MEMORY_ACCESS_CAP_FLAG_CONCURRENT</span></a>: Buffer can be accessed from hDevice concurrently with the host. Concurrent access is at the granularity of the whole allocation. This capability makes no guarantees about coherency or memory consistency. Undefined behavior occurs if concurrent accesses are made to the allocation from the host and from hDevice if it does not support concurrent access. A devices that supports concurrent access but does not support concurrent atomic access must write to unique non-overlapping (with the host) memory locations to avoid data races and hence undefined behavior.</p></li>
+<li><p><a class="reference internal" href="api.html#ze-memory-access-cap-flags-t"><span class="std std-ref">ZE_MEMORY_ACCESS_CAP_FLAG_CONCURRENT_ATOMIC</span></a>: Buffer can be atomically accessed from hDevice concurrently with the host. Concurrent atomic access is at the granularity of the whole allocation. Memory consistency can be enforced between devices that support concurrent atomic access using atomic operations. Undefined behavior occurs if concurrent atomic accesses are made to the allocation from the host &amp; hDevice if it does not support concurrent atomic access.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Shared Cross Device Allocations</strong>: Assume a shared allocation across the host &amp; the set of devices that support cross-device shared access capabilities created via <a class="reference internal" href="api.html#zememallocshared"><span class="std std-ref">zeMemAllocShared</span></a> that is accessed from device hDevice:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="api.html#ze-memory-access-cap-flags-t"><span class="std std-ref">ZE_MEMORY_ACCESS_CAP_FLAG_RW</span></a>: Buffer can be accessed (read from as well as written to) from hDevice as well as from the host.</p></li>
+<li><p><a class="reference internal" href="api.html#ze-memory-access-cap-flags-t"><span class="std std-ref">ZE_MEMORY_ACCESS_CAP_FLAG_ATOMIC</span></a>: Buffer can be atomically accessed from hDevice as well as from the host. Atomic operations may include relaxed consistency read-modify-write atomics and atomic operations that enforce memory consistency for non-atomic operations.</p></li>
+<li><p><a class="reference internal" href="api.html#ze-memory-access-cap-flags-t"><span class="std std-ref">ZE_MEMORY_ACCESS_CAP_FLAG_CONCURRENT</span></a>: Buffer can be accessed from hDevice concurrently with another device that also supports concurrent access and from the host. Concurrent access is at the granularity of the whole allocation. This capability makes no guarantees about coherency or memory consistency. Undefined behavior occurs if concurrent accesses are made to an allocation from devices that do not support concurrent access. Devices that support concurrent access but do not support concurrent atomic access must write to unique non-overlapping memory locations to avoid data races and hence undefined behavior.</p></li>
+<li><p><a class="reference internal" href="api.html#ze-memory-access-cap-flags-t"><span class="std std-ref">ZE_MEMORY_ACCESS_CAP_FLAG_CONCURRENT_ATOMIC</span></a>: Buffer can be atomically accessed from hDevice concurrently with another device that also supports concurrent atomic access and from the host. Concurrent atomic access is at the granularity of the whole allocation. Memory consistency can be enforced between devices that support concurrent atomic access using atomic operations. Undefined behavior occurs if concurrent atomic accesses are made to an allocation from devices that do not support concurrent atomic access.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
 <p>The required matrix of capabilities are:</p>
 <table class="docutils align-default">
 <colgroup>
@@ -593,7 +558,7 @@ When and how such oversubscription occurs, including which allocations are evict
 </table>
 </div>
 <div class="section" id="cache-hints-prefetch-and-memory-advice">
-<h4>Cache Hints, Prefetch, and Memory Advice<a class="headerlink" href="#cache-hints-prefetch-and-memory-advice" title="Permalink to this headline">¶</a></h4>
+<h4>Cache Hints, Prefetch, and Memory Advice<a class="headerlink" href="#cache-hints-prefetch-and-memory-advice" title="Permalink to this headline"></a></h4>
 <p>Cacheability hints may be provided via separate host and device allocation flags when memory is allocated.</p>
 <p><strong>Shared</strong> allocations may be prefetched to a supporting device via the <a class="reference internal" href="api.html#zecommandlistappendmemoryprefetch"><span class="std std-ref">zeCommandListAppendMemoryPrefetch</span></a> API.
 Prefetching may allow memory transfers to be scheduled concurrently with other computations and may improve performance.</p>
@@ -604,13 +569,13 @@ Memory advice may avoid unnecessary or unprofitable memory transfers and may imp
 </div>
 </div>
 <div class="section" id="reserved-device-allocations">
-<h3>Reserved Device Allocations<a class="headerlink" href="#reserved-device-allocations" title="Permalink to this headline">¶</a></h3>
+<h3>Reserved Device Allocations<a class="headerlink" href="#reserved-device-allocations" title="Permalink to this headline"></a></h3>
 <p>If an application needs finer grained control of physical memory consumption for device allocations then it
 can reserve a range of the virtual address space and map this to physical memory as needed. This provides
 flexibility for applications to manage large dynamic data structures which can grow and shrink over time
 while maintaining optimal physical memory usage.</p>
 <div class="section" id="reserving-virtual-address-space">
-<h4>Reserving Virtual Address Space<a class="headerlink" href="#reserving-virtual-address-space" title="Permalink to this headline">¶</a></h4>
+<h4>Reserving Virtual Address Space<a class="headerlink" href="#reserving-virtual-address-space" title="Permalink to this headline"></a></h4>
 <p>Virtual memory can be reserved using <a class="reference internal" href="api.html#zevirtualmemreserve"><span class="std std-ref">zeVirtualMemReserve</span></a>. The reservation starting address
 and size must be page aligned. Applications should query the page size for the allocation
 using <a class="reference internal" href="api.html#zevirtualmemquerypagesize"><span class="std std-ref">zeVirtualMemQueryPageSize</span></a>.</p>
@@ -627,7 +592,7 @@ void* ptr = nullptr;
 <a class="reference internal" href="api.html#zevirtualmemreserve"><span class="std std-ref">zeVirtualMemReserve</span></a>(hContext, nullptr, reserveSize, &amp;ptr);</pre>
 </div>
 <div class="section" id="growing-virtual-address-reservations">
-<h4>Growing Virtual Address Reservations<a class="headerlink" href="#growing-virtual-address-reservations" title="Permalink to this headline">¶</a></h4>
+<h4>Growing Virtual Address Reservations<a class="headerlink" href="#growing-virtual-address-reservations" title="Permalink to this headline"></a></h4>
 <p>An application may wish to reserve an address range starting at a specific virtual address.
 This may be useful when there is a need to grow a reservation. However, if the
 implementation is not able to reserve the new allocation at the requested starting address
@@ -666,7 +631,7 @@ if (retptr != newptr)
 }</pre>
 </div>
 <div class="section" id="physical-memory">
-<h4>Physical Memory<a class="headerlink" href="#physical-memory" title="Permalink to this headline">¶</a></h4>
+<h4>Physical Memory<a class="headerlink" href="#physical-memory" title="Permalink to this headline"></a></h4>
 <p>Physical memory is explicitly represented in the API as physical memory objects
 that are reservations of physical pages. The application will use <a class="reference internal" href="api.html#zephysicalmemcreate"><span class="std std-ref">zePhysicalMemCreate</span></a>
 to create a physical memory object.</p>
@@ -684,7 +649,7 @@ size_t physicalSize = align(allocationSize, pageSize);
 <a class="reference internal" href="api.html#zephysicalmemcreate"><span class="std std-ref">zePhysicalMemCreate</span></a>(hContext, hDevice, &amp;pmemDesc, &amp;hPhysicalAlloc);</pre>
 </div>
 <div class="section" id="mapping-virtual-memory-pages">
-<h4>Mapping Virtual Memory Pages<a class="headerlink" href="#mapping-virtual-memory-pages" title="Permalink to this headline">¶</a></h4>
+<h4>Mapping Virtual Memory Pages<a class="headerlink" href="#mapping-virtual-memory-pages" title="Permalink to this headline"></a></h4>
 <p>Reserved virtual memory pages can be mapped to physical memory using <a class="reference internal" href="api.html#zevirtualmemmap"><span class="std std-ref">zeVirtualMemMap</span></a>.
 An application can map the entire reserved virtual address range or can sparsely map the
 reserved virtual address range using one or more physical memory objects. Once mapped, the
@@ -697,7 +662,7 @@ these physical pages.</p>
     <a class="reference internal" href="api.html#ze-memory-access-attribute-t"><span class="std std-ref">ZE_MEMORY_ACCESS_ATTRIBUTE_READWRITE</span></a>);</pre>
 </div>
 <div class="section" id="access-attributes">
-<h4>Access Attributes<a class="headerlink" href="#access-attributes" title="Permalink to this headline">¶</a></h4>
+<h4>Access Attributes<a class="headerlink" href="#access-attributes" title="Permalink to this headline"></a></h4>
 <p>Access attributes can be set for a range of pages when mapping virtual memory
 pages with <a class="reference internal" href="api.html#zevirtualmemmap"><span class="std std-ref">zeVirtualMemMap</span></a> or with <a class="reference internal" href="api.html#zevirtualmemsetaccessattribute"><span class="std std-ref">zeVirtualMemSetAccessAttribute</span></a>.
 In addition, an application can query access attributes for a page aligned
@@ -711,7 +676,7 @@ assert(accessRangeSize == reserveSize);
 assert(access == <a class="reference internal" href="api.html#ze-memory-access-attribute-t"><span class="std std-ref">ZE_MEMORY_ACCESS_ATTRIBUTE_READWRITE</span></a>);</pre>
 </div>
 <div class="section" id="sparse-mappings">
-<h4>Sparse Mappings<a class="headerlink" href="#sparse-mappings" title="Permalink to this headline">¶</a></h4>
+<h4>Sparse Mappings<a class="headerlink" href="#sparse-mappings" title="Permalink to this headline"></a></h4>
 <p>Applications may desire to reserve large virtual address ranges to make available
 to its custom allocators. These ranges can be sparsely mapped using one or more physical
 memory objects. It is recommended that the application queries the page size for each
@@ -761,7 +726,7 @@ size_t subAllocDiffSize = 8388608;
 </div>
 </div>
 <div class="section" id="images">
-<span id="id2"></span><h3>Images<a class="headerlink" href="#images" title="Permalink to this headline">¶</a></h3>
+<span id="id2"></span><h3>Images<a class="headerlink" href="#images" title="Permalink to this headline"></a></h3>
 <p>An image is used to store multi-dimensional and format-defined memory.
 An image’s contents may be stored in an implementation-specific encoding
 and layout in memory for optimal device access
@@ -917,7 +882,7 @@ to replicate components into the channels.</p>
 </table>
 </div>
 <div class="section" id="device-cache-settings">
-<h3>Device Cache Settings<a class="headerlink" href="#device-cache-settings" title="Permalink to this headline">¶</a></h3>
+<h3>Device Cache Settings<a class="headerlink" href="#device-cache-settings" title="Permalink to this headline"></a></h3>
 <p>There are two methods for device and kernel cache control:</p>
 <ol class="arabic">
 <li><p>Cache Size Configuration: Ability to configure larger size for SLM vs Data per Kernel instance.</p></li>
@@ -937,7 +902,7 @@ configuration:</p>
 <a class="reference internal" href="api.html#zekernelsetcacheconfig"><span class="std std-ref">zeKernelSetCacheConfig</span></a>(hKernel, <a class="reference internal" href="api.html#ze-cache-config-flags-t"><span class="std std-ref">ZE_CACHE_CONFIG_FLAG_LARGE_SLM</span></a>);</pre>
 </div>
 <div class="section" id="external-memory-import-and-export">
-<span id="external-memory"></span><h3>External Memory Import and Export<a class="headerlink" href="#external-memory-import-and-export" title="Permalink to this headline">¶</a></h3>
+<span id="external-memory"></span><h3>External Memory Import and Export<a class="headerlink" href="#external-memory-import-and-export" title="Permalink to this headline"></a></h3>
 <p>External memory handles may be imported from other APIs, or exported for use in other APIs.
 Importing and exporting external memory is an optional feature.
 Devices may describe the types of external memory handles they support using <a class="reference internal" href="api.html#zedevicegetexternalmemoryproperties"><span class="std std-ref">zeDeviceGetExternalMemoryProperties</span></a>.</p>
@@ -1000,7 +965,7 @@ image_desc.width = import_width;
 </div>
 </div>
 <div class="section" id="command-queues-and-command-lists">
-<h2>Command Queues and Command Lists<a class="headerlink" href="#command-queues-and-command-lists" title="Permalink to this headline">¶</a></h2>
+<h2>Command Queues and Command Lists<a class="headerlink" href="#command-queues-and-command-lists" title="Permalink to this headline"></a></h2>
 <p>The following are the motivations for separating a command queue from a command list:</p>
 <ul class="simple">
 <li><p>Command queues are mostly associated with physical device properties, such as the number of input streams.</p></li>
@@ -1011,10 +976,10 @@ image_desc.width = import_width;
 <p>The following diagram illustrates the hierarchy of command lists and command queues to the device:</p>
 <img alt="../_images/core_queue.png" src="../_images/core_queue.png" />
 <div class="section" id="command-queue-groups">
-<h3>Command Queue Groups<a class="headerlink" href="#command-queue-groups" title="Permalink to this headline">¶</a></h3>
+<h3>Command Queue Groups<a class="headerlink" href="#command-queue-groups" title="Permalink to this headline"></a></h3>
 <p>A command queue group represents a physical input stream, which represents one or more physical device engines.</p>
 <div class="section" id="discovery">
-<h4>Discovery<a class="headerlink" href="#discovery" title="Permalink to this headline">¶</a></h4>
+<h4>Discovery<a class="headerlink" href="#discovery" title="Permalink to this headline"></a></h4>
 <ul class="simple">
 <li><p>The number and properties of command queue groups is queried by using <a class="reference internal" href="api.html#zedevicegetcommandqueuegroupproperties"><span class="std std-ref">zeDeviceGetCommandQueueGroupProperties</span></a>.</p></li>
 <li><p>The number of physical engines within a group is queried from <a class="reference internal" href="api.html#ze-command-queue-group-properties-t"><span class="std std-ref">ze_command_queue_group_properties_t</span></a>.numQueues.</p></li>
@@ -1048,10 +1013,10 @@ if(computeQueueGroupOrdinal == cmdqueueGroupCount)
 </div>
 </div>
 <div class="section" id="command-queues">
-<h3>Command Queues<a class="headerlink" href="#command-queues" title="Permalink to this headline">¶</a></h3>
+<h3>Command Queues<a class="headerlink" href="#command-queues" title="Permalink to this headline"></a></h3>
 <p>A command queue represents a logical input stream to the device, tied to a physical input stream.</p>
 <div class="section" id="creation">
-<h4>Creation<a class="headerlink" href="#creation" title="Permalink to this headline">¶</a></h4>
+<h4>Creation<a class="headerlink" href="#creation" title="Permalink to this headline"></a></h4>
 <ul class="simple">
 <li><p>At creation time, the command queue is explicitly bound to a command queue group via its ordinal.</p></li>
 <li><p>Multiple command queues may be created that use the same command queue group. For example,
@@ -1090,7 +1055,7 @@ ze_command_queue_handle_t hCommandQueue;
 ...</pre>
 </div>
 <div class="section" id="execution">
-<h4>Execution<a class="headerlink" href="#execution" title="Permalink to this headline">¶</a></h4>
+<h4>Execution<a class="headerlink" href="#execution" title="Permalink to this headline"></a></h4>
 <ul class="simple">
 <li><p>Command lists submitted to a command queue are <strong>immediately</strong> submitted to the device for execution.</p></li>
 <li><p>Submitting multiple commands lists in a single submission allows an implementation the opportunity to optimize across command lists.</p></li>
@@ -1105,7 +1070,7 @@ can be executed on a command queue created using <a class="reference internal" h
 </ul>
 </div>
 <div class="section" id="destruction">
-<h4>Destruction<a class="headerlink" href="#destruction" title="Permalink to this headline">¶</a></h4>
+<h4>Destruction<a class="headerlink" href="#destruction" title="Permalink to this headline"></a></h4>
 <ul class="simple">
 <li><p>The application is responsible for making sure the device is not currently
 executing from a command queue before it is deleted. This is
@@ -1115,10 +1080,10 @@ handled by calling <a class="reference internal" href="api.html#zecommandqueuesy
 </div>
 </div>
 <div class="section" id="command-lists">
-<h3>Command Lists<a class="headerlink" href="#command-lists" title="Permalink to this headline">¶</a></h3>
+<h3>Command Lists<a class="headerlink" href="#command-lists" title="Permalink to this headline"></a></h3>
 <p>A command list represents a sequence of commands for execution on a command queue.</p>
 <div class="section" id="creation-1">
-<span id="id3"></span><h4>Creation<a class="headerlink" href="#creation-1" title="Permalink to this headline">¶</a></h4>
+<span id="id3"></span><h4>Creation<a class="headerlink" href="#creation-1" title="Permalink to this headline"></a></h4>
 <ul class="simple">
 <li><p>A command list is created for a device to allow device-specific appending of commands.</p></li>
 <li><p>A command list is created for execution on a specific type of command queue, specified using
@@ -1128,7 +1093,7 @@ to copy a command list for use on a different device.</p></li>
 </ul>
 </div>
 <div class="section" id="appending">
-<h4>Appending<a class="headerlink" href="#appending" title="Permalink to this headline">¶</a></h4>
+<h4>Appending<a class="headerlink" href="#appending" title="Permalink to this headline"></a></h4>
 <ul class="simple">
 <li><p>There is no implicit binding of command lists to Host threads. Therefore, an
 application may share a command list handle across multiple Host threads. However,
@@ -1163,7 +1128,7 @@ ze_command_list_handle_t hCommandList;
 ...</pre>
 </div>
 <div class="section" id="submission">
-<h4>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">¶</a></h4>
+<h4>Submission<a class="headerlink" href="#submission" title="Permalink to this headline"></a></h4>
 <ul class="simple">
 <li><p>There is no implicit association between a command list and a command queue.
 Therefore, a command list may be submitted to any or multiple command queues.</p></li>
@@ -1191,7 +1156,7 @@ For example, events must be explicitly reset prior to re-execution.</p></li>
 ...</pre>
 </div>
 <div class="section" id="recycling">
-<h4>Recycling<a class="headerlink" href="#recycling" title="Permalink to this headline">¶</a></h4>
+<h4>Recycling<a class="headerlink" href="#recycling" title="Permalink to this headline"></a></h4>
 <ul class="simple">
 <li><p>A command list may be recycled to avoid the overhead of frequent creation and destruction.</p></li>
 <li><p>The application is responsible for making sure the device is not currently
@@ -1203,7 +1168,7 @@ handled by tracking a completion event associated with the command list.</p></li
 </ul>
 </div>
 <div class="section" id="low-latency-immediate-command-lists">
-<h4>Low-Latency Immediate Command Lists<a class="headerlink" href="#low-latency-immediate-command-lists" title="Permalink to this headline">¶</a></h4>
+<h4>Low-Latency Immediate Command Lists<a class="headerlink" href="#low-latency-immediate-command-lists" title="Permalink to this headline"></a></h4>
 <p>A special type of command list can be used for very low-latency submission usage-models.</p>
 <ul class="simple">
 <li><p>An immediate command list is both a command list and an implicit command queue.</p></li>
@@ -1232,7 +1197,7 @@ ze_command_list_handle_t hCommandList;
 </div>
 </div>
 <div class="section" id="synchronization-primitives">
-<h2>Synchronization Primitives<a class="headerlink" href="#synchronization-primitives" title="Permalink to this headline">¶</a></h2>
+<h2>Synchronization Primitives<a class="headerlink" href="#synchronization-primitives" title="Permalink to this headline"></a></h2>
 <p>There are two types of synchronization primitives:</p>
 <ol class="arabic simple">
 <li><p><a class="reference internal" href="#fences">Fences</a> - used to communicate to the host that command queue execution has completed.</p></li>
@@ -1255,7 +1220,7 @@ ze_command_list_handle_t hCommandList;
 <p>Generally. Events are generic synchronization primitives that can be used across many different usage-models, including those of fences.
 However, this generality comes with some cost in memory overhead and efficiency.</p>
 <div class="section" id="fences">
-<span id="id4"></span><h3>Fences<a class="headerlink" href="#fences" title="Permalink to this headline">¶</a></h3>
+<span id="id4"></span><h3>Fences<a class="headerlink" href="#fences" title="Permalink to this headline"></a></h3>
 <p>A fence is a heavyweight synchronization primitive used to communicate to the host that command list execution has completed.</p>
 <ul class="simple">
 <li><p>A fence is associated with a single command queue.</p></li>
@@ -1294,7 +1259,7 @@ ze_fence_handle_t hFence;
 <img alt="../_images/core_fence.png" src="../_images/core_fence.png" />
 </div>
 <div class="section" id="events">
-<span id="id5"></span><h3>Events<a class="headerlink" href="#events" title="Permalink to this headline">¶</a></h3>
+<span id="id5"></span><h3>Events<a class="headerlink" href="#events" title="Permalink to this headline"></a></h3>
 <p>An event is used to communicate fine-grain host-to-device, device-to-host or device-to-device dependencies have completed.</p>
 <ul>
 <li><p>An event can be:</p>
@@ -1365,7 +1330,7 @@ ze_event_handle_t hEvent;
 <p>The following diagram illustrates a dependency between command lists using events:</p>
 <img alt="../_images/core_event.png" src="../_images/core_event.png" />
 <div class="section" id="kernel-timestamp-events">
-<h4>Kernel Timestamp Events<a class="headerlink" href="#kernel-timestamp-events" title="Permalink to this headline">¶</a></h4>
+<h4>Kernel Timestamp Events<a class="headerlink" href="#kernel-timestamp-events" title="Permalink to this headline"></a></h4>
 <p>A kernel timestamp event is a special type of event that records device timestamps at the start and end of the execution of kernels. The primary motivation for kernel timestamps is to provide a duration of execution.  For consistency and orthogonality, kernel timestamps are also supported for non-kernel operations. Kernel timestamps execute along a device timeline but because of limited range may wrap unexpectedly. Because of this, the temporal order of two kernel timestamps shouldn’t be inferred despite coincidental START/END values. {x}CommandListAppendWriteGlobalTimestamp provides a similar mechanism but with maximum range.  Timestamps from {x}CommandListAppendWriteGlobalTimestamp and kernel timestamp events should not be inferred as equivalent even if reported within identical ranges.</p>
 <ul class="simple">
 <li><p>The duration of a kernel timestamp for <a class="reference internal" href="api.html#zecommandlistappendsignalevent"><span class="std std-ref">zeCommandListAppendSignalEvent</span></a> and <a class="reference internal" href="api.html#zeeventhostsignal"><span class="std std-ref">zeEventHostSignal</span></a> is undefined. However, for consistency and orthogonality the event will report correctly as signaled when used by other event API functionality.</p></li>
@@ -1432,7 +1397,7 @@ double contextTimeInNs = ( tsResult-&gt;context.kernelEnd &gt;= tsResult-&gt;con
 </div>
 </div>
 <div class="section" id="barriers">
-<h2>Barriers<a class="headerlink" href="#barriers" title="Permalink to this headline">¶</a></h2>
+<h2>Barriers<a class="headerlink" href="#barriers" title="Permalink to this headline"></a></h2>
 <p>There are two types of barriers:</p>
 <ol class="arabic simple">
 <li><p><strong>Execution Barriers</strong> - used to communicate execution dependencies between commands within a command list or across command queues, devices and/or Host.</p></li>
@@ -1447,7 +1412,7 @@ double contextTimeInNs = ( tsResult-&gt;context.kernelEnd &gt;= tsResult-&gt;con
 <a class="reference internal" href="api.html#zecommandlistappendlaunchkernel"><span class="std std-ref">zeCommandListAppendLaunchKernel</span></a>(hCommandList, hKernel, &amp;launchArgs, nullptr, 0, nullptr);
 ...</pre>
 <div class="section" id="execution-barriers">
-<h3>Execution Barriers<a class="headerlink" href="#execution-barriers" title="Permalink to this headline">¶</a></h3>
+<h3>Execution Barriers<a class="headerlink" href="#execution-barriers" title="Permalink to this headline"></a></h3>
 <p>Commands executed on a command list are only guaranteed to start in the same order in which they are submitted; i.e. there is no implicit definition of the order of completion.</p>
 <ul class="simple">
 <li><p>Fences provide implicit, coarse-grain control to indicate that all previous commands must complete prior to the fence being signaled.</p></li>
@@ -1472,7 +1437,7 @@ ze_event_handle_t hEvent1;
 ...</pre>
 </div>
 <div class="section" id="memory-barriers">
-<h3>Memory Barriers<a class="headerlink" href="#memory-barriers" title="Permalink to this headline">¶</a></h3>
+<h3>Memory Barriers<a class="headerlink" href="#memory-barriers" title="Permalink to this headline"></a></h3>
 <p>Commands executed on a command list are <em>not</em> guaranteed to maintain memory coherency with other commands;
 i.e. there is no implicit memory or cache coherency.</p>
 <ul class="simple">
@@ -1498,7 +1463,7 @@ ze_event_handle_t hEvent1;
 ...</pre>
 </div>
 <div class="section" id="range-based-memory-barriers">
-<h3>Range-based Memory Barriers<a class="headerlink" href="#range-based-memory-barriers" title="Permalink to this headline">¶</a></h3>
+<h3>Range-based Memory Barriers<a class="headerlink" href="#range-based-memory-barriers" title="Permalink to this headline"></a></h3>
 <p>Range-based memory barriers provide explicit control of which cachelines
 require coherency.</p>
 <p>The following pseudo-code demonstrates a sequence for submission of a range-based memory barrier:</p>
@@ -1512,7 +1477,7 @@ require coherency.</p>
 </div>
 </div>
 <div class="section" id="modules-and-kernels">
-<h2>Modules and Kernels<a class="headerlink" href="#modules-and-kernels" title="Permalink to this headline">¶</a></h2>
+<h2>Modules and Kernels<a class="headerlink" href="#modules-and-kernels" title="Permalink to this headline"></a></h2>
 <p>There are multiple levels of constructs needed for executing kernels on the device:</p>
 <ol class="arabic simple">
 <li><p><a class="reference internal" href="#modules">Modules</a> represent a single translation unit that consists of kernels that have been compiled together.</p></li>
@@ -1522,7 +1487,7 @@ require coherency.</p>
 of the system.</p>
 <img alt="../_images/core_module.png" src="../_images/core_module.png" />
 <div class="section" id="modules">
-<span id="id6"></span><h3>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h3>
+<span id="id6"></span><h3>Modules<a class="headerlink" href="#modules" title="Permalink to this headline"></a></h3>
 <p>Modules can be created from an IL or directly from native format using <a class="reference internal" href="api.html#zemodulecreate"><span class="std std-ref">zeModuleCreate</span></a>.</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="api.html#zemodulecreate"><span class="std std-ref">zeModuleCreate</span></a> takes a format argument that specifies the input format.</p></li>
@@ -1558,7 +1523,7 @@ ze_module_handle_t hModule;
 <a class="reference internal" href="api.html#zemodulecreate"><span class="std std-ref">zeModuleCreate</span></a>(hContext, hDevice, &amp;moduleDesc, &amp;hModule, nullptr);
 ...</pre>
 <div class="section" id="module-build-options">
-<h4>Module Build Options<a class="headerlink" href="#module-build-options" title="Permalink to this headline">¶</a></h4>
+<h4>Module Build Options<a class="headerlink" href="#module-build-options" title="Permalink to this headline"></a></h4>
 <p>Module build options can be passed with <a class="reference internal" href="api.html#ze-module-desc-t"><span class="std std-ref">ze_module_desc_t</span></a> as a string.</p>
 <table class="docutils align-default">
 <colgroup>
@@ -1617,7 +1582,7 @@ ze_module_handle_t hModule;
 </table>
 </div>
 <div class="section" id="module-specialization-constants">
-<h4>Module Specialization Constants<a class="headerlink" href="#module-specialization-constants" title="Permalink to this headline">¶</a></h4>
+<h4>Module Specialization Constants<a class="headerlink" href="#module-specialization-constants" title="Permalink to this headline"></a></h4>
 <p>SPIR-V supports specialization constants that allow certain constants to be updated to new
 values during runtime execution. Each specialization constant in SPIR-V has an identifier
 and default value. The <a class="reference internal" href="api.html#zemodulecreate"><span class="std std-ref">zeModuleCreate</span></a> function allows for an array of constants and their
@@ -1645,7 +1610,7 @@ ze_module_handle_t hModule;
 you need to change them then you’ll need to compile a new module.</p>
 </div>
 <div class="section" id="module-build-log">
-<h4>Module Build Log<a class="headerlink" href="#module-build-log" title="Permalink to this headline">¶</a></h4>
+<h4>Module Build Log<a class="headerlink" href="#module-build-log" title="Permalink to this headline"></a></h4>
 <p>The <a class="reference internal" href="api.html#zemodulecreate"><span class="std std-ref">zeModuleCreate</span></a> function can optionally generate a build log object ze_module_build_log_handle_t.</p>
 <pre class="literal-block">...
 ze_module_build_log_handle_t buildlog;
@@ -1669,7 +1634,7 @@ if (result != <a class="reference internal" href="api.html#ze-result-t"><span cl
 <a class="reference internal" href="api.html#zemodulebuildlogdestroy"><span class="std std-ref">zeModuleBuildLogDestroy</span></a>(buildlog);</pre>
 </div>
 <div class="section" id="dynamically-linked-modules">
-<h4>Dynamically Linked Modules<a class="headerlink" href="#dynamically-linked-modules" title="Permalink to this headline">¶</a></h4>
+<h4>Dynamically Linked Modules<a class="headerlink" href="#dynamically-linked-modules" title="Permalink to this headline"></a></h4>
 <p>Modules may be interdependent, i.e., a module may contain functions and global variables that are used and defined by different modules. Such a module is said to have both import as well as export linkage requirements. Private variables are not transferrable between linked modules, i.e., their visibility is limited to the module in which they are defined. Only global variables or static values passed to linked functions are visible between linked modules. All the import linkage requirements of a module must be satisfied before a kernel can be created from that module. Modules that have no imports do not need to be linked. Dynamically linking modules together is performed using <a class="reference internal" href="api.html#zemoduledynamiclink"><span class="std std-ref">zeModuleDynamicLink</span></a>. Modules cannot have ambiguous import dependencies, i.e., imported functions and global variables must only be defined once in any given set of modules passed to <a class="reference internal" href="api.html#zemoduledynamiclink"><span class="std std-ref">zeModuleDynamicLink</span></a>. Imports are linked only once. Once all the import dependencies of a module have been linked, the use of that fully import-linked module in subsequent calls to <a class="reference internal" href="api.html#zemoduledynamiclink"><span class="std std-ref">zeModuleDynamicLink</span></a> will not cause the imports of the module to be re-linked.</p>
 <p>The <a class="reference internal" href="api.html#zemoduledynamiclink"><span class="std std-ref">zeModuleDynamicLink</span></a> function can optionally generate a link log object ze_module_build_log_handle_t.</p>
 <pre class="literal-block">...
@@ -1693,7 +1658,7 @@ if (result == <a class="reference internal" href="api.html#ze-result-t"><span cl
 <a class="reference internal" href="api.html#zemodulebuildlogdestroy"><span class="std std-ref">zeModuleBuildLogDestroy</span></a>(linklog);</pre>
 </div>
 <div class="section" id="module-caching-with-native-binaries">
-<h4>Module Caching with Native Binaries<a class="headerlink" href="#module-caching-with-native-binaries" title="Permalink to this headline">¶</a></h4>
+<h4>Module Caching with Native Binaries<a class="headerlink" href="#module-caching-with-native-binaries" title="Permalink to this headline"></a></h4>
 <p>Disk caching of modules is not supported by the driver. If a disk cache for modules is desired, then it is the
 responsibility of the application to implement this using <a class="reference internal" href="api.html#zemodulegetnativebinary"><span class="std std-ref">zeModuleGetNativeBinary</span></a>.</p>
 <pre class="literal-block">...
@@ -1717,13 +1682,13 @@ if (cacheUpdateNeeded)
 capabilities for modules that are created from native binaries.</p>
 </div>
 <div class="section" id="built-in-kernels">
-<h4>Built-in Kernels<a class="headerlink" href="#built-in-kernels" title="Permalink to this headline">¶</a></h4>
+<h4>Built-in Kernels<a class="headerlink" href="#built-in-kernels" title="Permalink to this headline"></a></h4>
 <p>Built-in kernels are not supported but can be implemented by an upper level runtime or library using the native binary
 interface.</p>
 </div>
 </div>
 <div class="section" id="kernels">
-<span id="id7"></span><h3>Kernels<a class="headerlink" href="#kernels" title="Permalink to this headline">¶</a></h3>
+<span id="id7"></span><h3>Kernels<a class="headerlink" href="#kernels" title="Permalink to this headline"></a></h3>
 <p>A Kernel is a reference to a kernel within a module and it supports both explicit and implicit kernel
 arguments along with data needed for launch.</p>
 <p>The following pseudo-code demonstrates a sequence for creating a kernel from a module:</p>
@@ -1750,7 +1715,7 @@ if (result == <a class="reference internal" href="api.html#ze-result-t"><span cl
 
 ...</pre>
 <div class="section" id="kernel-properties">
-<h4>Kernel Properties<a class="headerlink" href="#kernel-properties" title="Permalink to this headline">¶</a></h4>
+<h4>Kernel Properties<a class="headerlink" href="#kernel-properties" title="Permalink to this headline"></a></h4>
 <p>Use <a class="reference internal" href="api.html#zekernelgetproperties"><span class="std std-ref">zeKernelGetProperties</span></a> to query invariant properties from a Kernel object.</p>
 <pre class="literal-block">...
 <a class="reference internal" href="api.html#ze-kernel-properties-t"><span class="std std-ref">ze_kernel_properties_t</span></a> kernelProperties;
@@ -1760,9 +1725,9 @@ if (result == <a class="reference internal" href="api.html#ze-result-t"><span cl
 </div>
 </div>
 <div class="section" id="execution-1">
-<span id="id8"></span><h3>Execution<a class="headerlink" href="#execution-1" title="Permalink to this headline">¶</a></h3>
+<span id="id8"></span><h3>Execution<a class="headerlink" href="#execution-1" title="Permalink to this headline"></a></h3>
 <div class="section" id="kernel-group-size">
-<h4>Kernel Group Size<a class="headerlink" href="#kernel-group-size" title="Permalink to this headline">¶</a></h4>
+<h4>Kernel Group Size<a class="headerlink" href="#kernel-group-size" title="Permalink to this headline"></a></h4>
 <p>The group size for a kernel can be set using <a class="reference internal" href="api.html#zekernelsetgroupsize"><span class="std std-ref">zeKernelSetGroupSize</span></a>. If a group size is not
 set prior to appending a kernel into a command list then a default will be chosen.
 The group size can be updated over a series of append operations. The driver will copy the
@@ -1782,7 +1747,7 @@ uint32_t groupSizeY;
 ...</pre>
 </div>
 <div class="section" id="kernel-arguments">
-<h4>Kernel Arguments<a class="headerlink" href="#kernel-arguments" title="Permalink to this headline">¶</a></h4>
+<h4>Kernel Arguments<a class="headerlink" href="#kernel-arguments" title="Permalink to this headline"></a></h4>
 <p>Kernel arguments represent only the explicit kernel arguments that are within brackets e.g. func(arg1, arg2, …).</p>
 <ul class="simple">
 <li><p>Use <a class="reference internal" href="api.html#zekernelsetargumentvalue"><span class="std std-ref">zeKernelSetArgumentValue</span></a> to setup arguments for a kernel launch.</p></li>
@@ -1811,7 +1776,7 @@ uint32_t groupSizeY;
 ...</pre>
 </div>
 <div class="section" id="kernel-launch">
-<h4>Kernel Launch<a class="headerlink" href="#kernel-launch" title="Permalink to this headline">¶</a></h4>
+<h4>Kernel Launch<a class="headerlink" href="#kernel-launch" title="Permalink to this headline"></a></h4>
 <p>In order to launch a kernel on the device an application must call one of the AppendLaunchKernel-style functions for
 a command list. The most basic version of these is <a class="reference internal" href="api.html#zecommandlistappendlaunchkernel"><span class="std std-ref">zeCommandListAppendLaunchKernel</span></a> which takes a
 command list, kernel handle, launch arguments, and an optional synchronization event used to signal completion.
@@ -1836,7 +1801,7 @@ device to generate the parameters.</p>
 <a class="reference internal" href="api.html#zecommandlistappendlaunchkernelindirect"><span class="std std-ref">zeCommandListAppendLaunchKernelIndirect</span></a>(hCommandList, hKernel, &amp;pIndirectArgs, nullptr, 0, nullptr);</pre>
 </div>
 <div class="section" id="cooperative-kernels">
-<h4>Cooperative Kernels<a class="headerlink" href="#cooperative-kernels" title="Permalink to this headline">¶</a></h4>
+<h4>Cooperative Kernels<a class="headerlink" href="#cooperative-kernels" title="Permalink to this headline"></a></h4>
 <p>Cooperative kernels allow sharing of data and synchronization across all launched groups in a safe manner. To support this
 there is a <a class="reference internal" href="api.html#zecommandlistappendlaunchcooperativekernel"><span class="std std-ref">zeCommandListAppendLaunchCooperativeKernel</span></a> that allows launching groups that can cooperate with each other.
 The command list must be submitted to a command queue that was created with an ordinal of a command queue group
@@ -1856,7 +1821,7 @@ assert(numGroupsX * numGroupsY * numGroupsZ &lt; maxGroupCount);
 </div>
 </div>
 <div class="section" id="sampler">
-<h3>Sampler<a class="headerlink" href="#sampler" title="Permalink to this headline">¶</a></h3>
+<h3>Sampler<a class="headerlink" href="#sampler" title="Permalink to this headline"></a></h3>
 <p>The API supports Sampler objects that represent state needed for sampling images from within
 kernels. The <a class="reference internal" href="api.html#zesamplercreate"><span class="std std-ref">zeSamplerCreate</span></a> function takes a sampler descriptor (<a class="reference internal" href="api.html#ze-sampler-desc-t"><span class="std std-ref">ze_sampler_desc_t</span></a>):</p>
 <table class="docutils align-default">
@@ -1906,11 +1871,22 @@ ze_sampler_handle_t sampler;
 // Append launch kernel
 <a class="reference internal" href="api.html#zecommandlistappendlaunchkernel"><span class="std std-ref">zeCommandListAppendLaunchKernel</span></a>(hCommandList, hKernel, &amp;launchArgs, nullptr, 0, nullptr);</pre>
 </div>
+<div class="section" id="formatted-output">
+<h3>Formatted Output<a class="headerlink" href="#formatted-output" title="Permalink to this headline"></a></h3>
+<p>The API supports the ability to print formatted output from a kernel using functions such as <code class="docutils literal notranslate"><span class="pre">printf</span></code>.
+Calls to print formatted output will cause data to be written to an internal buffer, where the size of the internal buffer is given by <a class="reference internal" href="api.html#ze-device-module-properties-t"><span class="std std-ref">ze_device_module_properties_t</span></a>.printfBufferSize.
+When the internal buffer becomes full, additional calls to print formatted output will return an error code.</p>
+<p>There is no ordering guarantee for the formatted output.
+If multiple work-items make multiple calls to <code class="docutils literal notranslate"><span class="pre">printf</span></code>, the output from one work-item may appear intermixed with output from other work-items.</p>
+<p>On some devices, the internal buffer may not contain the formatted output itself, and instead the formatting may occur on the host.
+Additionally, the final formatting may not occur and the output may not be flushed to the output stream until the event associated with the kernel launch is complete.
+To ensure all output has been flushed to the output stream, wait on the event associated with the kernel launch, or wait for the kernel launch to complete using a coarser-grained synchronization method such as <a class="reference internal" href="api.html#zefencehostsynchronize"><span class="std std-ref">zeFenceHostSynchronize</span></a> or <a class="reference internal" href="api.html#zecommandqueuesynchronize"><span class="std std-ref">zeCommandQueueSynchronize</span></a>.</p>
+</div>
 </div>
 <div class="section" id="advanced">
-<h2>Advanced<a class="headerlink" href="#advanced" title="Permalink to this headline">¶</a></h2>
+<h2>Advanced<a class="headerlink" href="#advanced" title="Permalink to this headline"></a></h2>
 <div class="section" id="environment-variables">
-<h3>Environment Variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">¶</a></h3>
+<h3>Environment Variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline"></a></h3>
 <p>The following table documents the supported knobs for overriding default functional behavior.</p>
 <table class="docutils align-default">
 <colgroup>
@@ -1944,7 +1920,7 @@ ze_sampler_handle_t sampler;
 </tbody>
 </table>
 <div class="section" id="affinity-mask">
-<h4>Affinity Mask<a class="headerlink" href="#affinity-mask" title="Permalink to this headline">¶</a></h4>
+<h4>Affinity Mask<a class="headerlink" href="#affinity-mask" title="Permalink to this headline"></a></h4>
 <p>The affinity mask allows an application or tool to restrict which devices, and sub-devices, are visible to 3rd-party libraries or applications in another process, respectively.
 The affinity mask affects the number of handles returned from <a class="reference internal" href="api.html#zedeviceget"><span class="std std-ref">zeDeviceGet</span></a> and <a class="reference internal" href="api.html#zedevicegetsubdevices"><span class="std std-ref">zeDeviceGetSubDevices</span></a>.
 The affinity mask is specified via an environment variable as a comma-seperated list of device and/or subdevice ordinals.
@@ -1965,7 +1941,7 @@ The order of the devices reported by the <a class="reference internal" href="api
 </div>
 </div>
 <div class="section" id="sub-device-support">
-<h3>Sub-Device Support<a class="headerlink" href="#sub-device-support" title="Permalink to this headline">¶</a></h3>
+<h3>Sub-Device Support<a class="headerlink" href="#sub-device-support" title="Permalink to this headline"></a></h3>
 <p>The API allows support for sub-devices which can enable finer-grained control of scheduling and memory allocation to a sub-partition of the device.
 There are functions to query and obtain sub-devices, but outside of these functions there are no distinctions between sub-devices and devices.
 Sub-devices are not required to represent unique partitions of a device; i.e. multiple sub-devices may share the same physical hardware.
@@ -2006,7 +1982,7 @@ void* pMemForSubDevice2;
 ...</pre>
 </div>
 <div class="section" id="device-residency">
-<h3>Device Residency<a class="headerlink" href="#device-residency" title="Permalink to this headline">¶</a></h3>
+<h3>Device Residency<a class="headerlink" href="#device-residency" title="Permalink to this headline"></a></h3>
 <p>For devices that do not support page-faults, the driver must ensure that all pages that will be accessed by the kernel are resident before program execution.
 This can be determined by checking <a class="reference internal" href="api.html#ze-device-properties-t"><span class="std std-ref">ze_device_properties_t</span></a>.flags for <a class="reference internal" href="api.html#ze-device-property-flags-t"><span class="std std-ref">ZE_DEVICE_PROPERTY_FLAG_ONDEMANDPAGING</span></a>.</p>
 <p>In most cases, the driver implicitly handles residency of allocations for device access.
@@ -2086,7 +2062,7 @@ node* begin = nullptr;
 ...</pre>
 </div>
 <div class="section" id="interoperability-with-other-apis">
-<h3>Interoperability with Other APIs<a class="headerlink" href="#interoperability-with-other-apis" title="Permalink to this headline">¶</a></h3>
+<h3>Interoperability with Other APIs<a class="headerlink" href="#interoperability-with-other-apis" title="Permalink to this headline"></a></h3>
 <p>Level-Zero includes general-purpose interoperability mechanisms for
 memory allocations (both images and device memory) and modules.</p>
 <p>Memory allocations may be shared between Level-Zero and other APIs via
@@ -2109,7 +2085,7 @@ clGetProgramInfo(cl_program, CL_PROGRAM_BINARIES, clDeviceBinary, &amp;clDeviceB
 <a class="reference internal" href="api.html#zekernelcreate"><span class="std std-ref">zeKernelCreate</span></a>(hModule, nullptr, hKernel); // same Kernel as OpenCL in Level-Zero</pre>
 </div>
 <div class="section" id="inter-process-communication">
-<span id="id9"></span><h3>Inter-Process Communication<a class="headerlink" href="#inter-process-communication" title="Permalink to this headline">¶</a></h3>
+<span id="id9"></span><h3>Inter-Process Communication<a class="headerlink" href="#inter-process-communication" title="Permalink to this headline"></a></h3>
 <p>The API allows sharing of memory objects across different device
 processes. Since each process has its own virtual address space, there
 is no guarantee that the same virtual address will be available when the
@@ -2122,7 +2098,7 @@ Level-Zero allocations across processes:</p>
 <li><p><a class="reference internal" href="#events-1"><span class="std std-ref">Events</span></a></p></li>
 </ol>
 <div class="section" id="memory-1">
-<span id="id10"></span><h4>Memory<a class="headerlink" href="#memory-1" title="Permalink to this headline">¶</a></h4>
+<span id="id10"></span><h4>Memory<a class="headerlink" href="#memory-1" title="Permalink to this headline"></a></h4>
 <p>The following code examples demonstrate how to use the memory IPC APIs:</p>
 <ol class="arabic simple">
 <li><p>First, the allocation is made, packaged, and sent on the sending
@@ -2158,7 +2134,7 @@ Note, there is no guaranteed address equivalence for the values of <code class="
 <pre class="literal-block"><a class="reference internal" href="api.html#zememfree"><span class="std std-ref">zeMemFree</span></a>(hContext, dptr);</pre>
 </div>
 <div class="section" id="events-1">
-<span id="id11"></span><h4>Events<a class="headerlink" href="#events-1" title="Permalink to this headline">¶</a></h4>
+<span id="id11"></span><h4>Events<a class="headerlink" href="#events-1" title="Permalink to this headline"></a></h4>
 <p>The following code examples demonstrate how to use the event IPC APIs:</p>
 <ol class="arabic simple">
 <li><p>First, the event pool is created, packaged, and sent on the sending process:</p></li>
@@ -2236,89 +2212,68 @@ Note, there is no guaranteed address equivalence for the values of <code class="
 </div>
 </div>
 <div class="section" id="peer-to-peer-access-and-queries">
-<h3>Peer-to-Peer Access and Queries<a class="headerlink" href="#peer-to-peer-access-and-queries" title="Permalink to this headline">¶</a></h3>
-<p>Peer to Peer API’s provide capabilities to marshall data across Host to
+<h3>Peer-to-Peer Access and Queries<a class="headerlink" href="#peer-to-peer-access-and-queries" title="Permalink to this headline"></a></h3>
+<p>Peer to Peer API’s provide capabilities to marshal data across Host to
 Device, Device to Host and Device to Device. The data marshalling API
 can be scheduled as asynchronous operations or can be synchronized with
 kernel execution through command queues. Data coherency is maintained by
 the driver without any explicit involvement from the application.</p>
-<p>Devices may be linked together within a node by a scale-up fabric and depending on the configuration,
-the fabric can support atomics, compute kernel remote access, and data copies.</p>
+<p>Cards may be linked together within a node by a scale-up fabric and depending on the configuration,
+the fabric can support remote access, atomics, and data copies.</p>
 <p>The following Peer-to-Peer functionalities are provided through the API:</p>
 <ul>
-<li><p>Check for existence of peer-to-peer fabric between two devices.</p>
+<li><p>Check for remote memory access capability between two devices/subdevices: <a class="reference internal" href="api.html#zedevicecanaccesspeer"><span class="std std-ref">zeDeviceCanAccessPeer</span></a></p>
 <blockquote>
-<div><ul class="simple">
-<li><p><a class="reference internal" href="api.html#zedevicecanaccesspeer"><span class="std std-ref">zeDeviceCanAccessPeer</span></a></p></li>
+<div><p>The following rules apply to <a class="reference internal" href="api.html#zedevicecanaccesspeer"><span class="std std-ref">zeDeviceCanAccessPeer</span></a> queries</p>
+<ul class="simple">
+<li><p>A device/subdevice is always its own peer, i.e. it can always access itself.</p></li>
 </ul>
 </div></blockquote>
 </li>
-<li><p>Query remote memory access and atomic capabilities for peer-to-peer</p>
+<li><p>Query remote memory access, atomic capabilities, logical &amp; physical bandwidth &amp; latency for peer-to-peer: <a class="reference internal" href="api.html#zedevicegetp2pproperties"><span class="std std-ref">zeDeviceGetP2PProperties</span></a> + <a class="reference internal" href="EXT_Exp_BandwidthProperties.html#ze-experimental-bandwidth-properties"><span class="std std-ref">Bandwidth Extension Properties</span></a>.</p>
 <blockquote>
-<div><ul class="simple">
-<li><p><a class="reference internal" href="api.html#zedevicegetp2pproperties"><span class="std std-ref">zeDeviceGetP2PProperties</span></a></p></li>
+<div><p>The following rules apply to <a class="reference internal" href="api.html#zedevicegetp2pproperties"><span class="std std-ref">zeDeviceGetP2PProperties</span></a> queries</p>
+<ul class="simple">
+<li><p>A device/subdevice is always its own peer, i.e. it can always access itself and also do so atomically.</p></li>
 </ul>
 </div></blockquote>
 </li>
-<li><p>Copy data between devices over peer-to-peer fabric.</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><a class="reference internal" href="api.html#zecommandlistappendmemorycopy"><span class="std std-ref">zeCommandListAppendMemoryCopy</span></a></p></li>
+<li><p>Copy data between devices over peer-to-peer fabric: <a class="reference internal" href="api.html#zecommandlistappendmemorycopy"><span class="std std-ref">zeCommandListAppendMemoryCopy</span></a></p></li>
 </ul>
-</div></blockquote>
-</li>
-</ul>
+<p>Both <a class="reference internal" href="api.html#zedevicecanaccesspeer"><span class="std std-ref">zeDeviceCanAccessPeer</span></a> &amp; <a class="reference internal" href="api.html#zedevicegetp2pproperties"><span class="std std-ref">zeDeviceGetP2PProperties</span></a> return the same information - do two devices support peer-to-peer access? <a class="reference internal" href="api.html#zedevicegetp2pproperties"><span class="std std-ref">zeDeviceGetP2PProperties</span></a> provides more detail than <a class="reference internal" href="api.html#zedevicecanaccesspeer"><span class="std std-ref">zeDeviceCanAccessPeer</span></a>, such as support for atomics, bandwidths, latencies, etc…</p>
 </div>
 </div>
 </div>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../tools/PROG.html" class="btn btn-neutral float-right" title="Tools Programming Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="INTRO.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="INTRO.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../tools/PROG.html" class="btn btn-neutral float-right" title="Tools Programming Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2020, Intel
-
-    </p>
+    <p>&#169; Copyright 2020, Intel.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

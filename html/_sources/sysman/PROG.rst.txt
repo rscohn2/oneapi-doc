@@ -65,7 +65,7 @@ system and create Sysman handles for them:
                uint32_t deviceCount = 0
                :ref:`zeDeviceGet`\(allDrivers[i], &deviceCount, nullptr)
 
-               ze_device_handle_t* allDevices = 
+               ze_device_handle_t* allDevices =
                    allocate_memory(deviceCount * sizeof(ze_device_handle_t))
                :ref:`zeDeviceGet`\(allDrivers[i], &deviceCount, allDevices)
 
@@ -100,7 +100,7 @@ information and control aspects of the entire device:
    -  Query current throughput
    -  Query packet retry counters
 
-The full list of available functions is described `below <#glo>`__.
+The full list of available functions is described below.
 
 Device component management
 ---------------------------
@@ -407,8 +407,7 @@ The following events are provided:
 
 -  Any RAS errors have occurred
 
-The full list of available functions for handling events is described
-`below <#evd>`__.
+The full list of available functions for handling events is described below.
 
 Telemetry and timestamps
 ------------------------
@@ -556,10 +555,10 @@ The pseudo code below shows how to output the PCI BDF address:
 Operations on power domains
 ---------------------------
 
-The PSU (Power Supply Unit) provides power to a device. The amount of
-power drawn by a device is a function of the voltage and frequency, both
-of which are controlled by the Punit, a micro-controller on the device.
-If the voltage and frequency are too high, two conditions can occur:
+The PSU (Power Supply Unit) provides power to a device. The amount of power
+drawn by a device is a function of the voltage and frequency, both of which are
+controlled by the Punit, a micro-controller on the device. If the voltage and
+frequency are too high, two conditions can occur:
 
 1. Over-current - This is where the current drawn by the device exceeds
    the maximum current that the PSU can supply. The PSU asserts a signal
@@ -586,72 +585,76 @@ by imposing power limits. There are two types of power limits:
 2. Proactive - In this case, the Punit can perform a calculation based on
    the current configuration of the chip and frequency requests to predict
    the worst case power that could be generated. If this calculation exceeds
-   the proactive limit, a search is done to find the maximum frequency
-   limits that will fit within the limit and those will be actual
-   frequencies.
+   the proactive limit, a search is done to find the maximum frequency that will
+   fit within the limit.
 
-The table below summaries the different types of power limits that can
-be configured on a power domain. Note that the sustained and burst
-power limits are only reactive, whereas a peak power limit can be
-either reactive or proactive. As a general rule, card-level peak
-power limits are reactive whereas they are proactive for all other
-power domains that can be enumerated on the chip.
+Limits need not be applied at the hardware scope level of a device. Devices are
+subdivided into one or more power domains. A power domain is a hardware scope
+over which power consumption can be monitored and controlled. Power domains can
+exist at different hardware scopes such as:
 
-+-----------------------+-----------------------+-----------------------+
-| Limit                 | Window                | Description           |
-+=======================+=======================+=======================+
-| Peak (proactive)      | Instantaneous         | Punit predicts the    |
-|                       |                       | worst case power for  |
-|                       |                       | the current frequency |
-|                       |                       | requests and if it    |
-|                       |                       | exceeds the limit,    |
-|                       |                       | the actual            |
-|                       |                       | frequencies           |
-|                       |                       | will be lower. This   |
-|                       |                       | threshold is referred |
-|                       |                       | to as PL4 - Power     |
-|                       |                       | Limit 4 - or peak     |
-|                       |                       | power.                |
-+-----------------------+-----------------------+-----------------------+
-| Peak (reactive)       | 100usec               | Punit tracks the      |
-|                       |                       | 100usec moving        |
-|                       |                       | average of            |
-|                       |                       | power. When this      |
-|                       |                       | exceeds a             |
-|                       |                       | programmable          |
-|                       |                       | threshold, the Punit  |
-|                       |                       | starts throttling     |
-|                       |                       | frequencies/voltages. |
-|                       |                       | The threshold is      |
-|                       |                       | referred to as Psys - |
-|                       |                       | System Power limit.   |
-+-----------------------+-----------------------+-----------------------+
-| Burst (reactive)      | 2ms                   | Punit tracks the 2ms  |
-|                       |                       | moving average of     |
-|                       |                       | power. When this      |
-|                       |                       | exceeds a             |
-|                       |                       | programmable          |
-|                       |                       | threshold, the Punit  |
-|                       |                       | starts throttling     |
-|                       |                       | frequencies/voltages. |
-|                       |                       | The threshold is      |
-|                       |                       | referred to as PL2 -  |
-|                       |                       | Power Limit 2 - or    |
-|                       |                       | burst power.          |
-+-----------------------+-----------------------+-----------------------+
-| Sustained (reactive)  | 28sec                 | Punit tracks the      |
-|                       |                       | 28sec moving average  |
-|                       |                       | of power. When this   |
-|                       |                       | exceeds a             |
-|                       |                       | programmable          |
-|                       |                       | threshold, the Punit  |
-|                       |                       | throttles             |
-|                       |                       | frequencies/voltages. |
-|                       |                       | The threshold is      |
-|                       |                       | referred to as PL1 -  |
-|                       |                       | Power Limit 1 - or    |
-|                       |                       | sustained power.      |
-+-----------------------+-----------------------+-----------------------+
+1. Card-level - Power domains defined at this level monitor & control power
+   consumption over a whole card.
+2. Package-level - Power domains defined at this level monitor & control power
+   consumption over a single physical package on a card.
+3. Stack-level - Power domains defined at this level monitor & control power
+   consumption over a single stack within a package.
+
+At any given point in time, a platform can be running on either mains power or,
+in the case of platforms such as laptops, can be running on battery power. This
+is referred to as the power source. Limits can be configured to take effect only
+when a device is drawing power from a specified source, i.e., separate limits
+can be imposed when a device is running off battery power as opposed to mains
+power.
+
+Depending on the platform and power domain, power limits can be expressed in
+terms of either amperage or wattage. The API can be queried to determine in which
+units a given power limit should be specified.
+
+A power limit can correspond one of the following power levels.
+
++---------------------+-----------------+-----------------------+
+| Limit               | Window          | Description           |
++=====================+=================+=======================+
+| Instantaneous       | NA              | Punit predicts the    |
+|                     |                 | worst case power for  |
+|                     |                 | the current frequency |
+|                     |                 | requests and if it    |
+|                     |                 | exceeds the limit,    |
+|                     |                 | the actual            |
+|                     |                 | frequencies           |
+|                     |                 | will be lowered.      |
++---------------------+-----------------+-----------------------+
+| Peak                | e.g. 100usec    | Punit tracks a moving |
+|                     |                 | average of power over |
+|                     |                 | a short window. When  |
+|                     |                 | this exceeds a        |
+|                     |                 | programmable          |
+|                     |                 | threshold, the Punit  |
+|                     |                 | starts throttling     |
+|                     |                 | frequencies/voltages. |
++---------------------+-----------------+-----------------------+
+| Burst               | e.g. 2ms        | Punit tracks a moving |
+|                     |                 | average of power over |
+|                     |                 | a medium window. When |
+|                     |                 | this exceeds a        |
+|                     |                 | programmable          |
+|                     |                 | threshold, the Punit  |
+|                     |                 | starts throttling     |
+|                     |                 | frequencies/voltages. |
++---------------------+-----------------+-----------------------+
+| Sustained           | e.g. 28s        | Punit tracks a moving |
+|                     |                 | average of power over |
+|                     |                 | a long window. When   |
+|                     |                 | this exceeds a        |
+|                     |                 | programmable          |
+|                     |                 | threshold, the Punit  |
+|                     |                 | throttles             |
+|                     |                 | frequencies/voltages. |
++---------------------+-----------------+-----------------------+
+
+Note that the sustained, burst, and peak power limits are only reactive, whereas
+the instantaneous power limit is only proactive.
 
 The default factory values are tuned assuming the device is operating at
 normal temperatures running significant workloads:
@@ -695,8 +698,6 @@ The following functions are provided to manage the power of the device:
 +======================================+=====================================================================================+
 | :ref:`zesDeviceEnumPowerDomains`\()  | Enumerate the power domains.                                                        |
 +--------------------------------------+-------------------------------------------------------------------------------------+
-| :ref:`zesDeviceGetCardPowerDomain`\()| Returns a handle to the card-level power domain if available/applicable.            |
-+--------------------------------------+-------------------------------------------------------------------------------------+
 | :ref:`zesPowerGetProperties`\()      | Get the minimum/maximum power limit that can be                                     |
 |                                      | specified when changing the power limits of a                                       |
 |                                      | specific power domain. Also read the factory                                        |
@@ -705,16 +706,15 @@ The following functions are provided to manage the power of the device:
 | :ref:`zesPowerGetEnergyCounter`\()   | Read the energy consumption of                                                      |
 |                                      | the specific domain.                                                                |
 +--------------------------------------+-------------------------------------------------------------------------------------+
-| :ref:`zesPowerGetLimits`\()          | Get the sustained/burst/peak                                                        |
+| :ref:`zesPowerGetLimitsExt`\()       | Get all the                                                                         |
 |                                      | power limits for the specific                                                       |
 |                                      | power domain.                                                                       |
 +--------------------------------------+-------------------------------------------------------------------------------------+
-| :ref:`zesPowerSetLimits`\()          | Set the sustained/burst/peak                                                        |
+| :ref:`zesPowerSetLimitsExt`\()       | Set all the                                                                         |
 |                                      | power limits for the specific                                                       |
 |                                      | power domain.                                                                       |
 +--------------------------------------+-------------------------------------------------------------------------------------+
 | :ref:`zesPowerGetEnergyThreshold`\() | Get the current energy threshold.                                                   |
-|                                      |                                                                                     |
 +--------------------------------------+-------------------------------------------------------------------------------------+
 | :ref:`zesPowerSetEnergyThreshold`\() | Set the energy threshold. Event                                                     |
 |                                      | :ref:`ZES_EVENT_TYPE_FLAG_ENERGY_THRESHOLD_CROSSED <zes-event-type-flags-t>`        |
@@ -751,22 +751,39 @@ domain on a device:
    }
 
    function ShowPowerLimits(zes_pwr_handle_t hPower)
-       :ref:`zes-power-sustained-limit-t` sustainedLimits
-       :ref:`zes-power-burst-limit-t` burstLimits
-       :ref:`zes-power-peak-limit-t` peakLimits
-       if (:ref:`zesPowerGetLimits`\(hPower, &sustainedLimits, &burstLimits, &peakLimits) == :ref:`ZE_RESULT_SUCCESS <ze-result-t>`\)
-           output("    Power limits\n")
-           if (sustainedLimits.enabled)
-               output("        Sustained: %.3f W %.3f sec",
-                   sustainedLimits.power / 1000,
-                   sustainedLimits.interval / 1000)
-           else
-               output("        Sustained: Disabled")
-           if (burstLimits.enabled)
-               output("        Burst:     %.3f", burstLimits.power / 1000)
-           else
-               output("        Burst:     Disabled")
-           output("        Burst:     %.3f", peakLimits.power / 1000)
+       uint32_t limitCount = 0
+       if (:ref:`zesPowerGetLimitsExt`\(hPower, &limitCount, nullptr) == :ref:`ZE_RESULT_SUCCESS <ze-result-t>`\)
+           :ref:`zes-power-limit-ext-desc-t` * allLimits = allocate(limitCount * sizeof(:ref:`zes-power-limit-ext-desc-t`\))
+           if (:ref:`zesPowerGetLimitsExt`\(hPower, &numLimits, allLimits) == :ref:`ZE_RESULT_SUCCESS <ze-result-t>`\)
+
+               for (i = 0; i < limitCount; ++i)
+                   output("Limit is enabled: %s", enabled)
+                   output("Power averaging window: %d", interval)
+
+The pseudo code below shows how to modify the sustained power limit for the first power
+domain found on a device:
+
+.. parsed-literal::
+
+   function SetPowerDomainLimit(zes_device_handle_t hSysmanDevice)
+       uint32_t numPowerDomains
+       if (:ref:`zesDeviceEnumPowerDomains`\(hSysmanDevice, &numPowerDomains, NULL) == :ref:`ZE_RESULT_SUCCESS <ze-result-t>`\)
+           zes_pwr_handle_t* phPower =
+               allocate_memory(numPowerDomains * sizeof(zes_pwr_handle_t))
+           if (:ref:`zesDeviceEnumPowerDomains`\(hSysmanDevice, &numPowerDomains, phPower) == :ref:`ZE_RESULT_SUCCESS <ze-result-t>`\)
+               for (pwrIndex = 0 .. numPowerDomains-1)
+                   :ref:`zes-power-properties-t` props
+                   if (:ref:`zesPowerGetProperties`\(phPower[pwrIndex], &props) == :ref:`ZE_RESULT_SUCCESS <ze-result-t>`\)
+                       uint32_t limitCount = 0
+                       if (:ref:`zesPowerGetLimitsExt`\(hPower, &limitCount, nullptr) == :ref:`ZE_RESULT_SUCCESS <ze-result-t>`\)
+                           :ref:`zes-power-limit-ext-desc-t` * allLimits = allocate(limitCount * sizeof(:ref:`zes-power-limit-ext-desc-t`\))
+                           if (:ref:`zesPowerGetLimitsExt`\(hPower, &numLimits, allLimits) == :ref:`ZE_RESULT_SUCCESS <ze-result-t>`\)
+                               for (i = 0; i < limitCount; ++i)
+                                   if (allLimits[i].level == :ref:`ZES_POWER_LEVEL_SUSTAINED <zes-power-level-t>`\)
+                                       if (allLimits[i].limitValueLocked == False)
+                                           allLimits[i].limit = newLimit
+                           :ref:`zesPowerSetLimitsExt`\(hPower, &numLimits, allLimits)
+
 
 The pseudo code shows how to output the average power. It assumes that
 the function is called regularly (say every 100ms).
@@ -1105,6 +1122,61 @@ while permitting other work to attempt to run:
                        output("ERROR: Scheduler modes are not supported on this device.")
                    else
                        output("ERROR: Problem calling the API.")
+
+.. _ECC:
+
+Enabling/disabling ECC Config Dynamically
+-----------------------------------------
+
+Memory corruption occurs when random bits in data flip due to natural processes
+such as background radiation, cosmic rays, etc... A single bit flip in one of the
+high-bits of a single data-value may drastically change the behavior of some
+applications. Workloads from the financial, industrial control, critical
+infrastructure, and critical database sectors are typically not tolerant to memory
+corruption---memory corruption can cause highly undesirable behavior. Error correction
+codes (ECC) are a memory controller technology that reduce memory corruption at
+the cost of reduced memory performance and capacity.
+
+The loss of memory performance and capacity makes ECC undesirable for some workloads.
+Application domains may be insensitive to low-level memory corruption. Algorithms
+may be designed for numerical stability or may be inherently stochastic, making them
+insensitive to memory corruption.
+
+Products may support ECC capabilities and may additionally make ECC dynamically
+configurable, i.e. if ECC is supported, then it may be turned on or off on demand.
+A device reset, either in the form of a warm reset or a cold reboot, may be
+required to switch between ECC enabled and disabled states.
+
+Support for ECC can be checked using the function :ref:`zesDeviceEccAvailable`\(). If ECC
+is supported, then support for dynamic ECC control can be checked using the
+function :ref:`zesDeviceEccConfigurable`\(). The current ECC state, pending ECC state,
+and action required to affect the pending ECC state can be determined using the
+struct :ref:`zes-device-ecc-properties-t` returned by the function :ref:`zesDeviceGetEccState`\().
+The ECC state can be changed by calling the :ref:`zesDeviceSetEccState`\() which takes the
+desired ECC state as input and returns the struct :ref:`zes-device-ecc-properties-t` which
+lists the current ECC state, pending ECC state, and action required to affect the
+pending ECC state
+
+The following pseudo code demonstrates how the ECC state can be queried and changed
+from disabled to enabled:
+
+.. parsed-literal::
+
+    function EnableECC(zes_device_handle_t hSysmanDevice)
+        ze_bool_t EccAvailable = False;
+        :ref:`zesDeviceEccAvailable`\(hSysmanDevice, &EccAvailable)
+        if (EccAvailable == True) {
+            ze_bool_t EccConfigurable = False;
+            :ref:`zesDeviceEccConfigurable`\(hSysmanDevice, &EccConfigurable)
+            if (EccConfigurable == True) {
+                :ref:`zes-device-ecc-properties-t` props = {:ref:`ZES_DEVICE_ECC_STATE_UNAVAILABLE <zes-device-ecc-state-t>`\, :ref:`ZES_DEVICE_ECC_STATE_UNAVAILABLE <zes-device-ecc-state-t>`\, :ref:`ZES_DEVICE_ACTION_NONE <zes-device-action-t>`\}
+                :ref:`zesDeviceGetEccState`\(hSysmanDevice, &props)
+                if (props.currentState == :ref:`ZES_DEVICE_ECC_STATE_DISABLED <zes-device-ecc-state-t>`\) {
+                    :ref:`zes-device-ecc-desc-t` newState = :ref:`ZES_DEVICE_ECC_STATE_ENABLED <zes-device-ecc-state-t>`
+                    :ref:`zesDeviceSetEccState`\(hSysmanDevice, newState, &props)
+                }
+            }
+        }
 
 .. _Performance-Factor:
 
@@ -1939,7 +2011,7 @@ Performing Diagnostics
 ----------------------
 
 Diagnostics is the process of requesting that the hardware run self-checks
-and repairs. 
+and repairs.
 
 **WARNING:** Performing diagnostics can destroy current device state.
 It is important that all workloads are stopped before initiating.
@@ -2160,14 +2232,14 @@ when the critical temperature is reached.
    {
        # This will contain the number of devices that we will listen for events from
        var numListenDevices = 0
-       
+
        # Get list of all devices under this driver
        uint32_t deviceCount = 0
        :ref:`zeDeviceGet`\(hDriver, &deviceCount, nullptr)
        # Allocate memory for all device handles
        ze_device_handle_t* phDevices =
            allocate_memory(deviceCount * sizeof(ze_device_handle_t))
-           
+
        # Allocate memory for the devices from which we will listen to temperature events
        zes_device_handle_t* phListenDevices =
            allocate_memory(deviceCount * sizeof(zes_device_handle_t))
@@ -2220,7 +2292,7 @@ when the critical temperature is reached.
            uint32_t numEvents
            if (:ref:`zesDriverEventListen`\(hDriver, UINT32_MAX, numListenDevices, phListenDevices, &numEvents, pDeviceEvents)
                == :ref:`ZE_RESULT_SUCCESS <ze-result-t>`\)
-               if (numEvents)    
+               if (numEvents)
                    for (evtIndex .. numListenDevices)
                        if (pDeviceEvents[evtIndex] & :ref:`ZES_EVENT_TYPE_FLAG_TEMP_CRITICAL <zes-event-type-flags-t>`\)
                            output("Device %u: Went above the critical temperature.",

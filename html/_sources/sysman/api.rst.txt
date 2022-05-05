@@ -3,7 +3,7 @@
 ==============================
 Sysman API
 ==============================
-oneAPI Level Zero Specification - Version 1.3.7
+oneAPI Level Zero Specification - Version 1.4.0
 
  
 
@@ -487,6 +487,120 @@ zes_diag_properties_t
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. doxygenstruct:: zes_diag_properties_t
+    :project: LevelZero
+    :members:
+    :undoc-members:
+
+
+ 
+
+Ecc
+============================================================
+* Functions
+
+
+    * :ref:`zesDeviceEccAvailable`
+    * :ref:`zesDeviceEccConfigurable`
+    * :ref:`zesDeviceGetEccState`
+    * :ref:`zesDeviceSetEccState`
+
+ 
+* Enumerations
+
+
+    * :ref:`zes-device-ecc-state-t`
+    * :ref:`zes-device-action-t`
+
+ 
+* Structures
+
+
+    * :ref:`zes-device-ecc-desc-t`
+    * :ref:`zes-device-ecc-properties-t`
+
+
+Ecc Functions
+------------------------------------------------------------------------------
+
+
+.. _zesDeviceEccAvailable:
+
+zesDeviceEccAvailable
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zesDeviceEccAvailable
+    :project: LevelZero
+
+
+.. _zesDeviceEccConfigurable:
+
+zesDeviceEccConfigurable
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zesDeviceEccConfigurable
+    :project: LevelZero
+
+
+.. _zesDeviceGetEccState:
+
+zesDeviceGetEccState
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zesDeviceGetEccState
+    :project: LevelZero
+
+
+.. _zesDeviceSetEccState:
+
+zesDeviceSetEccState
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zesDeviceSetEccState
+    :project: LevelZero
+
+
+
+Ecc Enums
+------------------------------------------------------------------------------
+
+
+.. _zes-device-ecc-state-t:
+
+zes_device_ecc_state_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: zes_device_ecc_state_t
+    :project: LevelZero
+
+
+.. _zes-device-action-t:
+
+zes_device_action_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: zes_device_action_t
+    :project: LevelZero
+
+ 
+Ecc Structures
+------------------------------------------------------------------------------
+
+.. _zes-device-ecc-desc-t:
+
+zes_device_ecc_desc_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenstruct:: zes_device_ecc_desc_t
+    :project: LevelZero
+    :members:
+    :undoc-members:
+
+.. _zes-device-ecc-properties-t:
+
+zes_device_ecc_properties_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenstruct:: zes_device_ecc_properties_t
     :project: LevelZero
     :members:
     :undoc-members:
@@ -1740,6 +1854,13 @@ Power
     * :ref:`zesPowerSetEnergyThreshold`
 
  
+* Enumerations
+
+
+    * :ref:`zes-power-domain-t`
+    * :ref:`zes-power-level-t`
+    * :ref:`zes-power-source-t`
+    * :ref:`zes-limit-unit-t`
 
  
 * Structures
@@ -1829,6 +1950,45 @@ zesPowerSetEnergyThreshold
     :project: LevelZero
 
 
+
+Power Enums
+------------------------------------------------------------------------------
+
+
+.. _zes-power-domain-t:
+
+zes_power_domain_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: zes_power_domain_t
+    :project: LevelZero
+
+
+.. _zes-power-level-t:
+
+zes_power_level_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: zes_power_level_t
+    :project: LevelZero
+
+
+.. _zes-power-source-t:
+
+zes_power_source_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: zes_power_source_t
+    :project: LevelZero
+
+
+.. _zes-limit-unit-t:
+
+zes_limit_unit_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: zes_limit_unit_t
+    :project: LevelZero
 
  
 Power Structures
@@ -2512,6 +2672,90 @@ zes_temp_config_t
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. doxygenstruct:: zes_temp_config_t
+    :project: LevelZero
+    :members:
+    :undoc-members:
+
+
+ 
+
+Powerlimits
+============================================================
+* Functions
+
+
+    * :ref:`zesPowerGetLimitsExt`
+    * :ref:`zesPowerSetLimitsExt`
+
+ 
+* Enumerations
+
+
+    * :ref:`zes-power-limits-ext-version-t`
+
+ 
+* Structures
+
+
+    * :ref:`zes-power-limit-ext-desc-t`
+    * :ref:`zes-power-ext-properties-t`
+
+
+Powerlimits Functions
+------------------------------------------------------------------------------
+
+
+.. _zesPowerGetLimitsExt:
+
+zesPowerGetLimitsExt
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zesPowerGetLimitsExt
+    :project: LevelZero
+
+
+.. _zesPowerSetLimitsExt:
+
+zesPowerSetLimitsExt
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zesPowerSetLimitsExt
+    :project: LevelZero
+
+
+
+Powerlimits Enums
+------------------------------------------------------------------------------
+
+
+.. _zes-power-limits-ext-version-t:
+
+zes_power_limits_ext_version_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: zes_power_limits_ext_version_t
+    :project: LevelZero
+
+ 
+Powerlimits Structures
+------------------------------------------------------------------------------
+
+.. _zes-power-limit-ext-desc-t:
+
+zes_power_limit_ext_desc_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenstruct:: zes_power_limit_ext_desc_t
+    :project: LevelZero
+    :members:
+    :undoc-members:
+
+.. _zes-power-ext-properties-t:
+
+zes_power_ext_properties_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenstruct:: zes_power_ext_properties_t
     :project: LevelZero
     :members:
     :undoc-members:

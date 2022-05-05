@@ -81,6 +81,7 @@ List of Standard Extensions
     - :ref:`"ZE_extension_pci_properties" <ZE_extension_pci_properties>`
     - :ref:`"ZE_extension_srgb" <ZE_extension_srgb>`
     - :ref:`"ZE_extension_cache_reservation" <ZE_extension_cache_reservation>`
+    - :ref:`"ZE_extension_device_luid" <ZE_extension_device_luid>`
     - :ref:`"ZE_extension_float_atomics" <ZE_extension_float_atomics>`
     - :ref:`"ZE_extension_image_copy" <ZE_extension_image_copy>`
     - :ref:`"ZE_extension_image_query_alloc_properties" <ZE_extension_image_query_alloc_properties>`
@@ -88,14 +89,18 @@ List of Standard Extensions
     - :ref:`"ZE_extension_linkonce_odr" <ZE_extension_linkonce_odr>`
     - :ref:`"ZE_extension_memory_compression_hints" <ZE_extension_memory_compression_hints>`
     - :ref:`"ZE_extension_memory_free_policies" <ZE_extension_memory_free_policies>`
+    - :ref:`"ZE_extension_device_memory_properties" <ZE_extension_device_memory_properties>`
     - :ref:`"ZE_extension_raytracing" <ZE_extension_raytracing>`
     - :ref:`"ZE_extension_subgroups" <ZE_extension_subgroups>`
+    - :ref:`"ZES_extension_power_limits" <ZES_extension_power_limits>`
 
 
 List of Experimental Extensions
 ===============================
 
+    - :ref:`"ZE_experimental_bandwidth_properties" <ZE_experimental_bandwidth_properties>`
     - :ref:`"ZE_experimental_event_query_timestamps" <ZE_experimental_event_query_timestamps>`
+    - :ref:`"ZE_experimental_fabric" <ZE_experimental_fabric>`
     - :ref:`"ZE_experimental_global_offset" <ZE_experimental_global_offset>`
     - :ref:`"ZE_experimental_image_memory_properties" <ZE_experimental_image_memory_properties>`
     - :ref:`"ZE_experimental_image_view" <ZE_experimental_image_view>`

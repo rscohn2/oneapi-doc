@@ -1,72 +1,37 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sysman Programming Guide &mdash; Level Zero Specification  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-
-  
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="SPIR-V Programming Guide" href="../core/SPIRV.html" />
     <link rel="prev" title="Tools Programming Guide" href="../tools/PROG.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> Level Zero Specification
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
-                1.3.7
+                1.4.0
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -74,17 +39,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../core/INTRO.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../core/PROG.html">Core Programming Guide</a></li>
@@ -116,6 +71,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#scheduler-operations">Scheduler operations</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#enabling-disabling-ecc-config-dynamically">Enabling/disabling ECC Config Dynamically</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tuning-workload-performance">Tuning workload performance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#operations-on-engine-groups">Operations on engine groups</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#operations-on-standby-domains">Operations on standby domains</a></li>
@@ -145,69 +101,38 @@
 <li class="toctree-l1"><a class="reference internal" href="../versions.html">Versions</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Level Zero Specification</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
 
-    
 
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="section" id="sysman-programming-guide">
-<span id="id1"></span><h1>Sysman Programming Guide<a class="headerlink" href="#sysman-programming-guide" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>Sysman Programming Guide<a class="headerlink" href="#sysman-programming-guide" title="Permalink to this headline"></a></h1>
 <div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h2>
 <p>Sysman is the System Resource Management library used to monitor and
 control the power and performance of accelerator devices.</p>
 </div>
 <div class="section" id="high-level-overview">
-<h2>High-level overview<a class="headerlink" href="#high-level-overview" title="Permalink to this headline">¶</a></h2>
+<h2>High-level overview<a class="headerlink" href="#high-level-overview" title="Permalink to this headline"></a></h2>
 <div class="section" id="environment-variables">
-<h3>Environment Variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">¶</a></h3>
+<h3>Environment Variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline"></a></h3>
 <p>The following environment variables are required to be enabled during initialization for the respective feature.</p>
 <table class="docutils align-default">
 <colgroup>
@@ -238,7 +163,7 @@ control the power and performance of accelerator devices.</p>
 </table>
 </div>
 <div class="section" id="initialization">
-<h3>Initialization<a class="headerlink" href="#initialization" title="Permalink to this headline">¶</a></h3>
+<h3>Initialization<a class="headerlink" href="#initialization" title="Permalink to this headline"></a></h3>
 <p>An application wishing to manage power and performance for devices first
 needs to use the Level0 Core API to enumerate through available
 accelerator devices in the system and select those of interest.</p>
@@ -282,7 +207,7 @@ system and create Sysman handles for them:</p>
     free_memory(...)</pre>
 </div>
 <div class="section" id="global-device-management">
-<h3>Global device management<a class="headerlink" href="#global-device-management" title="Permalink to this headline">¶</a></h3>
+<h3>Global device management<a class="headerlink" href="#global-device-management" title="Permalink to this headline"></a></h3>
 <p>The following operations are provided to access overall device
 information and control aspects of the entire device:</p>
 <ul class="simple">
@@ -302,10 +227,10 @@ information and control aspects of the entire device:</p>
 </ul>
 </li>
 </ul>
-<p>The full list of available functions is described <a class="reference external" href="#glo">below</a>.</p>
+<p>The full list of available functions is described below.</p>
 </div>
 <div class="section" id="device-component-management">
-<h3>Device component management<a class="headerlink" href="#device-component-management" title="Permalink to this headline">¶</a></h3>
+<h3>Device component management<a class="headerlink" href="#device-component-management" title="Permalink to this headline"></a></h3>
 <p>Aside from management of the global properties of a device, there are
 many device components that can be managed to change the performance
 and/or power configuration of the device. Similar components are broken
@@ -563,7 +488,7 @@ in the test suite</p></td>
 </table>
 </div>
 <div class="section" id="device-component-enumeration">
-<h3>Device component enumeration<a class="headerlink" href="#device-component-enumeration" title="Permalink to this headline">¶</a></h3>
+<h3>Device component enumeration<a class="headerlink" href="#device-component-enumeration" title="Permalink to this headline"></a></h3>
 <p>The Sysman API provides functions to enumerate all components in a class
 that can be managed.</p>
 <p>For example, there is a frequency class which is used to control the
@@ -601,7 +526,7 @@ supported:</p>
     free_memory(...)</pre>
 </div>
 <div class="section" id="sub-device-management">
-<h3>Sub-device management<a class="headerlink" href="#sub-device-management" title="Permalink to this headline">¶</a></h3>
+<h3>Sub-device management<a class="headerlink" href="#sub-device-management" title="Permalink to this headline"></a></h3>
 <p>A Sysman device handle operates at the device level. If a sub-device device handle is passed to
 any of the Sysman functions, the result will be as if the device handle was used.</p>
 <p>The enumerator for device components will return a list of components that are located in each
@@ -637,7 +562,7 @@ sub-device (notice the additional sub-device check):</p>
     free_memory(...)</pre>
 </div>
 <div class="section" id="events">
-<h3>Events<a class="headerlink" href="#events" title="Permalink to this headline">¶</a></h3>
+<h3>Events<a class="headerlink" href="#events" title="Permalink to this headline"></a></h3>
 <p>Events are a way to determine if changes have occurred on a device
 e.g. new RAS errors without polling the Sysman API. An application
 registers the events that it wishes to receive notification about and
@@ -653,11 +578,10 @@ Sysman interface functions to get more details.</p>
 <ul class="simple">
 <li><p>Any RAS errors have occurred</p></li>
 </ul>
-<p>The full list of available functions for handling events is described
-<a class="reference external" href="#evd">below</a>.</p>
+<p>The full list of available functions for handling events is described below.</p>
 </div>
 <div class="section" id="telemetry-and-timestamps">
-<h3>Telemetry and timestamps<a class="headerlink" href="#telemetry-and-timestamps" title="Permalink to this headline">¶</a></h3>
+<h3>Telemetry and timestamps<a class="headerlink" href="#telemetry-and-timestamps" title="Permalink to this headline"></a></h3>
 <p>Many of the API calls return underlying hardware telemetry (counters).
 These counters are typically monotonic and wrap around at the their
 bit width boundaires. An application will typically want to take the
@@ -678,11 +602,11 @@ application.</p>
 </div>
 </div>
 <div class="section" id="interface-details">
-<h2>Interface details<a class="headerlink" href="#interface-details" title="Permalink to this headline">¶</a></h2>
+<h2>Interface details<a class="headerlink" href="#interface-details" title="Permalink to this headline"></a></h2>
 <div class="section" id="global-operations">
-<h3>Global operations<a class="headerlink" href="#global-operations" title="Permalink to this headline">¶</a></h3>
+<h3>Global operations<a class="headerlink" href="#global-operations" title="Permalink to this headline"></a></h3>
 <div class="section" id="device-properties">
-<h4>Device Properties<a class="headerlink" href="#device-properties" title="Permalink to this headline">¶</a></h4>
+<h4>Device Properties<a class="headerlink" href="#device-properties" title="Permalink to this headline"></a></h4>
 <p>The following operations permit getting properties about the entire
 device:</p>
 <table class="docutils align-default">
@@ -732,7 +656,7 @@ device:</p>
   }</pre>
 </div>
 <div class="section" id="host-processes">
-<h4>Host Processes<a class="headerlink" href="#host-processes" title="Permalink to this headline">¶</a></h4>
+<h4>Host Processes<a class="headerlink" href="#host-processes" title="Permalink to this headline"></a></h4>
 <p>The following functions provide information about host processes that
 are using the device:</p>
 <table class="docutils align-default">
@@ -759,7 +683,7 @@ accelerators being used.</p></td>
 path to the executable - this information is not returned by the API.</p>
 </div>
 <div class="section" id="device-reset">
-<h4>Device reset<a class="headerlink" href="#device-reset" title="Permalink to this headline">¶</a></h4>
+<h4>Device reset<a class="headerlink" href="#device-reset" title="Permalink to this headline"></a></h4>
 <p>The device can be reset using the following function:</p>
 <table class="docutils align-default">
 <colgroup>
@@ -781,7 +705,7 @@ device.</p></td>
 </table>
 </div>
 <div class="section" id="pci-link-operations">
-<h4>PCI link operations<a class="headerlink" href="#pci-link-operations" title="Permalink to this headline">¶</a></h4>
+<h4>PCI link operations<a class="headerlink" href="#pci-link-operations" title="Permalink to this headline"></a></h4>
 <p>The following functions permit getting data about the PCI endpoint for the device:</p>
 <table class="docutils align-default">
 <colgroup>
@@ -826,11 +750,11 @@ replays</p></td>
 </div>
 </div>
 <div class="section" id="operations-on-power-domains">
-<span id="power"></span><h3>Operations on power domains<a class="headerlink" href="#operations-on-power-domains" title="Permalink to this headline">¶</a></h3>
-<p>The PSU (Power Supply Unit) provides power to a device. The amount of
-power drawn by a device is a function of the voltage and frequency, both
-of which are controlled by the Punit, a micro-controller on the device.
-If the voltage and frequency are too high, two conditions can occur:</p>
+<span id="power"></span><h3>Operations on power domains<a class="headerlink" href="#operations-on-power-domains" title="Permalink to this headline"></a></h3>
+<p>The PSU (Power Supply Unit) provides power to a device. The amount of power
+drawn by a device is a function of the voltage and frequency, both of which are
+controlled by the Punit, a micro-controller on the device. If the voltage and
+frequency are too high, two conditions can occur:</p>
 <ol class="arabic simple">
 <li><p>Over-current - This is where the current drawn by the device exceeds
 the maximum current that the PSU can supply. The PSU asserts a signal
@@ -857,21 +781,36 @@ this should normally reduce the power.</p></li>
 <li><p>Proactive - In this case, the Punit can perform a calculation based on
 the current configuration of the chip and frequency requests to predict
 the worst case power that could be generated. If this calculation exceeds
-the proactive limit, a search is done to find the maximum frequency
-limits that will fit within the limit and those will be actual
-frequencies.</p></li>
+the proactive limit, a search is done to find the maximum frequency that will
+fit within the limit.</p></li>
 </ol>
-<p>The table below summaries the different types of power limits that can
-be configured on a power domain. Note that the sustained and burst
-power limits are only reactive, whereas a peak power limit can be
-either reactive or proactive. As a general rule, card-level peak
-power limits are reactive whereas they are proactive for all other
-power domains that can be enumerated on the chip.</p>
+<p>Limits need not be applied at the hardware scope level of a device. Devices are
+subdivided into one or more power domains. A power domain is a hardware scope
+over which power consumption can be monitored and controlled. Power domains can
+exist at different hardware scopes such as:</p>
+<ol class="arabic simple">
+<li><p>Card-level - Power domains defined at this level monitor &amp; control power
+consumption over a whole card.</p></li>
+<li><p>Package-level - Power domains defined at this level monitor &amp; control power
+consumption over a single physical package on a card.</p></li>
+<li><p>Stack-level - Power domains defined at this level monitor &amp; control power
+consumption over a single stack within a package.</p></li>
+</ol>
+<p>At any given point in time, a platform can be running on either mains power or,
+in the case of platforms such as laptops, can be running on battery power. This
+is referred to as the power source. Limits can be configured to take effect only
+when a device is drawing power from a specified source, i.e., separate limits
+can be imposed when a device is running off battery power as opposed to mains
+power.</p>
+<p>Depending on the platform and power domain, power limits can be expressed in
+terms of either amperage or wattage. The API can be queried to determine in which
+units a given power limit should be specified.</p>
+<p>A power limit can correspond one of the following power levels.</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
+<col style="width: 34%" />
+<col style="width: 28%" />
+<col style="width: 38%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Limit</p></th>
@@ -880,8 +819,8 @@ power domains that can be enumerated on the chip.</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Peak (proactive)</p></td>
-<td><p>Instantaneous</p></td>
+<tr class="row-even"><td><p>Instantaneous</p></td>
+<td><p>NA</p></td>
 <td><p>Punit predicts the
 worst case power for
 the current frequency
@@ -889,59 +828,45 @@ requests and if it
 exceeds the limit,
 the actual
 frequencies
-will be lower. This
-threshold is referred
-to as PL4 - Power
-Limit 4 - or peak
-power.</p></td>
+will be lowered.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Peak (reactive)</p></td>
-<td><p>100usec</p></td>
-<td><p>Punit tracks the
-100usec moving
-average of
-power. When this
-exceeds a
+<tr class="row-odd"><td><p>Peak</p></td>
+<td><p>e.g. 100usec</p></td>
+<td><p>Punit tracks a moving
+average of power over
+a short window. When
+this exceeds a
 programmable
 threshold, the Punit
 starts throttling
-frequencies/voltages.
-The threshold is
-referred to as Psys -
-System Power limit.</p></td>
+frequencies/voltages.</p></td>
 </tr>
-<tr class="row-even"><td><p>Burst (reactive)</p></td>
-<td><p>2ms</p></td>
-<td><p>Punit tracks the 2ms
-moving average of
-power. When this
-exceeds a
+<tr class="row-even"><td><p>Burst</p></td>
+<td><p>e.g. 2ms</p></td>
+<td><p>Punit tracks a moving
+average of power over
+a medium window. When
+this exceeds a
 programmable
 threshold, the Punit
 starts throttling
-frequencies/voltages.
-The threshold is
-referred to as PL2 -
-Power Limit 2 - or
-burst power.</p></td>
+frequencies/voltages.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Sustained (reactive)</p></td>
-<td><p>28sec</p></td>
-<td><p>Punit tracks the
-28sec moving average
-of power. When this
-exceeds a
+<tr class="row-odd"><td><p>Sustained</p></td>
+<td><p>e.g. 28s</p></td>
+<td><p>Punit tracks a moving
+average of power over
+a long window. When
+this exceeds a
 programmable
 threshold, the Punit
 throttles
-frequencies/voltages.
-The threshold is
-referred to as PL1 -
-Power Limit 1 - or
-sustained power.</p></td>
+frequencies/voltages.</p></td>
 </tr>
 </tbody>
 </table>
+<p>Note that the sustained, burst, and peak power limits are only reactive, whereas
+the instantaneous power limit is only proactive.</p>
 <p>The default factory values are tuned assuming the device is operating at
 normal temperatures running significant workloads:</p>
 <ul class="simple">
@@ -991,33 +916,30 @@ sub-devices.</p></li>
 <tr class="row-even"><td><p><a class="reference internal" href="api.html#zesdeviceenumpowerdomains"><span class="std std-ref">zesDeviceEnumPowerDomains</span></a>()</p></td>
 <td><p>Enumerate the power domains.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api.html#zesdevicegetcardpowerdomain"><span class="std std-ref">zesDeviceGetCardPowerDomain</span></a>()</p></td>
-<td><p>Returns a handle to the card-level power domain if available/applicable.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api.html#zespowergetproperties"><span class="std std-ref">zesPowerGetProperties</span></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api.html#zespowergetproperties"><span class="std std-ref">zesPowerGetProperties</span></a>()</p></td>
 <td><p>Get the minimum/maximum power limit that can be
 specified when changing the power limits of a
 specific power domain. Also read the factory
 default sustained power limit of the part.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api.html#zespowergetenergycounter"><span class="std std-ref">zesPowerGetEnergyCounter</span></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api.html#zespowergetenergycounter"><span class="std std-ref">zesPowerGetEnergyCounter</span></a>()</p></td>
 <td><p>Read the energy consumption of
 the specific domain.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api.html#zespowergetlimits"><span class="std std-ref">zesPowerGetLimits</span></a>()</p></td>
-<td><p>Get the sustained/burst/peak
+<tr class="row-odd"><td><p><a class="reference internal" href="api.html#zespowergetlimitsext"><span class="std std-ref">zesPowerGetLimitsExt</span></a>()</p></td>
+<td><p>Get all the
 power limits for the specific
 power domain.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api.html#zespowersetlimits"><span class="std std-ref">zesPowerSetLimits</span></a>()</p></td>
-<td><p>Set the sustained/burst/peak
+<tr class="row-even"><td><p><a class="reference internal" href="api.html#zespowersetlimitsext"><span class="std std-ref">zesPowerSetLimitsExt</span></a>()</p></td>
+<td><p>Set all the
 power limits for the specific
 power domain.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api.html#zespowergetenergythreshold"><span class="std std-ref">zesPowerGetEnergyThreshold</span></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api.html#zespowergetenergythreshold"><span class="std std-ref">zesPowerGetEnergyThreshold</span></a>()</p></td>
 <td><p>Get the current energy threshold.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api.html#zespowersetenergythreshold"><span class="std std-ref">zesPowerSetEnergyThreshold</span></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api.html#zespowersetenergythreshold"><span class="std std-ref">zesPowerSetEnergyThreshold</span></a>()</p></td>
 <td><p>Set the energy threshold. Event
 <a class="reference internal" href="api.html#zes-event-type-flags-t"><span class="std std-ref">ZES_EVENT_TYPE_FLAG_ENERGY_THRESHOLD_CROSSED</span></a></p>
 <p>will be generated when the energy
@@ -1051,22 +973,34 @@ domain on a device:</p>
 }
 
 function ShowPowerLimits(zes_pwr_handle_t hPower)
-    <a class="reference internal" href="api.html#zes-power-sustained-limit-t"><span class="std std-ref">zes_power_sustained_limit_t</span></a> sustainedLimits
-    <a class="reference internal" href="api.html#zes-power-burst-limit-t"><span class="std std-ref">zes_power_burst_limit_t</span></a> burstLimits
-    <a class="reference internal" href="api.html#zes-power-peak-limit-t"><span class="std std-ref">zes_power_peak_limit_t</span></a> peakLimits
-    if (<a class="reference internal" href="api.html#zespowergetlimits"><span class="std std-ref">zesPowerGetLimits</span></a>(hPower, &amp;sustainedLimits, &amp;burstLimits, &amp;peakLimits) == <a class="reference internal" href="../core/api.html#ze-result-t"><span class="std std-ref">ZE_RESULT_SUCCESS</span></a>)
-        output(&quot;    Power limitsn&quot;)
-        if (sustainedLimits.enabled)
-            output(&quot;        Sustained: %.3f W %.3f sec&quot;,
-                sustainedLimits.power / 1000,
-                sustainedLimits.interval / 1000)
-        else
-            output(&quot;        Sustained: Disabled&quot;)
-        if (burstLimits.enabled)
-            output(&quot;        Burst:     %.3f&quot;, burstLimits.power / 1000)
-        else
-            output(&quot;        Burst:     Disabled&quot;)
-        output(&quot;        Burst:     %.3f&quot;, peakLimits.power / 1000)</pre>
+    uint32_t limitCount = 0
+    if (<a class="reference internal" href="api.html#zespowergetlimitsext"><span class="std std-ref">zesPowerGetLimitsExt</span></a>(hPower, &amp;limitCount, nullptr) == <a class="reference internal" href="../core/api.html#ze-result-t"><span class="std std-ref">ZE_RESULT_SUCCESS</span></a>)
+        <a class="reference internal" href="api.html#zes-power-limit-ext-desc-t"><span class="std std-ref">zes_power_limit_ext_desc_t</span></a> * allLimits = allocate(limitCount * sizeof(<a class="reference internal" href="api.html#zes-power-limit-ext-desc-t"><span class="std std-ref">zes_power_limit_ext_desc_t</span></a>))
+        if (<a class="reference internal" href="api.html#zespowergetlimitsext"><span class="std std-ref">zesPowerGetLimitsExt</span></a>(hPower, &amp;numLimits, allLimits) == <a class="reference internal" href="../core/api.html#ze-result-t"><span class="std std-ref">ZE_RESULT_SUCCESS</span></a>)
+
+            for (i = 0; i &lt; limitCount; ++i)
+                output(&quot;Limit is enabled: %s&quot;, enabled)
+                output(&quot;Power averaging window: %d&quot;, interval)</pre>
+<p>The pseudo code below shows how to modify the sustained power limit for the first power
+domain found on a device:</p>
+<pre class="literal-block">function SetPowerDomainLimit(zes_device_handle_t hSysmanDevice)
+    uint32_t numPowerDomains
+    if (<a class="reference internal" href="api.html#zesdeviceenumpowerdomains"><span class="std std-ref">zesDeviceEnumPowerDomains</span></a>(hSysmanDevice, &amp;numPowerDomains, NULL) == <a class="reference internal" href="../core/api.html#ze-result-t"><span class="std std-ref">ZE_RESULT_SUCCESS</span></a>)
+        zes_pwr_handle_t* phPower =
+            allocate_memory(numPowerDomains * sizeof(zes_pwr_handle_t))
+        if (<a class="reference internal" href="api.html#zesdeviceenumpowerdomains"><span class="std std-ref">zesDeviceEnumPowerDomains</span></a>(hSysmanDevice, &amp;numPowerDomains, phPower) == <a class="reference internal" href="../core/api.html#ze-result-t"><span class="std std-ref">ZE_RESULT_SUCCESS</span></a>)
+            for (pwrIndex = 0 .. numPowerDomains-1)
+                <a class="reference internal" href="api.html#zes-power-properties-t"><span class="std std-ref">zes_power_properties_t</span></a> props
+                if (<a class="reference internal" href="api.html#zespowergetproperties"><span class="std std-ref">zesPowerGetProperties</span></a>(phPower[pwrIndex], &amp;props) == <a class="reference internal" href="../core/api.html#ze-result-t"><span class="std std-ref">ZE_RESULT_SUCCESS</span></a>)
+                    uint32_t limitCount = 0
+                    if (<a class="reference internal" href="api.html#zespowergetlimitsext"><span class="std std-ref">zesPowerGetLimitsExt</span></a>(hPower, &amp;limitCount, nullptr) == <a class="reference internal" href="../core/api.html#ze-result-t"><span class="std std-ref">ZE_RESULT_SUCCESS</span></a>)
+                        <a class="reference internal" href="api.html#zes-power-limit-ext-desc-t"><span class="std std-ref">zes_power_limit_ext_desc_t</span></a> * allLimits = allocate(limitCount * sizeof(<a class="reference internal" href="api.html#zes-power-limit-ext-desc-t"><span class="std std-ref">zes_power_limit_ext_desc_t</span></a>))
+                        if (<a class="reference internal" href="api.html#zespowergetlimitsext"><span class="std std-ref">zesPowerGetLimitsExt</span></a>(hPower, &amp;numLimits, allLimits) == <a class="reference internal" href="../core/api.html#ze-result-t"><span class="std std-ref">ZE_RESULT_SUCCESS</span></a>)
+                            for (i = 0; i &lt; limitCount; ++i)
+                                if (allLimits[i].level == <a class="reference internal" href="api.html#zes-power-level-t"><span class="std std-ref">ZES_POWER_LEVEL_SUSTAINED</span></a>)
+                                    if (allLimits[i].limitValueLocked == False)
+                                        allLimits[i].limit = newLimit
+                        <a class="reference internal" href="api.html#zespowersetlimitsext"><span class="std std-ref">zesPowerSetLimitsExt</span></a>(hPower, &amp;numLimits, allLimits)</pre>
 <p>The pseudo code shows how to output the average power. It assumes that
 the function is called regularly (say every 100ms).</p>
 <pre class="literal-block">function ShowAveragePower(zes_pwr_handle_t hPower, <a class="reference internal" href="api.html#zes-power-energy-counter-t"><span class="std std-ref">zes_power_energy_counter_t</span></a>* pPrevEnergyCounter)
@@ -1078,7 +1012,7 @@ the function is called regularly (say every 100ms).</p>
             *pPrevEnergyCounter = newEnergyCounter;</pre>
 </div>
 <div class="section" id="operations-on-frequency-domains">
-<span id="frequency"></span><h3>Operations on frequency domains<a class="headerlink" href="#operations-on-frequency-domains" title="Permalink to this headline">¶</a></h3>
+<span id="frequency"></span><h3>Operations on frequency domains<a class="headerlink" href="#operations-on-frequency-domains" title="Permalink to this headline"></a></h3>
 <p>The hardware manages frequencies to achieve a balance between best
 performance and power consumption. Most devices have one or more
 frequency domains.</p>
@@ -1153,7 +1087,7 @@ frequency is being limited by the Punit.</p>
 <a class="reference internal" href="api.html#zes-event-type-flags-t"><span class="std std-ref">ZES_EVENT_TYPE_FLAG_FREQ_THROTTLED</span></a> is triggered if this is supported
 (check <a class="reference internal" href="api.html#zes-freq-properties-t"><span class="std std-ref">zes_freq_properties_t</span></a>.isThrottleEventSupported).</p>
 <div class="section" id="frequency-voltage-overclocking">
-<h4>Frequency/Voltage overclocking<a class="headerlink" href="#frequency-voltage-overclocking" title="Permalink to this headline">¶</a></h4>
+<h4>Frequency/Voltage overclocking<a class="headerlink" href="#frequency-voltage-overclocking" title="Permalink to this headline"></a></h4>
 <p>Overclocking involves modifying the voltage-frequency (V-F) curve to
 either achieve better performance by permitting the hardware to reach
 higher frequencies or better efficiency by lowering the voltage for the
@@ -1284,7 +1218,7 @@ limit.</p></td>
 calling <a class="reference internal" href="api.html#zesfrequencyocgeticcmax"><span class="std std-ref">zesFrequencyOcGetIccMax</span></a>() and <a class="reference internal" href="api.html#zesfrequencyocsettjmax"><span class="std std-ref">zesFrequencyOcSetTjMax</span></a>() with values of 0.0.</p>
 </div>
 <div class="section" id="scheduler-operations">
-<span id="scheduler"></span><h4>Scheduler operations<a class="headerlink" href="#scheduler-operations" title="Permalink to this headline">¶</a></h4>
+<span id="scheduler"></span><h4>Scheduler operations<a class="headerlink" href="#scheduler-operations" title="Permalink to this headline"></a></h4>
 <p>Scheduler components control how workloads are executed on accelerator
 engines and how to share the hardware resources when multiple workloads are
 submitted concurrently. This policy is referred to as a scheduler mode.</p>
@@ -1458,8 +1392,53 @@ while permitting other work to attempt to run:</p>
                     output(&quot;ERROR: Problem calling the API.&quot;)</pre>
 </div>
 </div>
+<div class="section" id="enabling-disabling-ecc-config-dynamically">
+<span id="ecc"></span><h3>Enabling/disabling ECC Config Dynamically<a class="headerlink" href="#enabling-disabling-ecc-config-dynamically" title="Permalink to this headline"></a></h3>
+<p>Memory corruption occurs when random bits in data flip due to natural processes
+such as background radiation, cosmic rays, etc… A single bit flip in one of the
+high-bits of a single data-value may drastically change the behavior of some
+applications. Workloads from the financial, industrial control, critical
+infrastructure, and critical database sectors are typically not tolerant to memory
+corruption—memory corruption can cause highly undesirable behavior. Error correction
+codes (ECC) are a memory controller technology that reduce memory corruption at
+the cost of reduced memory performance and capacity.</p>
+<p>The loss of memory performance and capacity makes ECC undesirable for some workloads.
+Application domains may be insensitive to low-level memory corruption. Algorithms
+may be designed for numerical stability or may be inherently stochastic, making them
+insensitive to memory corruption.</p>
+<p>Products may support ECC capabilities and may additionally make ECC dynamically
+configurable, i.e. if ECC is supported, then it may be turned on or off on demand.
+A device reset, either in the form of a warm reset or a cold reboot, may be
+required to switch between ECC enabled and disabled states.</p>
+<p>Support for ECC can be checked using the function <a class="reference internal" href="api.html#zesdeviceeccavailable"><span class="std std-ref">zesDeviceEccAvailable</span></a>(). If ECC
+is supported, then support for dynamic ECC control can be checked using the
+function <a class="reference internal" href="api.html#zesdeviceeccconfigurable"><span class="std std-ref">zesDeviceEccConfigurable</span></a>(). The current ECC state, pending ECC state,
+and action required to affect the pending ECC state can be determined using the
+struct <a class="reference internal" href="api.html#zes-device-ecc-properties-t"><span class="std std-ref">zes_device_ecc_properties_t</span></a> returned by the function <a class="reference internal" href="api.html#zesdevicegeteccstate"><span class="std std-ref">zesDeviceGetEccState</span></a>().
+The ECC state can be changed by calling the <a class="reference internal" href="api.html#zesdeviceseteccstate"><span class="std std-ref">zesDeviceSetEccState</span></a>() which takes the
+desired ECC state as input and returns the struct <a class="reference internal" href="api.html#zes-device-ecc-properties-t"><span class="std std-ref">zes_device_ecc_properties_t</span></a> which
+lists the current ECC state, pending ECC state, and action required to affect the
+pending ECC state</p>
+<p>The following pseudo code demonstrates how the ECC state can be queried and changed
+from disabled to enabled:</p>
+<pre class="literal-block">function EnableECC(zes_device_handle_t hSysmanDevice)
+    ze_bool_t EccAvailable = False;
+    <a class="reference internal" href="api.html#zesdeviceeccavailable"><span class="std std-ref">zesDeviceEccAvailable</span></a>(hSysmanDevice, &amp;EccAvailable)
+    if (EccAvailable == True) {
+        ze_bool_t EccConfigurable = False;
+        <a class="reference internal" href="api.html#zesdeviceeccconfigurable"><span class="std std-ref">zesDeviceEccConfigurable</span></a>(hSysmanDevice, &amp;EccConfigurable)
+        if (EccConfigurable == True) {
+            <a class="reference internal" href="api.html#zes-device-ecc-properties-t"><span class="std std-ref">zes_device_ecc_properties_t</span></a> props = {<a class="reference internal" href="api.html#zes-device-ecc-state-t"><span class="std std-ref">ZES_DEVICE_ECC_STATE_UNAVAILABLE</span></a>, <a class="reference internal" href="api.html#zes-device-ecc-state-t"><span class="std std-ref">ZES_DEVICE_ECC_STATE_UNAVAILABLE</span></a>, <a class="reference internal" href="api.html#zes-device-action-t"><span class="std std-ref">ZES_DEVICE_ACTION_NONE</span></a>}
+            <a class="reference internal" href="api.html#zesdevicegeteccstate"><span class="std std-ref">zesDeviceGetEccState</span></a>(hSysmanDevice, &amp;props)
+            if (props.currentState == <a class="reference internal" href="api.html#zes-device-ecc-state-t"><span class="std std-ref">ZES_DEVICE_ECC_STATE_DISABLED</span></a>) {
+                <a class="reference internal" href="api.html#zes-device-ecc-desc-t"><span class="std std-ref">zes_device_ecc_desc_t</span></a> newState = <a class="reference internal" href="api.html#zes-device-ecc-state-t"><span class="std std-ref">ZES_DEVICE_ECC_STATE_ENABLED</span></a>
+                <a class="reference internal" href="api.html#zesdeviceseteccstate"><span class="std std-ref">zesDeviceSetEccState</span></a>(hSysmanDevice, newState, &amp;props)
+            }
+        }
+    }</pre>
+</div>
 <div class="section" id="tuning-workload-performance">
-<span id="performance-factor"></span><h3>Tuning workload performance<a class="headerlink" href="#tuning-workload-performance" title="Permalink to this headline">¶</a></h3>
+<span id="performance-factor"></span><h3>Tuning workload performance<a class="headerlink" href="#tuning-workload-performance" title="Permalink to this headline"></a></h3>
 <p>While hardware attempts to balance system resources effectively, there are
 workloads that can benefit from external performance hints. For hardware
 where this is possible, the API exposes <em>Performance Factors</em> domains that
@@ -1520,7 +1499,7 @@ for a domain.</p></td>
 </table>
 </div>
 <div class="section" id="operations-on-engine-groups">
-<span id="engines"></span><h3>Operations on engine groups<a class="headerlink" href="#operations-on-engine-groups" title="Permalink to this headline">¶</a></h3>
+<span id="engines"></span><h3>Operations on engine groups<a class="headerlink" href="#operations-on-engine-groups" title="Permalink to this headline"></a></h3>
 <p>Accelerator resources (e.g. arrays of compute units or media decoders) are
 fed work by what are called engines. The API provides the ability to measuring
 the execution time (activity) of these engines. The type of engines is
@@ -1576,7 +1555,7 @@ an engine group.</p></td>
 </table>
 </div>
 <div class="section" id="operations-on-standby-domains">
-<span id="standby"></span><h3>Operations on standby domains<a class="headerlink" href="#operations-on-standby-domains" title="Permalink to this headline">¶</a></h3>
+<span id="standby"></span><h3>Operations on standby domains<a class="headerlink" href="#operations-on-standby-domains" title="Permalink to this headline"></a></h3>
 <p>When a device is idle, it will enter a low-power state. Since exit from
 low-power states have associated latency, it can hurt performance. The
 hardware attempts to stike a balance between saving power when there are
@@ -1625,7 +1604,7 @@ standby domain.</p></td>
 </table>
 </div>
 <div class="section" id="operations-on-firmwares">
-<span id="firmware"></span><h3>Operations on firmwares<a class="headerlink" href="#operations-on-firmwares" title="Permalink to this headline">¶</a></h3>
+<span id="firmware"></span><h3>Operations on firmwares<a class="headerlink" href="#operations-on-firmwares" title="Permalink to this headline"></a></h3>
 <p>The following functions are provided to manage firmwares on the device:</p>
 <table class="docutils align-default">
 <colgroup>
@@ -1653,7 +1632,7 @@ a firmware.</p></td>
 </table>
 </div>
 <div class="section" id="querying-memory-modules">
-<span id="memory"></span><h3>Querying Memory Modules<a class="headerlink" href="#querying-memory-modules" title="Permalink to this headline">¶</a></h3>
+<span id="memory"></span><h3>Querying Memory Modules<a class="headerlink" href="#querying-memory-modules" title="Permalink to this headline"></a></h3>
 <p>The API provides an enumeration of all device memory modules. For each
 memory module, the current and maximum bandwidth can be queried. The API
 also provides a health metric which can take one of the following values
@@ -1724,7 +1703,7 @@ for a memory module.</p></td>
 </table>
 </div>
 <div class="section" id="operations-on-fabric-ports">
-<span id="fabric-port"></span><h3>Operations on Fabric ports<a class="headerlink" href="#operations-on-fabric-ports" title="Permalink to this headline">¶</a></h3>
+<span id="fabric-port"></span><h3>Operations on Fabric ports<a class="headerlink" href="#operations-on-fabric-ports" title="Permalink to this headline"></a></h3>
 <p><strong>Fabric</strong> is the term given to describe high-speed interconnections
 between accelerator devices, primarily used to provide low latency fast
 access to remote device memory. Devices have one or more <strong>fabric
@@ -1910,7 +1889,7 @@ function ShowFabricPortInfo(zes_fabric_port_handle_t hPort)
                         output(&quot;        Config:                DOWN&quot;)</pre>
 </div>
 <div class="section" id="querying-temperature">
-<span id="temperature"></span><h3>Querying temperature<a class="headerlink" href="#querying-temperature" title="Permalink to this headline">¶</a></h3>
+<span id="temperature"></span><h3>Querying temperature<a class="headerlink" href="#querying-temperature" title="Permalink to this headline"></a></h3>
 <p>A device has multiple temperature sensors embedded at different
 locations. The following locations are supported:</p>
 <table class="docutils align-default">
@@ -2056,7 +2035,7 @@ thresholds.</p></td>
 </table>
 </div>
 <div class="section" id="operations-on-power-supplies">
-<span id="psu"></span><h3>Operations on power supplies<a class="headerlink" href="#operations-on-power-supplies" title="Permalink to this headline">¶</a></h3>
+<span id="psu"></span><h3>Operations on power supplies<a class="headerlink" href="#operations-on-power-supplies" title="Permalink to this headline"></a></h3>
 <p>The following functions can be used to access information about each
 power-supply on a device:</p>
 <table class="docutils align-default">
@@ -2087,7 +2066,7 @@ the power supply.</p></td>
 </table>
 </div>
 <div class="section" id="operations-on-fans">
-<span id="fan"></span><h3>Operations on fans<a class="headerlink" href="#operations-on-fans" title="Permalink to this headline">¶</a></h3>
+<span id="fan"></span><h3>Operations on fans<a class="headerlink" href="#operations-on-fans" title="Permalink to this headline"></a></h3>
 <p>If <a class="reference internal" href="api.html#zesdeviceenumfans"><span class="std std-ref">zesDeviceEnumFans</span></a>() returns one or more fan handles, it is possible to
 manage their speed. The hardware can be instructed to run the fan at a fixed
 speed (or 0 for silent operations) or to provide a table of temperature-speed
@@ -2177,7 +2156,7 @@ value in RPM, but only if control is permitted:</p>
 }</pre>
 </div>
 <div class="section" id="operations-on-leds">
-<span id="led"></span><h3>Operations on LEDs<a class="headerlink" href="#operations-on-leds" title="Permalink to this headline">¶</a></h3>
+<span id="led"></span><h3>Operations on LEDs<a class="headerlink" href="#operations-on-leds" title="Permalink to this headline"></a></h3>
 <p>If <a class="reference internal" href="api.html#zesdeviceenumleds"><span class="std std-ref">zesDeviceEnumLeds</span></a>() returns one or more LED handles, it is possible
 to manage LEDs on the device. This includes turning them off/on and
 where the capability exists, changing their color in real-time.</p>
@@ -2215,7 +2194,7 @@ available.</p></td>
 </table>
 </div>
 <div class="section" id="querying-ras-errors">
-<span id="ras"></span><h3>Querying RAS errors<a class="headerlink" href="#querying-ras-errors" title="Permalink to this headline">¶</a></h3>
+<span id="ras"></span><h3>Querying RAS errors<a class="headerlink" href="#querying-ras-errors" title="Permalink to this headline"></a></h3>
 <p>RAS stands for Reliability, Availability, and Serviceability. It is a
 feature of certain devices that attempts to correct random bit errors
 and provide redundancy where permanent damage has occurred.</p>
@@ -2473,7 +2452,7 @@ function OutputRasDetails(<a class="reference internal" href="api.html#zes-ras-s
     output(&quot;        Number new display errors:        %llu&quot;, pDetails-&gt;category[ZES_RAS_ERROR_CAT_DISPLAY_ERRORS])</pre>
 </div>
 <div class="section" id="performing-diagnostics">
-<span id="diagnostics"></span><h3>Performing Diagnostics<a class="headerlink" href="#performing-diagnostics" title="Permalink to this headline">¶</a></h3>
+<span id="diagnostics"></span><h3>Performing Diagnostics<a class="headerlink" href="#performing-diagnostics" title="Permalink to this headline"></a></h3>
 <p>Diagnostics is the process of requesting that the hardware run self-checks
 and repairs.</p>
 <p><strong>WARNING:</strong> Performing diagnostics can destroy current device state.
@@ -2577,7 +2556,7 @@ tests in each:</p>
     free_memory(...)</pre>
 </div>
 <div class="section" id="events-2">
-<span id="id2"></span><h3>Events<a class="headerlink" href="#events-2" title="Permalink to this headline">¶</a></h3>
+<span id="id2"></span><h3>Events<a class="headerlink" href="#events-2" title="Permalink to this headline"></a></h3>
 <p>Events are a way to determine if changes have occurred on a device
 e.g. new RAS errors. An application registers the events that it wishes
 to receive notification about and then it queries to receive
@@ -2831,9 +2810,9 @@ when the critical temperature is reached.</p>
 </div>
 </div>
 <div class="section" id="security">
-<h2>Security<a class="headerlink" href="#security" title="Permalink to this headline">¶</a></h2>
+<h2>Security<a class="headerlink" href="#security" title="Permalink to this headline"></a></h2>
 <div class="section" id="linux">
-<h3>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h3>
+<h3>Linux<a class="headerlink" href="#linux" title="Permalink to this headline"></a></h3>
 <p>The default security provided by the accelerator driver is to permit
 querying and controlling of system resources to the UNIX user <strong>root</strong>,
 querying only for users that are members of the UNIX group <strong>root</strong> and
@@ -2887,12 +2866,12 @@ standby.</p></td>
 </table>
 </div>
 <div class="section" id="windows">
-<h3>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h3>
+<h3>Windows<a class="headerlink" href="#windows" title="Permalink to this headline"></a></h3>
 <p>The Windows driver will only permit telemetry requests coming from users with administrator
 permissions. It will only permit controls for system services with LocalServiceSid permissions.</p>
 </div>
 <div class="section" id="virtualization">
-<h3>Virtualization<a class="headerlink" href="#virtualization" title="Permalink to this headline">¶</a></h3>
+<h3>Virtualization<a class="headerlink" href="#virtualization" title="Permalink to this headline"></a></h3>
 <p>In virtualization environments, only the host is permitted to access any
 features of the API. Attempts to use the API in virtual machines will
 fail.</p>
@@ -2902,51 +2881,33 @@ fail.</p>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../core/SPIRV.html" class="btn btn-neutral float-right" title="SPIR-V Programming Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../tools/PROG.html" class="btn btn-neutral float-left" title="Tools Programming Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../tools/PROG.html" class="btn btn-neutral float-left" title="Tools Programming Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../core/SPIRV.html" class="btn btn-neutral float-right" title="SPIR-V Programming Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2020, Intel
-
-    </p>
+    <p>&#169; Copyright 2020, Intel.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

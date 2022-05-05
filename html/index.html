@@ -1,71 +1,36 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>oneAPI Level Zero: 1.4.0 &mdash; Level Zero Specification  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>oneAPI Level Zero: 1.3.7 &mdash; Level Zero Specification  documentation</title>
-  
-
-  
-  
-  
-  
-
-  
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Introduction" href="core/INTRO.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="#" class="icon icon-home"> Level Zero Specification
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
-                1.3.7
+                1.4.0
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -73,17 +38,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="core/INTRO.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="core/PROG.html">Core Programming Guide</a></li>
@@ -95,60 +50,29 @@
 <li class="toctree-l1"><a class="reference internal" href="versions.html">Versions</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="#">Level Zero Specification</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
 
-    
 
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="section" id="l0-full-name-l0-spec-version">
-<span id="l0-section"></span><h1>oneAPI Level Zero: 1.3.7<a class="headerlink" href="#l0-full-name-l0-spec-version" title="Permalink to this headline">¶</a></h1>
+<span id="l0-section"></span><h1>oneAPI Level Zero: 1.4.0<a class="headerlink" href="#l0-full-name-l0-spec-version" title="Permalink to this headline"></a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="core/INTRO.html">Introduction</a><ul>
@@ -180,6 +104,7 @@
 <li class="toctree-l2"><a class="reference internal" href="core/PROG.html#memory-and-images">Memory and Images</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="core/PROG.html#memory">Memory</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="core/PROG.html#types">Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/PROG.html#access-capabilities">Access Capabilities</a></li>
 <li class="toctree-l4"><a class="reference internal" href="core/PROG.html#cache-hints-prefetch-and-memory-advice">Cache Hints, Prefetch, and Memory Advice</a></li>
 </ul>
 </li>
@@ -254,6 +179,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="core/PROG.html#sampler">Sampler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/PROG.html#formatted-output">Formatted Output</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="core/PROG.html#advanced">Advanced</a><ul>
@@ -357,6 +283,7 @@
 <li class="toctree-l4"><a class="reference internal" href="sysman/PROG.html#scheduler-operations">Scheduler operations</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="sysman/PROG.html#enabling-disabling-ecc-config-dynamically">Enabling/disabling ECC Config Dynamically</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sysman/PROG.html#tuning-workload-performance">Tuning workload performance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sysman/PROG.html#operations-on-engine-groups">Operations on engine groups</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sysman/PROG.html#operations-on-standby-domains">Operations on standby domains</a></li>
@@ -451,11 +378,14 @@
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ze-result-t">ze_result_t</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ze-structure-type-t">ze_structure_type_t</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ze-external-memory-type-flags-t">ze_external_memory_type_flags_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ze-bandwidth-unit-t">ze_bandwidth_unit_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ze-latency-unit-t">ze_latency_unit_t</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="core/api.html#common-structures">Common Structures</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ze-ipc-mem-handle-t">ze_ipc_mem_handle_t</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ze-ipc-event-pool-handle-t">ze_ipc_event_pool_handle_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ze-uuid-t">ze_uuid_t</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ze-base-properties-t">ze_base_properties_t</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ze-base-desc-t">ze_base_desc_t</a></li>
 </ul>
@@ -1120,6 +1050,63 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="core/api.html#bandwidth">Bandwidth</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#bandwidth-structures">Bandwidth Structures</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ze-device-p2p-bandwidth-exp-properties-t">ze_device_p2p_bandwidth_exp_properties_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ze-copy-bandwidth-exp-properties-t">ze_copy_bandwidth_exp_properties_t</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/api.html#deviceluid">Deviceluid</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#deviceluid-enums">Deviceluid Enums</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ze-device-luid-ext-version-t">ze_device_luid_ext_version_t</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#deviceluid-structures">Deviceluid Structures</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ze-device-luid-ext-t">ze_device_luid_ext_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ze-device-luid-ext-properties-t">ze_device_luid_ext_properties_t</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/api.html#fabric">Fabric</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#fabric-functions">Fabric Functions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#zefabricvertexgetexp">zeFabricVertexGetExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#zefabricvertexgetsubverticesexp">zeFabricVertexGetSubVerticesExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#zefabricvertexgetpropertiesexp">zeFabricVertexGetPropertiesExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#zefabricvertexgetdeviceexp">zeFabricVertexGetDeviceExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#zedevicegetfabricvertexexp">zeDeviceGetFabricVertexExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#zefabricedgegetexp">zeFabricEdgeGetExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#zefabricedgegetverticesexp">zeFabricEdgeGetVerticesExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#zefabricedgegetpropertiesexp">zeFabricEdgeGetPropertiesExp</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#fabric-enums">Fabric Enums</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ze-fabric-vertex-exp-type-t">ze_fabric_vertex_exp_type_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ze-fabric-edge-exp-duplexity-t">ze_fabric_edge_exp_duplexity_t</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#fabric-structures">Fabric Structures</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ze-fabric-vertex-pci-exp-address-t">ze_fabric_vertex_pci_exp_address_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ze-fabric-vertex-exp-properties-t">ze_fabric_vertex_exp_properties_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ze-fabric-edge-exp-properties-t">ze_fabric_edge_exp_properties_t</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/api.html#memoryproperties">Memoryproperties</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#memoryproperties-enums">Memoryproperties Enums</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ze-device-memory-properties-ext-version-t">ze_device_memory_properties_ext_version_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ze-device-memory-ext-type-t">ze_device_memory_ext_type_t</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#memoryproperties-structures">Memoryproperties Structures</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ze-device-memory-ext-properties-t">ze_device_memory_ext_properties_t</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="tools/api.html">Tools API</a><ul>
@@ -1351,6 +1338,26 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="sysman/api.html#ecc">Ecc</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sysman/api.html#ecc-functions">Ecc Functions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zesdeviceeccavailable">zesDeviceEccAvailable</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zesdeviceeccconfigurable">zesDeviceEccConfigurable</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zesdevicegeteccstate">zesDeviceGetEccState</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zesdeviceseteccstate">zesDeviceSetEccState</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="sysman/api.html#ecc-enums">Ecc Enums</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zes-device-ecc-state-t">zes_device_ecc_state_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zes-device-action-t">zes_device_action_t</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="sysman/api.html#ecc-structures">Ecc Structures</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zes-device-ecc-desc-t">zes_device_ecc_desc_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zes-device-ecc-properties-t">zes_device_ecc_properties_t</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="sysman/api.html#engine">Engine</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="sysman/api.html#engine-functions">Engine Functions</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zesdeviceenumenginegroups">zesDeviceEnumEngineGroups</a></li>
@@ -1553,6 +1560,13 @@
 <li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zespowersetenergythreshold">zesPowerSetEnergyThreshold</a></li>
 </ul>
 </li>
+<li class="toctree-l4"><a class="reference internal" href="sysman/api.html#power-enums">Power Enums</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zes-power-domain-t">zes_power_domain_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zes-power-level-t">zes_power_level_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zes-power-source-t">zes_power_source_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zes-limit-unit-t">zes_limit_unit_t</a></li>
+</ul>
+</li>
 <li class="toctree-l4"><a class="reference internal" href="sysman/api.html#power-structures">Power Structures</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zes-power-properties-t">zes_power_properties_t</a></li>
 <li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zes-power-energy-counter-t">zes_power_energy_counter_t</a></li>
@@ -1669,6 +1683,23 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="sysman/api.html#powerlimits">Powerlimits</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sysman/api.html#powerlimits-functions">Powerlimits Functions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zespowergetlimitsext">zesPowerGetLimitsExt</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zespowersetlimitsext">zesPowerSetLimitsExt</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="sysman/api.html#powerlimits-enums">Powerlimits Enums</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zes-power-limits-ext-version-t">zes_power_limits_ext_version_t</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="sysman/api.html#powerlimits-structures">Powerlimits Structures</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zes-power-limit-ext-desc-t">zes_power_limit_ext_desc_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zes-power-ext-properties-t">zes_power_ext_properties_t</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -1684,49 +1715,32 @@
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="core/INTRO.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="core/INTRO.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2020, Intel
-
-    </p>
+    <p>&#169; Copyright 2020, Intel.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
