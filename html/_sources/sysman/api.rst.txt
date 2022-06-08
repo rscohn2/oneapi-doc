@@ -3,7 +3,7 @@
 ==============================
 Sysman API
 ==============================
-oneAPI Level Zero Specification - Version 1.4.0
+oneAPI Level Zero Specification - Version 1.4.3
 
  
 
@@ -383,6 +383,301 @@ zes_pci_stats_t
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. doxygenstruct:: zes_pci_stats_t
+    :project: LevelZero
+    :members:
+    :undoc-members:
+
+
+ 
+
+Overclock
+============================================================
+* Functions
+
+
+    * :ref:`zesDeviceSetOverclockWaiver`
+    * :ref:`zesDeviceGetOverclockDomains`
+    * :ref:`zesDeviceGetOverclockControls`
+    * :ref:`zesDeviceResetOverclockSettings`
+    * :ref:`zesDeviceReadOverclockState`
+    * :ref:`zesDeviceEnumOverclockDomains`
+    * :ref:`zesOverclockGetDomainProperties`
+    * :ref:`zesOverclockGetDomainVFProperties`
+    * :ref:`zesOverclockGetDomainControlProperties`
+    * :ref:`zesOverclockGetControlCurrentValue`
+    * :ref:`zesOverclockGetControlPendingValue`
+    * :ref:`zesOverclockSetControlUserValue`
+    * :ref:`zesOverclockGetControlState`
+    * :ref:`zesOverclockGetVFPointValues`
+    * :ref:`zesOverclockSetVFPointValues`
+
+ 
+* Enumerations
+
+
+    * :ref:`zes-overclock-domain-t`
+    * :ref:`zes-overclock-control-t`
+    * :ref:`zes-overclock-mode-t`
+    * :ref:`zes-control-state-t`
+    * :ref:`zes-pending-action-t`
+    * :ref:`zes-vf-program-type-t`
+    * :ref:`zes-vf-type-t`
+    * :ref:`zes-vf-array-type-t`
+
+ 
+* Structures
+
+
+    * :ref:`zes-overclock-properties-t`
+    * :ref:`zes-control-property-t`
+    * :ref:`zes-vf-property-t`
+
+
+Overclock Functions
+------------------------------------------------------------------------------
+
+
+.. _zesDeviceSetOverclockWaiver:
+
+zesDeviceSetOverclockWaiver
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zesDeviceSetOverclockWaiver
+    :project: LevelZero
+
+
+.. _zesDeviceGetOverclockDomains:
+
+zesDeviceGetOverclockDomains
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zesDeviceGetOverclockDomains
+    :project: LevelZero
+
+
+.. _zesDeviceGetOverclockControls:
+
+zesDeviceGetOverclockControls
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zesDeviceGetOverclockControls
+    :project: LevelZero
+
+
+.. _zesDeviceResetOverclockSettings:
+
+zesDeviceResetOverclockSettings
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zesDeviceResetOverclockSettings
+    :project: LevelZero
+
+
+.. _zesDeviceReadOverclockState:
+
+zesDeviceReadOverclockState
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zesDeviceReadOverclockState
+    :project: LevelZero
+
+
+.. _zesDeviceEnumOverclockDomains:
+
+zesDeviceEnumOverclockDomains
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zesDeviceEnumOverclockDomains
+    :project: LevelZero
+
+
+.. _zesOverclockGetDomainProperties:
+
+zesOverclockGetDomainProperties
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zesOverclockGetDomainProperties
+    :project: LevelZero
+
+
+.. _zesOverclockGetDomainVFProperties:
+
+zesOverclockGetDomainVFProperties
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zesOverclockGetDomainVFProperties
+    :project: LevelZero
+
+
+.. _zesOverclockGetDomainControlProperties:
+
+zesOverclockGetDomainControlProperties
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zesOverclockGetDomainControlProperties
+    :project: LevelZero
+
+
+.. _zesOverclockGetControlCurrentValue:
+
+zesOverclockGetControlCurrentValue
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zesOverclockGetControlCurrentValue
+    :project: LevelZero
+
+
+.. _zesOverclockGetControlPendingValue:
+
+zesOverclockGetControlPendingValue
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zesOverclockGetControlPendingValue
+    :project: LevelZero
+
+
+.. _zesOverclockSetControlUserValue:
+
+zesOverclockSetControlUserValue
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zesOverclockSetControlUserValue
+    :project: LevelZero
+
+
+.. _zesOverclockGetControlState:
+
+zesOverclockGetControlState
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zesOverclockGetControlState
+    :project: LevelZero
+
+
+.. _zesOverclockGetVFPointValues:
+
+zesOverclockGetVFPointValues
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zesOverclockGetVFPointValues
+    :project: LevelZero
+
+
+.. _zesOverclockSetVFPointValues:
+
+zesOverclockSetVFPointValues
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenfunction:: zesOverclockSetVFPointValues
+    :project: LevelZero
+
+
+
+Overclock Enums
+------------------------------------------------------------------------------
+
+
+.. _zes-overclock-domain-t:
+
+zes_overclock_domain_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: zes_overclock_domain_t
+    :project: LevelZero
+
+
+.. _zes-overclock-control-t:
+
+zes_overclock_control_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: zes_overclock_control_t
+    :project: LevelZero
+
+
+.. _zes-overclock-mode-t:
+
+zes_overclock_mode_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: zes_overclock_mode_t
+    :project: LevelZero
+
+
+.. _zes-control-state-t:
+
+zes_control_state_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: zes_control_state_t
+    :project: LevelZero
+
+
+.. _zes-pending-action-t:
+
+zes_pending_action_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: zes_pending_action_t
+    :project: LevelZero
+
+
+.. _zes-vf-program-type-t:
+
+zes_vf_program_type_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: zes_vf_program_type_t
+    :project: LevelZero
+
+
+.. _zes-vf-type-t:
+
+zes_vf_type_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: zes_vf_type_t
+    :project: LevelZero
+
+
+.. _zes-vf-array-type-t:
+
+zes_vf_array_type_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenenum:: zes_vf_array_type_t
+    :project: LevelZero
+
+ 
+Overclock Structures
+------------------------------------------------------------------------------
+
+.. _zes-overclock-properties-t:
+
+zes_overclock_properties_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenstruct:: zes_overclock_properties_t
+    :project: LevelZero
+    :members:
+    :undoc-members:
+
+.. _zes-control-property-t:
+
+zes_control_property_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenstruct:: zes_control_property_t
+    :project: LevelZero
+    :members:
+    :undoc-members:
+
+.. _zes-vf-property-t:
+
+zes_vf_property_t
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. doxygenstruct:: zes_vf_property_t
     :project: LevelZero
     :members:
     :undoc-members:

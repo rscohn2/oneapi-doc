@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>oneAPI Level Zero: 1.4.0 &mdash; Level Zero Specification  documentation</title>
+  <title>oneAPI Level Zero: 1.4.3 &mdash; Level Zero Specification  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -29,7 +29,7 @@
             <a href="#" class="icon icon-home"> Level Zero Specification
           </a>
               <div class="version">
-                1.4.0
+                1.4.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -47,7 +47,7 @@
 <li class="toctree-l1"><a class="reference internal" href="core/SPIRV.html">SPIR-V Programming Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="core/EXT.html">Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="versions.html">Versions</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://spec.oneapi.io/releases/index.html#level-zero">Versions</a></li>
 </ul>
 
         </div>
@@ -72,7 +72,7 @@
            <div itemprop="articleBody">
              
   <div class="section" id="l0-full-name-l0-spec-version">
-<span id="l0-section"></span><h1>oneAPI Level Zero: 1.4.0<a class="headerlink" href="#l0-full-name-l0-spec-version" title="Permalink to this headline"></a></h1>
+<span id="l0-section"></span><h1>oneAPI Level Zero: 1.4.3<a class="headerlink" href="#l0-full-name-l0-spec-version" title="Permalink to this headline"></a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="core/INTRO.html">Introduction</a><ul>
@@ -1319,6 +1319,44 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="sysman/api.html#overclock">Overclock</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sysman/api.html#overclock-functions">Overclock Functions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zesdevicesetoverclockwaiver">zesDeviceSetOverclockWaiver</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zesdevicegetoverclockdomains">zesDeviceGetOverclockDomains</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zesdevicegetoverclockcontrols">zesDeviceGetOverclockControls</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zesdeviceresetoverclocksettings">zesDeviceResetOverclockSettings</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zesdevicereadoverclockstate">zesDeviceReadOverclockState</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zesdeviceenumoverclockdomains">zesDeviceEnumOverclockDomains</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zesoverclockgetdomainproperties">zesOverclockGetDomainProperties</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zesoverclockgetdomainvfproperties">zesOverclockGetDomainVFProperties</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zesoverclockgetdomaincontrolproperties">zesOverclockGetDomainControlProperties</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zesoverclockgetcontrolcurrentvalue">zesOverclockGetControlCurrentValue</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zesoverclockgetcontrolpendingvalue">zesOverclockGetControlPendingValue</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zesoverclocksetcontroluservalue">zesOverclockSetControlUserValue</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zesoverclockgetcontrolstate">zesOverclockGetControlState</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zesoverclockgetvfpointvalues">zesOverclockGetVFPointValues</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zesoverclocksetvfpointvalues">zesOverclockSetVFPointValues</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="sysman/api.html#overclock-enums">Overclock Enums</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zes-overclock-domain-t">zes_overclock_domain_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zes-overclock-control-t">zes_overclock_control_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zes-overclock-mode-t">zes_overclock_mode_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zes-control-state-t">zes_control_state_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zes-pending-action-t">zes_pending_action_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zes-vf-program-type-t">zes_vf_program_type_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zes-vf-type-t">zes_vf_type_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zes-vf-array-type-t">zes_vf_array_type_t</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="sysman/api.html#overclock-structures">Overclock Structures</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zes-overclock-properties-t">zes_overclock_properties_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zes-control-property-t">zes_control_property_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zes-vf-property-t">zes_vf_property_t</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="sysman/api.html#diagnostics">Diagnostics</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="sysman/api.html#diagnostics-functions">Diagnostics Functions</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="sysman/api.html#zesdeviceenumdiagnostictestsuites">zesDeviceEnumDiagnosticTestSuites</a></li>
@@ -1704,11 +1742,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="versions.html">Versions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="versions.html#latest-release">Latest Release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="versions.html#previous-releases">Previous Releases</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference external" href="https://spec.oneapi.io/releases/index.html#level-zero">Versions</a></li>
 </ul>
 </div>
 </div>

@@ -1,7 +1,7 @@
 ..
   Copyright 2020 Intel Corporation
 
-.. oneAPI Level Zero Specification v1.4.0
+.. oneAPI Level Zero Specification v1.4.3
 
 .. _l0-section:
 
@@ -18,4 +18,4 @@
    core/SPIRV.rst
    core/EXT.rst
    api.rst
-   versions.rst
+   Versions <https://spec.oneapi.io/releases/index.html#level-zero>
