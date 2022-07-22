@@ -30,7 +30,7 @@
             <a href="../index.html" class="icon icon-home"> Level Zero Specification
           </a>
               <div class="version">
-                1.4.3
+                1.4.8
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -969,32 +969,38 @@ if (errcode)
 <h3>Register State Access<a class="headerlink" href="#register-state-access" title="Permalink to this headline"></a></h3>
 <p>A tool may read and write the register state of a stopped device thread.</p>
 <p>Registers are grouped into sets of similar registers.
-The types of register sets supported by a device can be queried using <a class="reference internal" href="api.html#zetdebuggetregistersetproperties"><span class="std std-ref">zetDebugGetRegisterSetProperties</span></a>.
+The types of register sets supported by a device can be queried using
+<a class="reference internal" href="api.html#zetdebuggetregistersetproperties"><span class="std std-ref">zetDebugGetRegisterSetProperties</span></a>.
 The register set properties specify details about each register set,
 such as the maximum number of registers in each set, and whether the register set is read-only.</p>
 <p>The actual type of registers is device-specific and will be defined by the device vendor.</p>
-<pre class="literal-block">uint32_t nRegSets = 0;
-<a class="reference internal" href="api.html#zetdebuggetregistersetproperties"><span class="std std-ref">zetDebugGetRegisterSetProperties</span></a>(hDevice, &amp;nRegSets, nullptr);
+<p>The following pseudo-code demonstrates obtaining register set properties for a device:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">uint32_t</span> <span class="n">nRegSets</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">zetDebugGetRegisterSetProperties</span><span class="p">(</span><span class="n">hDevice</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">nRegSets</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">);</span>
 
-<a class="reference internal" href="api.html#zet-debug-regset-properties-t"><span class="std std-ref">zet_debug_regset_properties_t</span></a>* pRegSets = allocate(nRegSets * sizeof(<a class="reference internal" href="api.html#zet-debug-regset-properties-t"><span class="std std-ref">zet_debug_regset_properties_t</span></a>));
-<a class="reference internal" href="api.html#zetdebuggetregistersetproperties"><span class="std std-ref">zetDebugGetRegisterSetProperties</span></a>(hDevice, &amp;nRegSets, pRegSets);</pre>
-<p>To read and write the register state, use the <a class="reference internal" href="api.html#zetdebugreadregisters"><span class="std std-ref">zetDebugReadRegisters</span></a> and <a class="reference internal" href="api.html#zetdebugwriteregisters"><span class="std std-ref">zetDebugWriteRegisters</span></a> function, respectively.</p>
-<p>The following sample code demonstrates iterating over register sets:</p>
-<pre class="literal-block">for (i = 0; i &lt; nRegSets; ++i) {
-    void* values = allocate(pRegSets[i].count * pRegSets[i].valueSize);
+<span class="n">zet_debug_regset_properties_t</span><span class="o">*</span> <span class="n">pRegSets</span> <span class="o">=</span> <span class="n">allocate</span><span class="p">(</span><span class="n">nRegSets</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">zet_debug_regset_properties_t</span><span class="p">));</span>
+<span class="n">zetDebugGetRegisterSetProperties</span><span class="p">(</span><span class="n">hDevice</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">nRegSets</span><span class="p">,</span> <span class="n">pRegSets</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To read and write the register state, use the zetDebugReadRegisters and zetDebugWriteRegisters function, respectively.</p>
+<p>The following pseudo-code demonstrates iterating over register sets:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nRegSets</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">void</span><span class="o">*</span> <span class="n">values</span> <span class="o">=</span> <span class="n">allocate</span><span class="p">(</span><span class="n">pRegSets</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">count</span> <span class="o">*</span> <span class="n">pRegSets</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">valueSize</span><span class="p">);</span>
 
-    errcode = <a class="reference internal" href="api.html#zetdebugreadregisters"><span class="std std-ref">zetDebugReadRegisters</span></a>(hDebug, thread0, pRegSets[i].type, 0, pRegSets[i].count, values);
-    if (errcode)
-        return errcode;
+    <span class="n">errcode</span> <span class="o">=</span> <span class="n">zetDebugReadRegisters</span><span class="p">(</span><span class="n">hDebug</span><span class="p">,</span> <span class="n">thread0</span><span class="p">,</span> <span class="n">pRegSets</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">type</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">pRegSets</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">count</span><span class="p">,</span> <span class="n">values</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">errcode</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">errcode</span><span class="p">;</span>
 
-    ...
+    <span class="p">...</span>
 
-    errcode = <a class="reference internal" href="api.html#zetdebugwriteregisters"><span class="std std-ref">zetDebugWriteRegisters</span></a>(hDebug, thread0, pRegSets[i].type, 0, pRegSets[i].count, values);
-    if (errcode)
-        return errcode;
+    <span class="n">errcode</span> <span class="o">=</span> <span class="n">zetDebugWriteRegisters</span><span class="p">(</span><span class="n">hDebug</span><span class="p">,</span> <span class="n">thread0</span><span class="p">,</span> <span class="n">pRegSets</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">type</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">pRegSets</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">count</span><span class="p">,</span> <span class="n">values</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">errcode</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">errcode</span><span class="p">;</span>
 
-    free(values);
-}</pre>
+    <span class="n">free</span><span class="p">(</span><span class="n">values</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>

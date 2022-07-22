@@ -938,37 +938,39 @@ Register State Access
 A tool may read and write the register state of a stopped device thread.
 
 Registers are grouped into sets of similar registers.
-The types of register sets supported by a device can be queried using :ref:`zetDebugGetRegisterSetProperties`\.
+The types of register sets supported by a device can be queried using
+:ref:`zetDebugGetRegisterSetProperties`\.
 The register set properties specify details about each register set,
 such as the maximum number of registers in each set, and whether the register set is read-only.
 
 The actual type of registers is device-specific and will be defined by the device vendor.
 
+The following pseudo-code demonstrates obtaining register set properties for a device:
+
 .. parsed-literal::
 
     uint32_t nRegSets = 0;
-    :ref:`zetDebugGetRegisterSetProperties`\(hDevice, &nRegSets, nullptr);
+    zetDebugGetRegisterSetProperties(hDevice, &nRegSets, nullptr);
     
-    :ref:`zet-debug-regset-properties-t`\* pRegSets = allocate(nRegSets * sizeof(:ref:`zet-debug-regset-properties-t`\));
-    :ref:`zetDebugGetRegisterSetProperties`\(hDevice, &nRegSets, pRegSets);
+    zet_debug_regset_properties_t* pRegSets = allocate(nRegSets * sizeof(zet_debug_regset_properties_t));
+    zetDebugGetRegisterSetProperties(hDevice, &nRegSets, pRegSets);
 
+To read and write the register state, use the zetDebugReadRegisters and zetDebugWriteRegisters function, respectively.
 
-To read and write the register state, use the :ref:`zetDebugReadRegisters` and :ref:`zetDebugWriteRegisters` function, respectively.
-
-The following sample code demonstrates iterating over register sets:
+The following pseudo-code demonstrates iterating over register sets:
 
 .. parsed-literal::
 
     for (i = 0; i < nRegSets; ++i) {
         void* values = allocate(pRegSets[i].count * pRegSets[i].valueSize);
 
-        errcode = :ref:`zetDebugReadRegisters`\(hDebug, thread0, pRegSets[i].type, 0, pRegSets[i].count, values);
+        errcode = zetDebugReadRegisters(hDebug, thread0, pRegSets[i].type, 0, pRegSets[i].count, values);
         if (errcode)
             return errcode;
 
         ...
 
-        errcode = :ref:`zetDebugWriteRegisters`\(hDebug, thread0, pRegSets[i].type, 0, pRegSets[i].count, values);
+        errcode = zetDebugWriteRegisters(hDebug, thread0, pRegSets[i].type, 0, pRegSets[i].count, values);
         if (errcode)
             return errcode;
 
