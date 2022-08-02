@@ -10,7 +10,7 @@ jobs:
       no_proxy: devtools.intel.com
       DEBIAN_FRONTEND: noninteractive
       ONEAPI_PASSPHRASE: ${{ secrets.ONEAPI_PASSPHRASE }}
-      PUBLISH_CMD: python3 oneapi-publish.py publish --html ../html --doc unified-runtime  --doc-cfg ../oneapi-doc.json 
+      PUBLISH_CMD: python3 oneapi-publish.py publish --html ../html --doc unified-runtime  --version 0.5
       ACTIVATE: /localdisk/work/rscohn1/github-runners/venv/doc/bin/activate
     runs-on: dds-base
     steps:
