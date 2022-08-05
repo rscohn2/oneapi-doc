@@ -1,7 +1,7 @@
 ..
-  Copyright 2020 Intel Corporation
+  Copyright 2022 Intel Corporation
 
-.. oneAPI Level Zero Specification v1.4.8
+.. oneAPI Unified Runtime Specification v0.5
 
 .. _l0-section:
 
@@ -13,9 +13,4 @@
 
    core/INTRO.rst
    core/PROG.rst
-   tools/PROG.rst
-   sysman/PROG.rst
-   core/SPIRV.rst
-   core/EXT.rst
    api.rst
-   Versions <https://spec.oneapi.io/releases/index.html#level-zero>
