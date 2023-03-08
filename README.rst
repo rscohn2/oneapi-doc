@@ -1,23 +1,17 @@
-====================
- Level Zero Publish
-====================
+=========================
+ Unified Runtime Publish
+=========================
 
 
-Procedure for changes.
+The unified-runtime branch in this repo contains the HTML for the
+doc. To make changes, follow the typical GitHub workflow of forking
+this repo, updating the HTML files, and submitting a PR against the
+unified-runtime branch in this repo. Update the version of the doc in
+the `CI script`_.
 
-Create a dev branch based on an up-to-date level-zero branch::
+When the PR is submitted, the CI will publish the doc at
+https://spec.pre.oneapi.com/unified-runtime/latest/index.html. When
+the PR is merged, the CI publishes the doc at
+https://spec.oneapi.com/unified-runtime/latest/index.html.
 
-  git checkout level-zero
-  git pull
-  git checkout -b dev/level-zero
-
-Make some changes, commit, and push::
-
-  git add .
-  git commit -m 'update level zero'
-  git push -u origin dev/level-zero
-
-Commit triggers a build in gitlab CI. Publishes on
-https://spec.pre.oneapi.com/level-zero/latest/index.html
-
-If it looks OK, submit a PR to merge dev/level-zero into level-zero.
+.. _`CI script`: https://github.com/intel-sandbox/personal.rscohn1.oneapi-doc-publish/blob/unified-runtime/.github/workflows/ci.yml#L13
