@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Programming Guide &#8212; Unified Runtime Specification  documentation</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,21 +20,18 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=84ace793992934648b4de8eed757e5a2" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="API Documentation" href="../api.html" />
@@ -44,7 +43,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -53,14 +66,10 @@
     <div class="container-xl">
       <div class="row">
           
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<div class="col-12 col-md-3 bd-sidebar site-navigation " id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
       
@@ -104,74 +113,135 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<!-- This is an invisible pixel that we watch to see if we've scrolled. -->
-<div class="sbt-scroll-pixel-helper"></div>
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            <div class="topbar-left">
-                
-                <label class="nav-toggle-button" for="__navigation">
-                    <div class="visually-hidden">Toggle navigation</div>
-                    <i class="fas fa-bars"></i>
-                </label>
-                
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
             </div>
             
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
 
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
         
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/core/PROG.rst.txt"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.rst</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/core/PROG.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
     </div>
 </div>
 
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#platforms-and-devices">
    Platforms and Devices
@@ -215,13 +285,13 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modules-and-programs">
-   Modules and Programs
+  <a class="reference internal nav-link" href="#programs-and-kernels">
+   Programs and Kernels
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Modules and Programs
+    <a class="reference internal nav-link" href="#programs">
+     Programs
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -242,20 +312,24 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#interop-with-level-zero-driver-api">
-     Interop with Level Zero driver API
+    <a class="reference internal nav-link" href="#native-driver-access">
+     Native Driver Access
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#memory-pooling">
+     Memory Pooling
     </a>
    </li>
   </ul>
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Programming Guide</h1>
@@ -311,13 +385,13 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modules-and-programs">
-   Modules and Programs
+  <a class="reference internal nav-link" href="#programs-and-kernels">
+   Programs and Kernels
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Modules and Programs
+    <a class="reference internal nav-link" href="#programs">
+     Programs
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -338,8 +412,13 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#interop-with-level-zero-driver-api">
-     Interop with Level Zero driver API
+    <a class="reference internal nav-link" href="#native-driver-access">
+     Native Driver Access
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#memory-pooling">
+     Memory Pooling
     </a>
    </li>
   </ul>
@@ -350,13 +429,14 @@
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="section" id="programming-guide">
-<span id="core-programming-guide"></span><h1>Programming Guide<a class="headerlink" href="#programming-guide" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="platforms-and-devices">
-<h2>Platforms and Devices<a class="headerlink" href="#platforms-and-devices" title="Permalink to this headline">¶</a></h2>
+  <section id="programming-guide">
+<span id="core-programming-guide"></span><h1>Programming Guide<a class="headerlink" href="#programming-guide" title="Permalink to this headline">#</a></h1>
+<section id="platforms-and-devices">
+<h2>Platforms and Devices<a class="headerlink" href="#platforms-and-devices" title="Permalink to this headline">#</a></h2>
 <p>The oneAPI Unified Runtime API architecture exposes both physical and logical abstraction of the underlying devices capabilities.
 The device, sub-device and memory are exposed at physical level while command queues, events and
 synchronization methods are defined as logical entities.
@@ -364,197 +444,216 @@ All logical entities will be bound to device level physical capabilities.</p>
 <p>Device discovery APIs enumerate the accelerators functional features.
 These APIs provide interface to query information like compute unit count within the device or sub device,
 available memory and affinity to the compute, user managed cache size and work submission command queues.</p>
-<div class="section" id="platforms">
-<h3>Platforms<a class="headerlink" href="#platforms" title="Permalink to this headline">¶</a></h3>
-<p>A platform object represents a collection of physical devices in the system accessed by the same Level-Zero driver.</p>
+<section id="platforms">
+<h3>Platforms<a class="headerlink" href="#platforms" title="Permalink to this headline">#</a></h3>
+<p>A platform object represents a collection of physical devices in the system accessed by the same driver.</p>
 <ul class="simple">
-<li><p>The application may query the number of Level-Zero platforms installed on the system, and their respective handles, using <a class="reference internal" href="api.html#zerplatformget"><span class="std std-ref">zerPlatformGet</span></a>.</p></li>
+<li><p>The application may query the number of platforms installed on the system, and their respective handles, using <a class="reference internal" href="api.html#urplatformget"><span class="std std-ref">urPlatformGet</span></a>.</p></li>
 <li><p>More than one platform may be available in the system. For example, one platform may support two GPUs from one vendor, another platform supports a GPU from a different vendor, and finally a different platform may support an FPGA.</p></li>
-<li><p>Platform objects are read-only, global constructs. i.e. multiple calls to <a class="reference internal" href="api.html#zerplatformget"><span class="std std-ref">zerPlatformGet</span></a> will return identical platform handles.</p></li>
+<li><p>Platform objects are read-only, global constructs. i.e. multiple calls to <a class="reference internal" href="api.html#urplatformget"><span class="std std-ref">urPlatformGet</span></a> will return identical platform handles.</p></li>
 <li><p>A platform handle is primarily used during device discovery and during creation and management of contexts.</p></li>
 </ul>
-</div>
-<div class="section" id="device">
-<h3>Device<a class="headerlink" href="#device" title="Permalink to this headline">¶</a></h3>
-<p>A device object represents a physical device in the system that supports Level-Zero.</p>
+</section>
+<section id="device">
+<h3>Device<a class="headerlink" href="#device" title="Permalink to this headline">#</a></h3>
+<p>A device object represents a physical device in the system that supports the platform.</p>
 <ul class="simple">
-<li><p>The application may query the number devices supported by a platform, and their respective handles, using <a class="reference internal" href="api.html#zerdeviceget"><span class="std std-ref">zerDeviceGet</span></a>.</p></li>
-<li><p>Device objects are read-only, global constructs. i.e. multiple calls to <a class="reference internal" href="api.html#zerdeviceget"><span class="std std-ref">zerDeviceGet</span></a> will return identical device handles.</p></li>
+<li><p>The application may query the number devices supported by a platform, and their respective handles, using <a class="reference internal" href="api.html#urdeviceget"><span class="std std-ref">urDeviceGet</span></a>.</p></li>
+<li><p>Device objects are read-only, global constructs. i.e. multiple calls to <a class="reference internal" href="api.html#urdeviceget"><span class="std std-ref">urDeviceGet</span></a> will return identical device handles.</p></li>
 <li><p>A device handle is primarily used during creation and management of resources that are specific to a device.</p></li>
 <li><p>Device may expose sub-devices that allow finer-grained control of physical or logical partitions of a device.</p></li>
 </ul>
 <p>The following diagram illustrates the relationship between the platform, device, context and other objects described in this document.</p>
 <img alt="../_images/runtime_object_hier.png" src="../_images/runtime_object_hier.png" />
-</div>
-<div class="section" id="initialization-and-discovery">
-<h3>Initialization and Discovery<a class="headerlink" href="#initialization-and-discovery" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="initialization-and-discovery">
+<h3>Initialization and Discovery<a class="headerlink" href="#initialization-and-discovery" title="Permalink to this headline">#</a></h3>
 <pre class="literal-block">// Discover all the platform instances
 uint32_t platformCount = 0;
-<a class="reference internal" href="api.html#zerplatformget"><span class="std std-ref">zerPlatformGet</span></a>(&amp;platformCount, nullptr);
+<a class="reference internal" href="api.html#urplatformget"><span class="std std-ref">urPlatformGet</span></a>(0, nullptr, &amp;platformCount);
 
-std::vector&lt;zer_platform_handle_t&gt; platforms(platformCount);
-<a class="reference internal" href="api.html#zerplatformget"><span class="std std-ref">zerPlatformGet</span></a>(&amp;platformCount, platforms.data());
+std::vector&lt;ur_platform_handle_t&gt; platforms(platformCount);
+<a class="reference internal" href="api.html#urplatformget"><span class="std std-ref">urPlatformGet</span></a>(platform.size(), platforms.data(), &amp;platformCount);
 
 // Get number of total GPU devices in the platform
 uint32_t deviceCount = 0;
-<a class="reference internal" href="api.html#zerdeviceget"><span class="std std-ref">zerDeviceGet</span></a>(platforms[0], <a class="reference internal" href="api.html#zer-device-type-t"><span class="std std-ref">ZER_DEVICE_TYPE_GPU</span></a>, &amp;deviceCount, nullptr);
+<a class="reference internal" href="api.html#urdeviceget"><span class="std std-ref">urDeviceGet</span></a>(platforms[0], <a class="reference internal" href="api.html#ur-device-type-t"><span class="std std-ref">UR_DEVICE_TYPE_GPU</span></a>, &amp;deviceCount, nullptr, nullptr);
 
 // Get handles of all GPU devices in the platform
-std::vector&lt;zer_device_handle_t&gt; devices(deviceCount);
-<a class="reference internal" href="api.html#zerdeviceget"><span class="std std-ref">zerDeviceGet</span></a>(platforms[0], <a class="reference internal" href="api.html#zer-device-type-t"><span class="std std-ref">ZER_DEVICE_TYPE_GPU</span></a>, &amp;deviceCount, devices.data());</pre>
-</div>
-<div class="section" id="device-handle-lifetime">
-<h3>Device handle lifetime<a class="headerlink" href="#device-handle-lifetime" title="Permalink to this headline">¶</a></h3>
-<p>The device objects are reference-counted, and there are <a class="reference internal" href="api.html#zerdevicegetreference"><span class="std std-ref">zerDeviceGetReference</span></a> and <a class="reference internal" href="api.html#zerdevicerelease"><span class="std std-ref">zerDeviceRelease</span></a>.
-The ref-count of a device is automatically incremented when device is obtained by <a class="reference internal" href="api.html#zerdeviceget"><span class="std std-ref">zerDeviceGet</span></a>.
-After device is no longer needed to the application it must call to <a class="reference internal" href="api.html#zerdevicerelease"><span class="std std-ref">zerDeviceRelease</span></a>.
-When ref-count of the underlying device handle becomes zero then that device is deleted.
-Note, that besides the application iteself Level-Zero Runtime may increment/decrement ref-count on its own.
-So after the call to <a class="reference internal" href="api.html#zerdevicerelease"><span class="std std-ref">zerDeviceRelease</span></a> below device may stay alive until other
+std::vector&lt;ur_device_handle_t&gt; devices(deviceCount);
+<a class="reference internal" href="api.html#urdeviceget"><span class="std std-ref">urDeviceGet</span></a>(platforms[0], <a class="reference internal" href="api.html#ur-device-type-t"><span class="std std-ref">UR_DEVICE_TYPE_GPU</span></a>, &amp;deviceCount, devices.data(), devices.size());</pre>
+</section>
+<section id="device-handle-lifetime">
+<h3>Device handle lifetime<a class="headerlink" href="#device-handle-lifetime" title="Permalink to this headline">#</a></h3>
+<p>The device objects are reference-counted, and there are <a class="reference internal" href="api.html#urdeviceretain"><span class="std std-ref">urDeviceRetain</span></a> and <a class="reference internal" href="api.html#urdevicerelease"><span class="std std-ref">urDeviceRelease</span></a>.
+The ref-count of a device is automatically incremented when device is obtained by <a class="reference internal" href="api.html#urdeviceget"><span class="std std-ref">urDeviceGet</span></a>.
+After device is no longer needed to the application it must call to <a class="reference internal" href="api.html#urdevicerelease"><span class="std std-ref">urDeviceRelease</span></a>.
+When ref-count of the underlying device handle becomes zero then that device object is deleted.
+Note, that besides the application itself, the Unified Runtime may increment and decrement ref-count on its own.
+So, after the call to <a class="reference internal" href="api.html#urdevicerelease"><span class="std std-ref">urDeviceRelease</span></a> below, the device may stay alive until other
 objects attached to it, like command-queues, are deleted. But application may not use the device
-after it did release it’s own reference..</p>
+after it released its own reference.</p>
 <pre class="literal-block">// Get the handle of the first GPU device in the platform
-zer_device_handle_t hDevice;
+ur_device_handle_t hDevice;
 uint32_t deviceCount = 1;
-<a class="reference internal" href="api.html#zerdeviceget"><span class="std std-ref">zerDeviceGet</span></a>(hPlatforms[0], <a class="reference internal" href="api.html#zer-device-type-t"><span class="std std-ref">ZER_DEVICE_TYPE_GPU</span></a>, &amp;deviceCount, &amp;hDevice);
-<a class="reference internal" href="api.html#zerdevicerelease"><span class="std std-ref">zerDeviceRelease</span></a>(hDevice);</pre>
-</div>
-<div class="section" id="retrieve-info-about-device">
-<h3>Retrieve info about device<a class="headerlink" href="#retrieve-info-about-device" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference internal" href="api.html#zerdevicegetinfo"><span class="std std-ref">zerDeviceGetInfo</span></a> can return various information about the device.
+<a class="reference internal" href="api.html#urdeviceget"><span class="std std-ref">urDeviceGet</span></a>(hPlatforms[0], <a class="reference internal" href="api.html#ur-device-type-t"><span class="std std-ref">UR_DEVICE_TYPE_GPU</span></a>, &amp;deviceCount, &amp;hDevice, 1);
+<a class="reference internal" href="api.html#urdevicerelease"><span class="std std-ref">urDeviceRelease</span></a>(hDevice);</pre>
+</section>
+<section id="retrieve-info-about-device">
+<h3>Retrieve info about device<a class="headerlink" href="#retrieve-info-about-device" title="Permalink to this headline">#</a></h3>
+<p>The <a class="reference internal" href="api.html#urdevicegetinfo"><span class="std std-ref">urDeviceGetInfo</span></a> can return various information about the device.
 In case where the info size is only known at runtime then two calls are needed, where first will retrieve the size.</p>
 <pre class="literal-block">// Size is known beforehand
-<a class="reference internal" href="api.html#zer-device-type-t"><span class="std std-ref">zer_device_type_t</span></a> deviceType;
-<a class="reference internal" href="api.html#zerdevicegetinfo"><span class="std std-ref">zerDeviceGetInfo</span></a>(hDevice, {X}_DEVICE_INFO_TYPE, sizeof(<a class="reference internal" href="api.html#zer-device-type-t"><span class="std std-ref">zer_device_type_t</span></a>), &amp;deviceType);
+<a class="reference internal" href="api.html#ur-device-type-t"><span class="std std-ref">ur_device_type_t</span></a> deviceType;
+<a class="reference internal" href="api.html#urdevicegetinfo"><span class="std std-ref">urDeviceGetInfo</span></a>(hDevice, <a class="reference internal" href="api.html#ur-device-info-t"><span class="std std-ref">UR_DEVICE_INFO_TYPE</span></a>, sizeof(<a class="reference internal" href="api.html#ur-device-type-t"><span class="std std-ref">ur_device_type_t</span></a>), &amp;deviceType, nullptr);
 
 // Size is only known at runtime
 size_t infoSize;
-<a class="reference internal" href="api.html#zerdevicegetinfo"><span class="std std-ref">zerDeviceGetInfo</span></a>(hDevice, {X}_DEVICE_INFO_NAME, 0, &amp;infoSize);
+<a class="reference internal" href="api.html#urdevicegetinfo"><span class="std std-ref">urDeviceGetInfo</span></a>(hDevice, <a class="reference internal" href="api.html#ur-device-info-t"><span class="std std-ref">UR_DEVICE_INFO_NAME</span></a>, 0, &amp;infoSize, nullptr);
 
 std::string deviceName;
 DeviceName.resize(infoSize);
-<a class="reference internal" href="api.html#zerdevicegetinfo"><span class="std std-ref">zerDeviceGetInfo</span></a>(hDevice, {X}_DEVICE_INFO_NAME, infoSize, deviceName.data());</pre>
-</div>
-<div class="section" id="device-partitioning-into-sub-devices">
-<h3>Device partitioning into sub-devices<a class="headerlink" href="#device-partitioning-into-sub-devices" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference internal" href="api.html#zerdevicepartition"><span class="std std-ref">zerDevicePartition</span></a> could partition a device into sub-device. The exact representation and
+<a class="reference internal" href="api.html#urdevicegetinfo"><span class="std std-ref">urDeviceGetInfo</span></a>(hDevice, <a class="reference internal" href="api.html#ur-device-info-t"><span class="std std-ref">UR_DEVICE_INFO_NAME</span></a>, infoSize, deviceName.data(), nullptr);</pre>
+</section>
+<section id="device-partitioning-into-sub-devices">
+<h3>Device partitioning into sub-devices<a class="headerlink" href="#device-partitioning-into-sub-devices" title="Permalink to this headline">#</a></h3>
+<p>The <a class="reference internal" href="api.html#urdevicepartition"><span class="std std-ref">urDevicePartition</span></a> could partition a device into sub-device. The exact representation and
 characteristics of the sub-devices are device specific, but normally they each represent a
 fixed part of the parent device, which can explicitly be programmed individually.</p>
-<pre class="literal-block">zer_device_handle_t hDevice;
-<a class="reference internal" href="api.html#zer-device-partition-property-value-t"><span class="std std-ref">zer_device_partition_property_value_t</span></a> properties = {
-           <a class="reference internal" href="api.html#zer-device-partition-property-flags-t"><span class="std std-ref">ZER_DEVICE_PARTITION_PROPERTY_FLAG_BY_AFFINITY_DOMAIN</span></a>,
-           <a class="reference internal" href="api.html#zer-device-affinity-domain-flags-t"><span class="std std-ref">ZER_DEVICE_AFFINITY_DOMAIN_FLAG_NEXT_PARTITIONABLE</span></a> };
+<pre class="literal-block">ur_device_handle_t hDevice;
+ur_device_partition_property_t properties[] = {
+           <a class="reference internal" href="api.html#ur-device-partition-t"><span class="std std-ref">UR_DEVICE_PARTITION_BY_AFFINITY_DOMAIN</span></a>,
+           <a class="reference internal" href="api.html#ur-device-affinity-domain-flags-t"><span class="std std-ref">UR_DEVICE_AFFINITY_DOMAIN_FLAG_NEXT_PARTITIONABLE</span></a>,
+           0};
 
 uint32_t count = 0;
-std::vector&lt;zer_device_handle_t&gt; subDevices;
-<a class="reference internal" href="api.html#zerdevicepartition"><span class="std std-ref">zerDevicePartition</span></a>(hDevice, &amp;properties, &amp;count, nullptr);
+std::vector&lt;ur_device_handle_t&gt; subDevices;
+<a class="reference internal" href="api.html#urdevicepartition"><span class="std std-ref">urDevicePartition</span></a>(hDevice, &amp;properties, &amp;count, nullptr, nullptr);
 
 if (count &gt; 0) {
     subDevices.resize(count);
-    <a class="reference internal" href="api.html#zerdevicepartition"><span class="std std-ref">zerDevicePartition</span></a>(Device, &amp;properties, &amp;count, &amp;subDevices.data());
+    <a class="reference internal" href="api.html#urdevicepartition"><span class="std std-ref">urDevicePartition</span></a>(Device, &amp;properties, &amp;count, &amp;subDevices.data(), nullptr);
 }</pre>
 <p>The returned sub-devices may be requested for further partitioning into sub-sub-devices, and so on.
 An implementation would return “0” in the count if no further partitioning is supported.</p>
 <pre class="literal-block">uint32_t count = 1;
-zer_device_handle_t hSubSubDevice;
-<a class="reference internal" href="api.html#zerdevicepartition"><span class="std std-ref">zerDevicePartition</span></a>(subDevices[0], properties, &amp;count, &amp;hSubSubDevice);</pre>
-</div>
-</div>
-<div class="section" id="contexts">
-<h2>Contexts<a class="headerlink" href="#contexts" title="Permalink to this headline">¶</a></h2>
+ur_device_handle_t hSubSubDevice;
+<a class="reference internal" href="api.html#urdevicepartition"><span class="std std-ref">urDevicePartition</span></a>(subDevices[0], properties, &amp;count, &amp;hSubSubDevice, nullptr);</pre>
+</section>
+</section>
+<section id="contexts">
+<h2>Contexts<a class="headerlink" href="#contexts" title="Permalink to this headline">#</a></h2>
 <p>Contexts are serving the purpose of resources sharing (between devices in the same context),
 and resources isolation (resources do not cross context boundaries). Resources such as memory allocations,
 events, and programs are explicitly created against a context. A trivial work with context looks like this:</p>
 <pre class="literal-block">uint32_t deviceCount = 1;
-zer_device_handle_t hDevice;
-<a class="reference internal" href="api.html#zerdeviceget"><span class="std std-ref">zerDeviceGet</span></a>(hPlatform, <a class="reference internal" href="api.html#zer-device-type-t"><span class="std std-ref">ZER_DEVICE_TYPE_GPU</span></a>, &amp;deviceCount, &amp;hDevice);
+ur_device_handle_t hDevice;
+<a class="reference internal" href="api.html#urdeviceget"><span class="std std-ref">urDeviceGet</span></a>(hPlatform, <a class="reference internal" href="api.html#ur-device-type-t"><span class="std std-ref">UR_DEVICE_TYPE_GPU</span></a>, &amp;deviceCount, &amp;hDevice, nullptr);
 
 // Create a context
-zer_context_handle_t hContext;
-<a class="reference internal" href="api.html#zercontextcreate"><span class="std std-ref">zerContextCreate</span></a>(1, &amp;hDevice, &amp;hContext);
+ur_context_handle_t hContext;
+<a class="reference internal" href="api.html#urcontextcreate"><span class="std std-ref">urContextCreate</span></a>(1, &amp;hDevice, nullptr, &amp;hContext);
 
 // Operations on this context
 // ...
 
 // Release the context handle
-<a class="reference internal" href="api.html#zercontextrelease"><span class="std std-ref">zerContextRelease</span></a>(hContext);</pre>
-</div>
-<div class="section" id="modules-and-programs">
-<h2>Modules and Programs<a class="headerlink" href="#modules-and-programs" title="Permalink to this headline">¶</a></h2>
-<p>There are multiple levels of constructs needed for executing kernels on the device:</p>
+<a class="reference internal" href="api.html#urcontextrelease"><span class="std std-ref">urContextRelease</span></a>(hContext);</pre>
+</section>
+<section id="programs-and-kernels">
+<h2>Programs and Kernels<a class="headerlink" href="#programs-and-kernels" title="Permalink to this headline">#</a></h2>
+<p>There are two constructs we need to prepare code for execution on the device:</p>
 <ul class="simple">
-<li><p>Modules represent a single translation unit that consists of kernels and globals that have been compiled together.</p></li>
-<li><p>Programs represent one or more modules that have been linked together.</p></li>
-<li><p>Kernels represent the kernel within a program that will be launched directly from a command list.</p></li>
+<li><p>Programs serve as containers for device code. They typically encapsulate a
+collection of functions and global variables represented in an intermediate
+language, and one or more device-native binaries compiled from that
+collection.</p></li>
+<li><p>Kernels represent a handle to a function within a program that can be
+launched on a device.</p></li>
 </ul>
-<img alt="../_images/modules_programs.png" src="../_images/modules_programs.png" />
-<div class="section" id="id1">
-<h3>Modules and Programs<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<p>A module is the compiled code or object for a single compilation unit. Modules can be created from a SPIR-V module. A program
-are a collection of modules that are linked together.</p>
-<pre class="literal-block">// Create module
-zer_module_handle_t hModule;
-<a class="reference internal" href="api.html#zermodulecreate"><span class="std std-ref">zerModuleCreate</span></a>(hContext, (const void*)pIL, length, nullptr, nullptr, nullptr, hModule);
+<section id="programs">
+<h3>Programs<a class="headerlink" href="#programs" title="Permalink to this headline">#</a></h3>
+<p>Programs can be constructed with an intermediate language binary or a
+device-native binary. Programs constructed with IL must be further compiled
+through either <a class="reference internal" href="api.html#urprogramcompile"><span class="std std-ref">urProgramCompile</span></a> and <a class="reference internal" href="api.html#urprogramlink"><span class="std std-ref">urProgramLink</span></a> or <a class="reference internal" href="api.html#urprogrambuild"><span class="std std-ref">urProgramBuild</span></a>
+before they can be used to create a kernel object.</p>
+<pre class="literal-block">// Create a program with IL
+ur_program_handle_t hProgram;
+<a class="reference internal" href="api.html#urprogramcreatewithil"><span class="std std-ref">urProgramCreateWithIL</span></a>(hContext, ILBin, ILBinSize, nullptr, &amp;hProgram);
 
-// Create program from module
-zer_program_handle_t hProgram;
-<a class="reference internal" href="api.html#zerprogramcreate"><span class="std std-ref">zerProgramCreate</span></a>(hContext, 1, &amp;hModule, nullptr, hProgram);</pre>
-</div>
-<div class="section" id="kernels">
-<h3>Kernels<a class="headerlink" href="#kernels" title="Permalink to this headline">¶</a></h3>
-<p>A Kernel is a reference to a kernel within a module and it supports both explicit and implicit kernel
-arguments along with data needed for launch.</p>
+// Build the program.
+<a class="reference internal" href="api.html#urprogrambuild"><span class="std std-ref">urProgramBuild</span></a>(hContext, hProgram, nullptr);</pre>
+<p>The diagram below shows the possible paths to obtaining a program that can be
+used to create a kernel:</p>
+<img alt="../_images/programs.png" src="../_images/programs.png" />
+</section>
+<section id="kernels">
+<h3>Kernels<a class="headerlink" href="#kernels" title="Permalink to this headline">#</a></h3>
+<p>A Kernel is a reference to a kernel within a program and it supports both
+explicit and implicit kernel arguments along with data needed for launch.</p>
 <pre class="literal-block">// Create kernel object from program
-zer_kernel_handle_t hKernel;
-<a class="reference internal" href="api.html#zerkernelcreate"><span class="std std-ref">zerKernelCreate</span></a>(hProgram, &quot;addVectors&quot;, &amp;hKernel);
-<a class="reference internal" href="api.html#zerkernelsetarg"><span class="std std-ref">zerKernelSetArg</span></a>(hKernel, 0, size, A);
-<a class="reference internal" href="api.html#zerkernelsetarg"><span class="std std-ref">zerKernelSetArg</span></a>(hKernel, 1, size, B);
-<a class="reference internal" href="api.html#zerkernelsetarg"><span class="std std-ref">zerKernelSetArg</span></a>(hKernel, 2, size, C);</pre>
-</div>
-</div>
-<div class="section" id="queue-and-enqueue">
-<h2>Queue and Enqueue<a class="headerlink" href="#queue-and-enqueue" title="Permalink to this headline">¶</a></h2>
-<p>A queue object respresents a logic input stream to a device. Kernels
+ur_kernel_handle_t hKernel;
+<a class="reference internal" href="api.html#urkernelcreate"><span class="std std-ref">urKernelCreate</span></a>(hProgram, &quot;addVectors&quot;, &amp;hKernel);
+<a class="reference internal" href="api.html#urkernelsetargmemobj"><span class="std std-ref">urKernelSetArgMemObj</span></a>(hKernel, 0, A);
+<a class="reference internal" href="api.html#urkernelsetargmemobj"><span class="std std-ref">urKernelSetArgMemObj</span></a>(hKernel, 1, B);
+<a class="reference internal" href="api.html#urkernelsetargmemobj"><span class="std std-ref">urKernelSetArgMemObj</span></a>(hKernel, 2, C);</pre>
+</section>
+</section>
+<section id="queue-and-enqueue">
+<h2>Queue and Enqueue<a class="headerlink" href="#queue-and-enqueue" title="Permalink to this headline">#</a></h2>
+<p>A queue object represents a logic input stream to a device. Kernels
 and commands are submitted to queue for execution using Equeue commands:
-such as <a class="reference internal" href="api.html#zerenqueuekernellaunch"><span class="std std-ref">zerEnqueueKernelLaunch</span></a>, <a class="reference internal" href="api.html#zerenqueuemembufferwrite"><span class="std std-ref">zerEnqueueMemBufferWrite</span></a>. Enqueued kernels
+such as <a class="reference internal" href="api.html#urenqueuekernellaunch"><span class="std std-ref">urEnqueueKernelLaunch</span></a>, <a class="reference internal" href="api.html#urenqueuemembufferwrite"><span class="std std-ref">urEnqueueMemBufferWrite</span></a>. Enqueued kernels
 and commands can be executed in order or out of order depending on the
-queue’s property <a class="reference internal" href="api.html#zer-queue-flags-t"><span class="std std-ref">ZER_QUEUE_FLAG_OUT_OF_ORDER_EXEC_MODE_ENABLE</span></a> when the
+queue’s property <a class="reference internal" href="api.html#ur-queue-flags-t"><span class="std std-ref">UR_QUEUE_FLAG_OUT_OF_ORDER_EXEC_MODE_ENABLE</span></a> when the
 queue is created.</p>
 <pre class="literal-block">// Create an out of order queue for hDevice in hContext
-zer_queue_handle_t hQueue;
-<a class="reference internal" href="api.html#zerqueuecreate"><span class="std std-ref">zerQueueCreate</span></a>(hContext, hDevice, <a class="reference internal" href="api.html#zer-queue-flags-t"><span class="std std-ref">ZER_QUEUE_FLAG_OUT_OF_ORDER_EXEC_MODE_ENABLE</span></a>, &amp;hQueue);
+ur_queue_handle_t hQueue;
+<a class="reference internal" href="api.html#urqueuecreate"><span class="std std-ref">urQueueCreate</span></a>(hContext, hDevice, <a class="reference internal" href="api.html#ur-queue-flags-t"><span class="std std-ref">UR_QUEUE_FLAG_OUT_OF_ORDER_EXEC_MODE_ENABLE</span></a>, &amp;hQueue);
 
 // Lanuch a kernel with 3D workspace partitioning
 const uint32_t nDim = 3;
 const size_t gWorkOffset = {0, 0, 0};
 const size_t gWorkSize = {128, 128, 128};
 const size_t lWorkSize = {1, 8, 8};
-<a class="reference internal" href="api.html#zerenqueuekernellaunch"><span class="std std-ref">zerEnqueueKernelLaunch</span></a>(hQueue, hKernel, nDim, gWorkOffset, gWorkSize, lWorkSize, 0, nullptr, nullptr);</pre>
-<div class="section" id="queue-object-lifetime">
-<h3>Queue object lifetime<a class="headerlink" href="#queue-object-lifetime" title="Permalink to this headline">¶</a></h3>
-<p>Queue objects are refernece-counted. If an application or thread needs to
+<a class="reference internal" href="api.html#urenqueuekernellaunch"><span class="std std-ref">urEnqueueKernelLaunch</span></a>(hQueue, hKernel, nDim, gWorkOffset, gWorkSize, lWorkSize, 0, nullptr, nullptr);</pre>
+<section id="queue-object-lifetime">
+<h3>Queue object lifetime<a class="headerlink" href="#queue-object-lifetime" title="Permalink to this headline">#</a></h3>
+<p>Queue objects are reference-counted. If an application or thread needs to
 retain access to a queue created by another application or thread, it can call
-<a class="reference internal" href="api.html#zerqueuegetreference"><span class="std std-ref">zerQueueGetReference</span></a>. An application must call <a class="reference internal" href="api.html#zerqueuerelease"><span class="std std-ref">zerQueueRelease</span></a>
+<a class="reference internal" href="api.html#urqueueretain"><span class="std std-ref">urQueueRetain</span></a>. An application must call <a class="reference internal" href="api.html#urqueuerelease"><span class="std std-ref">urQueueRelease</span></a>
 when a queue object is no longer needed. When a queue object’s reference count becomes
 zero, it is deleted by the runtime.</p>
-</div>
-<div class="section" id="interop-with-level-zero-driver-api">
-<h3>Interop with Level Zero driver API<a class="headerlink" href="#interop-with-level-zero-driver-api" title="Permalink to this headline">¶</a></h3>
-<p>{x}Queue object and zeQueue object are interoperable using the
-{x}QueueGetNativeHancle and {x}QueueCreateWithNativeHandle. An application
-can submit command lists to native zeQueue object using Level Zero API calls
-and enqueue commands to {x}Queue object using unified runtime API calls
-for mixed usage.</p>
-</div>
-</div>
-</div>
+</section>
+<section id="native-driver-access">
+<h3>Native Driver Access<a class="headerlink" href="#native-driver-access" title="Permalink to this headline">#</a></h3>
+<p>The runtime API provides accessors for native handles.
+For example, given a ur_program_handle_t, we can
+call <a class="reference internal" href="api.html#urprogramgetnativehandle"><span class="std std-ref">urProgramGetNativeHandle</span></a> to retrieve a ur_native_handle_t.
+We can then leverage a platform extension to convert the
+native handle to a driver handle. For example, OpenCL platform
+may expose an extension <a class="reference internal" href="api.html#urprogramcreatewithnativehandle"><span class="std std-ref">urProgramCreateWithNativeHandle</span></a> to retrieve
+a cl_program.</p>
+</section>
+<section id="memory-pooling">
+<h3>Memory Pooling<a class="headerlink" href="#memory-pooling" title="Permalink to this headline">#</a></h3>
+<p>The <a class="reference internal" href="api.html#urusmpoolcreate"><span class="std std-ref">urUSMPoolCreate</span></a> function explicitly creates memory pools and returns ur_usm_pool_handle_t.
+ur_usm_pool_handle_t can be passed to <a class="reference internal" href="api.html#urusmdevicealloc"><span class="std std-ref">urUSMDeviceAlloc</span></a>, <a class="reference internal" href="api.html#urusmhostalloc"><span class="std std-ref">urUSMHostAlloc</span></a> and <a class="reference internal" href="api.html#urusmsharedalloc"><span class="std std-ref">urUSMSharedAlloc</span></a>
+through <a class="reference internal" href="api.html#ur-usm-desc-t"><span class="std std-ref">ur_usm_desc_t</span></a> structure. Allocations that specify different pool handles must be
+isolated and not reside on the same page. Memory pool is subject to limits specified during pool creation.</p>
+<p>Even if no ur_usm_pool_handle_t is provided to an allocation function, each adapter may still perform memory pooling.</p>
+</section>
+</section>
+</section>
 
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="INTRO.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -570,24 +669,28 @@ for mixed usage.</p>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Intel<br/>
+  
+      &copy; Copyright 2020, Intel.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Intel<br/>
-    
-        &copy; Copyright 2020, Intel.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

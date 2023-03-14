@@ -10,7 +10,7 @@ jobs:
       no_proxy: devtools.intel.com
       DEBIAN_FRONTEND: noninteractive
       ONEAPI_PASSPHRASE: ${{ secrets.ONEAPI_PASSPHRASE }}
-      PUBLISH_CMD: python oneapi-publish.py publish --html ../html --doc unified-runtime  --version 0.5
+      PUBLISH_CMD: python oneapi-publish.py publish --html ../html --doc unified-runtime  --version 0.6
     runs-on: dds-base
     steps:
     - uses: actions/checkout@v3

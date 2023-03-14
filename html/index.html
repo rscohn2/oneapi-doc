@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>oneAPI Level Zero Runtime: 0.5 &#8212; Unified Runtime Specification  documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>oneAPI Unified Runtime: 0.6 &#8212; Unified Runtime Specification  documentation</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,21 +20,18 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=84ace793992934648b4de8eed757e5a2" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Introduction" href="core/INTRO.html" />
@@ -43,7 +42,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -52,14 +65,10 @@
     <div class="container-xl">
       <div class="row">
           
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<div class="col-12 col-md-3 bd-sidebar site-navigation " id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="#">
       
       
@@ -103,77 +112,126 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<!-- This is an invisible pixel that we watch to see if we've scrolled. -->
-<div class="sbt-scroll-pixel-helper"></div>
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            <div class="topbar-left">
-                
-                <label class="nav-toggle-button" for="__navigation">
-                    <div class="visually-hidden">Toggle navigation</div>
-                    <i class="fas fa-bars"></i>
-                </label>
-                
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
             </div>
             
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
 
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
         
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/index.rst.txt"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.rst</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/index.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
     </div>
 </div>
 
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-        </div>
-    </div>
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>oneAPI Level Zero Runtime: 0.5</h1>
+                <h1>oneAPI Unified Runtime: 0.6</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -181,11 +239,12 @@
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="section" id="l0-full-name-l0-spec-version">
-<span id="l0-section"></span><h1>oneAPI Level Zero Runtime: 0.5<a class="headerlink" href="#l0-full-name-l0-spec-version" title="Permalink to this headline">¶</a></h1>
+  <section id="full-name-spec-version">
+<span id="l0-section"></span><h1>oneAPI Unified Runtime: 0.6<a class="headerlink" href="#full-name-spec-version" title="Permalink to this headline">#</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="core/INTRO.html">Introduction</a><ul>
@@ -197,6 +256,9 @@
 <li class="toctree-l3"><a class="reference internal" href="core/INTRO.html#error-handling">Error Handling</a></li>
 <li class="toctree-l3"><a class="reference internal" href="core/INTRO.html#multithreading-and-concurrency">Multithreading and Concurrency</a></li>
 <li class="toctree-l3"><a class="reference internal" href="core/INTRO.html#application-binary-interface">Application Binary Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/INTRO.html#tracing">Tracing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/INTRO.html#logging">Logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/INTRO.html#environment-variables">Environment Variables</a></li>
 </ul>
 </li>
 </ul>
@@ -212,14 +274,15 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="core/PROG.html#contexts">Contexts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="core/PROG.html#modules-and-programs">Modules and Programs</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="core/PROG.html#id1">Modules and Programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/PROG.html#programs-and-kernels">Programs and Kernels</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/PROG.html#programs">Programs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="core/PROG.html#kernels">Kernels</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="core/PROG.html#queue-and-enqueue">Queue and Enqueue</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="core/PROG.html#queue-object-lifetime">Queue object lifetime</a></li>
-<li class="toctree-l3"><a class="reference internal" href="core/PROG.html#interop-with-level-zero-driver-api">Interop with Level Zero driver API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/PROG.html#native-driver-access">Native Driver Access</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/PROG.html#memory-pooling">Memory Pooling</a></li>
 </ul>
 </li>
 </ul>
@@ -228,286 +291,315 @@
 <li class="toctree-l2"><a class="reference internal" href="core/api.html">Core API</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="core/api.html#common">Common</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="core/api.html#common-enums">Common Enums</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-result-t">zer_result_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-structure-type-t">zer_structure_type_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-result-t">ur_result_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-structure-type-t">ur_structure_type_t</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="core/api.html#common-structures">Common Structures</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-base-properties-t">zer_base_properties_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-base-desc-t">zer_base_desc_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-rect-offset-t">zer_rect_offset_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-rect-region-t">zer_rect_region_t</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="core/api.html#context">Context</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="core/api.html#context-functions">Context Functions</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zercontextcreate">zerContextCreate</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zercontextgetreference">zerContextGetReference</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zercontextrelease">zerContextRelease</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zercontextgetinfo">zerContextGetInfo</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zercontextgetnativehandle">zerContextGetNativeHandle</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zercontextcreatewithnativehandle">zerContextCreateWithNativeHandle</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="core/api.html#context-enums">Context Enums</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-context-info-t">zer_context_info_t</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="core/api.html#enqueue">Enqueue</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="core/api.html#enqueue-functions">Enqueue Functions</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerenqueuekernellaunch">zerEnqueueKernelLaunch</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerenqueueeventswait">zerEnqueueEventsWait</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerenqueueeventswaitwithbarrier">zerEnqueueEventsWaitWithBarrier</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerenqueuemembufferread">zerEnqueueMemBufferRead</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerenqueuemembufferwrite">zerEnqueueMemBufferWrite</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerenqueuemembufferreadrect">zerEnqueueMemBufferReadRect</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerenqueuemembufferwriterect">zerEnqueueMemBufferWriteRect</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerenqueuemembuffercopy">zerEnqueueMemBufferCopy</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerenqueuemembuffercopyrect">zerEnqueueMemBufferCopyRect</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerenqueuemembufferfill">zerEnqueueMemBufferFill</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerenqueuememimageread">zerEnqueueMemImageRead</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerenqueuememimagewrite">zerEnqueueMemImageWrite</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerenqueuememimagecopy">zerEnqueueMemImageCopy</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerenqueuemembuffermap">zerEnqueueMemBufferMap</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerenqueuememunmap">zerEnqueueMemUnmap</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerenqueueusmmemset">zerEnqueueUSMMemset</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerenqueueusmmemcpy">zerEnqueueUSMMemcpy</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerenqueueusmprefetch">zerEnqueueUSMPrefetch</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerenqueueusmmemadvice">zerEnqueueUSMMemAdvice</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="core/api.html#enqueue-enums">Enqueue Enums</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-map-flags-t">zer_map_flags_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-usm-migration-flags-t">zer_usm_migration_flags_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-mem-advice-t">zer_mem_advice_t</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="core/api.html#event">Event</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="core/api.html#event-functions">Event Functions</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zereventcreate">zerEventCreate</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zereventgetinfo">zerEventGetInfo</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zereventgetprofilinginfo">zerEventGetProfilingInfo</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zereventwait">zerEventWait</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zereventgetreference">zerEventGetReference</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zereventrelease">zerEventRelease</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zereventgetnativehandle">zerEventGetNativeHandle</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zereventcreatewithnativehandle">zerEventCreateWithNativeHandle</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="core/api.html#event-enums">Event Enums</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-event-info-t">zer_event_info_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-profiling-info-t">zer_profiling_info_t</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="core/api.html#memory">Memory</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="core/api.html#memory-functions">Memory Functions</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zermemimagecreate">zerMemImageCreate</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zermembuffercreate">zerMemBufferCreate</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zermemgetreference">zerMemGetReference</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zermemrelease">zerMemRelease</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zermembufferpartition">zerMemBufferPartition</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zermemgetnativehandle">zerMemGetNativeHandle</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zermemcreatewithnativehandle">zerMemCreateWithNativeHandle</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="core/api.html#memory-enums">Memory Enums</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-mem-flags-t">zer_mem_flags_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-image-type-t">zer_image_type_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-image-channel-order-t">zer_image_channel_order_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-image-channel-type-t">zer_image_channel_type_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-buffer-create-type-t">zer_buffer_create_type_t</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="core/api.html#memory-structures">Memory Structures</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-image-format-t">zer_image_format_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-image-desc-t">zer_image_desc_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-buffer-region-t">zer_buffer_region_t</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="core/api.html#misc">Misc</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="core/api.html#misc-functions">Misc Functions</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerteardown">zerTearDown</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="core/api.html#queue">Queue</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="core/api.html#queue-functions">Queue Functions</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerqueuegetinfo">zerQueueGetInfo</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerqueuecreate">zerQueueCreate</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerqueuegetreference">zerQueueGetReference</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerqueuerelease">zerQueueRelease</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerqueuegetnativehandle">zerQueueGetNativeHandle</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerqueuecreatewithnativehandle">zerQueueCreateWithNativeHandle</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="core/api.html#queue-enums">Queue Enums</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-queue-info-t">zer_queue_info_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-queue-flags-t">zer_queue_flags_t</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="core/api.html#sampler">Sampler</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="core/api.html#sampler-functions">Sampler Functions</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zersamplercreate">zerSamplerCreate</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zersamplergetreference">zerSamplerGetReference</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zersamplerrelease">zerSamplerRelease</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zersamplergetinfo">zerSamplerGetInfo</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zersamplergetnativehandle">zerSamplerGetNativeHandle</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zersamplercreatewithnativehandle">zerSamplerCreateWithNativeHandle</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="core/api.html#sampler-enums">Sampler Enums</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-sampler-info-t">zer_sampler_info_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-sampler-properties-t">zer_sampler_properties_t</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="core/api.html#sampler-structures">Sampler Structures</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-sampler-property-value-t">zer_sampler_property_value_t</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="core/api.html#usm">Usm</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="core/api.html#usm-functions">Usm Functions</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerusmhostalloc">zerUSMHostAlloc</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerusmdevicealloc">zerUSMDeviceAlloc</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerusmsharedalloc">zerUSMSharedAlloc</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zermemfree">zerMemFree</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zermemgetmemallocinfo">zerMemGetMemAllocInfo</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="core/api.html#usm-enums">Usm Enums</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-usm-mem-flags-t">zer_usm_mem_flags_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-mem-info-t">zer_mem_info_t</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="core/api.html#device">Device</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="core/api.html#device-functions">Device Functions</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerdeviceget">zerDeviceGet</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerdevicegetinfo">zerDeviceGetInfo</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerdevicegetreference">zerDeviceGetReference</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerdevicerelease">zerDeviceRelease</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerdevicepartition">zerDevicePartition</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerdeviceselectbinary">zerDeviceSelectBinary</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerdevicegetnativehandle">zerDeviceGetNativeHandle</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerdevicecreatewithnativehandle">zerDeviceCreateWithNativeHandle</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="core/api.html#device-enums">Device Enums</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-device-type-t">zer_device_type_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-device-info-t">zer_device_info_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-device-partition-property-flags-t">zer_device_partition_property_flags_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-fp-capability-flags-t">zer_fp_capability_flags_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-device-mem-cache-type-t">zer_device_mem_cache_type_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-device-local-mem-type-t">zer_device_local_mem_type_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-device-exec-capability-flags-t">zer_device_exec_capability_flags_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-device-affinity-domain-flags-t">zer_device_affinity_domain_flags_t</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="core/api.html#device-structures">Device Structures</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-device-partition-property-value-t">zer_device_partition_property_value_t</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="core/api.html#kernel">Kernel</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="core/api.html#kernel-functions">Kernel Functions</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerkernelcreate">zerKernelCreate</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerkernelsetarg">zerKernelSetArg</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerkernelgetinfo">zerKernelGetInfo</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerkernelgetgroupinfo">zerKernelGetGroupInfo</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerkernelgetsubgroupinfo">zerKernelGetSubGroupInfo</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerkernelgetreference">zerKernelGetReference</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerkernelrelease">zerKernelRelease</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerkernelsetargpointer">zerKernelSetArgPointer</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerkernelsetexecinfo">zerKernelSetExecInfo</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerkernelsetargsampler">zerKernelSetArgSampler</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerkernelsetargmemobj">zerKernelSetArgMemObj</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerkernelgetnativehandle">zerKernelGetNativeHandle</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerkernelcreatewithnativehandle">zerKernelCreateWithNativeHandle</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="core/api.html#kernel-enums">Kernel Enums</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-kernel-info-t">zer_kernel_info_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-kernel-group-info-t">zer_kernel_group_info_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-kernel-sub-group-info-t">zer_kernel_sub_group_info_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-kernel-exec-info-t">zer_kernel_exec_info_t</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="core/api.html#module">Module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="core/api.html#module-functions">Module Functions</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zermodulecreate">zerModuleCreate</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zermodulegetreference">zerModuleGetReference</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zermodulerelease">zerModuleRelease</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zermodulegetnativehandle">zerModuleGetNativeHandle</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zermodulecreatewithnativehandle">zerModuleCreateWithNativeHandle</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="core/api.html#platform">Platform</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="core/api.html#platform-functions">Platform Functions</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerplatformget">zerPlatformGet</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerplatformgetinfo">zerPlatformGetInfo</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerplatformgetapiversion">zerPlatformGetApiVersion</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerplatformgetnativehandle">zerPlatformGetNativeHandle</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerplatformcreatewithnativehandle">zerPlatformCreateWithNativeHandle</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="core/api.html#platform-enums">Platform Enums</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-platform-info-t">zer_platform_info_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-api-version-t">zer_api_version_t</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="core/api.html#program">Program</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="core/api.html#program-functions">Program Functions</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerprogramcreate">zerProgramCreate</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerprogramcreatewithbinary">zerProgramCreateWithBinary</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerprogramgetreference">zerProgramGetReference</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerprogramrelease">zerProgramRelease</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerprogramgetfunctionpointer">zerProgramGetFunctionPointer</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerprogramgetinfo">zerProgramGetInfo</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerprogramgetbuildinfo">zerProgramGetBuildInfo</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerprogramsetspecializationconstant">zerProgramSetSpecializationConstant</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerprogramgetnativehandle">zerProgramGetNativeHandle</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerprogramcreatewithnativehandle">zerProgramCreateWithNativeHandle</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="core/api.html#program-enums">Program Enums</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-program-info-t">zer_program_info_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-program-build-status-t">zer_program_build_status_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-program-binary-type-t">zer_program_binary_type_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-program-build-info-t">zer_program_build_info_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-base-properties-t">ur_base_properties_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-base-desc-t">ur_base_desc_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-rect-offset-t">ur_rect_offset_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-rect-region-t">ur_rect_region_t</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="core/api.html#runtime">Runtime</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="core/api.html#runtime-functions">Runtime Functions</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zerinit">zerInit</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urinit">urInit</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urteardown">urTearDown</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="core/api.html#runtime-enums">Runtime Enums</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-platform-init-flags-t">zer_platform_init_flags_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#zer-device-init-flags-t">zer_device_init_flags_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-device-init-flags-t">ur_device_init_flags_t</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/api.html#platform">Platform</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#platform-functions">Platform Functions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urplatformget">urPlatformGet</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urplatformgetinfo">urPlatformGetInfo</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urplatformgetapiversion">urPlatformGetApiVersion</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urplatformgetnativehandle">urPlatformGetNativeHandle</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urplatformcreatewithnativehandle">urPlatformCreateWithNativeHandle</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urgetlastresult">urGetLastResult</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#platform-enums">Platform Enums</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-platform-info-t">ur_platform_info_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-api-version-t">ur_api_version_t</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/api.html#device">Device</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#device-functions">Device Functions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urdeviceget">urDeviceGet</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urdevicegetinfo">urDeviceGetInfo</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urdeviceretain">urDeviceRetain</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urdevicerelease">urDeviceRelease</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urdevicepartition">urDevicePartition</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urdeviceselectbinary">urDeviceSelectBinary</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urdevicegetnativehandle">urDeviceGetNativeHandle</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urdevicecreatewithnativehandle">urDeviceCreateWithNativeHandle</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urdevicegetglobaltimestamps">urDeviceGetGlobalTimestamps</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#device-enums">Device Enums</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-device-type-t">ur_device_type_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-device-info-t">ur_device_info_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-device-partition-t">ur_device_partition_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-fp-capability-flags-t">ur_fp_capability_flags_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-device-mem-cache-type-t">ur_device_mem_cache_type_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-device-local-mem-type-t">ur_device_local_mem_type_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-device-exec-capability-flags-t">ur_device_exec_capability_flags_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-device-affinity-domain-flags-t">ur_device_affinity_domain_flags_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-memory-order-capability-flags-t">ur_memory_order_capability_flags_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-memory-scope-capability-flags-t">ur_memory_scope_capability_flags_t</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/api.html#context">Context</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#context-functions">Context Functions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urcontextcreate">urContextCreate</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urcontextretain">urContextRetain</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urcontextrelease">urContextRelease</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urcontextgetinfo">urContextGetInfo</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urcontextgetnativehandle">urContextGetNativeHandle</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urcontextcreatewithnativehandle">urContextCreateWithNativeHandle</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urcontextsetextendeddeleter">urContextSetExtendedDeleter</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#context-enums">Context Enums</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-context-flags-t">ur_context_flags_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-context-info-t">ur_context_info_t</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#context-structures">Context Structures</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-context-properties-t">ur_context_properties_t</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/api.html#memory">Memory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#memory-functions">Memory Functions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urmemimagecreate">urMemImageCreate</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urmembuffercreate">urMemBufferCreate</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urmemretain">urMemRetain</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urmemrelease">urMemRelease</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urmembufferpartition">urMemBufferPartition</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urmemgetnativehandle">urMemGetNativeHandle</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urmemcreatewithnativehandle">urMemCreateWithNativeHandle</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urmemgetinfo">urMemGetInfo</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urmemimagegetinfo">urMemImageGetInfo</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#memory-enums">Memory Enums</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-mem-flags-t">ur_mem_flags_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-mem-type-t">ur_mem_type_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-mem-info-t">ur_mem_info_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-image-channel-order-t">ur_image_channel_order_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-image-channel-type-t">ur_image_channel_type_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-image-info-t">ur_image_info_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-buffer-create-type-t">ur_buffer_create_type_t</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#memory-structures">Memory Structures</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-image-format-t">ur_image_format_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-image-desc-t">ur_image_desc_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-buffer-region-t">ur_buffer_region_t</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/api.html#sampler">Sampler</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#sampler-functions">Sampler Functions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ursamplercreate">urSamplerCreate</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ursamplerretain">urSamplerRetain</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ursamplerrelease">urSamplerRelease</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ursamplergetinfo">urSamplerGetInfo</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ursamplergetnativehandle">urSamplerGetNativeHandle</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ursamplercreatewithnativehandle">urSamplerCreateWithNativeHandle</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#sampler-enums">Sampler Enums</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-sampler-info-t">ur_sampler_info_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-sampler-properties-t">ur_sampler_properties_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-sampler-addressing-mode-t">ur_sampler_addressing_mode_t</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/api.html#usm">Usm</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#usm-functions">Usm Functions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urusmhostalloc">urUSMHostAlloc</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urusmdevicealloc">urUSMDeviceAlloc</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urusmsharedalloc">urUSMSharedAlloc</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urusmfree">urUSMFree</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urusmgetmemallocinfo">urUSMGetMemAllocInfo</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urusmpoolcreate">urUSMPoolCreate</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urusmpooldestroy">urUSMPoolDestroy</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#usm-enums">Usm Enums</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-usm-mem-flags-t">ur_usm_mem_flags_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-usm-pool-flags-t">ur_usm_pool_flags_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-usm-type-t">ur_usm_type_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-usm-alloc-info-t">ur_usm_alloc_info_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-mem-advice-t">ur_mem_advice_t</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#usm-structures">Usm Structures</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-usm-desc-t">ur_usm_desc_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-usm-pool-desc-t">ur_usm_pool_desc_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-usm-pool-limits-desc-t">ur_usm_pool_limits_desc_t</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/api.html#program">Program</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#program-functions">Program Functions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urprogramcreatewithil">urProgramCreateWithIL</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urprogramcreatewithbinary">urProgramCreateWithBinary</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urprogrambuild">urProgramBuild</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urprogramcompile">urProgramCompile</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urprogramlink">urProgramLink</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urprogramretain">urProgramRetain</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urprogramrelease">urProgramRelease</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urprogramgetfunctionpointer">urProgramGetFunctionPointer</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urprogramgetinfo">urProgramGetInfo</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urprogramgetbuildinfo">urProgramGetBuildInfo</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urprogramsetspecializationconstants">urProgramSetSpecializationConstants</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urprogramgetnativehandle">urProgramGetNativeHandle</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urprogramcreatewithnativehandle">urProgramCreateWithNativeHandle</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#program-enums">Program Enums</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-program-metadata-type-t">ur_program_metadata_type_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-program-info-t">ur_program_info_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-program-build-status-t">ur_program_build_status_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-program-binary-type-t">ur_program_binary_type_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-program-build-info-t">ur_program_build_info_t</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#program-structures">Program Structures</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-program-metadata-value-t">ur_program_metadata_value_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-program-metadata-t">ur_program_metadata_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-program-properties-t">ur_program_properties_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-specialization-constant-info-t">ur_specialization_constant_info_t</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/api.html#kernel">Kernel</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#kernel-functions">Kernel Functions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urkernelcreate">urKernelCreate</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urkernelsetargvalue">urKernelSetArgValue</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urkernelsetarglocal">urKernelSetArgLocal</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urkernelgetinfo">urKernelGetInfo</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urkernelgetgroupinfo">urKernelGetGroupInfo</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urkernelgetsubgroupinfo">urKernelGetSubGroupInfo</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urkernelretain">urKernelRetain</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urkernelrelease">urKernelRelease</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urkernelsetargpointer">urKernelSetArgPointer</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urkernelsetexecinfo">urKernelSetExecInfo</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urkernelsetargsampler">urKernelSetArgSampler</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urkernelsetargmemobj">urKernelSetArgMemObj</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urkernelsetspecializationconstants">urKernelSetSpecializationConstants</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urkernelgetnativehandle">urKernelGetNativeHandle</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urkernelcreatewithnativehandle">urKernelCreateWithNativeHandle</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#kernel-enums">Kernel Enums</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-kernel-info-t">ur_kernel_info_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-kernel-group-info-t">ur_kernel_group_info_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-kernel-sub-group-info-t">ur_kernel_sub_group_info_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-kernel-exec-info-t">ur_kernel_exec_info_t</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/api.html#queue">Queue</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#queue-functions">Queue Functions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urqueuegetinfo">urQueueGetInfo</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urqueuecreate">urQueueCreate</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urqueueretain">urQueueRetain</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urqueuerelease">urQueueRelease</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urqueuegetnativehandle">urQueueGetNativeHandle</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urqueuecreatewithnativehandle">urQueueCreateWithNativeHandle</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urqueuefinish">urQueueFinish</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urqueueflush">urQueueFlush</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#queue-enums">Queue Enums</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-queue-info-t">ur_queue_info_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-queue-flags-t">ur_queue_flags_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-queue-properties-t">ur_queue_properties_t</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/api.html#event">Event</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#event-functions">Event Functions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ureventgetinfo">urEventGetInfo</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ureventgetprofilinginfo">urEventGetProfilingInfo</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ureventwait">urEventWait</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ureventretain">urEventRetain</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ureventrelease">urEventRelease</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ureventgetnativehandle">urEventGetNativeHandle</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ureventcreatewithnativehandle">urEventCreateWithNativeHandle</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ureventsetcallback">urEventSetCallback</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#event-enums">Event Enums</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-command-t">ur_command_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-event-status-t">ur_event_status_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-event-info-t">ur_event_info_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-profiling-info-t">ur_profiling_info_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-execution-info-t">ur_execution_info_t</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/api.html#registry">Registry</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#registry-enums">Registry Enums</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-function-t">ur_function_t</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/api.html#enqueue">Enqueue</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#enqueue-functions">Enqueue Functions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueuekernellaunch">urEnqueueKernelLaunch</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueueeventswait">urEnqueueEventsWait</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueueeventswaitwithbarrier">urEnqueueEventsWaitWithBarrier</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueuemembufferread">urEnqueueMemBufferRead</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueuemembufferwrite">urEnqueueMemBufferWrite</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueuemembufferreadrect">urEnqueueMemBufferReadRect</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueuemembufferwriterect">urEnqueueMemBufferWriteRect</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueuemembuffercopy">urEnqueueMemBufferCopy</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueuemembuffercopyrect">urEnqueueMemBufferCopyRect</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueuemembufferfill">urEnqueueMemBufferFill</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueuememimageread">urEnqueueMemImageRead</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueuememimagewrite">urEnqueueMemImageWrite</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueuememimagecopy">urEnqueueMemImageCopy</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueuemembuffermap">urEnqueueMemBufferMap</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueuememunmap">urEnqueueMemUnmap</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueueusmfill">urEnqueueUSMFill</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueueusmmemcpy">urEnqueueUSMMemcpy</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueueusmprefetch">urEnqueueUSMPrefetch</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueueusmmemadvise">urEnqueueUSMMemAdvise</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueueusmfill2d">urEnqueueUSMFill2D</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueueusmmemcpy2d">urEnqueueUSMMemcpy2D</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueuedeviceglobalvariablewrite">urEnqueueDeviceGlobalVariableWrite</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueuedeviceglobalvariableread">urEnqueueDeviceGlobalVariableRead</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#enqueue-enums">Enqueue Enums</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-map-flags-t">ur_map_flags_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-usm-migration-flags-t">ur_usm_migration_flags_t</a></li>
 </ul>
 </li>
 </ul>
@@ -518,13 +610,15 @@
 </li>
 </ul>
 </div>
-</div>
+</section>
 
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
 <div class='prev-next-area'>
     <a class='right-next' id="next-link" href="core/INTRO.html" title="next page">
     <div class="prev-next-info">
@@ -534,24 +628,28 @@
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Intel<br/>
+  
+      &copy; Copyright 2020, Intel.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Intel<br/>
-    
-        &copy; Copyright 2020, Intel.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
