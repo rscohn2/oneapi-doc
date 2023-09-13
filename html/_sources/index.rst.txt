@@ -1,16 +1,18 @@
 ..
   Copyright 2022 Intel Corporation
 
-.. oneAPI Unified Runtime Specification v0.5
+.. oneAPI Unified Runtime Specification v0.7
 
 .. _l0-section:
 
 ===================================
- |l0_full_name|: |l0_spec_version|
+|full_name|: |spec_version|
 ===================================
 
 .. toctree::
 
    core/INTRO.rst
    core/PROG.rst
+   core/CONTRIB.rst
+   exp-features.rst
    api.rst

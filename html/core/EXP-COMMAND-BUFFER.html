@@ -1,0 +1,718 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Command-Buffer &#8212; Unified Runtime Specification  documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="USM Import/Release" href="EXP-USM-IMPORT-RELEASE.html" />
+    <link rel="prev" title="Bindless Images" href="EXP-BINDLESS-IMAGES.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Unified Runtime Specification  documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="INTRO.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PROG.html">
+   Programming Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="CONTRIB.html">
+   Contribution Guide
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../exp-features.html">
+   Experimental Features
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="EXP-BINDLESS-IMAGES.html">
+     Bindless Images
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Command-Buffer
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="EXP-USM-IMPORT-RELEASE.html">
+     USM Import/Release
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="EXP-USM-P2P.html">
+     USM P2P
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../api.html">
+   API Documentation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api.html">
+     Core API
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/core/EXP-COMMAND-BUFFER.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivation">
+   Motivation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#querying-command-buffer-support">
+   Querying Command-Buffer Support
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#command-buffer-creation">
+   Command-Buffer Creation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#appending-commands">
+   Appending Commands
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sync-points">
+   Sync-Points
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#enqueueing-command-buffers">
+   Enqueueing Command-Buffers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#api">
+   API
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#macros">
+     Macros
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#enums">
+     Enums
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#types">
+     Types
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions">
+     Functions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changelog">
+   Changelog
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contributors">
+   Contributors
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Command-Buffer</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivation">
+   Motivation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#querying-command-buffer-support">
+   Querying Command-Buffer Support
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#command-buffer-creation">
+   Command-Buffer Creation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#appending-commands">
+   Appending Commands
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sync-points">
+   Sync-Points
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#enqueueing-command-buffers">
+   Enqueueing Command-Buffers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#api">
+   API
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#macros">
+     Macros
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#enums">
+     Enums
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#types">
+     Types
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions">
+     Functions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changelog">
+   Changelog
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contributors">
+   Contributors
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="section" id="command-buffer">
+<span id="experimental-command-buffer"></span><h1>Command-Buffer<a class="headerlink" href="#command-buffer" title="Permalink to this headline">#</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Experimental features:</p>
+<ul class="simple">
+<li><p>May be replaced, updated, or removed at any time.</p></li>
+<li><p>Do not require maintaining API/ABI stability of their own additions over
+time.</p></li>
+<li><p>Do not require conformance testing of their own additions.</p></li>
+</ul>
+</div>
+<div class="section" id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">#</a></h2>
+<p>A command-buffer represents a series of commands for execution on a command
+queue. Many adapters support this kind of construct either natively or through
+extensions, but they are not available to use directly. Typically their use is
+abstracted through the existing Core APIs, for example when calling
+<a class="reference internal" href="api.html#urenqueuekernellaunch"><span class="std std-ref">urEnqueueKernelLaunch</span></a> the adapter may both append the kernel command to a
+command-buffer-like construct and also submit that command-buffer to a queue for
+execution. These types of structures allow for batching of commands to improve
+host launch latency, but without direct control it falls to the adapter
+implementation to implement automatic batching of commands.</p>
+<p>This experimental feature exposes command-buffers in the Unified Runtime API
+directly, allowing applications explicit control over the enqueue and execution
+of commands to batch commands as required for optimal performance.</p>
+</div>
+<div class="section" id="querying-command-buffer-support">
+<h2>Querying Command-Buffer Support<a class="headerlink" href="#querying-command-buffer-support" title="Permalink to this headline">#</a></h2>
+<p>Support for command-buffers can be queried for a given device/adapter by using
+the device info query with <a class="reference internal" href="api.html#ur-device-info-t"><span class="std std-ref">UR_DEVICE_INFO_EXTENSIONS</span></a>. Adapters supporting this
+experimental feature will report the string “ur_exp_command_buffer” in the
+returned list of supported extensions.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>The macro UR_COMMAND_BUFFER_EXTENSION_STRING_EXP is defined for the string
+returned from extension queries for this feature. Since the actual string
+may be subject to change it is safer to use this macro when querying for
+support for this experimental feature.</p>
+</div>
+<pre class="literal-block">// Retrieve length of extension string
+size_t returnedSize;
+<a class="reference internal" href="api.html#urdevicegetinfo"><span class="std std-ref">urDeviceGetInfo</span></a>(hDevice, <a class="reference internal" href="api.html#ur-device-info-t"><span class="std std-ref">UR_DEVICE_INFO_EXTENSIONS</span></a>, 0, nullptr,&amp;returnedSize);
+
+// Retrieve extension string
+std::unique_ptr&lt;char[]&gt; returnedExtensions(new char[returnedSize]);
+<a class="reference internal" href="api.html#urdevicegetinfo"><span class="std std-ref">urDeviceGetInfo</span></a>(hDevice, <a class="reference internal" href="api.html#ur-device-info-t"><span class="std std-ref">UR_DEVICE_INFO_EXTENSIONS</span></a>, returnedSize,returnedExtensions.get(), nullptr);
+
+std::string_view ExtensionsString(returnedExtensions.get());
+bool CmdBufferSupport =
+    ExtensionsString.find(UR_COMMAND_BUFFER_EXTENSION_STRING_EXP)
+        != std::string::npos;</pre>
+</div>
+<div class="section" id="command-buffer-creation">
+<h2>Command-Buffer Creation<a class="headerlink" href="#command-buffer-creation" title="Permalink to this headline">#</a></h2>
+<p>Command-Buffers are tied to a specific ur_context_handle_t and
+ur_device_handle_t. <a class="reference internal" href="api.html#urcommandbuffercreateexp"><span class="std std-ref">urCommandBufferCreateExp</span></a> optionally takes a descriptor
+to provide additional properties for how the command-buffer should be
+constructed. There are currently no unique members defined for
+<a class="reference internal" href="api.html#ur-exp-command-buffer-desc-t"><span class="std std-ref">ur_exp_command_buffer_desc_t</span></a>, however they may be added in the future.</p>
+<p>Command-buffers are reference counted and can be retained and released by
+calling <a class="reference internal" href="api.html#urcommandbufferretainexp"><span class="std std-ref">urCommandBufferRetainExp</span></a> and <a class="reference internal" href="api.html#urcommandbufferreleaseexp"><span class="std std-ref">urCommandBufferReleaseExp</span></a> respectively.</p>
+</div>
+<div class="section" id="appending-commands">
+<h2>Appending Commands<a class="headerlink" href="#appending-commands" title="Permalink to this headline">#</a></h2>
+<p>Commands can be appended to a command-buffer by calling any of the
+command-buffer append functions. Typically these closely mimic the existing
+enqueue functions in the Core API in terms of their command-specific parameters.
+However, they differ in that they take a command-buffer handle instead of a
+queue handle, and the dependencies and return parameters are sync-points instead
+of event handles.</p>
+<p>Currently only the following commands are supported:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="api.html#urcommandbufferappendkernellaunchexp"><span class="std std-ref">urCommandBufferAppendKernelLaunchExp</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#urcommandbufferappendmemcpyusmexp"><span class="std std-ref">urCommandBufferAppendMemcpyUSMExp</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#urcommandbufferappendmembuffercopyexp"><span class="std std-ref">urCommandBufferAppendMembufferCopyExp</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#urcommandbufferappendmembuffercopyrectexp"><span class="std std-ref">urCommandBufferAppendMembufferCopyRectExp</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#urcommandbufferappendmembufferreadexp"><span class="std std-ref">urCommandBufferAppendMembufferReadExp</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#urcommandbufferappendmembufferreadrectexp"><span class="std std-ref">urCommandBufferAppendMembufferReadRectExp</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#urcommandbufferappendmembufferwriteexp"><span class="std std-ref">urCommandBufferAppendMembufferWriteExp</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#urcommandbufferappendmembufferwriterectexp"><span class="std std-ref">urCommandBufferAppendMembufferWriteRectExp</span></a></p></li>
+</ul>
+<p>It is planned to eventually support any command type from the Core API which can
+actually be appended to the equiavalent adapter native constructs.</p>
+</div>
+<div class="section" id="sync-points">
+<h2>Sync-Points<a class="headerlink" href="#sync-points" title="Permalink to this headline">#</a></h2>
+<p>A sync-point is a value which represents a command inside of a command-buffer
+which is returned from command-buffer append function calls. These can be
+optionally passed to these functions to define execution dependencies on other
+commands within the command-buffer.</p>
+<p>Sync-points are unique and valid for use only within the command-buffer they
+were obtained from.</p>
+<pre class="literal-block">// Append a memcpy with no sync-point dependencies
+ur_exp_command_buffer_sync_point_t syncPoint;
+
+<a class="reference internal" href="api.html#urcommandbufferappendmemcpyusmexp"><span class="std std-ref">urCommandBufferAppendMemcpyUSMExp</span></a>(hCommandBuffer, pDst, pSrc, size, 0,nullptr, &amp;syncPoint);
+
+// Append a kernel launch with syncPoint as a dependency, ignore returned
+// sync-point
+<a class="reference internal" href="api.html#urcommandbufferappendkernellaunchexp"><span class="std std-ref">urCommandBufferAppendKernelLaunchExp</span></a>(hCommandBuffer, hKernel, workDim,pGlobalWorkOffset, pGlobalWorkSize,pLocalWorkSize, 1, &amp;syncPoint,nullptr);</pre>
+</div>
+<div class="section" id="enqueueing-command-buffers">
+<h2>Enqueueing Command-Buffers<a class="headerlink" href="#enqueueing-command-buffers" title="Permalink to this headline">#</a></h2>
+<p>Command-buffers are submitted for execution on a ur_queue_handle_t with an
+optional list of dependent events. An event is returned which tracks the
+execution of the command-buffer, and will be complete when all appended commands
+have finished executing. It is adapter specific whether command-buffers can be
+enqueued or executed simultaneously, and submissions may be serialized.</p>
+<pre class="literal-block">ur_event_handle_t executionEvent;
+
+<a class="reference internal" href="api.html#urcommandbufferenqueueexp"><span class="std std-ref">urCommandBufferEnqueueExp</span></a>(hCommandBuffer, hQueue, 0, nullptr,&amp;executionEvent);</pre>
+</div>
+<div class="section" id="api">
+<h2>API<a class="headerlink" href="#api" title="Permalink to this headline">#</a></h2>
+<div class="section" id="macros">
+<h3>Macros<a class="headerlink" href="#macros" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>UR_COMMAND_BUFFER_EXTENSION_STRING_EXP</p></li>
+</ul>
+</div>
+<div class="section" id="enums">
+<h3>Enums<a class="headerlink" href="#enums" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><dl class="simple">
+<dt><a class="reference internal" href="api.html#ur-result-t"><span class="std std-ref">ur_result_t</span></a></dt><dd><ul>
+<li><p><a class="reference internal" href="api.html#ur-result-t"><span class="std std-ref">UR_RESULT_ERROR_INVALID_COMMAND_BUFFER_EXP</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#ur-result-t"><span class="std std-ref">UR_RESULT_ERROR_INVALID_COMMAND_BUFFER_SYNC_POINT_EXP</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#ur-result-t"><span class="std std-ref">UR_RESULT_ERROR_INVALID_COMMAND_BUFFER_SYNC_POINT_WAIT_LIST_EXP</span></a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="api.html#ur-structure-type-t"><span class="std std-ref">ur_structure_type_t</span></a></dt><dd><ul>
+<li><p><a class="reference internal" href="api.html#ur-structure-type-t"><span class="std std-ref">UR_STRUCTURE_TYPE_EXP_COMMAND_BUFFER_DESC</span></a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="api.html#ur-command-t"><span class="std std-ref">ur_command_t</span></a></dt><dd><ul>
+<li><p><a class="reference internal" href="api.html#ur-command-t"><span class="std std-ref">UR_COMMAND_COMMAND_BUFFER_ENQUEUE_EXP</span></a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="api.html#ur-function-t"><span class="std std-ref">ur_function_t</span></a></dt><dd><ul>
+<li><p><a class="reference internal" href="api.html#ur-function-t"><span class="std std-ref">UR_FUNCTION_COMMAND_BUFFER_CREATE_EXP</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#ur-function-t"><span class="std std-ref">UR_FUNCTION_COMMAND_BUFFER_RETAIN_EXP</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#ur-function-t"><span class="std std-ref">UR_FUNCTION_COMMAND_BUFFER_RELEASE_EXP</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#ur-function-t"><span class="std std-ref">UR_FUNCTION_COMMAND_BUFFER_FINALIZE_EXP</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#ur-function-t"><span class="std std-ref">UR_FUNCTION_COMMAND_BUFFER_APPEND_KERNEL_LAUNCH_EXP</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#ur-function-t"><span class="std std-ref">UR_FUNCTION_COMMAND_BUFFER_ENQUEUE_EXP</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#ur-function-t"><span class="std std-ref">UR_FUNCTION_COMMAND_BUFFER_APPEND_MEMCPY_USM_EXP</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#ur-function-t"><span class="std std-ref">UR_FUNCTION_COMMAND_BUFFER_APPEND_MEMBUFFER_COPY_EXP</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#ur-function-t"><span class="std std-ref">UR_FUNCTION_COMMAND_BUFFER_APPEND_MEMBUFFER_COPY_RECT_EXP</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#ur-function-t"><span class="std std-ref">UR_FUNCTION_COMMAND_BUFFER_APPEND_MEMBUFFER_READ_EXP</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#ur-function-t"><span class="std std-ref">UR_FUNCTION_COMMAND_BUFFER_APPEND_MEMBUFFER_READ_RECT_EXP</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#ur-function-t"><span class="std std-ref">UR_FUNCTION_COMMAND_BUFFER_APPEND_MEMBUFFER_WRITE_EXP</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#ur-function-t"><span class="std std-ref">UR_FUNCTION_COMMAND_BUFFER_APPEND_MEMBUFFER_WRITE_RECT_EXP</span></a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="types">
+<h3>Types<a class="headerlink" href="#types" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="api.html#ur-exp-command-buffer-desc-t"><span class="std std-ref">ur_exp_command_buffer_desc_t</span></a></p></li>
+<li><p>ur_exp_command_buffer_sync_point_t</p></li>
+<li><p>ur_exp_command_buffer_handle_t</p></li>
+</ul>
+</div>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="api.html#urcommandbuffercreateexp"><span class="std std-ref">urCommandBufferCreateExp</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#urcommandbufferretainexp"><span class="std std-ref">urCommandBufferRetainExp</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#urcommandbufferreleaseexp"><span class="std std-ref">urCommandBufferReleaseExp</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#urcommandbufferfinalizeexp"><span class="std std-ref">urCommandBufferFinalizeExp</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#urcommandbufferappendkernellaunchexp"><span class="std std-ref">urCommandBufferAppendKernelLaunchExp</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#urcommandbufferappendmemcpyusmexp"><span class="std std-ref">urCommandBufferAppendMemcpyUSMExp</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#urcommandbufferappendmembuffercopyexp"><span class="std std-ref">urCommandBufferAppendMembufferCopyExp</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#urcommandbufferappendmembuffercopyrectexp"><span class="std std-ref">urCommandBufferAppendMembufferCopyRectExp</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#urcommandbufferappendmembufferreadexp"><span class="std std-ref">urCommandBufferAppendMembufferReadExp</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#urcommandbufferappendmembufferreadrectexp"><span class="std std-ref">urCommandBufferAppendMembufferReadRectExp</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#urcommandbufferappendmembufferwriteexp"><span class="std std-ref">urCommandBufferAppendMembufferWriteExp</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#urcommandbufferappendmembufferwriterectexp"><span class="std std-ref">urCommandBufferAppendMembufferWriteRectExp</span></a></p></li>
+<li><p><a class="reference internal" href="api.html#urcommandbufferenqueueexp"><span class="std std-ref">urCommandBufferEnqueueExp</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="changelog">
+<h2>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">#</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 83%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Revision</p></th>
+<th class="head"><p>Changes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.0</p></td>
+<td><p>Initial Draft</p></td>
+</tr>
+<tr class="row-odd"><td><p>1.1</p></td>
+<td><p>add function definitions for buffer read and write</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="contributors">
+<h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Ben Tracy <a class="reference external" href="mailto:ben&#46;tracy&#37;&#52;&#48;codeplay&#46;com">ben<span>&#46;</span>tracy<span>&#64;</span>codeplay<span>&#46;</span>com</a></p></li>
+<li><p>Ewan Crawford <a class="reference external" href="mailto:ewan&#37;&#52;&#48;codeplay&#46;com">ewan<span>&#64;</span>codeplay<span>&#46;</span>com</a></p></li>
+<li><p>Maxime France-Pillois <a class="reference external" href="mailto:maxime&#46;francepillois&#37;&#52;&#48;codeplay&#46;com">maxime<span>&#46;</span>francepillois<span>&#64;</span>codeplay<span>&#46;</span>com</a></p></li>
+</ul>
+</div>
+</div>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="EXP-BINDLESS-IMAGES.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Bindless Images</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="EXP-USM-IMPORT-RELEASE.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">USM Import/Release</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Intel<br/>
+  
+      &copy; Copyright 2020, Intel.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Introduction &#8212; Unified Runtime Specification  documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -35,7 +34,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Programming Guide" href="PROG.html" />
-    <link rel="prev" title="oneAPI Unified Runtime: 0.6" href="../index.html" />
+    <link rel="prev" title="oneAPI Unified Runtime: 0.7" href="../index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -93,12 +92,49 @@
    Programming Guide
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="CONTRIB.html">
+   Contribution Guide
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../exp-features.html">
+   Experimental Features
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="EXP-BINDLESS-IMAGES.html">
+     Bindless Images
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="EXP-COMMAND-BUFFER.html">
+     Command-Buffer
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="EXP-USM-IMPORT-RELEASE.html">
+     USM Import/Release
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="EXP-USM-P2P.html">
+     USM P2P
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../api.html">
    API Documentation
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -258,11 +294,6 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#naming-convention">
-     Naming Convention
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#versioning">
      Versioning
     </a>
@@ -293,8 +324,23 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adapter-discovery">
+     Adapter Discovery
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#layers">
+     Layers
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#environment-variables">
      Environment Variables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#service-identifiers">
+     Service identifiers
     </a>
    </li>
   </ul>
@@ -334,11 +380,6 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#naming-convention">
-     Naming Convention
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#versioning">
      Versioning
     </a>
@@ -369,8 +410,23 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adapter-discovery">
+     Adapter Discovery
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#layers">
+     Layers
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#environment-variables">
      Environment Variables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#service-identifiers">
+     Service identifiers
     </a>
    </li>
   </ul>
@@ -385,9 +441,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <section id="introduction">
+  <div class="section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h1>
-<section id="objective">
+<div class="section" id="objective">
 <h2>Objective<a class="headerlink" href="#objective" title="Permalink to this headline">#</a></h2>
 <p>The objective of the oneAPI Unified Runtime is to provide a unified interface to
 device agnostic runtimes such as DPC++ across a wide variety of software platforms. The unified
@@ -396,16 +452,16 @@ new software platforms and devices. Software platforms can be enumerated through
 and used to provide best experience. The interface will semantically align with the Level Zero
 Driver interface and support native platform access.</p>
 <img alt="../_images/one_api_sw_stack.png" src="../_images/one_api_sw_stack.png" />
-</section>
-<section id="fundamentals">
+</div>
+<div class="section" id="fundamentals">
 <h2>Fundamentals<a class="headerlink" href="#fundamentals" title="Permalink to this headline">#</a></h2>
 <p>The following section provides fundamentals of the API design.
 For more detailed information, refer to the programming guides and detailed specification pages.</p>
-<p>Repos for Unified Runtime can be found here:</p>
+<p>The repository for Unified Runtime can be found here:</p>
 <ul class="simple">
-<li><p>Coming soon</p></li>
+<li><p><a class="reference external" href="https://github.com/oneapi-src/unified-runtime">oneapi-src/unified-runtime</a></p></li>
 </ul>
-<section id="terminology">
+<div class="section" id="terminology">
 <h3>Terminology<a class="headerlink" href="#terminology" title="Permalink to this headline">#</a></h3>
 <p>This specification uses key words based on <a class="reference external" href="https://www.ietf.org/rfc/rfc2119.txt">RFC2119</a> to indicate requirement level.
 In particular, the following words are used to describe the actions of an implementation of this specification:</p>
@@ -416,35 +472,8 @@ In particular, the following words are used to describe the actions of an implem
 <li><p><strong>Must</strong> - the word <em>must</em>, or the term <em>required</em> or <em>shall</em>, mean that the behavior described is an absolute requirement of the specification.</p></li>
 </ul>
 </div></blockquote>
-</section>
-<section id="naming-convention">
-<h3>Naming Convention<a class="headerlink" href="#naming-convention" title="Permalink to this headline">#</a></h3>
-<p>The following naming conventions must be followed:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>All functions must be prefixed with <cite>ur</cite></p></li>
-<li><p>All functions must use camel case <cite>urObjectAction</cite> convention</p></li>
-<li><p>All macros must use all caps <cite>UR_NAME</cite> convention</p></li>
-<li><p>All structures, enumerations and other types must follow <cite>ur_name_t</cite> snake case convention</p></li>
-<li><p>All structure members and function parameters must use camel case convention</p></li>
-<li><p>All enumerator values must use all caps <cite>UR_ENUM_ETOR_NAME</cite> convention</p></li>
-<li><p>All handle types must end with <cite>handle_t</cite></p></li>
-<li><p>All descriptor structures must end with <cite>desc_t</cite></p></li>
-<li><p>All property structures must end with <cite>properties_t</cite></p></li>
-<li><p>All flag enumerations must end with <cite>flags_t</cite></p></li>
-</ul>
-</div></blockquote>
-<p>The following coding conventions must be followed:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>All descriptor structures must be derived from <cite>:ref:`ur-base-desc-t</cite>`</p></li>
-<li><p>All property structures must be derived from <cite>:ref:`ur-base-properties-t</cite>`</p></li>
-<li><p>All function input parameters must precede output parameters</p></li>
-<li><p>All functions must return <a class="reference internal" href="api.html#ur-result-t"><span class="std std-ref">ur_result_t</span></a></p></li>
-</ul>
-</div></blockquote>
-</section>
-<section id="versioning">
+</div>
+<div class="section" id="versioning">
 <h3>Versioning<a class="headerlink" href="#versioning" title="Permalink to this headline">#</a></h3>
 <p>There are multiple versions that should be used by the application to determine compatibility:</p>
 <p><strong>Platform Version</strong> - this is the version of the API supported by the platform.</p>
@@ -459,8 +488,8 @@ In particular, the following words are used to describe the actions of an implem
 <li><p>The value returned will be the minimum of the <a class="reference internal" href="api.html#ur-api-version-t"><span class="std std-ref">ur_api_version_t</span></a> supported by the device and known by the driver</p></li>
 </ul>
 </div></blockquote>
-</section>
-<section id="error-handling">
+</div>
+<div class="section" id="error-handling">
 <h3>Error Handling<a class="headerlink" href="#error-handling" title="Permalink to this headline">#</a></h3>
 <p>The following design philosophies are adopted to reduce Host-side overhead:</p>
 <blockquote>
@@ -489,14 +518,14 @@ In particular, the following words are used to describe the actions of an implem
 </li>
 <li><p>All API functions return <a class="reference internal" href="api.html#ur-result-t"><span class="std std-ref">ur_result_t</span></a></p>
 <ul>
-<li><p>This enumeration contains error codes for the Level Zero APIs and validation layers</p></li>
+<li><p>This enumeration contains error codes for the Unified Runtime APIs and validation layers</p></li>
 <li><p>This allows for a consistent pattern on the application side for catching errors; especially when validation layer(s) are enabled</p></li>
 </ul>
 </li>
 </ul>
 </div></blockquote>
-</section>
-<section id="multithreading-and-concurrency">
+</div>
+<div class="section" id="multithreading-and-concurrency">
 <h3>Multithreading and Concurrency<a class="headerlink" href="#multithreading-and-concurrency" title="Permalink to this headline">#</a></h3>
 <p>The following design philosophies are adopted in order to maximize Host thread concurrency:</p>
 <blockquote>
@@ -534,8 +563,8 @@ If there is a need for an implementation to use a background thread, then that t
 <li><p>driver object handles may be passed between and used by multiple threads with no implicit thread-locks</p></li>
 </ul>
 </div></blockquote>
-</section>
-<section id="application-binary-interface">
+</div>
+<div class="section" id="application-binary-interface">
 <h3>Application Binary Interface<a class="headerlink" href="#application-binary-interface" title="Permalink to this headline">#</a></h3>
 <p>The Unified Runtime C APIs are provided to applications by a shared import library.
 C/C++ applications must include “ur_api.h” and link with “ur_api.lib”.
@@ -551,12 +580,12 @@ modifying existing function signatures and structures, removing functions and st
 and followed by a digit or uppercase letter are reserved for use by the implementation.
 Applications which use Unified Runtime must not provide definitions of these symbols.
 This allows the Unified Runtime shared library to be updated with additional symbols for new API versions or extensions without causing symbol conflicts with existing applications.</p>
-</section>
-<section id="tracing">
+</div>
+<div class="section" id="tracing">
 <h3>Tracing<a class="headerlink" href="#tracing" title="Permalink to this headline">#</a></h3>
 <p>Unified Runtime loader implements tracing support through the <a class="reference external" href="https://github.com/intel/llvm/blob/sycl/xptifw/doc/XPTI_Framework.md">XPTI framework</a>.</p>
-<table class="table" id="id1">
-<caption><span class="caption-text">UR Stream <cite>“ur”</cite> Notification Signatures</span><a class="headerlink" href="#id1" title="Permalink to this table">#</a></caption>
+<table class="table" id="id3">
+<caption><span class="caption-text">UR Stream <cite>“ur”</cite> Notification Signatures</span><a class="headerlink" href="#id3" title="Permalink to this table">#</a></caption>
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -593,8 +622,8 @@ This allows the Unified Runtime shared library to be updated with additional sym
 </tr>
 </tbody>
 </table>
-</section>
-<section id="logging">
+</div>
+<div class="section" id="logging">
 <h3>Logging<a class="headerlink" href="#logging" title="Permalink to this headline">#</a></h3>
 <p>Logging in UR is handled by loggers which can be set for each library separately. There are several levels of logging: <em>debug</em>, <em>info</em>, <em>warning</em>, and <em>error</em>.
 The level of logging determines what messages will be printed, ie. the level set to <em>warning</em> means all messages at levels <em>warning</em> and <em>error</em> will be printed.
@@ -603,82 +632,170 @@ By default, no messages are printed.</p>
 <p>Loggers redirect messages to <em>stdout</em>, <em>stderr</em>, or a file (default: <em>stderr</em>).</p>
 <p>All of these logging options can be set with <strong>UR_LOG_LOADER</strong> and <strong>UR_LOG_NULL</strong> environment variables described in the <strong>Environment Variables</strong> section below.
 Both of these environment variables have the same syntax for setting logger options:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>&quot;[level:debug|info|warning|error];[flush:&lt;debug|info|warning|error&gt;];[output:stdout|stderr|file,&lt;path&gt;]&quot;
-
-* level - a log level, meaning that only messages from this level and above are printed,
-          possible values, from the lowest level to the highest one: *debug*, *info*, *warning*, *error*,
-* flush - a flush level, meaning that messages at this level and above are guaranteed to be flushed immediately,
-          possible values are the same as above,
-* output - indicates where messages should be printed,
-           possible values are: *stdout*, *stderr* and *file*,
-           when providing a *file* output option, a *&lt;path&gt;* is required
-
-.. note::
-  For output to file, a path to the file have to be provided after a comma, like in the example above. The path has to exist, file will be created if not existing.
-  All these three logger options are optional. The defaults are set when options are not provided in the environment variable.
-  Options have to be separated with `;`, option names, and their values with `:`. Additionally, when providing *file* output, the keyword *file* and a path to a file
-  have to be separated by `,`.
-</pre></div>
+<blockquote>
+<div><p>“[level:debug|info|warning|error];[flush:&lt;debug|info|warning|error&gt;];[output:stdout|stderr|file,&lt;path&gt;]”</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>level - a log level, meaning that only messages from this level and above are printed,</dt><dd><p>possible values, from the lowest level to the highest one: <em>debug</em>, <em>info</em>, <em>warning</em>, <em>error</em>,</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>flush - a flush level, meaning that messages at this level and above are guaranteed to be flushed immediately,</dt><dd><p>possible values are the same as above,</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>output - indicates where messages should be printed,</dt><dd><p>possible values are: <em>stdout</em>, <em>stderr</em> and <em>file</em>,
+when providing a <em>file</em> output option, a <em>&lt;path&gt;</em> is required</p>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For output to file, a path to the file have to be provided after a comma, like in the example above. The path has to exist, file will be created if not existing.
+All these three logger options are optional. The defaults are set when options are not provided in the environment variable.
+Options have to be separated with <cite>;</cite>, option names, and their values with <cite>:</cite>. Additionally, when providing <em>file</em> output, the keyword <em>file</em> and a path to a file
+have to be separated by <cite>,</cite>.</p>
 </div>
+</div></blockquote>
 <p>An example of an environment variable for setting up the loader library logger with logging level set to <em>info</em>, flush level set to <em>warning</em>, and output set to
-the <cite>out.log</cite> file:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">UR_LOG_LOADER</span><span class="o">=</span><span class="s">&quot;level:info;flush:warning;output:file,out.log&quot;</span><span class="w"></span>
+the <code class="docutils literal notranslate"><span class="pre">out.log</span></code> file:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">UR_LOG_LOADER</span><span class="o">=</span><span class="s">&quot;level:info;flush:warning;output:file,out.log&quot;</span>
 </pre></div>
 </div>
 <p>An example of an environment variable for setting up the null adapter library with logging level set to <em>warning</em> and output set to stdout:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">UR_LOG_NULL</span><span class="o">=</span><span class="s">&quot;level:warning;output:stdout&quot;</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">UR_LOG_NULL</span><span class="o">=</span><span class="s">&quot;level:warning;output:stdout&quot;</span>
 </pre></div>
 </div>
-</section>
-<section id="environment-variables">
+</div>
+<div class="section" id="adapter-discovery">
+<h3>Adapter Discovery<a class="headerlink" href="#adapter-discovery" title="Permalink to this headline">#</a></h3>
+<p>UR is capable of discovering adapter libraries in the following ways in the listed order:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Search in paths to the adapters set in <cite>UR_ADAPTERS_FORCE_LOAD</cite> environment variable.</p>
+<ul>
+<li><p>All other adapter discovery methods are disabled when this environment variable is used.</p></li>
+</ul>
+</li>
+<li><p>Search in directories specified in <cite>UR_ADAPTERS_SEARCH_PATH</cite> environment variable.</p></li>
+<li><p>Leave adapter discovery for the OS.</p>
+<ul>
+<li><p>This method is disabled on Windows.</p></li>
+<li><p>If on Linux, use the shared library discovery mechanism (see <a href="#id1"><span class="problematic" id="id2">**</span></a>ld.so**(8) for details).</p></li>
+</ul>
+</li>
+<li><p>Search in directory at the UR loader location.</p></li>
+</ul>
+</div></blockquote>
+<p>Currently, UR looks for these adapter libraries:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>ur_adapter_level_zero</p></li>
+</ul>
+</div></blockquote>
+<p>For more information about the usage of mentioned environment variables see <a class="reference internal" href="#environment-variables">Environment Variables</a> section.</p>
+</div>
+<div class="section" id="layers">
+<h3>Layers<a class="headerlink" href="#layers" title="Permalink to this headline">#</a></h3>
+<p>UR comes with a mechanism that allows various API intercept layers to be enabled, either through the API or with an environment variable (see <a class="reference internal" href="#environment-variables">Environment Variables</a>).
+Layers currently included with the runtime are as follows:</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Layer Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>UR_LAYER_PARAMETER_VALIDATION</p></td>
+<td><p>Enables non-adapter-specific parameter validation (e.g. checking for null values).</p></td>
+</tr>
+<tr class="row-odd"><td><p>UR_LAYER_LEAK_CHECKING</p></td>
+<td><p>Performs some leak checking for API calls involving object creation/destruction.</p></td>
+</tr>
+<tr class="row-even"><td><p>UR_LAYER_FULL_VALIDATION</p></td>
+<td><p>Enables UR_LAYER_PARAMETER_VALIDATION and UR_LAYER_LEAK_CHECKING.</p></td>
+</tr>
+<tr class="row-odd"><td><p>UR_LAYER_TRACING</p></td>
+<td><p>Enables the XPTI tracing layer, see <a class="reference internal" href="#tracing">Tracing</a> for more detail.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="environment-variables">
 <h3>Environment Variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">#</a></h3>
 <p>Specific environment variables can be set to control the behavior of unified runtime or enable certain features.</p>
 <dl class="std envvar">
 <dt class="sig sig-object std" id="envvar-UR_LOG_LOADER">
 <span class="sig-name descname"><span class="pre">UR_LOG_LOADER</span></span><a class="headerlink" href="#envvar-UR_LOG_LOADER" title="Permalink to this definition">#</a></dt>
-<dd><p>Holds parameters for setting Unified Runtime loader logging. The syntax is described in the <strong>Logging</strong> section above.</p>
+<dd><p>Holds parameters for setting Unified Runtime loader logging. The syntax is described in the <a class="reference internal" href="#logging">Logging</a> section.</p>
 </dd></dl>
 
 <dl class="std envvar">
 <dt class="sig sig-object std" id="envvar-UR_LOG_NULL">
 <span class="sig-name descname"><span class="pre">UR_LOG_NULL</span></span><a class="headerlink" href="#envvar-UR_LOG_NULL" title="Permalink to this definition">#</a></dt>
-<dd><p>Holds parameters for setting Unified Runtime null adapter logging. The syntax is described in the <strong>Logging</strong> section above.</p>
+<dd><p>Holds parameters for setting Unified Runtime null adapter logging. The syntax is described in the <a class="reference internal" href="#logging">Logging</a> section.</p>
+</dd></dl>
+
+<dl class="std envvar">
+<dt class="sig sig-object std" id="envvar-UR_LOG_VALIDATION">
+<span class="sig-name descname"><span class="pre">UR_LOG_VALIDATION</span></span><a class="headerlink" href="#envvar-UR_LOG_VALIDATION" title="Permalink to this definition">#</a></dt>
+<dd><p>Holds parameters for setting Unified Runtime validation logging. The syntax is described in the <a class="reference internal" href="#logging">Logging</a> section.</p>
 </dd></dl>
 
 <dl class="std envvar">
 <dt class="sig sig-object std" id="envvar-UR_ADAPTERS_FORCE_LOAD">
 <span class="sig-name descname"><span class="pre">UR_ADAPTERS_FORCE_LOAD</span></span><a class="headerlink" href="#envvar-UR_ADAPTERS_FORCE_LOAD" title="Permalink to this definition">#</a></dt>
-<dd><p>Holds a comma-separated list of library names used by the loader for adapter discovery. By setting this value you can
+<dd><p>Holds a comma-separated list of library paths used by the loader for adapter discovery. By setting this value you can
 force the loader to use specific adapter implementations from the libraries provided.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This environment variable should be used for development and debugging only.</p>
 </div>
-</dd></dl>
-
-<dl class="std envvar">
-<dt class="sig sig-object std" id="envvar-UR_ENABLE_VALIDATION_LAYER">
-<span class="sig-name descname"><span class="pre">UR_ENABLE_VALIDATION_LAYER</span></span><a class="headerlink" href="#envvar-UR_ENABLE_VALIDATION_LAYER" title="Permalink to this definition">#</a></dt>
-<dd><p>Holds the value ‘0’ or ‘1’. By setting it to ‘1’ you enable validation layer.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This environment variable should be used for development and debugging only.</p>
+<p>All other adapter discovery methods are disabled when this environment variable is used.</p>
 </div>
 </dd></dl>
 
 <dl class="std envvar">
-<dt class="sig sig-object std" id="envvar-UR_ENABLE_PARAMETER_VALIDATION">
-<span class="sig-name descname"><span class="pre">UR_ENABLE_PARAMETER_VALIDATION</span></span><a class="headerlink" href="#envvar-UR_ENABLE_PARAMETER_VALIDATION" title="Permalink to this definition">#</a></dt>
-<dd><p>Holds the value ‘0’ or ‘1’. By setting it to ‘1’ you enable parameter validation for Unified Runtime API calls.</p>
+<dt class="sig sig-object std" id="envvar-UR_ADAPTERS_SEARCH_PATH">
+<span class="sig-name descname"><span class="pre">UR_ADAPTERS_SEARCH_PATH</span></span><a class="headerlink" href="#envvar-UR_ADAPTERS_SEARCH_PATH" title="Permalink to this definition">#</a></dt>
+<dd><p>Holds a comma-separated list of directory paths used for adapter discovery. By setting this value you can extend
+the list of directories the loader searches for adapter implementations.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This environment variable should be used together with “UR_ENABLE_VALIDATION_LAYER”.</p>
+<p>The usage of colons and semicolons is allowed only inside ‘’ or “” quote signs.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This environment variable is ignored when <span class="target" id="index-0"></span><a class="reference internal" href="#envvar-UR_ADAPTERS_FORCE_LOAD"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">UR_ADAPTERS_FORCE_LOAD</span></code></a> environment variable is used.</p>
 </div>
 </dd></dl>
 
-</section>
-</section>
-</section>
+<dl class="std envvar">
+<dt class="sig sig-object std" id="envvar-UR_ENABLE_LAYERS">
+<span class="sig-name descname"><span class="pre">UR_ENABLE_LAYERS</span></span><a class="headerlink" href="#envvar-UR_ENABLE_LAYERS" title="Permalink to this definition">#</a></dt>
+<dd><p>Holds a comma-separated list of layers to enable in addition to any specified via <code class="docutils literal notranslate"><span class="pre">urInit</span></code>.</p>
+<p>See the <a class="reference internal" href="#layers">Layers</a> section for details of the layers currently included in the runtime.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="service-identifiers">
+<h3>Service identifiers<a class="headerlink" href="#service-identifiers" title="Permalink to this headline">#</a></h3>
+<p>Unified Runtime may create logs containing Personally Identifiable Information (PII)
+in the form of unique device identifiers during its use.
+This capability is turned off by default.
+Please refer to the <a class="reference internal" href="#logging">Logging</a> and <a class="reference internal" href="#environment-variables">Environment Variables</a> sections above for more information.</p>
+</div>
+</div>
+</div>
 
 
               </div>
@@ -692,7 +809,7 @@ force the loader to use specific adapter implementations from the libraries prov
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">oneAPI Unified Runtime: 0.6</p>
+            <p class="prev-next-title">oneAPI Unified Runtime: 0.7</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="PROG.html" title="next page">

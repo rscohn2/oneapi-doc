@@ -21,20 +21,20 @@ available memory and affinity to the compute, user managed cache size and work s
 Platforms
 ---------
 
-A platform object represents a collection of physical devices in the system accessed by the same Level-Zero driver.
+A platform object represents a collection of physical devices in the system accessed by the same driver.
 
-- The application may query the number of Level-Zero platforms installed on the system, and their respective handles, using :ref:`zerPlatformGet`\.
+- The application may query the number of platforms installed on the system, and their respective handles, using :ref:`urPlatformGet`\.
 - More than one platform may be available in the system. For example, one platform may support two GPUs from one vendor, another platform supports a GPU from a different vendor, and finally a different platform may support an FPGA.
-- Platform objects are read-only, global constructs. i.e. multiple calls to :ref:`zerPlatformGet` will return identical platform handles.
+- Platform objects are read-only, global constructs. i.e. multiple calls to :ref:`urPlatformGet` will return identical platform handles.
 - A platform handle is primarily used during device discovery and during creation and management of contexts.
 
 Device
 ------
 
-A device object represents a physical device in the system that supports Level-Zero.
+A device object represents a physical device in the system that supports the platform.
 
-- The application may query the number devices supported by a platform, and their respective handles, using :ref:`zerDeviceGet`\.
-- Device objects are read-only, global constructs. i.e. multiple calls to :ref:`zerDeviceGet` will return identical device handles.
+- The application may query the number devices supported by a platform, and their respective handles, using :ref:`urDeviceGet`\.
+- Device objects are read-only, global constructs. i.e. multiple calls to :ref:`urDeviceGet` will return identical device handles.
 - A device handle is primarily used during creation and management of resources that are specific to a device.
 - Device may expose sub-devices that allow finer-grained control of physical or logical partitions of a device.
 
@@ -47,94 +47,108 @@ Initialization and Discovery
 
 .. parsed-literal::
 
+    // Discover all available adapters
+    uint32_t adapterCount = 0;
+    :ref:`urAdapterGet`\(0, nullptr, &adapterCount);
+    std::vector<ur_adapter_handle_t> adapters(adapterCount);
+    :ref:`urAdapterGet`\(adapterCount, adapters.data(), nullptr);
+
     // Discover all the platform instances
     uint32_t platformCount = 0;
-    :ref:`zerPlatformGet`\(&platformCount, nullptr);
+    :ref:`urPlatformGet`\(adapters.data(), adapterCount, 0, nullptr, &platformCount);
 
-    std::vector<zer_platform_handle_t> platforms(platformCount);
-    :ref:`zerPlatformGet`\(&platformCount, platforms.data());
+    std::vector<ur_platform_handle_t> platforms(platformCount);
+    :ref:`urPlatformGet`\(adapters.data(), adapterCount, platform.size(), platforms.data(), &platformCount);
 
     // Get number of total GPU devices in the platform
     uint32_t deviceCount = 0;
-    :ref:`zerDeviceGet`\(platforms[0], :ref:`ZER_DEVICE_TYPE_GPU <zer-device-type-t>`\, &deviceCount, nullptr);
+    :ref:`urDeviceGet`\(platforms[0], :ref:`UR_DEVICE_TYPE_GPU <ur-device-type-t>`\, &deviceCount, nullptr,nullptr);
 
     // Get handles of all GPU devices in the platform
-    std::vector<zer_device_handle_t> devices(deviceCount);
-    :ref:`zerDeviceGet`\(platforms[0], :ref:`ZER_DEVICE_TYPE_GPU <zer-device-type-t>`\, &deviceCount, devices.data());
+    std::vector<ur_device_handle_t> devices(deviceCount);
+    :ref:`urDeviceGet`\(platforms[0], :ref:`UR_DEVICE_TYPE_GPU <ur-device-type-t>`\, &deviceCount,devices.data(), devices.size());
 
 Device handle lifetime
 ----------------------
 
-The device objects are reference-counted, and there are :ref:`zerDeviceGetReference` and :ref:`zerDeviceRelease`\.
-The ref-count of a device is automatically incremented when device is obtained by :ref:`zerDeviceGet`\.
-After device is no longer needed to the application it must call to :ref:`zerDeviceRelease`\.
-When ref-count of the underlying device handle becomes zero then that device is deleted.
-Note, that besides the application iteself Level-Zero Runtime may increment/decrement ref-count on its own.
-So after the call to :ref:`zerDeviceRelease` below device may stay alive until other
+The device objects are reference-counted, and there are :ref:`urDeviceRetain` and :ref:`urDeviceRelease`\.
+The ref-count of a device is automatically incremented when device is obtained by :ref:`urDeviceGet`\.
+After device is no longer needed to the application it must call to :ref:`urDeviceRelease`\.
+When ref-count of the underlying device handle becomes zero then that device object is deleted.
+Note, that besides the application itself, the Unified Runtime may increment and decrement ref-count on its own.
+So, after the call to :ref:`urDeviceRelease` below, the device may stay alive until other
 objects attached to it, like command-queues, are deleted. But application may not use the device
-after it did release it's own reference..
+after it released its own reference.
 
 .. parsed-literal::
 
     // Get the handle of the first GPU device in the platform
-    zer_device_handle_t hDevice;
+    ur_device_handle_t hDevice;
     uint32_t deviceCount = 1;
-    :ref:`zerDeviceGet`\(hPlatforms[0], :ref:`ZER_DEVICE_TYPE_GPU <zer-device-type-t>`\, &deviceCount, &hDevice);
-    :ref:`zerDeviceRelease`\(hDevice);
+    :ref:`urDeviceGet`\(hPlatforms[0], :ref:`UR_DEVICE_TYPE_GPU <ur-device-type-t>`\, &deviceCount, &hDevice, 1);
+    :ref:`urDeviceRelease`\(hDevice);
 
 
 Retrieve info about device
 --------------------------
 
-The :ref:`zerDeviceGetInfo` can return various information about the device.
+The :ref:`urDeviceGetInfo` can return various information about the device.
 In case where the info size is only known at runtime then two calls are needed, where first will retrieve the size.
 
 .. parsed-literal::
 
     // Size is known beforehand
-    :ref:`zer-device-type-t` deviceType;
-    :ref:`zerDeviceGetInfo`\(hDevice, {X}_DEVICE_INFO_TYPE, sizeof(:ref:`zer-device-type-t`\), &deviceType);
+    :ref:`ur-device-type-t` deviceType;
+    :ref:`urDeviceGetInfo`\(hDevice, :ref:`UR_DEVICE_INFO_TYPE <ur-device-info-t>`\,sizeof(ur_device_type_t), &deviceType, nullptr);
 
     // Size is only known at runtime
     size_t infoSize;
-    :ref:`zerDeviceGetInfo`\(hDevice, {X}_DEVICE_INFO_NAME, 0, &infoSize);
+    :ref:`urDeviceGetInfo`\(hDevice, :ref:`UR_DEVICE_INFO_NAME <ur-device-info-t>`\, 0, &infoSize, nullptr);
     
     std::string deviceName;
     DeviceName.resize(infoSize);
-    :ref:`zerDeviceGetInfo`\(hDevice, {X}_DEVICE_INFO_NAME, infoSize, deviceName.data());
+    :ref:`urDeviceGetInfo`\(hDevice, :ref:`UR_DEVICE_INFO_NAME <ur-device-info-t>`\, infoSize,deviceName.data(), nullptr);
 
 Device partitioning into sub-devices
 ------------------------------------
 
-The :ref:`zerDevicePartition` could partition a device into sub-device. The exact representation and
+The :ref:`urDevicePartition` could partition a device into sub-device. The exact representation and
 characteristics of the sub-devices are device specific, but normally they each represent a
 fixed part of the parent device, which can explicitly be programmed individually.
 
 .. parsed-literal::
 
-    zer_device_handle_t hDevice;
-    :ref:`zer-device-partition-property-value-t` properties = { 
-               :ref:`ZER_DEVICE_PARTITION_PROPERTY_FLAG_BY_AFFINITY_DOMAIN <zer-device-partition-property-flags-t>`\,
-               :ref:`ZER_DEVICE_AFFINITY_DOMAIN_FLAG_NEXT_PARTITIONABLE <zer-device-affinity-domain-flags-t>` };
+    ur_device_handle_t hDevice;
+    :ref:`ur-device-partition-property-t` prop;
+    prop.value.affinity_domain = :ref:`UR_DEVICE_AFFINITY_DOMAIN_FLAG_NEXT_PARTITIONABLE <ur-device-affinity-domain-flags-t>`\;
+
+    ur_device_partition_properties_t properties{
+        :ref:`UR_STRUCTURE_TYPE_DEVICE_PARTITION_PROPERTIES <ur-structure-type-t>`\,
+        nullptr,
+        &prop,
+        1,
+    };
 
     uint32_t count = 0;
-    std::vector<zer_device_handle_t> subDevices;
-    :ref:`zerDevicePartition`\(hDevice, &properties, &count, nullptr);
+    std::vector<ur_device_handle_t> subDevices;
+    :ref:`urDevicePartition`\(hDevice, &properties, 0, nullptr, &count);
 
     if (count > 0) {
         subDevices.resize(count);
-        :ref:`zerDevicePartition`\(Device, &properties, &count, &subDevices.data());
+        :ref:`urDevicePartition`\(Device, &properties, count, &subDevices.data(),nullptr);
     }
 
 The returned sub-devices may be requested for further partitioning into sub-sub-devices, and so on.
-An implementation would return "0" in the count if no further partitioning is supported.
+An implementation will return "0" in the count if no further partitioning is supported.
 
 .. parsed-literal::
 
-    uint32_t count = 1;
-    zer_device_handle_t hSubSubDevice;
-    :ref:`zerDevicePartition`\(subDevices[0], properties, &count, &hSubSubDevice);
-
+    uint32_t count;
+    :ref:`urDevicePartition`\(subDevices[0], &properties, 0, nullptr, &count);
+    if(count == 0){
+        // no further partitioning allowed
+    }
+    
 Contexts
 ========
 
@@ -145,99 +159,118 @@ events, and programs are explicitly created against a context. A trivial work wi
 .. parsed-literal::
 
     uint32_t deviceCount = 1;
-    zer_device_handle_t hDevice;
-    :ref:`zerDeviceGet`\(hPlatform, :ref:`ZER_DEVICE_TYPE_GPU <zer-device-type-t>`\, &deviceCount, &hDevice);
+    ur_device_handle_t hDevice;
+    :ref:`urDeviceGet`\(hPlatform, :ref:`UR_DEVICE_TYPE_GPU <ur-device-type-t>`\, &deviceCount, &hDevice,nullptr);
 
     // Create a context
-    zer_context_handle_t hContext;
-    :ref:`zerContextCreate`\(1, &hDevice, &hContext);
+    ur_context_handle_t hContext;
+    :ref:`urContextCreate`\(1, &hDevice, nullptr, &hContext);
 
     // Operations on this context
     // ...
 
     // Release the context handle
-    :ref:`zerContextRelease`\(hContext);    
+    :ref:`urContextRelease`\(hContext);
 
-Modules and Programs
+Programs and Kernels
 ====================
 
-There are multiple levels of constructs needed for executing kernels on the device:
+There are two constructs we need to prepare code for execution on the device:
 
-* Modules represent a single translation unit that consists of kernels and globals that have been compiled together.
-* Programs represent one or more modules that have been linked together.
-* Kernels represent the kernel within a program that will be launched directly from a command list.
+* Programs serve as containers for device code. They typically encapsulate a
+  collection of functions and global variables represented in an intermediate
+  language, and one or more device-native binaries compiled from that
+  collection.
+* Kernels represent a handle to a function within a program that can be
+  launched on a device.
 
-.. image:: ../images/modules_programs.png
 
-Modules and Programs
---------------------
+Programs
+--------
 
-A module is the compiled code or object for a single compilation unit. Modules can be created from a SPIR-V module. A program
-are a collection of modules that are linked together.
+Programs can be constructed with an intermediate language binary or a
+device-native binary. Programs constructed with IL must be further compiled
+through either :ref:`urProgramCompile` and :ref:`urProgramLink` or :ref:`urProgramBuild`
+before they can be used to create a kernel object.
 
 .. parsed-literal::
 
-    // Create module
-    zer_module_handle_t hModule;
-    :ref:`zerModuleCreate`\(hContext, (const void*)pIL, length, nullptr, nullptr, nullptr, hModule);
+    // Create a program with IL
+    ur_program_handle_t hProgram;
+    :ref:`urProgramCreateWithIL`\(hContext, ILBin, ILBinSize, nullptr, &hProgram);
 
-    // Create program from module
-    zer_program_handle_t hProgram;
-    :ref:`zerProgramCreate`\(hContext, 1, &hModule, nullptr, hProgram);
+    // Build the program.
+    :ref:`urProgramBuild`\(hContext, hProgram, nullptr);
 
+The diagram below shows the possible paths to obtaining a program that can be
+used to create a kernel:
+
+.. image:: ../images/programs.png
 
 Kernels
 -------
 
-A Kernel is a reference to a kernel within a module and it supports both explicit and implicit kernel
-arguments along with data needed for launch.
+A Kernel is a reference to a kernel within a program and it supports both
+explicit and implicit kernel arguments along with data needed for launch.
 
 .. parsed-literal::
 
     // Create kernel object from program
-    zer_kernel_handle_t hKernel;
-    :ref:`zerKernelCreate`\(hProgram, "addVectors", &hKernel);
-    :ref:`zerKernelSetArg`\(hKernel, 0, size, A);
-    :ref:`zerKernelSetArg`\(hKernel, 1, size, B);
-    :ref:`zerKernelSetArg`\(hKernel, 2, size, C);
+    ur_kernel_handle_t hKernel;
+    :ref:`urKernelCreate`\(hProgram, "addVectors", &hKernel);
+    :ref:`urKernelSetArgMemObj`\(hKernel, 0, nullptr, A);
+    :ref:`urKernelSetArgMemObj`\(hKernel, 1, nullptr, B);
+    :ref:`urKernelSetArgMemObj`\(hKernel, 2, nullptr, C);
 
 Queue and Enqueue
 =================
 
-A queue object respresents a logic input stream to a device. Kernels 
+A queue object represents a logic input stream to a device. Kernels 
 and commands are submitted to queue for execution using Equeue commands:
-such as :ref:`zerEnqueueKernelLaunch`\, :ref:`zerEnqueueMemBufferWrite`\. Enqueued kernels
+such as :ref:`urEnqueueKernelLaunch`\, :ref:`urEnqueueMemBufferWrite`\. Enqueued kernels
 and commands can be executed in order or out of order depending on the
-queue's property :ref:`ZER_QUEUE_FLAG_OUT_OF_ORDER_EXEC_MODE_ENABLE <zer-queue-flags-t>` when the
+queue's property :ref:`UR_QUEUE_FLAG_OUT_OF_ORDER_EXEC_MODE_ENABLE <ur-queue-flags-t>` when the
 queue is created.
 
 .. parsed-literal::
 
     // Create an out of order queue for hDevice in hContext
-    zer_queue_handle_t hQueue;
-    :ref:`zerQueueCreate`\(hContext, hDevice, :ref:`ZER_QUEUE_FLAG_OUT_OF_ORDER_EXEC_MODE_ENABLE <zer-queue-flags-t>`\, &hQueue);
+    ur_queue_handle_t hQueue;
+    :ref:`urQueueCreate`\(hContext, hDevice,UR_QUEUE_FLAG_OUT_OF_ORDER_EXEC_MODE_ENABLE, &hQueue);
 
-    // Lanuch a kernel with 3D workspace partitioning
+    // Launch a kernel with 3D workspace partitioning
     const uint32_t nDim = 3;
     const size_t gWorkOffset = {0, 0, 0};
     const size_t gWorkSize = {128, 128, 128};
     const size_t lWorkSize = {1, 8, 8}; 
-    :ref:`zerEnqueueKernelLaunch`\(hQueue, hKernel, nDim, gWorkOffset, gWorkSize, lWorkSize, 0, nullptr, nullptr);
+    :ref:`urEnqueueKernelLaunch`\(hQueue, hKernel, nDim, gWorkOffset, gWorkSize,lWorkSize, 0, nullptr, nullptr);
 
 Queue object lifetime
 ---------------------
 
-Queue objects are refernece-counted. If an application or thread needs to
+Queue objects are reference-counted. If an application or thread needs to
 retain access to a queue created by another application or thread, it can call
-:ref:`zerQueueGetReference`\. An application must call :ref:`zerQueueRelease`
+:ref:`urQueueRetain`\. An application must call :ref:`urQueueRelease`
 when a queue object is no longer needed. When a queue object's reference count becomes
 zero, it is deleted by the runtime.
 
-Interop with Level Zero driver API
+Native Driver Access
 ----------------------------------
 
-{x}Queue object and zeQueue object are interoperable using the 
-{x}QueueGetNativeHancle and {x}QueueCreateWithNativeHandle. An application
-can submit command lists to native zeQueue object using Level Zero API calls 
-and enqueue commands to {x}Queue object using unified runtime API calls
-for mixed usage.
+The runtime API provides accessors for native handles.
+For example, given a ur_program_handle_t, we can
+call :ref:`urProgramGetNativeHandle` to retrieve a ur_native_handle_t.
+We can then leverage a platform extension to convert the
+native handle to a driver handle. For example, OpenCL platform
+may expose an extension :ref:`urProgramCreateWithNativeHandle` to retrieve
+a cl_program.
+
+Memory Pooling
+----------------------------------
+
+The :ref:`urUSMPoolCreate` function explicitly creates memory pools and returns ur_usm_pool_handle_t.
+ur_usm_pool_handle_t can be passed to :ref:`urUSMDeviceAlloc`\, :ref:`urUSMHostAlloc` and :ref:`urUSMSharedAlloc`
+through :ref:`ur-usm-desc-t` structure. Allocations that specify different pool handles must be
+isolated and not reside on the same page. Memory pool is subject to limits specified during pool creation.
+
+Even if no ur_usm_pool_handle_t is provided to an allocation function, each adapter may still perform memory pooling.
