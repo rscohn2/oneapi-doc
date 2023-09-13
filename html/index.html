@@ -4,9 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>oneAPI Unified Runtime: 0.6 &#8212; Unified Runtime Specification  documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>oneAPI Unified Runtime: 0.7 &#8212; Unified Runtime Specification  documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -92,12 +91,49 @@
    Programming Guide
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="core/CONTRIB.html">
+   Contribution Guide
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="exp-features.html">
+   Experimental Features
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="core/EXP-BINDLESS-IMAGES.html">
+     Bindless Images
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="core/EXP-COMMAND-BUFFER.html">
+     Command-Buffer
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="core/EXP-USM-IMPORT-RELEASE.html">
+     USM Import/Release
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="core/EXP-USM-P2P.html">
+     USM P2P
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="api.html">
    API Documentation
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -231,7 +267,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>oneAPI Unified Runtime: 0.6</h1>
+                <h1>oneAPI Unified Runtime: 0.7</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -243,22 +279,24 @@ title="Print to PDF"
                 
               <div>
                 
-  <section id="full-name-spec-version">
-<span id="l0-section"></span><h1>oneAPI Unified Runtime: 0.6<a class="headerlink" href="#full-name-spec-version" title="Permalink to this headline">#</a></h1>
+  <div class="section" id="full-name-spec-version">
+<span id="l0-section"></span><h1>oneAPI Unified Runtime: 0.7<a class="headerlink" href="#full-name-spec-version" title="Permalink to this headline">#</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="core/INTRO.html">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="core/INTRO.html#objective">Objective</a></li>
 <li class="toctree-l2"><a class="reference internal" href="core/INTRO.html#fundamentals">Fundamentals</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="core/INTRO.html#terminology">Terminology</a></li>
-<li class="toctree-l3"><a class="reference internal" href="core/INTRO.html#naming-convention">Naming Convention</a></li>
 <li class="toctree-l3"><a class="reference internal" href="core/INTRO.html#versioning">Versioning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="core/INTRO.html#error-handling">Error Handling</a></li>
 <li class="toctree-l3"><a class="reference internal" href="core/INTRO.html#multithreading-and-concurrency">Multithreading and Concurrency</a></li>
 <li class="toctree-l3"><a class="reference internal" href="core/INTRO.html#application-binary-interface">Application Binary Interface</a></li>
 <li class="toctree-l3"><a class="reference internal" href="core/INTRO.html#tracing">Tracing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="core/INTRO.html#logging">Logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/INTRO.html#adapter-discovery">Adapter Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/INTRO.html#layers">Layers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="core/INTRO.html#environment-variables">Environment Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/INTRO.html#service-identifiers">Service identifiers</a></li>
 </ul>
 </li>
 </ul>
@@ -287,12 +325,86 @@ title="Print to PDF"
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="core/CONTRIB.html">Contribution Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="core/CONTRIB.html#generating-source">Generating Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/CONTRIB.html#writing-yaml">Writing YAML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/CONTRIB.html#forks-and-pull-requests">Forks and Pull Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/CONTRIB.html#core-features">Core Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/CONTRIB.html#core-optional-features">Core Optional Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/CONTRIB.html#conformance-testing">Conformance Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core/CONTRIB.html#experimental-features">Experimental Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/CONTRIB.html#naming-convention">Naming Convention</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exp-features.html">Experimental Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="core/EXP-BINDLESS-IMAGES.html">Bindless Images</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/EXP-BINDLESS-IMAGES.html#terminology">Terminology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/EXP-BINDLESS-IMAGES.html#motivation">Motivation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/EXP-BINDLESS-IMAGES.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/EXP-BINDLESS-IMAGES.html#api">API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/EXP-BINDLESS-IMAGES.html#enums">Enums</a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/EXP-BINDLESS-IMAGES.html#types">Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/EXP-BINDLESS-IMAGES.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/EXP-BINDLESS-IMAGES.html#changelog">Changelog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/EXP-BINDLESS-IMAGES.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core/EXP-COMMAND-BUFFER.html">Command-Buffer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/EXP-COMMAND-BUFFER.html#motivation">Motivation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/EXP-COMMAND-BUFFER.html#querying-command-buffer-support">Querying Command-Buffer Support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/EXP-COMMAND-BUFFER.html#command-buffer-creation">Command-Buffer Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/EXP-COMMAND-BUFFER.html#appending-commands">Appending Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/EXP-COMMAND-BUFFER.html#sync-points">Sync-Points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/EXP-COMMAND-BUFFER.html#enqueueing-command-buffers">Enqueueing Command-Buffers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/EXP-COMMAND-BUFFER.html#api">API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/EXP-COMMAND-BUFFER.html#macros">Macros</a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/EXP-COMMAND-BUFFER.html#enums">Enums</a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/EXP-COMMAND-BUFFER.html#types">Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/EXP-COMMAND-BUFFER.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/EXP-COMMAND-BUFFER.html#changelog">Changelog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/EXP-COMMAND-BUFFER.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core/EXP-USM-IMPORT-RELEASE.html">USM Import/Release</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/EXP-USM-IMPORT-RELEASE.html#import-host-memory-into-usm">Import Host Memory into USM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/EXP-USM-IMPORT-RELEASE.html#release-host-memory-previously-imported-into-usm">Release Host Memory Previously Imported into USM</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core/EXP-USM-P2P.html">USM P2P</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/EXP-USM-P2P.html#terminology">Terminology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/EXP-USM-P2P.html#motivation">Motivation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/EXP-USM-P2P.html#api">API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/EXP-USM-P2P.html#enums">Enums</a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/EXP-USM-P2P.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/EXP-USM-P2P.html#changelog">Changelog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/EXP-USM-P2P.html#contributors">Contributors</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="core/api.html">Core API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/api.html#registry">Registry</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#registry-enums">Registry Enums</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-function-t">ur_function_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-structure-type-t">ur_structure_type_t</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="core/api.html#common">Common</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="core/api.html#common-enums">Common Enums</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-result-t">ur_result_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-structure-type-t">ur_structure_type_t</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="core/api.html#common-structures">Common Structures</a><ul>
@@ -302,16 +414,43 @@ title="Print to PDF"
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-rect-region-t">ur_rect_region_t</a></li>
 </ul>
 </li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#common-macros">Common Macros</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-make-version-major-minor">UR_MAKE_VERSION( _major, _minor )</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-major-version-ver">UR_MAJOR_VERSION( _ver )</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-minor-version-ver">UR_MINOR_VERSION( _ver )</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-apicall">UR_APICALL</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-apiexport">UR_APIEXPORT</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-dllexport">UR_DLLEXPORT</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-bit-i">UR_BIT( _i )</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#common-typedefs">Common Typedefs</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-bool-t">ur_bool_t</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="core/api.html#runtime">Runtime</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="core/api.html#runtime-functions">Runtime Functions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urloaderconfigcreate">urLoaderConfigCreate</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urloaderconfigretain">urLoaderConfigRetain</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urloaderconfigrelease">urLoaderConfigRelease</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urloaderconfiggetinfo">urLoaderConfigGetInfo</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urloaderconfigenablelayer">urLoaderConfigEnableLayer</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#urinit">urInit</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#urteardown">urTearDown</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#uradapterget">urAdapterGet</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#uradapterrelease">urAdapterRelease</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#uradapterretain">urAdapterRetain</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#uradaptergetlasterror">urAdapterGetLastError</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#uradaptergetinfo">urAdapterGetInfo</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="core/api.html#runtime-enums">Runtime Enums</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-device-init-flags-t">ur_device_init_flags_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-loader-config-info-t">ur_loader_config_info_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-adapter-info-t">ur_adapter_info_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-adapter-backend-t">ur_adapter_backend_t</a></li>
 </ul>
 </li>
 </ul>
@@ -323,12 +462,17 @@ title="Print to PDF"
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#urplatformgetapiversion">urPlatformGetApiVersion</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#urplatformgetnativehandle">urPlatformGetNativeHandle</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#urplatformcreatewithnativehandle">urPlatformCreateWithNativeHandle</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#urgetlastresult">urGetLastResult</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urplatformgetbackendoption">urPlatformGetBackendOption</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="core/api.html#platform-enums">Platform Enums</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-platform-info-t">ur_platform_info_t</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-api-version-t">ur_api_version_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-platform-backend-t">ur_platform_backend_t</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#platform-structures">Platform Structures</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-platform-native-properties-t">ur_platform_native_properties_t</a></li>
 </ul>
 </li>
 </ul>
@@ -349,14 +493,34 @@ title="Print to PDF"
 <li class="toctree-l4"><a class="reference internal" href="core/api.html#device-enums">Device Enums</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-device-type-t">ur_device_type_t</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-device-info-t">ur_device_info_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-device-affinity-domain-flags-t">ur_device_affinity_domain_flags_t</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-device-partition-t">ur_device_partition_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-fp-capability-flags-t">ur_fp_capability_flags_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-device-fp-capability-flags-t">ur_device_fp_capability_flags_t</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-device-mem-cache-type-t">ur_device_mem_cache_type_t</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-device-local-mem-type-t">ur_device_local_mem_type_t</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-device-exec-capability-flags-t">ur_device_exec_capability_flags_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-device-affinity-domain-flags-t">ur_device_affinity_domain_flags_t</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-memory-order-capability-flags-t">ur_memory_order_capability_flags_t</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-memory-scope-capability-flags-t">ur_memory_scope_capability_flags_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-device-usm-access-capability-flags-t">ur_device_usm_access_capability_flags_t</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#device-structures">Device Structures</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-device-binary-t">ur_device_binary_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-device-partition-value-t">ur_device_partition_value_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-device-partition-property-t">ur_device_partition_property_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-device-partition-properties-t">ur_device_partition_properties_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-device-native-properties-t">ur_device_native_properties_t</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#device-macros">Device Macros</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-device-binary-target-unknown">UR_DEVICE_BINARY_TARGET_UNKNOWN</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-device-binary-target-spirv32">UR_DEVICE_BINARY_TARGET_SPIRV32</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-device-binary-target-spirv64">UR_DEVICE_BINARY_TARGET_SPIRV64</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-device-binary-target-spirv64-x86-64">UR_DEVICE_BINARY_TARGET_SPIRV64_X86_64</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-device-binary-target-spirv64-gen">UR_DEVICE_BINARY_TARGET_SPIRV64_GEN</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-device-binary-target-spirv64-fpga">UR_DEVICE_BINARY_TARGET_SPIRV64_FPGA</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-device-binary-target-nvptx64">UR_DEVICE_BINARY_TARGET_NVPTX64</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-device-binary-target-amdgcn">UR_DEVICE_BINARY_TARGET_AMDGCN</a></li>
 </ul>
 </li>
 </ul>
@@ -379,6 +543,7 @@ title="Print to PDF"
 </li>
 <li class="toctree-l4"><a class="reference internal" href="core/api.html#context-structures">Context Structures</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-context-properties-t">ur_context_properties_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-context-native-properties-t">ur_context_native_properties_t</a></li>
 </ul>
 </li>
 </ul>
@@ -391,7 +556,8 @@ title="Print to PDF"
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#urmemrelease">urMemRelease</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#urmembufferpartition">urMemBufferPartition</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#urmemgetnativehandle">urMemGetNativeHandle</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#urmemcreatewithnativehandle">urMemCreateWithNativeHandle</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urmembuffercreatewithnativehandle">urMemBufferCreateWithNativeHandle</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urmemimagecreatewithnativehandle">urMemImageCreateWithNativeHandle</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#urmemgetinfo">urMemGetInfo</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#urmemimagegetinfo">urMemImageGetInfo</a></li>
 </ul>
@@ -409,7 +575,11 @@ title="Print to PDF"
 <li class="toctree-l4"><a class="reference internal" href="core/api.html#memory-structures">Memory Structures</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-image-format-t">ur_image_format_t</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-image-desc-t">ur_image_desc_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-buffer-properties-t">ur_buffer_properties_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-buffer-channel-properties-t">ur_buffer_channel_properties_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-buffer-alloc-location-properties-t">ur_buffer_alloc_location_properties_t</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-buffer-region-t">ur_buffer_region_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-mem-native-properties-t">ur_mem_native_properties_t</a></li>
 </ul>
 </li>
 </ul>
@@ -425,9 +595,14 @@ title="Print to PDF"
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="core/api.html#sampler-enums">Sampler Enums</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-sampler-info-t">ur_sampler_info_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-sampler-properties-t">ur_sampler_properties_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-sampler-filter-mode-t">ur_sampler_filter_mode_t</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-sampler-addressing-mode-t">ur_sampler_addressing_mode_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-sampler-info-t">ur_sampler_info_t</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#sampler-structures">Sampler Structures</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-sampler-desc-t">ur_sampler_desc_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-sampler-native-properties-t">ur_sampler_native_properties_t</a></li>
 </ul>
 </li>
 </ul>
@@ -440,21 +615,54 @@ title="Print to PDF"
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#urusmfree">urUSMFree</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#urusmgetmemallocinfo">urUSMGetMemAllocInfo</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#urusmpoolcreate">urUSMPoolCreate</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#urusmpooldestroy">urUSMPoolDestroy</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urusmpoolretain">urUSMPoolRetain</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urusmpoolrelease">urUSMPoolRelease</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urusmpoolgetinfo">urUSMPoolGetInfo</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="core/api.html#usm-enums">Usm Enums</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-usm-mem-flags-t">ur_usm_mem_flags_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-usm-host-mem-flags-t">ur_usm_host_mem_flags_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-usm-device-mem-flags-t">ur_usm_device_mem_flags_t</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-usm-pool-flags-t">ur_usm_pool_flags_t</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-usm-type-t">ur_usm_type_t</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-usm-alloc-info-t">ur_usm_alloc_info_t</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-mem-advice-t">ur_mem_advice_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-usm-advice-flags-t">ur_usm_advice_flags_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-usm-pool-info-t">ur_usm_pool_info_t</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="core/api.html#usm-structures">Usm Structures</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-usm-desc-t">ur_usm_desc_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-usm-host-desc-t">ur_usm_host_desc_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-usm-device-desc-t">ur_usm_device_desc_t</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-usm-pool-desc-t">ur_usm_pool_desc_t</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-usm-pool-limits-desc-t">ur_usm_pool_limits_desc_t</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/api.html#virtual-memory">Virtual memory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#virtual-memory-functions">Virtual memory Functions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urvirtualmemgranularitygetinfo">urVirtualMemGranularityGetInfo</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urvirtualmemreserve">urVirtualMemReserve</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urvirtualmemfree">urVirtualMemFree</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urvirtualmemmap">urVirtualMemMap</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urvirtualmemunmap">urVirtualMemUnmap</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urvirtualmemsetaccess">urVirtualMemSetAccess</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urvirtualmemgetinfo">urVirtualMemGetInfo</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urphysicalmemcreate">urPhysicalMemCreate</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urphysicalmemretain">urPhysicalMemRetain</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urphysicalmemrelease">urPhysicalMemRelease</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#virtual-memory-enums">Virtual memory Enums</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-virtual-mem-granularity-info-t">ur_virtual_mem_granularity_info_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-virtual-mem-access-flags-t">ur_virtual_mem_access_flags_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-virtual-mem-info-t">ur_virtual_mem_info_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-physical-mem-flags-t">ur_physical_mem_flags_t</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#virtual-memory-structures">Virtual memory Structures</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-physical-mem-properties-t">ur_physical_mem_properties_t</a></li>
 </ul>
 </li>
 </ul>
@@ -489,6 +697,7 @@ title="Print to PDF"
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-program-metadata-t">ur_program_metadata_t</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-program-properties-t">ur_program_properties_t</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-specialization-constant-info-t">ur_specialization_constant_info_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-program-native-properties-t">ur_program_native_properties_t</a></li>
 </ul>
 </li>
 </ul>
@@ -516,7 +725,18 @@ title="Print to PDF"
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-kernel-info-t">ur_kernel_info_t</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-kernel-group-info-t">ur_kernel_group_info_t</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-kernel-sub-group-info-t">ur_kernel_sub_group_info_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-kernel-cache-config-t">ur_kernel_cache_config_t</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-kernel-exec-info-t">ur_kernel_exec_info_t</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#kernel-structures">Kernel Structures</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-kernel-arg-value-properties-t">ur_kernel_arg_value_properties_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-kernel-arg-local-properties-t">ur_kernel_arg_local_properties_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-kernel-arg-pointer-properties-t">ur_kernel_arg_pointer_properties_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-kernel-exec-info-properties-t">ur_kernel_exec_info_properties_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-kernel-arg-sampler-properties-t">ur_kernel_arg_sampler_properties_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-kernel-arg-mem-obj-properties-t">ur_kernel_arg_mem_obj_properties_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-kernel-native-properties-t">ur_kernel_native_properties_t</a></li>
 </ul>
 </li>
 </ul>
@@ -536,7 +756,13 @@ title="Print to PDF"
 <li class="toctree-l4"><a class="reference internal" href="core/api.html#queue-enums">Queue Enums</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-queue-info-t">ur_queue_info_t</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-queue-flags-t">ur_queue_flags_t</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#queue-structures">Queue Structures</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-queue-properties-t">ur_queue_properties_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-queue-index-properties-t">ur_queue_index_properties_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-queue-native-desc-t">ur_queue_native_desc_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-queue-native-properties-t">ur_queue_native_properties_t</a></li>
 </ul>
 </li>
 </ul>
@@ -561,11 +787,8 @@ title="Print to PDF"
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-execution-info-t">ur_execution_info_t</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="core/api.html#registry">Registry</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="core/api.html#registry-enums">Registry Enums</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-function-t">ur_function_t</a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#event-structures">Event Structures</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-event-native-properties-t">ur_event_native_properties_t</a></li>
 </ul>
 </li>
 </ul>
@@ -590,16 +813,106 @@ title="Print to PDF"
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueueusmfill">urEnqueueUSMFill</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueueusmmemcpy">urEnqueueUSMMemcpy</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueueusmprefetch">urEnqueueUSMPrefetch</a></li>
-<li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueueusmmemadvise">urEnqueueUSMMemAdvise</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueueusmadvise">urEnqueueUSMAdvise</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueueusmfill2d">urEnqueueUSMFill2D</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueueusmmemcpy2d">urEnqueueUSMMemcpy2D</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueuedeviceglobalvariablewrite">urEnqueueDeviceGlobalVariableWrite</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueuedeviceglobalvariableread">urEnqueueDeviceGlobalVariableRead</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueuereadhostpipe">urEnqueueReadHostPipe</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urenqueuewritehostpipe">urEnqueueWriteHostPipe</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="core/api.html#enqueue-enums">Enqueue Enums</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-map-flags-t">ur_map_flags_t</a></li>
 <li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-usm-migration-flags-t">ur_usm_migration_flags_t</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/api.html#bindless-images-experimental">Bindless images (experimental)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#bindless-images-experimental-functions">Bindless images (experimental) Functions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urusmpitchedallocexp">urUSMPitchedAllocExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urbindlessimagesunsampledimagehandledestroyexp">urBindlessImagesUnsampledImageHandleDestroyExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urbindlessimagessampledimagehandledestroyexp">urBindlessImagesSampledImageHandleDestroyExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urbindlessimagesimageallocateexp">urBindlessImagesImageAllocateExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urbindlessimagesimagefreeexp">urBindlessImagesImageFreeExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urbindlessimagesunsampledimagecreateexp">urBindlessImagesUnsampledImageCreateExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urbindlessimagessampledimagecreateexp">urBindlessImagesSampledImageCreateExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urbindlessimagesimagecopyexp">urBindlessImagesImageCopyExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urbindlessimagesimagegetinfoexp">urBindlessImagesImageGetInfoExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urbindlessimagesmipmapgetlevelexp">urBindlessImagesMipmapGetLevelExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urbindlessimagesmipmapfreeexp">urBindlessImagesMipmapFreeExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urbindlessimagesimportopaquefdexp">urBindlessImagesImportOpaqueFDExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urbindlessimagesmapexternalarrayexp">urBindlessImagesMapExternalArrayExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urbindlessimagesreleaseinteropexp">urBindlessImagesReleaseInteropExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urbindlessimagesimportexternalsemaphoreopaquefdexp">urBindlessImagesImportExternalSemaphoreOpaqueFDExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urbindlessimagesdestroyexternalsemaphoreexp">urBindlessImagesDestroyExternalSemaphoreExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urbindlessimageswaitexternalsemaphoreexp">urBindlessImagesWaitExternalSemaphoreExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urbindlessimagessignalexternalsemaphoreexp">urBindlessImagesSignalExternalSemaphoreExp</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#bindless-images-experimental-enums">Bindless images (experimental) Enums</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-exp-image-copy-flags-t">ur_exp_image_copy_flags_t</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#bindless-images-experimental-structures">Bindless images (experimental) Structures</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-exp-file-descriptor-t">ur_exp_file_descriptor_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-exp-win32-handle-t">ur_exp_win32_handle_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-exp-sampler-mip-properties-t">ur_exp_sampler_mip_properties_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-exp-interop-mem-desc-t">ur_exp_interop_mem_desc_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-exp-interop-semaphore-desc-t">ur_exp_interop_semaphore_desc_t</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/api.html#command-buffer-experimental">Command buffer (experimental)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#command-buffer-experimental-functions">Command buffer (experimental) Functions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urcommandbuffercreateexp">urCommandBufferCreateExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urcommandbufferretainexp">urCommandBufferRetainExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urcommandbufferreleaseexp">urCommandBufferReleaseExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urcommandbufferfinalizeexp">urCommandBufferFinalizeExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urcommandbufferappendkernellaunchexp">urCommandBufferAppendKernelLaunchExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urcommandbufferappendmemcpyusmexp">urCommandBufferAppendMemcpyUSMExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urcommandbufferappendmembuffercopyexp">urCommandBufferAppendMembufferCopyExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urcommandbufferappendmembufferwriteexp">urCommandBufferAppendMembufferWriteExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urcommandbufferappendmembufferreadexp">urCommandBufferAppendMembufferReadExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urcommandbufferappendmembuffercopyrectexp">urCommandBufferAppendMembufferCopyRectExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urcommandbufferappendmembufferwriterectexp">urCommandBufferAppendMembufferWriteRectExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urcommandbufferappendmembufferreadrectexp">urCommandBufferAppendMembufferReadRectExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urcommandbufferenqueueexp">urCommandBufferEnqueueExp</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#command-buffer-experimental-structures">Command buffer (experimental) Structures</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-exp-command-buffer-desc-t">ur_exp_command_buffer_desc_t</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#command-buffer-experimental-macros">Command buffer (experimental) Macros</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-command-buffer-extension-string-exp">UR_COMMAND_BUFFER_EXTENSION_STRING_EXP</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#command-buffer-experimental-typedefs">Command buffer (experimental) Typedefs</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-exp-command-buffer-sync-point-t">ur_exp_command_buffer_sync_point_t</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/api.html#usm-import-release-experimental">Usm import release (experimental)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#usm-import-release-experimental-functions">Usm import release (experimental) Functions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urusmimportexp">urUSMImportExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urusmreleaseexp">urUSMReleaseExp</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/api.html#usm-p2p-experimental">Usm p2p (experimental)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#usm-p2p-experimental-functions">Usm p2p (experimental) Functions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urusmp2penablepeeraccessexp">urUsmP2PEnablePeerAccessExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urusmp2pdisablepeeraccessexp">urUsmP2PDisablePeerAccessExp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#urusmp2ppeeraccessgetinfoexp">urUsmP2PPeerAccessGetInfoExp</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="core/api.html#usm-p2p-experimental-enums">Usm p2p (experimental) Enums</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="core/api.html#ur-exp-peer-info-t">ur_exp_peer_info_t</a></li>
 </ul>
 </li>
 </ul>
@@ -610,7 +923,7 @@ title="Print to PDF"
 </li>
 </ul>
 </div>
-</section>
+</div>
 
 
               </div>
